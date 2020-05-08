@@ -31,17 +31,17 @@ public class ArraivalLoungeMain
    public static void main (String [] args)
    {
       ArraivalLounge monitorAL;                            // instanciar o monitor (server)
-      BarberShopInterface bShopInter;                      // interface ao monitor(nome ainda por definir...)
+      ArraivalLoungeInterface aloungeInter;                // interface ao ArraivalLounge
       ServerCom scon, sconi;                               // canais de comunicação
       Proxy cliProxy;                                      // thread agente prestador do serviço
 
      /* estabelecimento do servico */
 
-      scon = new ServerCom (portNumb);                     // criação do canal de escuta e sua associação
-      scon.start ();                                       // com o endereço público
-      //sera que tenho de instanciar o bagsPerFlight aqui ? e o rep como faço paa
-      monitorAL = new ArraivalLounge(bagsPerFlight, rep);  // activação do serviço
-      bShopInter = new BarberShopInterface (bShop);        // activação do interface com o serviço
+      scon = new ServerCom (portNumb);                                 // criação do canal de escuta e sua associação
+      scon.start ();                                                  // com o endereço público
+      //sera que tenho de instanciar o bagsPerFlight aqui ???????? 
+      monitorAL = new ArraivalLounge(bagsPerFlight, rep);            // activação do serviço
+      aloungeInter = new ArraivalLoungeInterface (monitorAL);        // activação do interface com o serviço
       System.out.println("O serviço foi estabelecido!");
       System.out.println("O servidor esta em escuta.");
 
@@ -51,7 +51,7 @@ public class ArraivalLoungeMain
       while (waitConnection)
         try
         { sconi = scon.accept ();                          // entrada em processo de escuta
-          cliProxy = new ClientProxy (sconi, bShopInter);  // lançamento do agente prestador do serviço
+          cliProxy = new Proxy (sconi, aloungeInter);  // lançamento do agente prestador do serviço
           cliProxy.start ();
         }
         catch (SocketTimeoutException e)
