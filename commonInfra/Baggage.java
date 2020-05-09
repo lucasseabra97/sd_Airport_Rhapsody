@@ -1,8 +1,13 @@
 package commonInfra;
 
 
-public class Baggage
-{
+public class Baggage implements Serializable{	
+
+	/**
+     *  Chave de serialização
+     */
+	private static final long serialVersionUID = 1001L;
+	
 	private int passengerID;
 	private boolean journeyEnds;
 

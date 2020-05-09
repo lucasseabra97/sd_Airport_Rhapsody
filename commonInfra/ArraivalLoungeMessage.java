@@ -71,6 +71,8 @@ public class ArraivalLoungeMessage implements Serializable{
      */
     private int nPass;
 
+    private Baggage bag;
+
     /**
      * 
      * @param msgType
@@ -97,6 +99,9 @@ public class ArraivalLoungeMessage implements Serializable{
         return this.goHome;
     }
 
+    public Baggage tryToCollectABag(){
+        return this.bag;
+    }
     public ArraivalLoungeMessage(int msgType,int nPass){
         this.msgType = msgType ;
         this.nPass   = nPass;
