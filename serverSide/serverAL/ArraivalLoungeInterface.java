@@ -38,10 +38,14 @@ public class ArraivalLoungeInterface {
 
      switch (inMessage.getMsgType()) 
      {
-        case ArraivalLoungeMessage.REQ_WHAT_SHOULD_I_DO:
+        case ArraivalLoungeMessage.REQ_WHAT_SHOULD_I_DO: 
+            break;
         case ArraivalLoungeMessage.REQ_TRY_TO_COLLECCT_A_BAG:
+            break;
         case ArraivalLoungeMessage.REQ_TAKE_A_REST:
+            break;
         case ArraivalLoungeMessage.END_OF_DAY_DONE:
+            break;
         default:
              throw new ALMessageException("Tipo inválido!", inMessage);
      }
@@ -59,12 +63,15 @@ public class ArraivalLoungeInterface {
                     outMessage = new ArraivalLoungeMessage(ArraivalLoungeMessage.TRY_TO_COLLECCT_A_BAG_DONE , bag);
                     break;                               
         case ArraivalLoungeMessage.REQ_TAKE_A_REST:
+                    boolean takeRest = monitorAL.takeARest();
+                    outMessage = new ArraivalLoungeMessage(ArraivalLoungeMessage.TAKE_A_REST_DONE  , takeRest);
                     break;                              
-        case ArraivalLoungeMessage.END_OF_DAY_DONE:
+        case ArraivalLoungeMessage.REQ_END_OF_DAY:
+                    monitorAL.endOfDay();
+                    outMessage = new ArraivalLoungeMessage(ArraivalLoungeMessage.END_OF_DAY_DONE);
                     break;                             
               
      }
-     
     return (outMessage);
    }
 }

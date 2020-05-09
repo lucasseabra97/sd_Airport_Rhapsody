@@ -1,4 +1,4 @@
-package serverSide.serverAL;
+package serverSide.serverATE;
 
 
 import commonInfra.*;
@@ -30,18 +30,22 @@ public class ArraivalTerminalExitInterface {
    *    @throws MessageException se a mensagem com o pedido for considerada inválida
    */
 
-  public ArraivalTerminalExitMessage processAndReply (ArraivalTerminalExitMessage inMessage) throws ATEMessageException
+  public ATEMessage processAndReply (ATEMessage inMessage) throws ATEMessageException
   {
-    ArraivalTerminalExitMessage outMessage = null;                           // mensagem de resposta
+    ATEMessage outMessage = null;                           // mensagem de resposta
 
     /* validação da mensagem recebida */
 
      switch (inMessage.getMsgType()) 
      {
-        case ArraivalTerminalExitMessage.REQ_GO_HOME:
-        case ArraivalTerminalExitMessage.REQ_AWAKE_PASSENGERS:
-        case ArraivalTerminalExitMessage.REQ_N_PASSENGERS_DEPARTURE_AT:
-        case ArraivalTerminalExitMessage.REQ_SYNC_PASSENGER:
+        case ATEMessage.REQ_GO_HOME:
+              break;
+        case ATEMessage.REQ_AWAKE_PASSENGERS:
+              break;
+        case ATEMessage.REQ_N_PASSENGERS_DEPARTURE_AT:
+              break;
+        case ATEMessage.REQ_SYNC_PASSENGER:
+              break;
         // case ArraivalLoungeMessage.END_OF_DAY_DONE:                         //necessário end of day para cada server ? 
         default:
              throw new ATEMessageException("Tipo inválido!", inMessage);
@@ -51,16 +55,21 @@ public class ArraivalTerminalExitInterface {
 
      switch (inMessage.getMsgType())
      {
-        case ArraivalTerminalExitMessage.REQ_GO_HOME:                         
-                    boolean goHome = monitorATE.goHome(inMessage.isGoHome());
-                    outMessage = new ArraivalTerminalExitMessage(ArraivalTerminalExitMessage.GO_HOME_DONE,goHome);
+        case ATEMessage.REQ_GO_HOME:                         
+                    boolean goHome = monitorATE.goHome(inMessage.getPass());
+                    outMessage = new ATEMessage(ATEMessage.GO_HOME_DONE,goHome);
                     break;                    
-        case ArraivalTerminalExitMessage.REQ_AWAKE_PASSENGERS:
-                    monitorATE.awakePassengers
+        case ATEMessage.REQ_AWAKE_PASSENGERS:
+                    monitorATE.awakePassengers();
+                    outMessage = new ATEMessage(ATEMessage.AWAKE_PASSENGERS_DONE);
                     break;                               
-        case ArraivalTerminalExitMessage.REQ_N_PASSENGERS_DEPARTURE_AT:
+        case ATEMessage.REQ_N_PASSENGERS_DEPARTURE_AT:
+                    int nPass = monitorATE.nPassengersDepartureAT();
+                    outMessage = new ATEMessage(ATEMessage.N_PASSENGERS_DEPARTURE_AT_DONE);
                     break;                              
-        case ArraivalTerminalExitMessage.REQ_SYNC_PASSENGER:
+        case ATEMessage.REQ_SYNC_PASSENGER:
+                    monitorATE.syncPassenger();
+                    outMessage = new ATEMessage(ATEMessage.SYNC_PASSENGER_DONE);
                     break;                             
               
      }

@@ -19,11 +19,14 @@ public class ArraivalLoungeMain
    *    @serialField portNumb
    */
 
-   private static final int portNumb = 4000;                        //portNumber
+   private static final int portNumb = 3000;                         //portNumber
    
    public static boolean waitConnection;                              // sinalização de actividade
 
-   List<List<Baggage>> bagsPerFlight = new ArrayList<>(global.NR_FLIGHTS);
+   static List<List<Baggage>> bagsPerFlight = new ArrayList<>(global.NR_FLIGHTS);
+  
+   
+   static 
   /**
    *  Programa principal.
    */

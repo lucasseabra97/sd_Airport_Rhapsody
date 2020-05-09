@@ -74,13 +74,28 @@ public class ArraivalLoungeMessage implements Serializable{
     private Baggage bag;
 
     /**
+     * retorna condição de espera para o porter
+     */
+    private boolean takeRest;
+
+
+    /**
      * 
      * @param msgType
      * @param goHome
      */
     public ArraivalLoungeMessage(int msgType,boolean goHome){
         this.msgType = msgType;
-        this.goHome = goHome;
+        if((msgType == WHAT_SHOULD_I_DO_DONE))
+            this.goHome = goHome;
+        else
+            this.takeRest=goHome; 
+        
+    } 
+
+    public ArraivalLoungeMessage(int msgType,Baggage bag){
+        this.msgType = msgType;
+        this.bag = bag ;
     }
 
     public ArraivalLoungeMessage(int msgType){

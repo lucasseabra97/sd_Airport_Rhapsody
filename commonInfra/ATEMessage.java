@@ -2,7 +2,7 @@ package commonInfra;
 
 import java.io.Serializable;
 
-public class ArraivalLoungeMessage implements Serializable{
+public class ATEMessage implements Serializable{
    
    
     /**
@@ -13,42 +13,42 @@ public class ArraivalLoungeMessage implements Serializable{
     /* Tipos das mensagens */
 
     /**
-     *  Passenger requests for what to do when arraives at the airport (pedido passageiro)
+     *  Passenger requests ??? (pedido passageiro)
      */
     public static final int REQ_GO_HOME = 1;
 
     /**
-    *  What Should I Do request was sent to the server (resposta enviada pelo servidor)
+    *   (resposta enviada pelo servidor)
     */
     public static final int GO_HOME_DONE = 2;
 
    /**
-    * Porter asks for take a rest (pedido do porteiro)
+    *  pedido invocado pelo ultimo cliente na saida 
     */
 
     public static final int REQ_AWAKE_PASSENGERS = 3;
     /** 
-     *  Request for take a rest was sent to the server (resposta enviada pelo servidor)
+     *   (resposta enviada pelo servidor)
      */
 
     public static final int AWAKE_PASSENGERS_DONE = 4;
     /**
-     *  Porter requests to try to collect a bag (pedido do porteiro)
+     *   (pedido do porteiro)
     */
 
     public static final int REQ_N_PASSENGERS_DEPARTURE_AT = 5;
     /**
-     *  Request for try to collect a bag was sent (resposta enviada pelo servidor)
+     *   (resposta enviada pelo servidor)
      */
 
     public static final int N_PASSENGERS_DEPARTURE_AT_DONE = 6;
     /**
-     *  Passenger alerts Porter to end of day (pedido do passageiro)
+     *  (pedido do passageiro)
     */
 
     public static final int REQ_SYNC_PASSENGER= 7;
     /**
-     *  Alert was sent sucessufly (resposta do servidor)
+     *   (resposta do servidor)
      */
 
     public static final int SYNC_PASSENGER_DONE = 8;
@@ -67,21 +67,28 @@ public class ArraivalLoungeMessage implements Serializable{
     
     private boolean goHome;
     /**
-     * retorna o numero de passageiros -> whatshouldIDo
+     * retorna o numero de passageiros
      */
     private int nPass;
 
+    
+    
     /**
      * 
      * @param msgType
      * @param goHome
      */
-    public ArraivalLoungeMessage(int msgType,boolean goHome){
+    public ATEMessage(int msgType, int nPass){
+        this.msgType = msgType;
+        this.nPass = nPass;
+    }
+
+    public ATEMessage(int msgType , boolean goHome){
         this.msgType = msgType;
         this.goHome = goHome;
     }
 
-    public ArraivalLoungeMessage(int msgType){
+    public ATEMessage(int msgType){
         this.msgType = msgType;
     }
 
@@ -89,18 +96,14 @@ public class ArraivalLoungeMessage implements Serializable{
         return this.msgType;
     }
 
-    public boolean getGoHome() {
-        return this.goHome;
+    public int getPass() {
+        
+        return this.nPass;
     }
 
     public boolean isGoHome() {
         return this.goHome;
     }
-
-    public ArraivalLoungeMessage(int msgType,int nPass){
-        this.msgType = msgType ;
-        this.nPass   = nPass;
-    }     
 
     @Override
     public String toString() {

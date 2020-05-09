@@ -46,7 +46,7 @@ public class Proxy extends Thread {
     @Override
     public void run (){
         ArraivalLoungeMessage inMessage = null,                                      // mensagem de entrada
-              outMessage = null;                        // mensagem de saída
+              outMessage = null;                                                    // mensagem de saída
 
       inMessage = (ArraivalLoungeMessage) sconi.readObject ();                     // ler pedido do cliente
       try
@@ -68,16 +68,16 @@ public class Proxy extends Thread {
    */
 
     private static int getProxyId ()
-   {
-      Class<?> cl = null;                                  // representação do tipo de dados ClientProxy na máquina
+    {
+      Class<?> cl = null;                                   // representação do tipo de dados ClientProxy na máquina
                                                            //   virtual de Java
-      int proxyId;                                         // identificador da instanciação
+      int proxyId;                                        // identificador da instanciação
 
       try
-      { cl = Class.forName ("serverSide.ClientProxy");
+      { cl = Class.forName ("serverSide.serverAL.Proxy");
       }
       catch (ClassNotFoundException e)
-      { System.out.println ("O tipo de dados ClientProxy não foi encontrado!");
+      { System.out.println ("O tipo de dados Proxy não foi encontrado!");
         e.printStackTrace ();
         System.exit (1);
       }
@@ -88,6 +88,6 @@ public class Proxy extends Thread {
       }
 
       return proxyId;
-   }
+    }
 
 }

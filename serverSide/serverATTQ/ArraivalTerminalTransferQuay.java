@@ -9,6 +9,7 @@ import commonInfra.*;
 import entities.*;
 import interfaces.*;
 import main.global;
+import shared_regions.GeneralRepository;
 
 
 /**

@@ -1,7 +1,8 @@
-package serverSide.serverATTQ;
+package serverSide.serverBRO;
 
+import commonInfra.BROMessage;
+import commonInfra.BROMessageException;
 import serverSide.ServerCom;
-import commonInfra.*;
 
 public class Proxy extends Thread
 {
@@ -27,7 +28,7 @@ public class Proxy extends Thread
    *    @serialField bShopInter
    */
 
-   private ArraivalTerminalTransferQuayInterface attQuayInter;
+   private BaggageReclaimOfficeInterface brOfficeInt;
 
   /**
    *  Instanciação do interface à barbearia.
@@ -36,12 +37,12 @@ public class Proxy extends Thread
    *    @param bShopInter interface à barbearia
    */
 
-   public Proxy (ServerCom sconi, ArraivalTerminalTransferQuayInterface attQuayInter)
+   public Proxy (ServerCom sconi, BaggageReclaimOfficeInterface brOfficeInt)
    {
       super ("Proxy_" + Proxy.getProxyId ());
 
       this.sconi = sconi;
-      this.attQuayInter = attQuayInter;
+      this.brOfficeInt = brOfficeInt;
    }
 
   /**
@@ -51,14 +52,14 @@ public class Proxy extends Thread
    @Override
    public void run ()
    {
-      ATTQMessage inMessage = null,                                      // mensagem de entrada
+    BROMessage inMessage = null,                                      // mensagem de entrada
               outMessage = null;                      // mensagem de saída
 
-      inMessage = (ATTQMessage) sconi.readObject ();                     // ler pedido do cliente
+      inMessage = (BROMessage) sconi.readObject ();                     // ler pedido do cliente
       try
-      { outMessage = attQuayInter.processAndReply (inMessage);         // processá-lo
+      { outMessage = brOfficeInt.processAndReply (inMessage);         // processá-lo
       }
-      catch (ATTQMessageException e)
+      catch (BROMessageException e)
       { System.out.println("Thread " + getName () + ": " + e.getMessage () + "!");
         System.out.println(e.getMessageVal ().toString ());
         System.exit (1);
@@ -80,7 +81,7 @@ public class Proxy extends Thread
       int proxyId;                                         // identificador da instanciação
 
       try
-      { cl = Class.forName ("serverSide.serverATTQ.Proxy");
+      { cl = Class.forName ("serverSide.Proxy");
       }
       catch (ClassNotFoundException e)
       { System.out.println("O tipo de dados Proxy não foi encontrado!");

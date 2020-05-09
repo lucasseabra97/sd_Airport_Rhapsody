@@ -1,7 +1,8 @@
 package commonInfra;
 
+import java.io.Serializable;
 
-public class Baggage implements Serializable{	
+public class Baggage implements Serializable {
 
 	/**
      *  Chave de serialização
