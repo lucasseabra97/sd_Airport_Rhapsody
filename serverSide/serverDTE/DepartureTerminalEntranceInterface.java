@@ -69,7 +69,7 @@ public class DepartureTerminalEntranceInterface {
                     outMessage = new DTEMessage(DTEMessage.N_PASSENGERS_DEPARTURE_TENTRANCE_DONE , nPassenger);
                     break;
         case DTEMessage.REQ_PREPARE_NEXT_LEG:
-                    boolean lastPassenger = monitorDTE.prepareNextLeg(inMessage.lastPassenger());
+                    boolean lastPassenger = monitorDTE.prepareNextLeg(inMessage.nPassenger());
                     outMessage = new DTEMessage(DTEMessage.PREPARE_NEXT_LEG_DONE,lastPassenger);
                     break;
     }

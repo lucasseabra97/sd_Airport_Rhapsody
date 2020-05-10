@@ -1,5 +1,5 @@
 
-package serverSide.serverATE;
+package serverSide.serverDTE;
 
 import java.io.*;
 import java.net.SocketTimeoutException;

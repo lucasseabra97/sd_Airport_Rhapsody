@@ -1,4 +1,4 @@
-package shared_regions;
+package serverSide.serverDTE;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
@@ -6,6 +6,7 @@ import java.util.concurrent.locks.ReentrantLock;
 import entities.Passenger;
 import interfaces.IDepartureTerminalEntrancePassenger;
 import main.global;
+import shared_regions.GeneralRepository;
 
 
 /**

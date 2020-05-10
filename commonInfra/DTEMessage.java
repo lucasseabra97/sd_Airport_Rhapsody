@@ -103,6 +103,11 @@ public class DTEMessage implements Serializable{
     {
         return this.lastPassenger;
     }
+
+    public int nPassenger()
+    {
+        return this.nPassenger;
+    }
     /**
      * getter 
      * returns message Type

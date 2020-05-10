@@ -1,4 +1,4 @@
-package shared_regions;
+package serverSide.serverDTTQ;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
@@ -6,6 +6,7 @@ import java.util.concurrent.locks.ReentrantLock;
 import entities.Passenger;
 import interfaces.IDepartureTerminalTransferQBusDriver;
 import interfaces.IDepartureTerminalTransferQPassenger;
+import shared_regions.GeneralRepository;
 
 
 
