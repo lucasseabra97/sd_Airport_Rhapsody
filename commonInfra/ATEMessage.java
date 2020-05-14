@@ -67,11 +67,13 @@ public class ATEMessage implements Serializable{
     
     private boolean goHome;
     /**
-     * retorna o numero de passageiros
+     * retorna o numero de passageiros que querem ir para casa
      */
-    private int nPass;
-
-    
+    private int nPassGoingHome;
+    /**
+     * Returns all passengers in Arraival Terminal Exit
+     */
+    private int nPassengersDepartureAT;
     
     /**
      * 
@@ -80,7 +82,10 @@ public class ATEMessage implements Serializable{
      */
     public ATEMessage(int msgType, int nPass){
         this.msgType = msgType;
-        this.nPass = nPass;
+        if((msgType == GO_HOME_DONE))
+            this.nPassGoingHome = nPass;
+        else
+            this.nPassengersDepartureAT=nPass; 
     }
 
     public ATEMessage(int msgType , boolean goHome){
@@ -96,20 +101,30 @@ public class ATEMessage implements Serializable{
         return this.msgType;
     }
 
-    public int getPass() {
-        
-        return this.nPass;
+    public boolean getGoHome() {
+        return this.goHome;
     }
 
     public boolean isGoHome() {
         return this.goHome;
     }
 
+    public int getNPassGoingHome() {
+        return this.nPassGoingHome;
+    }
+
+    public int getNPassengersDepartureAT() {
+        return this.nPassengersDepartureAT;
+    }
+
+
     @Override
     public String toString() {
         return "{" +
             " msgType='" + getMsgType() + "'" +
             ", goHome='" + isGoHome() + "'" +
+            ", nPassGoingHome='" + getNPassGoingHome() + "'" +
+            ", nPassengersDepartureAT='" + getNPassengersDepartureAT() + "'" +
             "}";
     }
 

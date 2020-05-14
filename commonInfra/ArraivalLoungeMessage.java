@@ -122,12 +122,33 @@ public class ArraivalLoungeMessage implements Serializable{
         this.nPass   = nPass;
     }     
 
+    public boolean getTakeRest() {
+        return this.takeRest;
+    }
+
+    public boolean isTakeRest() {
+        return this.takeRest;
+    }
+
+    public Baggage getBag() {
+        return this.bag;
+    }
+    
+    public int getNPass() {
+        return this.nPass;
+    }
+   
+
     @Override
     public String toString() {
         return "{" +
             " msgType='" + getMsgType() + "'" +
             ", goHome='" + isGoHome() + "'" +
+            ", nPass='" + getNPass() + "'" +
+            ", bag='" + getBag() + "'" +
+            ", takeRest='" + isTakeRest() + "'" +
             "}";
     }
+
 
 }   
