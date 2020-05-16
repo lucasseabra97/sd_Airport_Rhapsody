@@ -83,10 +83,14 @@ public class ATTQMessage implements Serializable{
      * retorna o numero de passageiros
      */
     private int insidePass;
-
+    /**
+     *  Retorna o ID do passageiro
+     */
     private int passengerID;
     
-
+    /**
+     *  Retorna a acao que o busDriver vai executar
+     */
     private BusDriverAction busDAction;
 
     /**
@@ -99,11 +103,15 @@ public class ATTQMessage implements Serializable{
         this.busDAction = busDAction;
     }
 
-    
 
-    public ATTQMessage(int msgType , int insidePass){
+    public ATTQMessage(int msgType , int passengerInfo){
         this.msgType = msgType;
-        this.insidePass = insidePass;
+        if(msgType == REQ_ENTER_THE_BUS || msgType == REQ_TAKE_A_BUS){
+            this.passengerID = passengerInfo;
+        }else{
+            this.insidePass = passengerInfo;
+        }
+        
     }
 
     public ATTQMessage(int msgType){
