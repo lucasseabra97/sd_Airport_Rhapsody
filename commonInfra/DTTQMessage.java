@@ -88,10 +88,6 @@ public class DTTQMessage implements Serializable{
         this.lastPassenger= lastPassenger ;
     }
 
-    public boolean lastPassenger()
-    {
-        return this.lastPassenger;
-    }
 
     public int getPassengersLeaving()
     {

@@ -55,10 +55,6 @@ public class BCPMessage implements Serializable{
     public static final int RESET_STATE_DONE = 8;
 
 
-
-
-
-
     /* Campos das mensagens */
 
     /**

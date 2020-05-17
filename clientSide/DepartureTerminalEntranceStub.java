@@ -2,12 +2,12 @@ package clientSide;
 
 import java.util.ArrayList;
 
-import commonInfra.BCPMessage;
+import commonInfra.DTEMessage;
 import commonInfra.Baggage;
-import interfaces.IBaggageCollectionPointPassenger;
-import interfaces.IBaggageCollectionPointPorter;
+import interfaces.IDepartureTerminalEntrancePassenger;
 
-public class BagageCollectionPointStub implements IBaggageCollectionPointPorter, IBaggageCollectionPointPassenger {
+public class DepartureTerminalEntranceStub implements IDepartureTerminalEntrancePassenger   {
+
 
      /**
    *  Nome do sistema computacional onde está localizado o servidor
@@ -15,120 +15,120 @@ public class BagageCollectionPointStub implements IBaggageCollectionPointPorter,
    */
 
    private String serverHostName = null;
+
    /**
     *  Número do port de escuta do servidor
     *    @serialField serverPortNumb
     */
  
     private int serverPortNumb;
+ 
     /**
      * 
      * @param serverHostName
      * @param serverPortNumb
      */
-
-    public BagageCollectionPointStub(String serverHostName,int serverPortNumb){
+    
+    public DepartureTerminalEntranceStub(String serverHostName,int serverPortNumb){
         this.serverHostName = serverHostName;
         this.serverPortNumb = serverPortNumb;
     }
 
     @Override
-    public Baggage goCollectABag(ArrayList<Baggage> ibagp) {
-
-        ClientCom con = new ClientCom (serverHostName, serverPortNumb);
-        BCPMessage inMessage, outMessage;
-
-        while (!con.open ())                                  // aguarda ligação
-            { try
-                { Thread.currentThread ().sleep ((long) (10));
-                }
-                catch (InterruptedException e) {}
-            }
-        outMessage = new BCPMessage (BCPMessage.REQ_GO_COLLECT_A_BAG,ibagp);        // pede a realização do serviço
-        con.writeObject (outMessage);
-        inMessage = (BCPMessage) con.readObject ();
-
-        if ((inMessage.getMsgType() !=BCPMessage.GO_COLLECT_A_BAG_DONE))
-            {   System.out.println("Thread " + Thread.currentThread ().getName () + ": Tipo inválido!");
-                System.out.println(inMessage.toString ());
-                System.exit (1);
-            }
-        con.close ();
-        return inMessage.getBaggage();
-    }
-
-    @Override
-    public void resetState() {
-        // TODO Auto-generated method stub
-        ClientCom con = new ClientCom (serverHostName, serverPortNumb);
-        BCPMessage inMessage, outMessage;
-
-        while (!con.open ())                                  // aguarda ligação
-            { try
-                { Thread.currentThread ().sleep ((long) (10));
-                }
-                catch (InterruptedException e) {}
-            }
-        outMessage = new BCPMessage (BCPMessage.REQ_RESET_STATE);        // pede a realização do serviço
-        con.writeObject (outMessage);
-        inMessage = (BCPMessage) con.readObject ();
-
-        if ((inMessage.getMsgType() !=BCPMessage.RESET_STATE_DONE))
-            {   System.out.println("Thread " + Thread.currentThread ().getName () + ": Tipo inválido!");
-                System.out.println(inMessage.toString ());
-                System.exit (1);
-            }
-        con.close ();
-
-    }
-
-    @Override
-    public void carryItToAppropriateStore(Baggage bag) {
-        // TODO Auto-generated method stub
-        ClientCom con = new ClientCom (serverHostName, serverPortNumb);
-        BCPMessage inMessage, outMessage;
-
-        while (!con.open ())                                  // aguarda ligação
-            { try
-                { Thread.currentThread ().sleep ((long) (10));
-                }
-                catch (InterruptedException e) {}
-            }
-        outMessage = new BCPMessage (BCPMessage.REQ_CARRY_IT_TO_APPROPRIATE_STORE,bag);        // pede a realização do serviço
-        con.writeObject (outMessage);
-        inMessage = (BCPMessage) con.readObject ();
-
-        if ((inMessage.getMsgType() !=BCPMessage.GO_COLLECT_A_BAG_DONE))
-            {   System.out.println("Thread " + Thread.currentThread ().getName () + ": Tipo inválido!");
-                System.out.println(inMessage.toString ());
-                System.exit (1);
-            }
-        con.close ();
-
-    }
-
-    @Override
-    public void noMoreBagsToCollect() {
-        // TODO Auto-generated method stub
-        ClientCom con = new ClientCom (serverHostName, serverPortNumb);
-        BCPMessage inMessage, outMessage;
-
-        while (!con.open ())                                  // aguarda ligação
-            { try
-                { Thread.currentThread ().sleep ((long) (10));
-                }
-                catch (InterruptedException e) {}
-            }
-        outMessage = new BCPMessage (BCPMessage.REQ_NO_MORE_BAGS_TO_COLLECT);        // pede a realização do serviço
-        con.writeObject (outMessage);
-        inMessage = (BCPMessage) con.readObject ();
-
-        if ((inMessage.getMsgType() !=BCPMessage.GO_COLLECT_A_BAG_DONE))
-            {   System.out.println("Thread " + Thread.currentThread ().getName () + ": Tipo inválido!");
-                System.out.println(inMessage.toString ());
-                System.exit (1);
-            }
-        con.close ();
-    }
+    public void syncPassenger() {
     
+        ClientCom con = new ClientCom (serverHostName, serverPortNumb);
+        DTEMessage inMessage, outMessage;
+    
+        while (!con.open ())                                      // aguarda ligação
+        { try
+            { Thread.currentThread ().sleep ((long) (10));
+            }
+            catch (InterruptedException e) {}
+        }
+        outMessage = new DTEMessage(DTEMessage.REQ_SYNC_PASSENGER);    // o barbeiro chama o cliente
+        con.writeObject (outMessage);
+        inMessage = (DTEMessage) con.readObject ();
+       
+        if (inMessage.getMsgType() != DTEMessage.SYNC_PASSENGER_DONE)
+            {   System.out.println("Thread " + Thread.currentThread ().getName () + ": Tipo inválido!");
+                System.out.println(inMessage.toString ());
+                System.exit (1);
+            }
+        con.close ();
+    }
+    @Override
+    public void awakePassengers(){
+        ClientCom con = new ClientCom (serverHostName, serverPortNumb);
+        DTEMessage inMessage, outMessage;
+    
+        while (!con.open ())                                      // aguarda ligação
+        { try
+            { Thread.currentThread ().sleep ((long) (10));
+            }
+            catch (InterruptedException e) {}
+        }
+        outMessage = new DTEMessage(DTEMessage.REQ_AWAKE_PASSENGERS);    // o barbeiro chama o cliente
+        con.writeObject (outMessage);
+        inMessage = (DTEMessage) con.readObject ();
+       
+        if (inMessage.getMsgType() != DTEMessage.AWAKE_PASSENGERS_DONE)
+            {   System.out.println("Thread " + Thread.currentThread ().getName () + ": Tipo inválido!");
+                System.out.println(inMessage.toString ());
+                System.exit (1);
+            }
+        con.close ();
+
+
+    }
+
+    @Override
+    public boolean prepareNextLeg(int npassengers) {
+        ClientCom con = new ClientCom (serverHostName, serverPortNumb);
+        DTEMessage inMessage, outMessage;
+
+        while (!con.open ())                                  // aguarda ligação
+            { try
+                { Thread.currentThread ().sleep ((long) (10));
+                }
+                catch (InterruptedException e) {}
+            }
+        outMessage = new DTEMessage (DTEMessage.REQ_PREPARE_NEXT_LEG,npassengers);        // pede a realização do serviço
+        con.writeObject (outMessage);
+        inMessage = (DTEMessage) con.readObject ();
+
+        if ((inMessage.getMsgType() !=DTEMessage.PREPARE_NEXT_LEG_DONE))
+            {   System.out.println("Thread " + Thread.currentThread ().getName () + ": Tipo inválido!");
+                System.out.println(inMessage.toString ());
+                System.exit (1);
+            }
+        con.close ();
+        return inMessage.lastPassenger();
+    }
+
+    @Override
+    public int nPassengersDepartureTEntrance() {
+        ClientCom con = new ClientCom (serverHostName, serverPortNumb);
+        DTEMessage inMessage, outMessage;
+
+        while (!con.open ())                                  // aguarda ligação
+            { try
+                { Thread.currentThread ().sleep ((long) (10));
+                }
+                catch (InterruptedException e) {}
+            }
+        outMessage = new DTEMessage (DTEMessage.REQ_N_PASSENGERS_DEPARTURE_TENTRANCE);        // pede a realização do serviço
+        con.writeObject (outMessage);
+        inMessage = (DTEMessage) con.readObject ();
+
+        if ((inMessage.getMsgType() !=DTEMessage.N_PASSENGERS_DEPARTURE_TENTRANCE_DONE))
+            {   System.out.println("Thread " + Thread.currentThread ().getName () + ": Tipo inválido!");
+                System.out.println(inMessage.toString ());
+                System.exit (1);
+            }
+        con.close ();
+        return inMessage.nPassenger();
+    }
+
+
 }

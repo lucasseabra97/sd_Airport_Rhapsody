@@ -44,8 +44,14 @@ public class TSAMessage implements Serializable {
 
     public TSAMessage(int msgType){
         this.msgType = msgType;
+
     }
-   
+    
+    public TSAMessage(int msgType , Baggage bag){
+        this.msgType = msgType;
+        this.bag = bag;
+        
+    }
     /**
      * geter bags
      * @return bag

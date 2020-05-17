@@ -44,10 +44,14 @@ public class BROMessage implements Serializable{
      * @param msgType
      */
 
-     public BROMessage(int msgType){
+     public BROMessage(int msgType,ArrayList<Baggage> bagsList){
         this.msgType = msgType;
+        this.bagsList = bagsList;
      }
 
+     public BROMessage(int msgType){
+         this.msgType = msgType;
+     }
     /**
      * getter 
      * returns message Type
