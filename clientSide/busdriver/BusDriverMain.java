@@ -1,25 +1,9 @@
-package clientSide.passenger;
-
-import java.util.*;
-
-import clientSide.ArrailvalTTransferQuayStub;
-import clientSide.ArraivalLoungeStub;
-import clientSide.ArraivalTerminalExitStub;
-import clientSide.BagageCollectionPointStub;
-import clientSide.BaggageReclaimOfficeStub;
-import clientSide.DepartureTerminalEntranceStub;
-import clientSide.DepartureTerminalTransferQuayStub;
-import clientSide.TemporaryStorageAreaStub;
-import commonInfra.Baggage;
-import main.global;
-import serverSide.serverATTQ.ArraivalTerminalTransferQuay;
-import serverSide.serverBRO.BaggageReclaimOffice;
-import serverSide.serverDTE.DepartureTerminalEntrance;
-import serverSide.serverDTTQ.DepartureTerminalTransferQuay;
-import serverSide.serverTSA.TemporaryStorageArea;
+package clientSide.busdriver;
 import java.util.Scanner;
-
-public class PassengerMain {
+import java.util.*;
+import serverSide.serverDTE.DepartureTerminalEntrance;
+import serverSide.serverATTQ.ArraivalTerminalTransferQuay;
+public class BusDriverMain {
     public static void main (String [] args)
     {
         final Random random = new Random();
@@ -29,16 +13,12 @@ public class PassengerMain {
         // Boolean[][] passengersDestination = new Boolean [global.NR_PASSENGERS][global.NR_FLIGHTS];
         // List<List<List<Baggage>>> passengersBags = new ArrayList<>(global.NR_PASSENGERS);
 
-        Passenger passengers[] = new Passenger[global.NR_PASSENGERS];
+       
 
-        ArraivalLoungeStub                aLoungStub;                     //stub Arraival Lounge
-        ArraivalTerminalExitStub          atExitStub;                    // stub Arraival Terminal Exit
+    
         ArrailvalTTransferQuayStub        attQuayStub;                   // stub Arraival Terminal Transfer Quay
-        BagageCollectionPointStub         bcPointStub;                  // stub Baggage Collection Point 
-        BaggageReclaimOfficeStub          brOfficeStub;                 // stub Baggage Reclaim Office 
-        DepartureTerminalEntranceStub     dtEntranceStub;           // stub Departure Terminal Entrance 
         DepartureTerminalTransferQuayStub dttQuayStub;          // stub Departure Terminal Transfer Quay
-        TemporaryStorageAreaStub          tsaStub;              // stub Temporary Storage Area
+        
         String fName;                                        // nome do ficheiro de logging 
         String serverHostName;                               // nome do sistema computacional onde está o servidor
         int serverPortNumb;                                  // número do port de escuta do servidor
@@ -64,5 +44,4 @@ public class PassengerMain {
 
          
     }
-
 }
