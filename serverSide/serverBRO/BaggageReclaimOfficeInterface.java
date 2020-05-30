@@ -31,7 +31,6 @@ public class BaggageReclaimOfficeInterface {
     * @throws MessageException    se a mensagem com o pedido for considerada
     *                             inválida
     */
-
    public BROMessage processAndReply(BROMessage inMessage) throws BROMessageException
   {
     BROMessage outMessage = null;                           // mensagem de resposta
@@ -40,7 +39,7 @@ public class BaggageReclaimOfficeInterface {
 
      switch (inMessage.getMsgType()) 
      {
-        case BROMessage.REQ_COMPLAIN:
+        case BROMessage.COMPLAIN:
             break;
         default:
              throw new BROMessageException("Tipo inválido!", inMessage);
@@ -50,9 +49,9 @@ public class BaggageReclaimOfficeInterface {
 
      switch (inMessage.getMsgType())
      {
-        case BROMessage.REQ_COMPLAIN:
+        case BROMessage.COMPLAIN:
                     monitorBRO.complain(inMessage.getBaggageList());
-                    outMessage = new BROMessage(BROMessage.COMPLAIN_DONE);
+                    outMessage = new BROMessage(BROMessage.ACK);
                     break;                                                 
     }
     return (outMessage);

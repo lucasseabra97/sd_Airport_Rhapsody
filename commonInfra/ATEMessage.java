@@ -15,43 +15,30 @@ public class ATEMessage implements Serializable{
     /**
      *  Passenger requests ??? (pedido passageiro)
      */
-    public static final int REQ_GO_HOME = 1;
-
-    /**
-    *   (resposta enviada pelo servidor)
-    */
-    public static final int GO_HOME_DONE = 2;
+    public static final int GO_HOME = 1;
 
    /**
     *  pedido invocado pelo ultimo cliente na saida 
     */
 
-    public static final int REQ_AWAKE_PASSENGERS = 3;
-    /** 
-     *   (resposta enviada pelo servidor)
-     */
-
-    public static final int AWAKE_PASSENGERS_DONE = 4;
+    public static final int AWAKE_PASSENGERS = 2;
+ 
     /**
      *   (pedido do porteiro)
     */
 
-    public static final int REQ_N_PASSENGERS_DEPARTURE_AT = 5;
-    /**
-     *   (resposta enviada pelo servidor)
-     */
+    public static final int N_PASSENGERS_DEPARTURE_AT = 3;
 
-    public static final int N_PASSENGERS_DEPARTURE_AT_DONE = 6;
     /**
      *  (pedido do passageiro)
     */
 
-    public static final int REQ_SYNC_PASSENGER= 7;
+    public static final int SYNC_PASSENGER= 4;
     /**
      *   (resposta do servidor)
      */
 
-    public static final int SYNC_PASSENGER_DONE = 8;
+    public static final int ACK = 5;
 
     /* Campos das mensagens */
 
@@ -82,7 +69,7 @@ public class ATEMessage implements Serializable{
      */
     public ATEMessage(int msgType, int nPass){
         this.msgType = msgType;
-        if((msgType == GO_HOME_DONE))
+        if((msgType ==ACK))
             this.nPassGoingHome = nPass;
         else
             this.nPassengersDepartureAT=nPass; 

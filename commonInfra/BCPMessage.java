@@ -16,43 +16,29 @@ public class BCPMessage implements Serializable{
     /**
      *  Passenger requests ??? (pedido passageiro)
      */
-    public static final int REQ_CARRY_IT_TO_APPROPRIATE_STORE = 1;
-
-    /**
-    *   (resposta enviada pelo servidor)
-    */
-    public static final int CARRY_IT_TO_APPROPRIATE_STORE_DONE = 2;
+    public static final int CARRY_IT_TO_APPROPRIATE_STORE = 1;
 
    /**
     *  pedido invocado  cliente na saida 
     */
 
-    public static final int REQ_GO_COLLECT_A_BAG = 3;
-    /** 
-     *   (resposta enviada pelo servidor)
-     */
-
-    public static final int GO_COLLECT_A_BAG_DONE = 4;
+    public static final int GO_COLLECT_A_BAG = 2;
+    
     /**
      *   (pedido do porteiro)
     */
 
-    public static final int REQ_NO_MORE_BAGS_TO_COLLECT = 5;
-    /**
-     *   (resposta enviada pelo servidor)
-     */
-
-    public static final int NO_MORE_BAGS_TO_COLLECT_DONE = 6;
+    public static final int NO_MORE_BAGS_TO_COLLECT = 3;
     /**
      *  (pedido do passageiro)
     */
 
-    public static final int REQ_RESET_STATE= 7;
+    public static final int RESET_STATE= 4;
     /**
      *   (resposta do servidor)
      */
 
-    public static final int RESET_STATE_DONE = 8;
+    public static final int ACK = 5;
 
 
     /* Campos das mensagens */

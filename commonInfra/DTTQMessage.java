@@ -15,32 +15,22 @@ public class DTTQMessage implements Serializable{
     /**
      *  Passenger requests for condition wating for ride end
      */
-    public static final int REQ_WAIT_RIDE = 1;
-
-    /**
-    *   (resposta enviada pelo servidor)
-    */
-    public static final int WAIT_RIDE_DONE = 2;
+    public static final int WAIT_RIDE = 1;
 
     /**
      * passenger request to leave the bus passengers 
      */
-    public static final int REQ_LEAVE_THE_BUS = 3;
-
-    /**
-     * resposta do servidor
-     */
-    public static final int LEAVE_THE_BUS_DONE = 4;
+    public static final int LEAVE_THE_BUS = 2;
 
     /**
      * bus driver request for park the bus and let pass off
      */
-    public static final int REQ_PARK_THE_BUS_AND_LET_PASS_OFF = 5;
+    public static final int PARK_THE_BUS_AND_LET_PASS_OFF = 3;
 
     /**
     * resposta do servidor
     */
-    public static final int PARK_THE_BUS_AND_LET_PASS_OFF_DONE = 6;
+    public static final int ACK = 4;
     
 
     /* Campos das mensagens */

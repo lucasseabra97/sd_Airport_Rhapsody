@@ -66,25 +66,31 @@ public class ArraivalLounge implements IArraivalLoungePassenger , IArraivalLoung
 	/**
      * The general repository of information.
      */
-	private final GeneralRepository rep;
+	//private final GeneralRepository rep;
 
 	/** 
 	* Arraival Lounge shared Memory constructor
     * @param repository General repository of information
     * @param bagsPerFlight List of bags for each flight
     */
-	public ArraivalLounge( List<List<Baggage>> bagsPerFlight , GeneralRepository rep) {
+	public ArraivalLounge() {
 		//this.maxPassengers = maxPassengers;
-		this.memBag = new ArrayList<Baggage>();
+		
 		rl = new ReentrantLock(true);
-		this.maxPassengers = global.NR_PASSENGERS;
 		cPorter = rl.newCondition();
 		waitForPlane = rl.newCondition();
-		this.bagsPerFlight = bagsPerFlight;
-		this.rep = rep;
+		
 		
 	}
-
+	
+    public void setParameters(int nrPassengers, List<List<Baggage>> bagsPerFlight) {
+        if (nrPassengers > 0)
+            this.nPassengers = nrPassengers;
+        if (bagsPerFlight.size() > 0)
+            this.bagsPerFlight = bagsPerFlight;
+        System.out.println("Arrival lounge carregado com " + nrPassengers + " passageiros e malas:" + bagsPerFlight.toString());
+        reportInitialStatus();
+    }
 
 	/**
 	 * Returns passenger action in {@link commonInfra.PassengerAction} state. <p/>
@@ -98,25 +104,27 @@ public class ArraivalLounge implements IArraivalLoungePassenger , IArraivalLoung
         try {
 			Passenger passenger = (Passenger) Thread.currentThread();
 			int bags = passenger.getFlightBags();
-			
+			/*
 			if(goHome){
 				rep.addFinalDestinations();
 			}
+			
             else {
-				rep.addTransit();
+				//rep.addTransit();
 			}
+			*/
             while(!porterAvailable){
                 cPorter.await();
 			}
             nPassengers++;
-		   
+		    /*
 			if(nPassengers == 1){
-				rep.startNextFlight(bagsPerFlight.get(0).size());
+				//rep.startNextFlight(bagsPerFlight.get(0).size());
 			} 
 
             
-            rep.passengerInit(PassengerEnum.AT_THE_DISEMBARKING_ZONE, bags, goHome ? "FDT" : "TRF", passenger.getPassengerID());
-
+            //rep.passengerInit(PassengerEnum.AT_THE_DISEMBARKING_ZONE, bags, goHome ? "FDT" : "TRF", passenger.getPassengerID());
+			*/
 
             if(nPassengers == maxPassengers) {
                 collect = true;
@@ -146,7 +154,7 @@ public class ArraivalLounge implements IArraivalLoungePassenger , IArraivalLoung
             porterAvailable = true;
             cPorter.signalAll();
 
-            rep.porterWaitingLanding();
+            //rep.porterWaitingLanding();
             while(!collect && !dayEnded) {
 				//System.out.println("BOMDIA");
 				waitForPlane.await();
@@ -158,7 +166,7 @@ public class ArraivalLounge implements IArraivalLoungePassenger , IArraivalLoung
                 List<Baggage> flightBags = bagsPerFlight.remove(0);
                 for(int b = 0; b < flightBags.size(); b++) {
                     memBag.add(flightBags.get(b));
-                    rep.addBag();
+                    //rep.addBag();
                    
                 }
             }
@@ -185,7 +193,7 @@ public class ArraivalLounge implements IArraivalLoungePassenger , IArraivalLoung
 		try{
 			if(memBag.size() > 0) {
 				Baggage tempbagg = memBag.remove(0);
-				rep.porterCollectBag();
+				//rep.porterCollectBag();
 				//System.out.println(memBag.size());
 				return tempbagg;
 			}
@@ -200,7 +208,7 @@ public class ArraivalLounge implements IArraivalLoungePassenger , IArraivalLoung
 		}
         
 	}
-
+	/*
 	@Override 
     public void endOfDay() {
         rl.lock();
@@ -212,6 +220,76 @@ public class ArraivalLounge implements IArraivalLoungePassenger , IArraivalLoung
             rl.unlock();
         }
     }
+	*/
+
+	  /**
+     * Escrever o estado inicial (operação interna).
+     * <p>
+     * Os barbeiros estão a dormir e os clientes a realizar as tarefas do dia a dia.
+     */
+
+    private void reportInitialStatus() {
+        // TextFile log = new TextFile (); // instanciação de uma variável de tipo
+        // ficheiro de texto
+
+        // if (!log.openForWriting (".", fileName))
+        // { GenericIO.writelnString ("A operação de criação do ficheiro " + fileName +
+        // " falhou!");
+        // System.exit (1);
+        // }
+        // log.writelnString (" Problema dos barbeiros sonolentos");
+        // log.writelnString ("\nNúmero de iterações = " + nIter + "\n");
+        // if (!log.close ())
+        // { GenericIO.writelnString ("A operação de fecho do ficheiro " + fileName + "
+        // falhou!");
+        // System.exit (1);
+        // }
+        // reportStatus ();
+    }
+
+    /**
+     * Escrever o estado actual (operação interna).
+     * <p>
+     * Uma linha de texto com o estado de actividade dos barbeiros e dos clientes é
+     * escrito no ficheiro.
+     */
+
+    private void reportStatus() {
+        // TextFile log = new TextFile (); // instanciação de uma variável de tipo
+        // ficheiro de texto
+        // String lineStatus = ""; // linha a imprimir
+
+        // if (!log.openForAppending (".", fileName))
+        // { GenericIO.writelnString ("A operação de criação do ficheiro " + fileName +
+        // " falhou!");
+        // System.exit (1);
+        // }
+        // for (int i = 0; i < nBarber; i++)
+        // switch (stateBarber[i])
+        // { case SLEEPING: lineStatus += " DORMINDO ";
+        // break;
+        // case WORKING: lineStatus += " ACTIVIDA ";
+        // break;
+        // }
+        // for (int i = 0; i < nCustomer; i++)
+        // switch (stateCustomer[i])
+        // { case LIVNORML: lineStatus += " VIVVNRML ";
+        // break;
+        // case WANTCUTH: lineStatus += " QUERCORT ";
+        // break;
+        // case WAITTURN: lineStatus += " ESPERAVZ ";
+        // break;
+        // case CUTHAIR: lineStatus += " CORTACBL ";
+        // break;
+        // }
+        // log.writelnString (lineStatus);
+        // if (!log.close ())
+        // { GenericIO.writelnString ("A operação de fecho do ficheiro " + fileName + "
+        // falhou!");
+        // System.exit (1);
+        // }
+    }
+
 
 }
 	

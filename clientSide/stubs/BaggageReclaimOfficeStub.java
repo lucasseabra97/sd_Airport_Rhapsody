@@ -1,12 +1,13 @@
-package clientSide;
+package clientSide.stubs;
 
 import java.util.ArrayList;
 
-import commonInfra.TSAMessage;
+import clientSide.ClientCom;
+import commonInfra.BROMessage;
 import commonInfra.Baggage;
-import interfaces.ITemporaryStorageAreaPorter;
+import interfaces.IBaggageReclaimOfficePassenger;
 
-public class TemporaryStorageAreaStub implements ITemporaryStorageAreaPorter    {
+public class BaggageReclaimOfficeStub implements IBaggageReclaimOfficePassenger {
 
 
      /**
@@ -29,15 +30,16 @@ public class TemporaryStorageAreaStub implements ITemporaryStorageAreaPorter    
      * @param serverPortNumb
      */
     
-    public TemporaryStorageAreaStub(String serverHostName,int serverPortNumb){
+    public BaggageReclaimOfficeStub(String serverHostName,int serverPortNumb){
         this.serverHostName = serverHostName;
         this.serverPortNumb = serverPortNumb;
     }
 
     @Override
-    public void carryItToAppropriateStore(Baggage bag) {
+    public void complain(ArrayList<Baggage> bags) {
+    
         ClientCom con = new ClientCom (serverHostName, serverPortNumb);
-        TSAMessage inMessage, outMessage;
+        BROMessage inMessage, outMessage;
     
         while (!con.open ())                                      // aguarda ligação
         { try
@@ -45,20 +47,16 @@ public class TemporaryStorageAreaStub implements ITemporaryStorageAreaPorter    
             }
             catch (InterruptedException e) {}
         }
-        outMessage = new TSAMessage(TSAMessage.REQ_CARRY_IT_TO_APPROPRIATE_STORE , bag);    // o barbeiro chama o cliente
+        outMessage = new BROMessage (BROMessage.COMPLAIN,bags);    // o barbeiro chama o cliente
         con.writeObject (outMessage);
-        inMessage = (TSAMessage) con.readObject ();
+        inMessage = (BROMessage) con.readObject ();
        
-        if (inMessage.getMsgType() != TSAMessage.CARRY_IT_TO_APPROPRIATE_STORE_DONE)
+        if (inMessage.getMsgType() != BROMessage.ACK)
             {   System.out.println("Thread " + Thread.currentThread ().getName () + ": Tipo inválido!");
                 System.out.println(inMessage.toString ());
                 System.exit (1);
             }
         con.close ();
-
     }
-
-
-
-
+    
 }

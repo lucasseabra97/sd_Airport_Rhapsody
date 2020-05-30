@@ -16,12 +16,12 @@ public class BROMessage implements Serializable{
     /**
      *  Passenger requests ??? (pedido passageiro)
      */
-    public static final int REQ_COMPLAIN = 1;
+    public static final int COMPLAIN = 1;
 
     /**
     *   (resposta enviada pelo servidor)
     */
-    public static final int COMPLAIN_DONE = 2;
+    public static final int ACK = 2;
 
     /* Campos das mensagens */
 

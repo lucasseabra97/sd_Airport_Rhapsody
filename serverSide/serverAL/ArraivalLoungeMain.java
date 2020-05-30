@@ -26,14 +26,9 @@ public class ArraivalLoungeMain
   private static final int Baggage = 0;
    
   public static boolean waitConnection;                              // sinalização de actividade
-
-
-  
-   
   /**
    *  Programa principal.
    */
-
    public static void main (String [] args)
    {
       ArraivalLounge monitorAL;                            // instanciar o monitor (server)

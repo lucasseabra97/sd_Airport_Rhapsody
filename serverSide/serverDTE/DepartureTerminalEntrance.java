@@ -40,7 +40,7 @@ public class DepartureTerminalEntrance implements IDepartureTerminalEntrancePass
     /**
      * General Repository
      */
-    private GeneralRepository rep;
+    //private GeneralRepository rep;
     /**
 	* Departure Terminal Entrance shared Memory constructor
 	* 
@@ -48,11 +48,11 @@ public class DepartureTerminalEntrance implements IDepartureTerminalEntrancePass
 	* @param rep
 	*/
   
-    public DepartureTerminalEntrance(int nrPassengers , GeneralRepository rep) {
+    public DepartureTerminalEntrance(/*int nrPassengers , GeneralRepository rep*/) {
         rl = new ReentrantLock(true);
         waitingEnd = rl.newCondition();
         this.nrPassengers = global.NR_PASSENGERS;
-        this.rep = rep;
+        //this.rep = rep;
     }
 
     /**
@@ -104,8 +104,8 @@ public class DepartureTerminalEntrance implements IDepartureTerminalEntrancePass
 
             boolean lastPassenger = npassengers + passengers == nrPassengers;
 
-            Passenger passenger = (Passenger) Thread.currentThread();
-            rep.passPrepareNextLeg(passenger.getPassengerID());
+            //Passenger passenger = (Passenger) Thread.currentThread();
+            //rep.passPrepareNextLeg(passenger.getPassengerID());
             System.out.println("-> "+ lastPassenger);
             if(lastPassenger) {
                 goingHome = false;

@@ -37,7 +37,7 @@ public class BaggageCollectionPointMain {
             // System.out.println("File already exists.");
         }
 
-        GeneralRepository genInfoRepo = new GeneralRepository(logger);
+        //GeneralRepository genInfoRepo = new GeneralRepository(logger);
 
         BaggageCollectionPoint monitorBCP;                                // barbearia (representa o serviço a ser prestado)
         BaggageCollectionPointInterface attQuayInter;                    // interface à barbearia
@@ -48,14 +48,14 @@ public class BaggageCollectionPointMain {
 
         scon = new ServerCom (portNumb);                      // criação do canal de escuta e sua associação
         scon.start ();                                       // com o endereço público
-        monitorBCP = new BaggageCollectionPoint(genInfoRepo);                   // activação do serviço
+        monitorBCP = new BaggageCollectionPoint(/*genInfoRepo*/);                   // activação do serviço
         attQuayInter = new BaggageCollectionPointInterface (monitorBCP);        // activação do interface com o serviço
         System.out.println("O serviço foi estabelecido!");
         System.out.println("O servidor esta em escuta.");
 
         /* processamento de pedidos */
         //NAO SEI ONDE METER ISTO MAS É NECESSARIO!!!
-        genInfoRepo.close();
+        //genInfoRepo.close();
         waitConnection = true;
         while (waitConnection)
             try

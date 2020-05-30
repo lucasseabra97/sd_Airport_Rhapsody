@@ -16,42 +16,29 @@ public class DTEMessage implements Serializable{
     /**
      *  Passenger requests ??? (pedido passageiro)
      */
-    public static final int REQ_SYNC_PASSENGER = 1;
+    public static final int SYNC_PASSENGER = 1;
 
-    /**
-    *   (resposta enviada pelo servidor)
-    */
-    public static final int SYNC_PASSENGER_DONE = 2;
 
     /**
      * passenger request to awake passengers 
      */
-    public static final int REQ_AWAKE_PASSENGERS = 3;
-
-    /**
-     * resposta do servidor
-     */
-    public static final int AWAKE_PASSENGERS_DONE = 4;
+    public static final int AWAKE_PASSENGERS = 2;
 
     /**
      * passenger request for number of passengers
      */
-    public static final int REQ_N_PASSENGERS_DEPARTURE_TENTRANCE = 5;
+    public static final int N_PASSENGERS_DEPARTURE_TENTRANCE = 3;
 
-    /**
-    * resposta do servidor
-    */
-    public static final int N_PASSENGERS_DEPARTURE_TENTRANCE_DONE = 6;
-
+   
     /**
      *  passenger request for preparing next flight
      */
-    public static final int REQ_PREPARE_NEXT_LEG = 7;
+    public static final int PREPARE_NEXT_LEG = 4;
 
     /**
      * resposta do servidor
      */
-    public static final int PREPARE_NEXT_LEG_DONE = 8;
+    public static final int ACK = 5;
     
 
     /* Campos das mensagens */

@@ -39,17 +39,17 @@ public class BaggageCollectionPoint implements IBaggageCollectionPointPorter, IB
     /**
     * General Repository
     */
-    private GeneralRepository rep;
+    //private GeneralRepository rep;
    
     /**
     * Baggage Collection Point shared memory constructor
     * @param rep
     */
-    public BaggageCollectionPoint(GeneralRepository rep){
+    public BaggageCollectionPoint(/*GeneralRepository rep*/){
         rl = new ReentrantLock(true);
         waitingBag = rl.newCondition();
         bags = new ArrayList<>();
-        this.rep = rep;
+        //this.rep = rep;
       
     }
 
@@ -61,7 +61,7 @@ public class BaggageCollectionPoint implements IBaggageCollectionPointPorter, IB
 	public void carryItToAppropriateStore(Baggage bag) {
         rl.lock();
         try{
-                rep.porterMoveBagToConveyorBelt();
+                //rep.porterMoveBagToConveyorBelt();
                 bags.add(bag);
                 noMoreBags = false;
                 waitingBag.signalAll();
@@ -81,8 +81,8 @@ public class BaggageCollectionPoint implements IBaggageCollectionPointPorter, IB
     public Baggage goCollectABag(ArrayList<Baggage> bagp) {
         rl.lock();
         try {
-            Passenger passenger = (Passenger) Thread.currentThread();
-            rep.passEnterLuggageCollectionPoint(passenger.getPassengerID());
+            //Passenger passenger = (Passenger) Thread.currentThread();
+            //rep.passEnterLuggageCollectionPoint(passenger.getPassengerID());
             //System.out.println(bags +"  bomdia "+ bagp);
 
             //System.out.println(bags +"  bomdia "+ bagp);
@@ -90,7 +90,7 @@ public class BaggageCollectionPoint implements IBaggageCollectionPointPorter, IB
                 for(int i = 0; i < bags.size(); i++) {
                     Baggage tempbag =bags.get(i);
                     if(bagp.contains(tempbag)){
-                            rep.passCollectBag(passenger.getPassengerID());
+                            //rep.passCollectBag(passenger.getPassengerID());
                             bags.remove(tempbag);
                         return tempbag;
                     }
@@ -116,7 +116,7 @@ public class BaggageCollectionPoint implements IBaggageCollectionPointPorter, IB
     public void noMoreBagsToCollect() {
         rl.lock();
         try {
-            rep.porterNoMoreBags();
+            //rep.porterNoMoreBags();
             noMoreBags = true;
             waitingBag.signalAll();
         } catch(Exception ex) {} 

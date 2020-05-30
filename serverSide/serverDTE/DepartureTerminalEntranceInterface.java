@@ -8,7 +8,6 @@ public class DepartureTerminalEntranceInterface {
    *
    *    @serialField bShop
    */
-
    private DepartureTerminalEntrance monitorDTE;
     /**
      * Instanciação do interface ao Arraival Lounge.
@@ -18,7 +17,6 @@ public class DepartureTerminalEntranceInterface {
    public DepartureTerminalEntranceInterface(DepartureTerminalEntrance monitorDTE){
        this.monitorDTE = monitorDTE;
    }
-
    /**
     * Processamento das mensagens através da execução da tarefa correspondente.
     * Geração de uma mensagem de resposta.
@@ -31,7 +29,6 @@ public class DepartureTerminalEntranceInterface {
     * @throws MessageException    se a mensagem com o pedido for considerada
     *                             inválida
     */
-
    public DTEMessage processAndReply(DTEMessage inMessage) throws DTEMessageException
   {
     DTEMessage outMessage = null;                           // mensagem de resposta
@@ -40,37 +37,35 @@ public class DepartureTerminalEntranceInterface {
 
      switch (inMessage.getMsgType()) 
      {
-        case DTEMessage.REQ_SYNC_PASSENGER:
+        case DTEMessage.SYNC_PASSENGER:
             break;
-        case DTEMessage.REQ_AWAKE_PASSENGERS:
+        case DTEMessage.AWAKE_PASSENGERS:
             break;
-        case DTEMessage.REQ_N_PASSENGERS_DEPARTURE_TENTRANCE:
+        case DTEMessage.N_PASSENGERS_DEPARTURE_TENTRANCE:
             break;
-        case DTEMessage.REQ_PREPARE_NEXT_LEG:
+        case DTEMessage.PREPARE_NEXT_LEG:
             break;
         default:
              throw new DTEMessageException("Tipo inválido!", inMessage);
      }
-
      /* seu processamento */
-
      switch (inMessage.getMsgType())
      {
-        case DTEMessage.REQ_SYNC_PASSENGER:
+        case DTEMessage.SYNC_PASSENGER:
                     monitorDTE.syncPassenger();
-                    outMessage = new DTEMessage(DTEMessage.SYNC_PASSENGER_DONE);
+                    outMessage = new DTEMessage(DTEMessage.ACK);
                     break;
-        case DTEMessage.REQ_AWAKE_PASSENGERS:
+        case DTEMessage.AWAKE_PASSENGERS:
                     monitorDTE.awakePassengers();
-                    outMessage = new DTEMessage(DTEMessage.AWAKE_PASSENGERS_DONE);
+                    outMessage = new DTEMessage(DTEMessage.ACK);
                     break;
-        case DTEMessage.REQ_N_PASSENGERS_DEPARTURE_TENTRANCE:
+        case DTEMessage.N_PASSENGERS_DEPARTURE_TENTRANCE:
                     int nPassenger = monitorDTE.nPassengersDepartureTEntrance();                                           
-                    outMessage = new DTEMessage(DTEMessage.N_PASSENGERS_DEPARTURE_TENTRANCE_DONE , nPassenger);
+                    outMessage = new DTEMessage(DTEMessage.ACK , nPassenger);
                     break;
-        case DTEMessage.REQ_PREPARE_NEXT_LEG:
+        case DTEMessage.PREPARE_NEXT_LEG:
                     boolean lastPassenger = monitorDTE.prepareNextLeg(inMessage.nPassenger());
-                    outMessage = new DTEMessage(DTEMessage.PREPARE_NEXT_LEG_DONE,lastPassenger);
+                    outMessage = new DTEMessage(DTEMessage.ACK, lastPassenger);
                     break;
     }
     return (outMessage);

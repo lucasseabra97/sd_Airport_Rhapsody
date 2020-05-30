@@ -45,16 +45,16 @@ public class DepartureTerminalTransferQuay implements IDepartureTerminalTransfer
      * General Repository
      */
 
-    private GeneralRepository rep;
+    //private GeneralRepository rep;
     /**
 	* Departure Terminal Transfer Quay  shared Memory constructor 
 	* @param rep
 	*/
-    public  DepartureTerminalTransferQuay(GeneralRepository rep){
+    public  DepartureTerminalTransferQuay(/*GeneralRepository rep*/){
         rl = new ReentrantLock(true);
         waitingRide = rl.newCondition();
         passengersOut = rl.newCondition();
-        this.rep=rep;
+        //this.rep=rep;
 
     }
     
@@ -69,9 +69,10 @@ public class DepartureTerminalTransferQuay implements IDepartureTerminalTransfer
         //System.out.println("waiting ride");
         rl.lock();
         try{
+            /*
             Passenger passenger = (Passenger) Thread.currentThread();
             rep.passBusRide(passenger.getPassengerID());
-
+            */
             //System.out.println("waiting ride");
             while(inMovement == true){
                 waitingRide.await();
@@ -92,10 +93,10 @@ public class DepartureTerminalTransferQuay implements IDepartureTerminalTransfer
     public void leaveTheBus(){
         rl.lock();
         try { 
-
+            /*
             Passenger passenger = (Passenger) Thread.currentThread();
             rep.passLeaveBus(passenger.getPassengerID());
-
+            */
             nPassengers ++;
             if(nPassengers == passengersLeaving){
                 passengersOut.signal();
@@ -118,7 +119,7 @@ public class DepartureTerminalTransferQuay implements IDepartureTerminalTransfer
     public void parkTheBusAndLetPassOff( int passengersLeaving) {
         rl.lock();
         try {
-            rep.driverParkingDepartureTerminal();
+            //rep.driverParkingDepartureTerminal();
             
             inMovement = false;
             this.passengersLeaving = passengersLeaving;
@@ -129,7 +130,7 @@ public class DepartureTerminalTransferQuay implements IDepartureTerminalTransfer
             }
             nPassengers = 0;
             inMovement = true;
-            rep.driverDrivingBackward();
+            //rep.driverDrivingBackward();
         } catch(Exception ex) {}
         finally {
             rl.unlock();

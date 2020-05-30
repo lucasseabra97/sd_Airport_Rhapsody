@@ -39,7 +39,7 @@ public class TemporaryStorageAreaMain {
             // System.out.println("File already exists.");
         }
 
-        GeneralRepository genInfoRepo = new GeneralRepository(logger);
+        //GeneralRepository genInfoRepo = new GeneralRepository(logger);
 
         TemporaryStorageArea monitorTSA;                                  // barbearia (representa o serviço a ser prestado)
         TemporaryStorageAreaInterface atExitInter;                       // interface à barbearia
@@ -50,14 +50,14 @@ public class TemporaryStorageAreaMain {
 
         scon = new ServerCom (portNumb);                     // criação do canal de escuta e sua associação
         scon.start ();                                       // com o endereço público
-        monitorTSA = new TemporaryStorageArea(genInfoRepo);                           // activação do serviço
+        monitorTSA = new TemporaryStorageArea(/*genInfoRepo*/);                           // activação do serviço
         atExitInter = new TemporaryStorageAreaInterface (monitorTSA);        // activação do interface com o serviço
         System.out.println("O serviço foi estabelecido!");
         System.out.println("O servidor esta em escuta.");
 
         /* processamento de pedidos */
         //NAO SEI ONDE METER ISTO MAS É NECESSARIO
-        genInfoRepo.close();
+        //genInfoRepo.close();
         waitConnection = true;
         while (waitConnection)
             try

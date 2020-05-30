@@ -76,13 +76,10 @@ public class ArraivalTerminalTransferQuay implements IArraivalTerminalTransferQP
     private Boolean busTravelling;
     
     
-    
-    
-    
     /** 
      * General Repository
     */
-     private GeneralRepository rep;
+     //private GeneralRepository rep;
     
     
     /**
@@ -91,7 +88,7 @@ public class ArraivalTerminalTransferQuay implements IArraivalTerminalTransferQP
 	* @param busSize
 	* @param rep
 	*/
-    public ArraivalTerminalTransferQuay(GeneralRepository rep) {
+    public ArraivalTerminalTransferQuay(/*GeneralRepository rep*/) {
         rl = new ReentrantLock(true);
         this.busSize=global.BUS_SIZE;
         //this.waitPlace = rl.newCondition();
@@ -104,7 +101,7 @@ public class ArraivalTerminalTransferQuay implements IArraivalTerminalTransferQP
         busTravelling = false;
         
         
-        this.rep = rep;
+        //this.rep = rep;
 
     }
 
@@ -130,7 +127,7 @@ public class ArraivalTerminalTransferQuay implements IArraivalTerminalTransferQP
             passengerQueue.add(passengerID);
 
             Passenger passenger = (Passenger) Thread.currentThread();
-            rep.passJoinBusQueue(passenger.getPassengerID());
+            //rep.passJoinBusQueue(passenger.getPassengerID());
 
             //before blocking the 3 guy wakes up the BD
             if(passengerQueue.size() == busSize)
@@ -159,7 +156,7 @@ public class ArraivalTerminalTransferQuay implements IArraivalTerminalTransferQP
             insidePassengers.add(passengerID);
 
             Passenger passenger = (Passenger) Thread.currentThread();
-            rep.passSitInBus(passenger.getPassengerID());
+            //rep.passSitInBus(passenger.getPassengerID());
             
             if (insidePassengers.size() == passengersEntering) {
                 waitEnterBus.signalAll();
@@ -181,7 +178,7 @@ public class ArraivalTerminalTransferQuay implements IArraivalTerminalTransferQP
             int count = 0;
             busTravelling = false;
 
-            rep.driverParkingArrivalTerminal();
+            //rep.driverParkingArrivalTerminal();
 
             if(passengerQueue.size() > 0) {
                 waitAnnouncment.signalAll();
@@ -225,10 +222,10 @@ public class ArraivalTerminalTransferQuay implements IArraivalTerminalTransferQP
             while(insidePassengers.size() != passengersEntering) {
                 waitEnterBus.await();
             }
-
+            /*
             if(insidePassengers.size() > 0)
-                rep.driverDrivingForward();
-
+                //rep.driverDrivingForward();
+            */
             return insidePassengers.size();
 
 

@@ -1,5 +1,6 @@
-package clientSide;
+package clientSide.stubs;
 
+import clientSide.ClientCom;
 import commonInfra.ATTQMessage;
 import commonInfra.BusDriverAction;
 import interfaces.IArraivalTerminalTransferQBusDriver;
@@ -44,11 +45,11 @@ public class ArrailvalTTransferQuayStub implements IArraivalTerminalTransferQPas
                 }
                 catch (InterruptedException e) {}
             }
-        outMessage = new ATTQMessage (ATTQMessage.REQ_ANNOUNCING_BUS_BOARDING);        // pede a realização do serviço
+        outMessage = new ATTQMessage (ATTQMessage.ANNOUNCING_BUS_BOARDING);        // pede a realização do serviço
         con.writeObject (outMessage);
         inMessage = (ATTQMessage) con.readObject ();
 
-        if ((inMessage.getMsgType() !=ATTQMessage.ANNOUNCING_BUS_BOARDING_DONE))
+        if ((inMessage.getMsgType() !=ATTQMessage.ACK))
             {   System.out.println("Thread " + Thread.currentThread ().getName () + ": Tipo inválido!");
                 System.out.println(inMessage.toString ());
                 System.exit (1);
@@ -71,11 +72,11 @@ public class ArrailvalTTransferQuayStub implements IArraivalTerminalTransferQPas
                 }
                 catch (InterruptedException e) {}
             }
-        outMessage = new ATTQMessage (ATTQMessage.REQ_HAS_DAYS_WORK_ENDED);        // pede a realização do serviço
+        outMessage = new ATTQMessage (ATTQMessage.HAS_DAYS_WORK_ENDED);        // pede a realização do serviço
         con.writeObject (outMessage);
         inMessage = (ATTQMessage) con.readObject ();
 
-        if ((inMessage.getMsgType() !=ATTQMessage.HAS_DAYS_WORK_ENDED_DONE))
+        if ((inMessage.getMsgType() !=ATTQMessage.ACK))
             {   System.out.println("Thread " + Thread.currentThread().getName () + ": Tipo inválido!");
                 System.out.println(inMessage.toString ());
                 System.exit (1);
@@ -96,11 +97,11 @@ public class ArrailvalTTransferQuayStub implements IArraivalTerminalTransferQPas
                 }
                 catch (InterruptedException e) {}
             }
-        outMessage = new ATTQMessage (ATTQMessage.REQ_TAKE_A_BUS,passengerID);        // pede a realização do serviço
+        outMessage = new ATTQMessage (ATTQMessage.TAKE_A_BUS,passengerID);        // pede a realização do serviço
         con.writeObject (outMessage);
         inMessage = (ATTQMessage) con.readObject ();
 
-        if ((inMessage.getMsgType() !=ATTQMessage.TAKE_A_BUS_DONE))
+        if ((inMessage.getMsgType() !=ATTQMessage.ACK))
             {   System.out.println("Thread " + Thread.currentThread().getName () + ": Tipo inválido!");
                 System.out.println(inMessage.toString ());
                 System.exit (1);
@@ -120,11 +121,11 @@ public class ArrailvalTTransferQuayStub implements IArraivalTerminalTransferQPas
                 }
                 catch (InterruptedException e) {}
             }
-        outMessage = new ATTQMessage (ATTQMessage.REQ_ENTER_THE_BUS,passengerID);        // pede a realização do serviço
+        outMessage = new ATTQMessage (ATTQMessage.ENTER_THE_BUS,passengerID);        // pede a realização do serviço
         con.writeObject (outMessage);
         inMessage = (ATTQMessage) con.readObject ();
 
-        if ((inMessage.getMsgType() !=ATTQMessage.ENTER_THE_BUS_DONE))
+        if ((inMessage.getMsgType() !=ATTQMessage.ACK))
             {   System.out.println("Thread " + Thread.currentThread().getName () + ": Tipo inválido!");
                 System.out.println(inMessage.toString ());
                 System.exit (1);
@@ -143,11 +144,11 @@ public class ArrailvalTTransferQuayStub implements IArraivalTerminalTransferQPas
                 }
                 catch (InterruptedException e) {}
             }
-        outMessage = new ATTQMessage (ATTQMessage.REQ_END_OF_DAY);        // pede a realização do serviço
+        outMessage = new ATTQMessage (ATTQMessage.END_OF_DAY);        // pede a realização do serviço
         con.writeObject (outMessage);
         inMessage = (ATTQMessage) con.readObject ();
 
-        if ((inMessage.getMsgType() !=ATTQMessage.END_OF_DAY_DONE))
+        if ((inMessage.getMsgType() !=ATTQMessage.ACK))
             {   System.out.println("Thread " + Thread.currentThread().getName () + ": Tipo inválido!");
                 System.out.println(inMessage.toString ());
                 System.exit (1);

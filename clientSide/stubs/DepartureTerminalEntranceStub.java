@@ -1,7 +1,8 @@
-package clientSide;
+package clientSide.stubs;
 
 import java.util.ArrayList;
 
+import clientSide.ClientCom;
 import commonInfra.DTEMessage;
 import commonInfra.Baggage;
 import interfaces.IDepartureTerminalEntrancePassenger;
@@ -46,11 +47,11 @@ public class DepartureTerminalEntranceStub implements IDepartureTerminalEntrance
             }
             catch (InterruptedException e) {}
         }
-        outMessage = new DTEMessage(DTEMessage.REQ_SYNC_PASSENGER);    // o barbeiro chama o cliente
+        outMessage = new DTEMessage(DTEMessage.SYNC_PASSENGER);    // o barbeiro chama o cliente
         con.writeObject (outMessage);
         inMessage = (DTEMessage) con.readObject ();
        
-        if (inMessage.getMsgType() != DTEMessage.SYNC_PASSENGER_DONE)
+        if (inMessage.getMsgType() != DTEMessage.ACK)
             {   System.out.println("Thread " + Thread.currentThread ().getName () + ": Tipo inválido!");
                 System.out.println(inMessage.toString ());
                 System.exit (1);
@@ -68,11 +69,11 @@ public class DepartureTerminalEntranceStub implements IDepartureTerminalEntrance
             }
             catch (InterruptedException e) {}
         }
-        outMessage = new DTEMessage(DTEMessage.REQ_AWAKE_PASSENGERS);    // o barbeiro chama o cliente
+        outMessage = new DTEMessage(DTEMessage.AWAKE_PASSENGERS);    // o barbeiro chama o cliente
         con.writeObject (outMessage);
         inMessage = (DTEMessage) con.readObject ();
        
-        if (inMessage.getMsgType() != DTEMessage.AWAKE_PASSENGERS_DONE)
+        if (inMessage.getMsgType() != DTEMessage.ACK)
             {   System.out.println("Thread " + Thread.currentThread ().getName () + ": Tipo inválido!");
                 System.out.println(inMessage.toString ());
                 System.exit (1);
@@ -93,11 +94,11 @@ public class DepartureTerminalEntranceStub implements IDepartureTerminalEntrance
                 }
                 catch (InterruptedException e) {}
             }
-        outMessage = new DTEMessage (DTEMessage.REQ_PREPARE_NEXT_LEG,npassengers);        // pede a realização do serviço
+        outMessage = new DTEMessage (DTEMessage.PREPARE_NEXT_LEG,npassengers);        // pede a realização do serviço
         con.writeObject (outMessage);
         inMessage = (DTEMessage) con.readObject ();
 
-        if ((inMessage.getMsgType() !=DTEMessage.PREPARE_NEXT_LEG_DONE))
+        if ((inMessage.getMsgType() !=DTEMessage.ACK))
             {   System.out.println("Thread " + Thread.currentThread ().getName () + ": Tipo inválido!");
                 System.out.println(inMessage.toString ());
                 System.exit (1);
@@ -117,11 +118,11 @@ public class DepartureTerminalEntranceStub implements IDepartureTerminalEntrance
                 }
                 catch (InterruptedException e) {}
             }
-        outMessage = new DTEMessage (DTEMessage.REQ_N_PASSENGERS_DEPARTURE_TENTRANCE);        // pede a realização do serviço
+        outMessage = new DTEMessage (DTEMessage.N_PASSENGERS_DEPARTURE_TENTRANCE);        // pede a realização do serviço
         con.writeObject (outMessage);
         inMessage = (DTEMessage) con.readObject ();
 
-        if ((inMessage.getMsgType() !=DTEMessage.N_PASSENGERS_DEPARTURE_TENTRANCE_DONE))
+        if ((inMessage.getMsgType() !=DTEMessage.ACK))
             {   System.out.println("Thread " + Thread.currentThread ().getName () + ": Tipo inválido!");
                 System.out.println(inMessage.toString ());
                 System.exit (1);

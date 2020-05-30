@@ -1,10 +1,18 @@
-package entities;
+package clientSide;
 
 import commonInfra.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+
+import clientSide.stubs.ArrailvalTTransferQuayStub;
+import clientSide.stubs.ArraivalLoungeStub;
+import clientSide.stubs.ArraivalTerminalExitStub;
+import clientSide.stubs.BagageCollectionPointStub;
+import clientSide.stubs.BaggageReclaimOfficeStub;
+import clientSide.stubs.DepartureTerminalEntranceStub;
+import clientSide.stubs.DepartureTerminalTransferQuayStub;
 import main.*;
 import interfaces.*;
 
@@ -26,34 +34,48 @@ public class Passenger extends Thread {
 	* verifying if passenger has another flight
 	*/
 	private boolean jorneyEnds;
+
+	private ArraivalLoungeStub aloungeStub;
+
+	private BagageCollectionPointStub bcPointStub;
+	
+	private ArraivalTerminalExitStub atExitStub;
+	
+	private ArrailvalTTransferQuayStub attQuayStub;
+
+	private DepartureTerminalTransferQuayStub dttQuayStub;
+
+	private BaggageReclaimOfficeStub brOfficeStub;
+
+	private DepartureTerminalEntranceStub dtEntranceStub;
 	/**
     * Interface Passenger Arraival Lounge
     */
-	private final IArraivalLoungePassenger monitorAl;
-	/**
-    * Interface Passenger Baggage Collection Point 
-    */
-	private final IBaggageCollectionPointPassenger monitorBc;
-	/**
-    * Interface Passenger Terminal Exit  
-    */
-	private final IArraivalTerminalExitPassenger monitorAe;
-	/**
-    * Interface Passenger Arraival Terminal Transfer Quay  
-    */
-	private final IArraivalTerminalTransferQPassenger monitorTTQ;
-	/**
-    * Interface Passenger Departure Terminal Transfer  
-    */
-	private final IDepartureTerminalTransferQPassenger monitorDTTQ;
-	/**
-    * Interface Passenger Departure Terminal Entrance  
-    */
-	private final IDepartureTerminalEntrancePassenger monitorDEP;
-	/**
-    * Interface Passenger Baggage Reclaim Office 
-    */
-	private final IBaggageReclaimOfficePassenger monitorBRO;
+	// private final IArraivalLoungePassenger monitorAl;
+	// /**
+    // * Interface Passenger Baggage Collection Point 
+    // */
+	// private final IBaggageCollectionPointPassenger monitorBc;
+	// /**
+    // * Interface Passenger Terminal Exit  
+    // */
+	// private final IArraivalTerminalExitPassenger monitorAe;
+	// /**
+    // * Interface Passenger Arraival Terminal Transfer Quay  
+    // */
+	// private final IArraivalTerminalTransferQPassenger monitorTTQ;
+	// /**
+    // * Interface Passenger Departure Terminal Transfer  
+    // */
+	// private final IDepartureTerminalTransferQPassenger monitorDTTQ;
+	// /**
+    // * Interface Passenger Departure Terminal Entrance  
+    // */
+	// private final IDepartureTerminalEntrancePassenger monitorDEP;
+	// /**
+    // * Interface Passenger Baggage Reclaim Office 
+    // */
+	// private final IBaggageReclaimOfficePassenger monitorBRO;
 	/**
      * Number of passenger's {@link Bag}s per flight
      */
@@ -88,20 +110,26 @@ public class Passenger extends Thread {
     private List<List<Baggage>> flightsBags;
 
 	
-	public Passenger(int passengerID, Boolean[] flightsDestination, List<List<Baggage>> flightsBags,IArraivalLoungePassenger monitorAl,IBaggageCollectionPointPassenger monitorBc, IArraivalTerminalExitPassenger monitorAe, IArraivalTerminalTransferQPassenger monitorTTQ , IDepartureTerminalTransferQPassenger monitorDTTQ, IDepartureTerminalEntrancePassenger monitorDEP,IBaggageReclaimOfficePassenger monitorBRO) {
+	public Passenger(int passengerID, Boolean[] flightsDestination, List<List<Baggage>> flightsBags,ArraivalLoungeStub aloungeStub,BagageCollectionPointStub bcPointStub, ArraivalTerminalExitStub atExitStub, ArrailvalTTransferQuayStub attQuayStub,DepartureTerminalTransferQuayStub dttQuayStub, DepartureTerminalEntranceStub dtEntranceStub,BaggageReclaimOfficeStub brOfficeStub) {
 		this.passengerID = passengerID;
 		//this.numBags = numBags;
 		//this.jorneyEnds = jorneyEnds;
 		this.flightsDestination = flightsDestination;
-		this.monitorBc = monitorBc;
-		this.monitorAl = monitorAl;
+		/*this.monitorBc = monitorBc;
+		this.monitorAl = monitorAl;*/
 		this.state = PassengerEnum.AT_THE_DISEMBARKING_ZONE;	
 		this.bagsCollected = new ArrayList<Baggage>();
-		this.monitorAe = monitorAe;
+		this.aloungeStub    = aloungeStub;
+		this.bcPointStub    = bcPointStub;
+		this.atExitStub     = atExitStub;
+		this.attQuayStub    = attQuayStub;
+		this.dtEntranceStub = dtEntranceStub;
+		this.dttQuayStub    = dttQuayStub;
+		/*this.monitorAe = monitorAe;
 		this.monitorTTQ = monitorTTQ;
 		this.monitorDTTQ = monitorDTTQ;
 		this.monitorDEP = monitorDEP;
-		this.monitorBRO = monitorBRO;
+		this.monitorBRO = monitorBRO;*/
 		this.end = true;
 		this.flightsBags = flightsBags;
 		this.numberFlights = global.NR_FLIGHTS;
@@ -154,8 +182,8 @@ public class Passenger extends Thread {
 							bags[i] = flightsBags.get(cFlight).get(i);
 						}
 						//falta mexer no ArrailvalLounge
-						if(monitorAl.whatShouldIDO(goHome) == 1) 
-							monitorBc.resetState();
+						if(aloungeStub.whatShouldIDO(goHome) == 1) 
+							bcPointStub.resetState();
 							
 						System.out.printf("Passageiro:%d -> AT_THE_DISEMBARKING_ZONE | chegou com:%d mala(s) e jorneyEnds:%b \n", this.passengerID,bags.length,goHome);
 						
@@ -189,7 +217,7 @@ public class Passenger extends Thread {
 						//lostBags = new ArrayList<Baggage>((Arrays.asList(bags)));
 						while(bagsCollected.size() >0){
 							// ir buscar mala random ? 
-							Baggage baggtoCollect = monitorBc.goCollectABag(bagsCollected);
+							Baggage baggtoCollect = bcPointStub.goCollectABag(bagsCollected);
 							
 							if(baggtoCollect == null)
 							{
@@ -212,40 +240,40 @@ public class Passenger extends Thread {
 
 					case AT_THE_BAGGAGE_RECLAIM_OFFICE:
 						System.out.printf("Passenger:%d -> COMPLAINING: %d lost bags \n",this.passengerID,bagsCollected.size());
-						monitorBRO.complain(bagsCollected);
+						brOfficeStub.complain(bagsCollected);
 						state = PassengerEnum.EXITING_THE_ARRIVAL_TERMINAL;
 						break;
 						
 					case AT_THE_ARRIVAL_TRANSFER_TERMINAL:
 						System.out.printf("Passenger:%d -> AT THE ARRIVAL TRANSFER TERMINAL WATING FOR BUS \n",this.passengerID);
-						monitorTTQ.takeABus(this.passengerID);
+						attQuayStub.takeABus(this.passengerID);
 						System.out.printf("Passenger:%d -> IN THE BUS \n",this.passengerID);
-						monitorTTQ.enterTheBus(this.passengerID);
+						attQuayStub.enterTheBus(this.passengerID);
 						state = PassengerEnum.TERMINAL_TRANSFER;
 						break;
 					case TERMINAL_TRANSFER:
 						System.out.printf("Passenger:%d -> AT THE TERMINAL TRANSFER \n",this.passengerID);
-						monitorDTTQ.waitRide();
+						dttQuayStub.waitRide();
 						state = PassengerEnum.AT_THE_DEPARTURE_TRANSFER_TERMINAL;
 						break;
 
 					case AT_THE_DEPARTURE_TRANSFER_TERMINAL:
 						System.out.printf("Passenger:%d -> LEAVING THE BUS \n",this.passengerID);
-						monitorDTTQ.leaveTheBus();
+						dttQuayStub.leaveTheBus();
 						state = PassengerEnum.ENTERING_THE_DEPARTURE_TERMINAL;
 						break;
 
 				
 
-					case EXITING_THE_ARRIVAL_TERMINAL:
+				/*	case EXITING_THE_ARRIVAL_TERMINAL:
 						System.out.printf("Passenger:%d -> EXITING_THE_ARRIVAL_TERMINAL \n",this.passengerID);
-						monitorAe.syncPassenger();
-						int goingHome = monitorDEP.nPassengersDepartureTEntrance();
-						if(monitorAe.goHome(goingHome)){
+						atExitStub.syncPassenger();
+						int goingHome = dtEntranceStub.nPassengersDepartureTEntrance();
+						if(atExitStub.goHome(goingHome)){
 							//monitorAe.awakePassengers();
-							monitorDEP.awakePassengers();
+							dtEntranceStub.awakePassengers();
 							if(cFlight == numberFlights - 1) {
-								//monitorAl.endOfDay();
+								aloungeStub.endOfDay();
 								monitorTTQ.endOfDay();
 							}
 							
@@ -254,7 +282,8 @@ public class Passenger extends Thread {
 						System.out.printf("Passenger:%d leaving airport \n",this.passengerID);
 						state = PassengerEnum.WAITING_END;
 						break;
-
+				**/
+				/*
 					case ENTERING_THE_DEPARTURE_TERMINAL:
 						System.out.printf("Passenger:%d -> PREPARING NEXT FLIGHT \n",this.passengerID);
 						monitorDEP.syncPassenger();
@@ -264,14 +293,14 @@ public class Passenger extends Thread {
 							monitorAe.awakePassengers();
 							//monitorDEP.awakePassengers();
 							if(cFlight == numberFlights - 1) {
-								//monitorAl.endOfDay();
+								aloungeStub.endOfDay();
 								monitorTTQ.endOfDay();
 							}
 							
 						}						
 						end = false;
 						break ;
-						
+						**/
 				}
 				
 				try {

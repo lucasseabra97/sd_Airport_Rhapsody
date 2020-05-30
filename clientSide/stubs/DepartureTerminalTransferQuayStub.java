@@ -1,7 +1,8 @@
-package clientSide;
+package clientSide.stubs;
 
 import java.util.ArrayList;
 
+import clientSide.ClientCom;
 import commonInfra.DTTQMessage;
 import commonInfra.Baggage;
 import interfaces.IDepartureTerminalTransferQBusDriver;
@@ -46,11 +47,11 @@ public class DepartureTerminalTransferQuayStub implements IDepartureTerminalTran
             }
             catch (InterruptedException e) {}
         }
-        outMessage = new DTTQMessage(DTTQMessage.REQ_LEAVE_THE_BUS);    // o barbeiro chama o cliente
+        outMessage = new DTTQMessage(DTTQMessage.LEAVE_THE_BUS);    // o barbeiro chama o cliente
         con.writeObject (outMessage);
         inMessage = (DTTQMessage) con.readObject ();
        
-        if (inMessage.getMsgType() != DTTQMessage.LEAVE_THE_BUS_DONE)
+        if (inMessage.getMsgType() != DTTQMessage.ACK)
             {   System.out.println("Thread " + Thread.currentThread ().getName () + ": Tipo inválido!");
                 System.out.println(inMessage.toString ());
                 System.exit (1);
@@ -70,11 +71,11 @@ public class DepartureTerminalTransferQuayStub implements IDepartureTerminalTran
             }
             catch (InterruptedException e) {}
         }
-        outMessage = new DTTQMessage(DTTQMessage.REQ_WAIT_RIDE);    // o barbeiro chama o cliente
+        outMessage = new DTTQMessage(DTTQMessage.WAIT_RIDE);    // o barbeiro chama o cliente
         con.writeObject (outMessage);
         inMessage = (DTTQMessage) con.readObject ();
        
-        if (inMessage.getMsgType() != DTTQMessage.WAIT_RIDE_DONE)
+        if (inMessage.getMsgType() != DTTQMessage.ACK)
             {   System.out.println("Thread " + Thread.currentThread ().getName () + ": Tipo inválido!");
                 System.out.println(inMessage.toString ());
                 System.exit (1);
@@ -94,11 +95,11 @@ public class DepartureTerminalTransferQuayStub implements IDepartureTerminalTran
             }
             catch (InterruptedException e) {}
         }
-        outMessage = new DTTQMessage(DTTQMessage.REQ_PARK_THE_BUS_AND_LET_PASS_OFF,nPassenger);    // o barbeiro chama o cliente
+        outMessage = new DTTQMessage(DTTQMessage.PARK_THE_BUS_AND_LET_PASS_OFF,nPassenger);    // o barbeiro chama o cliente
         con.writeObject (outMessage);
         inMessage = (DTTQMessage) con.readObject ();
        
-        if (inMessage.getMsgType() != DTTQMessage.PARK_THE_BUS_AND_LET_PASS_OFF_DONE)
+        if (inMessage.getMsgType() != DTTQMessage.ACK)
             {   System.out.println("Thread " + Thread.currentThread ().getName () + ": Tipo inválido!");
                 System.out.println(inMessage.toString ());
                 System.exit (1);

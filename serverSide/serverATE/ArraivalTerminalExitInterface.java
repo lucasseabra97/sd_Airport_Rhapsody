@@ -38,13 +38,13 @@ public class ArraivalTerminalExitInterface {
 
      switch (inMessage.getMsgType()) 
      {
-        case ATEMessage.REQ_GO_HOME:
+        case ATEMessage.GO_HOME:
               break;
-        case ATEMessage.REQ_AWAKE_PASSENGERS:
+        case ATEMessage.AWAKE_PASSENGERS:
               break;
-        case ATEMessage.REQ_N_PASSENGERS_DEPARTURE_AT:
+        case ATEMessage.N_PASSENGERS_DEPARTURE_AT:
               break;
-        case ATEMessage.REQ_SYNC_PASSENGER:
+        case ATEMessage.SYNC_PASSENGER:
               break;
         // case ArraivalLoungeMessage.END_OF_DAY_DONE:                         //necessário end of day para cada server ? 
         default:
@@ -55,21 +55,21 @@ public class ArraivalTerminalExitInterface {
 
      switch (inMessage.getMsgType())
      {
-        case ATEMessage.REQ_GO_HOME:                         
+        case ATEMessage.GO_HOME:                         
                     boolean goHome = monitorATE.goHome(inMessage.getNPassGoingHome());
-                    outMessage = new ATEMessage(ATEMessage.GO_HOME_DONE,goHome);
+                    outMessage = new ATEMessage(ATEMessage.ACK,goHome);
                     break;                    
-        case ATEMessage.REQ_AWAKE_PASSENGERS:
+        case ATEMessage.AWAKE_PASSENGERS:
                     monitorATE.awakePassengers();
-                    outMessage = new ATEMessage(ATEMessage.AWAKE_PASSENGERS_DONE);
+                    outMessage = new ATEMessage(ATEMessage.ACK);
                     break;                               
-        case ATEMessage.REQ_N_PASSENGERS_DEPARTURE_AT:
+        case ATEMessage.N_PASSENGERS_DEPARTURE_AT:
                     int nPass = monitorATE.nPassengersDepartureAT();
-                    outMessage = new ATEMessage(ATEMessage.N_PASSENGERS_DEPARTURE_AT_DONE);
+                    outMessage = new ATEMessage(ATEMessage.ACK);
                     break;                              
-        case ATEMessage.REQ_SYNC_PASSENGER:
+        case ATEMessage.SYNC_PASSENGER:
                     monitorATE.syncPassenger();
-                    outMessage = new ATEMessage(ATEMessage.SYNC_PASSENGER_DONE);
+                    outMessage = new ATEMessage(ATEMessage.ACK);
                     break;                             
               
      }

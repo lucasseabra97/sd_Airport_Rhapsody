@@ -38,39 +38,49 @@ public class ArraivalLoungeInterface {
 
      switch (inMessage.getMsgType()) 
      {
-        case ArraivalLoungeMessage.REQ_WHAT_SHOULD_I_DO: 
+        case ArraivalLoungeMessage.WHAT_SHOULD_I_DO: 
             break;
-        case ArraivalLoungeMessage.REQ_TRY_TO_COLLECCT_A_BAG:
+        case ArraivalLoungeMessage.TRY_TO_COLLECCT_A_BAG:
             break;
-        case ArraivalLoungeMessage.REQ_TAKE_A_REST:
+        case ArraivalLoungeMessage.TAKE_A_REST:
             break;
+        case ArraivalLoungeMessage.SET_PARAMETERS:
+            break;
+        /*
         case ArraivalLoungeMessage.END_OF_DAY_DONE:
             break;
+        */
         default:
-             throw new ALMessageException("Tipo inválido!", inMessage);
+            throw new ALMessageException("Tipo inválido!", inMessage);
      }
 
      /* seu processamento */
 
      switch (inMessage.getMsgType())
      {
-        case ArraivalLoungeMessage.REQ_WHAT_SHOULD_I_DO:                         
+        case ArraivalLoungeMessage.WHAT_SHOULD_I_DO:                         
                     int nPass = monitorAL.whatShouldIDO(inMessage.isGoHome());
-                    outMessage = new ArraivalLoungeMessage(ArraivalLoungeMessage.WHAT_SHOULD_I_DO_DONE,nPass);
+                    outMessage = new ArraivalLoungeMessage(ArraivalLoungeMessage.ACK,nPass);
                     break;                    
-        case ArraivalLoungeMessage.REQ_TRY_TO_COLLECCT_A_BAG:
+        case ArraivalLoungeMessage.TRY_TO_COLLECCT_A_BAG:
                     Baggage bag = monitorAL.tryToCollectABag();
-                    outMessage = new ArraivalLoungeMessage(ArraivalLoungeMessage.TRY_TO_COLLECCT_A_BAG_DONE , bag);
+                    outMessage = new ArraivalLoungeMessage(ArraivalLoungeMessage.ACK , bag);
                     break;                               
-        case ArraivalLoungeMessage.REQ_TAKE_A_REST:
+        case ArraivalLoungeMessage.TAKE_A_REST:
                     boolean takeRest = monitorAL.takeARest();
-                    outMessage = new ArraivalLoungeMessage(ArraivalLoungeMessage.TAKE_A_REST_DONE  , takeRest);
-                    break;                              
-        case ArraivalLoungeMessage.REQ_END_OF_DAY:
+                    outMessage = new ArraivalLoungeMessage(ArraivalLoungeMessage.ACK , takeRest);
+                    break;  
+        case ArraivalLoungeMessage.SET_PARAMETERS:
+                    monitorAL.setParameters(inMessage.getNPass(), inMessage.getBagsList());
+                    outMessage = new ArraivalLoungeMessage(ArraivalLoungeMessage.ACK);
+                    break;
+
+
+        /*case ArraivalLoungeMessage.REQ_END_OF_DAY:
                     monitorAL.endOfDay();
                     outMessage = new ArraivalLoungeMessage(ArraivalLoungeMessage.END_OF_DAY_DONE);
                     break;                             
-              
+        */    
      }
     return (outMessage);
    }

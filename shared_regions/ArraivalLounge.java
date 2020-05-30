@@ -200,7 +200,7 @@ public class ArraivalLounge implements IArraivalLoungePassenger , IArraivalLoung
 		}
         
 	}
-
+	/*
 	@Override 
     public void endOfDay() {
         rl.lock();
@@ -212,6 +212,6 @@ public class ArraivalLounge implements IArraivalLoungePassenger , IArraivalLoung
             rl.unlock();
         }
     }
-
+	*/
 }
 	

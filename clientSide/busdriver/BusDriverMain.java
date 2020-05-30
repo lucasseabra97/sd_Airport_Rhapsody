@@ -16,32 +16,24 @@ public class BusDriverMain {
        
 
     
-        ArrailvalTTransferQuayStub        attQuayStub;                   // stub Arraival Terminal Transfer Quay
-        DepartureTerminalTransferQuayStub dttQuayStub;          // stub Departure Terminal Transfer Quay
+        // ArrailvalTTransferQuayStub        attQuayStub;                   // stub Arraival Terminal Transfer Quay
+        // DepartureTerminalTransferQuayStub dttQuayStub;          // stub Departure Terminal Transfer Quay
         
-        String fName;                                        // nome do ficheiro de logging 
-        String serverHostName;                               // nome do sistema computacional onde está o servidor
-        int serverPortNumb;                                  // número do port de escuta do servidor
+        // String fName;                                        // nome do ficheiro de logging 
+        // String serverHostName;                               // nome do sistema computacional onde está o servidor
+        // int serverPortNumb;                                  // número do port de escuta do servidor
 
-        /* Obtenção dos parâmetros do problema */
+        // /* Obtenção dos parâmetros do problema */
 
-        System.out.println("----------AirportRhapsody---------\n");
+        // System.out.println("----------AirportRhapsody---------\n");
        
         
-        System.out.println("Nome do ficheiro de logging? ");
-        fName = sc.nextLine(); 
-        System.out.println("Nome do sistema computacional onde está o servidor? ");
-        serverHostName = sc.nextLine();
-        System.out.println("Número do port de escuta do servidor? ");
-        serverPortNumb = sc.nextInt();
-        aLoungStub = new ArraivalLoungeStub (serverHostName, serverPortNumb);
-        //prob vamos ter de limpar os buffers ...
-        System.out.println("Nome do sistema computacional onde está o servidor? ");
-        serverHostName = sc.nextLine();
-        System.out.println("Número do port de escuta do servidor? ");
-        serverPortNumb = sc.nextInt();
-        atExitStub = new ArraivalTerminalExitStub (serverHostName, serverPortNumb);
-
-         
+        // System.out.println("Nome do ficheiro de logging? ");
+        // fName = sc.nextLine(); 
+        // System.out.println("Nome do sistema computacional onde está o servidor? ");
+        // serverHostName = sc.nextLine();
+        // System.out.println("Número do port de escuta do servidor? ");
+        // serverPortNumb = sc.nextInt();
+       
     }
 }

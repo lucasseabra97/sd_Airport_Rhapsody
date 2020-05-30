@@ -38,17 +38,17 @@ public class ArraivalTerminalTransferQuayInterface {
 
      switch (inMessage.getMsgType()) 
      {
-        case ATTQMessage.REQ_DEPARTURE_TIME:
+        case ATTQMessage.DEPARTURE_TIME:
             break;
-        case ATTQMessage.REQ_TAKE_A_BUS:
+        case ATTQMessage.TAKE_A_BUS:
             break;
-        case ATTQMessage.REQ_ENTER_THE_BUS:
+        case ATTQMessage.ENTER_THE_BUS:
             break;
-        case ATTQMessage.REQ_HAS_DAYS_WORK_ENDED:
+        case ATTQMessage.HAS_DAYS_WORK_ENDED:
             break;
-        case ATTQMessage.REQ_ANNOUNCING_BUS_BOARDING:
+        case ATTQMessage.ANNOUNCING_BUS_BOARDING:
             break;
-        case ATTQMessage.REQ_END_OF_DAY:
+        case ATTQMessage.END_OF_DAY:
             break; 
         default:
              throw new ATTQMessageException("Tipo inválido!", inMessage);
@@ -58,29 +58,29 @@ public class ArraivalTerminalTransferQuayInterface {
 
      switch (inMessage.getMsgType())
      {
-        case ATTQMessage.REQ_DEPARTURE_TIME:                         
+        case ATTQMessage.DEPARTURE_TIME:                         
                     monitorATTQ.departureTime();
-                    outMessage = new ATTQMessage(ATTQMessage.DEPARTURE_TIME_DONE);
+                    outMessage = new ATTQMessage(ATTQMessage.ACK);
                     break;                    
-        case ATTQMessage.REQ_TAKE_A_BUS:
+        case ATTQMessage.TAKE_A_BUS:
                     monitorATTQ.takeABus(inMessage.getPassengerID());
-                    outMessage = new ATTQMessage(ATTQMessage.TAKE_A_BUS_DONE);
+                    outMessage = new ATTQMessage(ATTQMessage.ACK);
                     break;                               
-        case ATTQMessage.REQ_ENTER_THE_BUS:
+        case ATTQMessage.ENTER_THE_BUS:
                     monitorATTQ.enterTheBus(inMessage.getPassengerID());
-                    outMessage = new ATTQMessage(ATTQMessage.ENTER_THE_BUS_DONE);
+                    outMessage = new ATTQMessage(ATTQMessage.ACK);
                     break;                              
-        case ATTQMessage.REQ_HAS_DAYS_WORK_ENDED:
+        case ATTQMessage.HAS_DAYS_WORK_ENDED:
                     BusDriverAction busDAction= monitorATTQ.hasDaysWorkEnded();
-                    outMessage = new ATTQMessage(ATTQMessage.HAS_DAYS_WORK_ENDED_DONE,busDAction);
+                    outMessage = new ATTQMessage(ATTQMessage.ACK,busDAction);
                     break;                             
-        case ATTQMessage.REQ_ANNOUNCING_BUS_BOARDING:
+        case ATTQMessage.ANNOUNCING_BUS_BOARDING:
                     int insidePassengers = monitorATTQ.annoucingBusBoarding();
-                    outMessage = new ATTQMessage(ATTQMessage.ANNOUNCING_BUS_BOARDING_DONE , insidePassengers);
+                    outMessage = new ATTQMessage(ATTQMessage.ACK , insidePassengers);
                     break;
-        case ATTQMessage.REQ_END_OF_DAY:
+        case ATTQMessage.END_OF_DAY:
                     monitorATTQ.endOfDay();
-                    outMessage = new ATTQMessage(ATTQMessage.END_OF_DAY_DONE);
+                    outMessage = new ATTQMessage(ATTQMessage.ACK);
                     break;  
                 
                 

@@ -39,7 +39,7 @@ public class DepartureTerminalEntranceMain {
             // System.out.println("File already exists.");
         }
 
-        GeneralRepository genInfoRepo = new GeneralRepository(logger);
+        //GeneralRepository genInfoRepo = new GeneralRepository(logger);
 
         DepartureTerminalEntrance monitorDTE;                                  // barbearia (representa o serviço a ser prestado)
         DepartureTerminalEntranceInterface atExitInter;                       // interface à barbearia
@@ -50,14 +50,14 @@ public class DepartureTerminalEntranceMain {
 
         scon = new ServerCom (portNumb);                     // criação do canal de escuta e sua associação
         scon.start ();                                       // com o endereço público
-        monitorDTE = new DepartureTerminalEntrance(global.NR_PASSENGERS,genInfoRepo);                           // activação do serviço
+        monitorDTE = new DepartureTerminalEntrance(/*global.NR_PASSENGERS,genInfoRepo*/);                           // activação do serviço
         atExitInter = new DepartureTerminalEntranceInterface (monitorDTE);        // activação do interface com o serviço
         System.out.println("O serviço foi estabelecido!");
         System.out.println("O servidor esta em escuta.");
 
         /* processamento de pedidos */
         //NAO SEI ONDE METER ISTO MAS É NECESSARIO
-        genInfoRepo.close();
+        //genInfoRepo.close();
         waitConnection = true;
         while (waitConnection)
             try

@@ -27,13 +27,13 @@ public class BaggageReclaimOffice implements IBaggageReclaimOfficePassenger{
     /**
      * General Repository
      */
-    private GeneralRepository rep;
+    //private GeneralRepository rep;
     /**
      * Baggage Reclaim Office constructor
      * @param rep
      */
     public BaggageReclaimOffice(GeneralRepository rep){
-        this.rep = rep;
+        //this.rep = rep;
         rl = new ReentrantLock(true);
         bagsList = new ArrayList<>();
        
@@ -47,8 +47,8 @@ public class BaggageReclaimOffice implements IBaggageReclaimOfficePassenger{
       
         rl.lock();
         try {
-            Passenger passenger = (Passenger) Thread.currentThread();
-            rep.passComplain(passenger.getPassengerID());
+            //Passenger passenger = (Passenger) Thread.currentThread();
+            //rep.passComplain(passenger.getPassengerID());
 
             for(Baggage b : bags) {
                 this.bagsList.add(b);

@@ -1,6 +1,4 @@
 package serverSide.serverBCP;
-
-
 import commonInfra.*;
 public class BaggageCollectionPointInterface {
     /**
@@ -40,13 +38,13 @@ public class BaggageCollectionPointInterface {
 
      switch (inMessage.getMsgType()) 
      {
-        case BCPMessage.REQ_CARRY_IT_TO_APPROPRIATE_STORE:
+        case BCPMessage.CARRY_IT_TO_APPROPRIATE_STORE:
             break;
-        case BCPMessage.REQ_GO_COLLECT_A_BAG:
+        case BCPMessage.GO_COLLECT_A_BAG:
             break;
-        case BCPMessage.REQ_NO_MORE_BAGS_TO_COLLECT:
+        case BCPMessage.NO_MORE_BAGS_TO_COLLECT:
             break;
-        case BCPMessage.REQ_RESET_STATE:
+        case BCPMessage.RESET_STATE:
             break;
         default:
              throw new BCPMessageException("Tipo inválido!", inMessage);
@@ -56,21 +54,21 @@ public class BaggageCollectionPointInterface {
 
      switch (inMessage.getMsgType())
      {
-        case BCPMessage.REQ_CARRY_IT_TO_APPROPRIATE_STORE:
+        case BCPMessage.CARRY_IT_TO_APPROPRIATE_STORE:
                     monitorBCP.carryItToAppropriateStore(inMessage.getBaggage());
-                    outMessage = new BCPMessage(BCPMessage.CARRY_IT_TO_APPROPRIATE_STORE_DONE);
+                    outMessage = new BCPMessage(BCPMessage.ACK);
                     break;                    
-        case BCPMessage.REQ_GO_COLLECT_A_BAG:
+        case BCPMessage.GO_COLLECT_A_BAG:
                     Baggage bag = monitorBCP.goCollectABag(inMessage.getBaggageList());
-                    outMessage = new BCPMessage(BCPMessage.GO_COLLECT_A_BAG_DONE , bag);
+                    outMessage = new BCPMessage(BCPMessage.ACK , bag);
                     break;                               
-        case BCPMessage.REQ_NO_MORE_BAGS_TO_COLLECT:
+        case BCPMessage.NO_MORE_BAGS_TO_COLLECT:
                     monitorBCP.noMoreBagsToCollect();
-                    outMessage = new BCPMessage(BCPMessage.NO_MORE_BAGS_TO_COLLECT_DONE);
+                    outMessage = new BCPMessage(BCPMessage.ACK);
                     break;                              
-        case BCPMessage.REQ_RESET_STATE:
+        case BCPMessage.RESET_STATE:
                     monitorBCP.resetState();
-                    outMessage = new BCPMessage(BCPMessage.RESET_STATE_DONE);                         
+                    outMessage = new BCPMessage(BCPMessage.ACK);                         
                     break;                             
     }
      

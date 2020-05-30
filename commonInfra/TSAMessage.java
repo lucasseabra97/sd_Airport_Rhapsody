@@ -15,12 +15,12 @@ public class TSAMessage implements Serializable {
     /**
      *  poter requests to carry bags 
      */
-    public static final int REQ_CARRY_IT_TO_APPROPRIATE_STORE = 1;
+    public static final int CARRY_IT_TO_APPROPRIATE_STORE = 1;
 
     /**
     *   (resposta enviada pelo servidor)
     */
-    public static final int CARRY_IT_TO_APPROPRIATE_STORE_DONE = 2;
+    public static final int ACK = 2;
 
     /* Campos das mensagens */
 

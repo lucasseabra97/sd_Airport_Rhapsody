@@ -1,42 +1,42 @@
-package clientSide;
+package clientSide.stubs;
 
-import java.util.ArrayList;
+import clientSide.ClientCom;
+import commonInfra.ATEMessage;
+import interfaces.IArraivalTerminalExitPassenger;
 
-import commonInfra.BCPMessage;
-import commonInfra.Baggage;
-import interfaces.IBaggageCollectionPointPassenger;
-import interfaces.IBaggageCollectionPointPorter;
+public class ArraivalTerminalExitStub implements IArraivalTerminalExitPassenger {
 
-public class BagageCollectionPointStub implements IBaggageCollectionPointPorter, IBaggageCollectionPointPassenger {
-
-     /**
+     
+    /**
    *  Nome do sistema computacional onde está localizado o servidor
    *    @serialField serverHostName
    */
 
    private String serverHostName = null;
+
    /**
     *  Número do port de escuta do servidor
     *    @serialField serverPortNumb
     */
  
     private int serverPortNumb;
-    /**
+ 
+    /** 
      * 
      * @param serverHostName
      * @param serverPortNumb
      */
 
-    public BagageCollectionPointStub(String serverHostName,int serverPortNumb){
+    public ArraivalTerminalExitStub(String serverHostName,int serverPortNumb){
         this.serverHostName = serverHostName;
         this.serverPortNumb = serverPortNumb;
     }
 
-    @Override
-    public Baggage goCollectABag(ArrayList<Baggage> ibagp) {
 
+    @Override
+    public boolean goHome(int npassengers) {
         ClientCom con = new ClientCom (serverHostName, serverPortNumb);
-        BCPMessage inMessage, outMessage;
+        ATEMessage inMessage, outMessage;
 
         while (!con.open ())                                  // aguarda ligação
             { try
@@ -44,24 +44,26 @@ public class BagageCollectionPointStub implements IBaggageCollectionPointPorter,
                 }
                 catch (InterruptedException e) {}
             }
-        outMessage = new BCPMessage (BCPMessage.REQ_GO_COLLECT_A_BAG,ibagp);        // pede a realização do serviço
+        outMessage = new ATEMessage (ATEMessage.GO_HOME,npassengers);        // pede a realização do serviço
         con.writeObject (outMessage);
-        inMessage = (BCPMessage) con.readObject ();
+        inMessage = (ATEMessage) con.readObject ();
 
-        if ((inMessage.getMsgType() !=BCPMessage.GO_COLLECT_A_BAG_DONE))
+        if ((inMessage.getMsgType() != ATEMessage.ACK))
             {   System.out.println("Thread " + Thread.currentThread ().getName () + ": Tipo inválido!");
                 System.out.println(inMessage.toString ());
                 System.exit (1);
             }
         con.close ();
-        return inMessage.getBaggage();
+        
+        //if(inMessage.getMsgType()==ATEMessage.GO_HOME_DONE)
+            return inMessage.isGoHome();
+        
     }
 
     @Override
-    public void resetState() {
-        // TODO Auto-generated method stub
+    public void syncPassenger() {
         ClientCom con = new ClientCom (serverHostName, serverPortNumb);
-        BCPMessage inMessage, outMessage;
+        ATEMessage inMessage, outMessage;
 
         while (!con.open ())                                  // aguarda ligação
             { try
@@ -69,36 +71,11 @@ public class BagageCollectionPointStub implements IBaggageCollectionPointPorter,
                 }
                 catch (InterruptedException e) {}
             }
-        outMessage = new BCPMessage (BCPMessage.REQ_RESET_STATE);        // pede a realização do serviço
+        outMessage = new ATEMessage (ATEMessage.SYNC_PASSENGER);        // pede a realização do serviço
         con.writeObject (outMessage);
-        inMessage = (BCPMessage) con.readObject ();
+        inMessage = (ATEMessage) con.readObject ();
 
-        if ((inMessage.getMsgType() !=BCPMessage.RESET_STATE_DONE))
-            {   System.out.println("Thread " + Thread.currentThread ().getName () + ": Tipo inválido!");
-                System.out.println(inMessage.toString ());
-                System.exit (1);
-            }
-        con.close ();
-
-    }
-
-    @Override
-    public void carryItToAppropriateStore(Baggage bag) {
-        // TODO Auto-generated method stub
-        ClientCom con = new ClientCom (serverHostName, serverPortNumb);
-        BCPMessage inMessage, outMessage;
-
-        while (!con.open ())                                  // aguarda ligação
-            { try
-                { Thread.currentThread ().sleep ((long) (10));
-                }
-                catch (InterruptedException e) {}
-            }
-        outMessage = new BCPMessage (BCPMessage.REQ_CARRY_IT_TO_APPROPRIATE_STORE,bag);        // pede a realização do serviço
-        con.writeObject (outMessage);
-        inMessage = (BCPMessage) con.readObject ();
-
-        if ((inMessage.getMsgType() !=BCPMessage.GO_COLLECT_A_BAG_DONE))
+        if ((inMessage.getMsgType() != ATEMessage.ACK))
             {   System.out.println("Thread " + Thread.currentThread ().getName () + ": Tipo inválido!");
                 System.out.println(inMessage.toString ());
                 System.exit (1);
@@ -108,10 +85,9 @@ public class BagageCollectionPointStub implements IBaggageCollectionPointPorter,
     }
 
     @Override
-    public void noMoreBagsToCollect() {
-        // TODO Auto-generated method stub
+    public int nPassengersDepartureAT() {
         ClientCom con = new ClientCom (serverHostName, serverPortNumb);
-        BCPMessage inMessage, outMessage;
+        ATEMessage inMessage, outMessage;
 
         while (!con.open ())                                  // aguarda ligação
             { try
@@ -119,11 +95,36 @@ public class BagageCollectionPointStub implements IBaggageCollectionPointPorter,
                 }
                 catch (InterruptedException e) {}
             }
-        outMessage = new BCPMessage (BCPMessage.REQ_NO_MORE_BAGS_TO_COLLECT);        // pede a realização do serviço
+        outMessage = new ATEMessage (ATEMessage.N_PASSENGERS_DEPARTURE_AT);        // pede a realização do serviço
         con.writeObject (outMessage);
-        inMessage = (BCPMessage) con.readObject ();
+        inMessage = (ATEMessage) con.readObject ();
 
-        if ((inMessage.getMsgType() !=BCPMessage.GO_COLLECT_A_BAG_DONE))
+        if ((inMessage.getMsgType() != ATEMessage.ACK))
+            {   System.out.println("Thread " + Thread.currentThread ().getName () + ": Tipo inválido!");
+                System.out.println(inMessage.toString ());
+                System.exit (1);
+            }
+        con.close ();
+        return inMessage.getNPassengersDepartureAT();
+    }
+
+    @Override
+    public void awakePassengers() {
+       
+        ClientCom con = new ClientCom (serverHostName, serverPortNumb);
+        ATEMessage inMessage, outMessage;
+
+        while (!con.open ())                                  // aguarda ligação
+            { try
+                { Thread.currentThread ().sleep ((long) (10));
+                }
+                catch (InterruptedException e) {}
+            }
+        outMessage = new ATEMessage (ATEMessage.AWAKE_PASSENGERS);        // pede a realização do serviço
+        con.writeObject (outMessage);
+        inMessage = (ATEMessage) con.readObject ();
+
+        if ((inMessage.getMsgType() != ATEMessage.ACK))
             {   System.out.println("Thread " + Thread.currentThread ().getName () + ": Tipo inválido!");
                 System.out.println(inMessage.toString ());
                 System.exit (1);

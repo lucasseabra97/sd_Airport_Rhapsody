@@ -1,7 +1,11 @@
-package clientSide;
+package clientSide.stubs;
 
 import commonInfra.Baggage;
 import interfaces.*;
+
+import java.util.List;
+
+import clientSide.ClientCom;
 import commonInfra.ArraivalLoungeMessage;
 public class ArraivalLoungeStub implements IArraivalLoungePassenger, IArraivalLoungePorter {
 
@@ -43,11 +47,11 @@ public class ArraivalLoungeStub implements IArraivalLoungePassenger, IArraivalLo
                 }
                 catch (InterruptedException e) {}
             }
-        outMessage = new ArraivalLoungeMessage (ArraivalLoungeMessage.REQ_TAKE_A_REST);        // pede a realização do serviço
+        outMessage = new ArraivalLoungeMessage (ArraivalLoungeMessage.TAKE_A_REST);        // pede a realização do serviço
         con.writeObject (outMessage);
         inMessage = (ArraivalLoungeMessage) con.readObject ();
 
-        if ((inMessage.getMsgType() !=ArraivalLoungeMessage.TAKE_A_REST_DONE))
+        if ((inMessage.getMsgType() !=ArraivalLoungeMessage.ACK))
             {   System.out.println("Thread " + Thread.currentThread ().getName () + ": Tipo inválido!");
                 System.out.println(inMessage.toString ());
                 System.exit (1);
@@ -59,6 +63,8 @@ public class ArraivalLoungeStub implements IArraivalLoungePassenger, IArraivalLo
                                                  
         
     }
+
+    
 
     @Override
     public Baggage tryToCollectABag() {
@@ -72,11 +78,11 @@ public class ArraivalLoungeStub implements IArraivalLoungePassenger, IArraivalLo
             }
             catch (InterruptedException e) {}
         }
-        outMessage = new ArraivalLoungeMessage (ArraivalLoungeMessage.REQ_TRY_TO_COLLECCT_A_BAG);    // o barbeiro chama o cliente
+        outMessage = new ArraivalLoungeMessage (ArraivalLoungeMessage.TRY_TO_COLLECCT_A_BAG);    // o barbeiro chama o cliente
         con.writeObject (outMessage);
         inMessage = (ArraivalLoungeMessage) con.readObject ();
        
-        if (inMessage.getMsgType() != ArraivalLoungeMessage.TRY_TO_COLLECCT_A_BAG_DONE)
+        if (inMessage.getMsgType() != ArraivalLoungeMessage.ACK)
             {   System.out.println("Thread " + Thread.currentThread ().getName () + ": Tipo inválido!");
                 System.out.println(inMessage.toString ());
                 System.exit (1);
@@ -97,11 +103,11 @@ public class ArraivalLoungeStub implements IArraivalLoungePassenger, IArraivalLo
             }
             catch (InterruptedException e) {}
         }
-        outMessage = new ArraivalLoungeMessage (ArraivalLoungeMessage.REQ_WHAT_SHOULD_I_DO, goHome);    // o barbeiro chama o cliente
+        outMessage = new ArraivalLoungeMessage (ArraivalLoungeMessage.WHAT_SHOULD_I_DO, goHome);    // o barbeiro chama o cliente
         con.writeObject (outMessage);
         inMessage = (ArraivalLoungeMessage) con.readObject ();
        
-        if (inMessage.getMsgType() != ArraivalLoungeMessage.WHAT_SHOULD_I_DO_DONE)
+        if (inMessage.getMsgType() != ArraivalLoungeMessage.ACK)
             {   System.out.println("Thread " + Thread.currentThread ().getName () + ": Tipo inválido!");
                 System.out.println(inMessage.toString ());
                 System.exit (1);
@@ -112,6 +118,31 @@ public class ArraivalLoungeStub implements IArraivalLoungePassenger, IArraivalLo
         
     }
 
+    public void setParameters(int nrPassengers, List<List<Baggage>> bagsPerFlight) {
+
+        ClientCom con = new ClientCom(serverHostName, serverPortNumb);
+        ArraivalLoungeMessage inMessage, outMessage;
+
+        while (!con.open()) // aguarda ligação
+        {
+            try {
+                Thread.currentThread().sleep((long) (10));
+            } catch (InterruptedException e) {
+            }
+        }
+
+        outMessage = new ArraivalLoungeMessage(ArraivalLoungeMessage.SET_PARAMETERS, nrPassengers, bagsPerFlight);
+        con.writeObject(outMessage);
+        inMessage = (ArraivalLoungeMessage) con.readObject();
+        if (inMessage.getMsgType() != ArraivalLoungeMessage.ACK) {
+            System.out.println("Arranque da simulação: Tipo inválido!");
+            System.out.println(inMessage.toString());
+            System.exit(1);
+        }
+        con.close();
+    }
+
+/*
     @Override
     public void endOfDay() {
         
@@ -135,6 +166,6 @@ public class ArraivalLoungeStub implements IArraivalLoungePassenger, IArraivalLo
             }
         con.close ();
 
-    }
+    }**/
     
 }

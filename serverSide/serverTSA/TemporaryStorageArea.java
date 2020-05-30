@@ -14,11 +14,11 @@ public class TemporaryStorageArea implements ITemporaryStorageAreaPorter{
 
     private final ReentrantLock rl;
     private List<Baggage> bags;
-    private GeneralRepository rep;
-    public TemporaryStorageArea(GeneralRepository rep){
+    //private GeneralRepository rep;
+    public TemporaryStorageArea(/*GeneralRepository rep*/){
         rl = new ReentrantLock();
         bags = new ArrayList<>();
-        this.rep = rep;
+        //this.rep = rep;
     }
 
 	@Override
@@ -26,7 +26,7 @@ public class TemporaryStorageArea implements ITemporaryStorageAreaPorter{
         rl.lock();
         try {
             bags.add(bag);
-            rep.porterMoveBagToStoreroom();
+            //rep.porterMoveBagToStoreroom();
             
         } catch (Exception e) {
             
