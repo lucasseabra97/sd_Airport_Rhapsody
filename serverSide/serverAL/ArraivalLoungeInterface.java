@@ -45,11 +45,15 @@ public class ArraivalLoungeInterface {
         case ArraivalLoungeMessage.TAKE_A_REST:
             break;
         case ArraivalLoungeMessage.SET_PARAMETERS:
+            if (inMessage.getNPass() <= 0)
+                throw new ALMessageException ("Numero de passageiros inexistente!", inMessage);
+            if (inMessage.getBagsList() == null || inMessage.getBagsList().size() == 0)
+                throw new ALMessageException ("Malas inexistentes!", inMessage);
             break;
-        /*
-        case ArraivalLoungeMessage.END_OF_DAY_DONE:
+        
+        case ArraivalLoungeMessage.END_OF_DAY:
             break;
-        */
+        
         default:
             throw new ALMessageException("Tipo inválido!", inMessage);
      }
@@ -76,11 +80,11 @@ public class ArraivalLoungeInterface {
                     break;
 
 
-        /*case ArraivalLoungeMessage.REQ_END_OF_DAY:
+        case ArraivalLoungeMessage.END_OF_DAY:
                     monitorAL.endOfDay();
-                    outMessage = new ArraivalLoungeMessage(ArraivalLoungeMessage.END_OF_DAY_DONE);
+                    outMessage = new ArraivalLoungeMessage(ArraivalLoungeMessage.ACK);
                     break;                             
-        */    
+            
      }
     return (outMessage);
    }

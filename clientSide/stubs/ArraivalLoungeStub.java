@@ -142,7 +142,7 @@ public class ArraivalLoungeStub implements IArraivalLoungePassenger, IArraivalLo
         con.close();
     }
 
-/*
+
     @Override
     public void endOfDay() {
         
@@ -155,17 +155,17 @@ public class ArraivalLoungeStub implements IArraivalLoungePassenger, IArraivalLo
             }
             catch (InterruptedException e) {}
         }
-        outMessage = new ArraivalLoungeMessage (ArraivalLoungeMessage.REQ_END_OF_DAY);    // o barbeiro chama o cliente
+        outMessage = new ArraivalLoungeMessage (ArraivalLoungeMessage.END_OF_DAY);    // o barbeiro chama o cliente
         con.writeObject (outMessage);
         inMessage = (ArraivalLoungeMessage) con.readObject ();
        
-        if (inMessage.getMsgType() != ArraivalLoungeMessage.END_OF_DAY_DONE)
+        if (inMessage.getMsgType() != ArraivalLoungeMessage.ACK)
             {   System.out.println("Thread " + Thread.currentThread ().getName () + ": Tipo inválido!");
                 System.out.println(inMessage.toString ());
                 System.exit (1);
             }
         con.close ();
 
-    }**/
+    }
     
 }

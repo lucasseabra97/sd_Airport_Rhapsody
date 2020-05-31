@@ -8,7 +8,7 @@ import java.net.SocketTimeoutException;
 import main.global;
 
 import serverSide.ServerCom;
-import shared_regions.GeneralRepository;
+//import shared_regions.GeneralRepository;
 
 public class DepartureTerminalEntranceMain {
     /**
@@ -52,8 +52,8 @@ public class DepartureTerminalEntranceMain {
         scon.start ();                                       // com o endereço público
         monitorDTE = new DepartureTerminalEntrance(/*global.NR_PASSENGERS,genInfoRepo*/);                           // activação do serviço
         atExitInter = new DepartureTerminalEntranceInterface (monitorDTE);        // activação do interface com o serviço
-        System.out.println("O serviço foi estabelecido!");
-        System.out.println("O servidor esta em escuta.");
+        System.out.println("O serviço foi estabelecido! DepartureTerminalEntrance");
+        System.out.println("O servidor esta em escuta." + portNumb);
 
         /* processamento de pedidos */
         //NAO SEI ONDE METER ISTO MAS É NECESSARIO

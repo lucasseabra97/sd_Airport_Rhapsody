@@ -8,7 +8,7 @@ import java.net.SocketTimeoutException;
 import main.global;
 
 import serverSide.ServerCom;
-import shared_regions.GeneralRepository;
+//import shared_regions.GeneralRepository;
 
 public class DepartureTerminalTransferQuayMain {
     /**
@@ -52,8 +52,8 @@ public class DepartureTerminalTransferQuayMain {
         scon.start ();                                       // com o endereço público
         monitorDTTQ = new DepartureTerminalTransferQuay(/*genInfoRepo*/);                           // activação do serviço
         atExitInter = new DepartureTerminalTransferQuayInterface (monitorDTTQ);        // activação do interface com o serviço
-        System.out.println("O serviço foi estabelecido!");
-        System.out.println("O servidor esta em escuta.");
+        System.out.println("O serviço foi estabelecido! DepartureTerminalTransferQuay");
+        System.out.println("O servidor esta em escuta na porta: "+ portNumb);
 
         /* processamento de pedidos */
         //NAO SEI ONDE METER ISTO MAS É NECESSARIO

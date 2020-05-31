@@ -8,7 +8,7 @@ import java.net.SocketTimeoutException;
 import main.global;
 
 import serverSide.ServerCom;
-import shared_regions.GeneralRepository;
+//import shared_regions.GeneralRepository;
 
 public class BaggageReclaimOfficeMain {
     /**
@@ -39,7 +39,7 @@ public class BaggageReclaimOfficeMain {
             // System.out.println("File already exists.");
         }
 
-        GeneralRepository genInfoRepo = new GeneralRepository(logger);
+        //GeneralRepository genInfoRepo = new GeneralRepository(logger);
 
         BaggageReclaimOffice monitorBRO;                                // barbearia (representa o serviço a ser prestado)
         BaggageReclaimOfficeInterface attQuayInter;                    // interface à barbearia
@@ -50,14 +50,14 @@ public class BaggageReclaimOfficeMain {
 
         scon = new ServerCom (portNumb);                      // criação do canal de escuta e sua associação
         scon.start ();                                       // com o endereço público
-        monitorBRO = new BaggageReclaimOffice(genInfoRepo);                   // activação do serviço
+        monitorBRO = new BaggageReclaimOffice(/*genInfoRepo*/);                   // activação do serviço
         attQuayInter = new BaggageReclaimOfficeInterface (monitorBRO);        // activação do interface com o serviço
-        System.out.println("O serviço foi estabelecido!");
-        System.out.println("O servidor esta em escuta.");
+        System.out.println("O serviço foi estabelecido! BaggageReclaimOfficeInterface");
+        System.out.println("O servidor esta em escuta."+portNumb);
 
         /* processamento de pedidos */
         //NAO SEI ONDE METER ISTO MAS É NECESSARIO!!!
-        genInfoRepo.close();
+        //genInfoRepo.close();
         waitConnection = true;
         while (waitConnection)
             try

@@ -22,8 +22,6 @@ public class ArraivalLoungeMain
    private static final int portNumb = 3000;                         //portNumber
 
   private static final int List = 0;
-
-  private static final int Baggage = 0;
    
   public static boolean waitConnection;                              // sinalização de actividade
   /**
@@ -43,8 +41,8 @@ public class ArraivalLoungeMain
       //TODO still don t know how to solve this problem
       monitorAL = new ArraivalLounge();            // activação do serviço
       aloungeInter = new ArraivalLoungeInterface (monitorAL);        // activação do interface com o serviço
-      System.out.println("O serviço foi estabelecido!");
-      System.out.println("O servidor esta em escuta.");
+      System.out.println("O serviço foi estabelecido! ArraivalLounge ");
+      System.out.println("O servidor esta em escuta na porta: "+ portNumb);
 
      /* processamento de pedidos */
 

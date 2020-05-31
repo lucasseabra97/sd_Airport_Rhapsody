@@ -8,7 +8,7 @@ import java.net.SocketTimeoutException;
 import main.global;
 
 import serverSide.ServerCom;
-import shared_regions.GeneralRepository;
+//import shared_regions.GeneralRepository;
 
 public class TemporaryStorageAreaMain {
     /**
@@ -52,8 +52,8 @@ public class TemporaryStorageAreaMain {
         scon.start ();                                       // com o endereço público
         monitorTSA = new TemporaryStorageArea(/*genInfoRepo*/);                           // activação do serviço
         atExitInter = new TemporaryStorageAreaInterface (monitorTSA);        // activação do interface com o serviço
-        System.out.println("O serviço foi estabelecido!");
-        System.out.println("O servidor esta em escuta.");
+        System.out.println("O serviço foi estabelecido! TemporaryStorageArea");
+        System.out.println("O servidor esta em escuta." + portNumb);
 
         /* processamento de pedidos */
         //NAO SEI ONDE METER ISTO MAS É NECESSARIO

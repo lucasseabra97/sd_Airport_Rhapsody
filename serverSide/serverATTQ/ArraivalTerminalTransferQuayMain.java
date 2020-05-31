@@ -6,7 +6,7 @@ import java.net.SocketTimeoutException;
 
 
 import serverSide.ServerCom;
-import shared_regions.GeneralRepository;
+//import shared_regions.GeneralRepository;
 
 public class ArraivalTerminalTransferQuayMain {
     /**
@@ -50,8 +50,8 @@ public class ArraivalTerminalTransferQuayMain {
         scon.start ();                                       // com o endereço público
         monitorATTQ = new ArraivalTerminalTransferQuay(/*genInfoRepo*/);                   // activação do serviço
         attQuayInter = new ArraivalTerminalTransferQuayInterface (monitorATTQ);        // activação do interface com o serviço
-        System.out.println("O serviço foi estabelecido!");
-        System.out.println("O servidor esta em escuta.");
+        System.out.println("O serviço foi estabelecido! ArraivalTerminalTransferQuay");
+        System.out.println("O servidor esta em escuta." + portNumb);
 
         /* processamento de pedidos */
         //NAO SEI ONDE METER ISTO MAS É NECESSARIO!!!

@@ -5,9 +5,9 @@ import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
 
 import commonInfra.*;
-import entities.Passenger;
+import clientSide.*;
 import interfaces.IBaggageReclaimOfficePassenger;
-import shared_regions.GeneralRepository;
+//import shared_regions.GeneralRepository;
 
 /**
  * Baggage Reclaim Office shared memory region.
@@ -32,7 +32,7 @@ public class BaggageReclaimOffice implements IBaggageReclaimOfficePassenger{
      * Baggage Reclaim Office constructor
      * @param rep
      */
-    public BaggageReclaimOffice(GeneralRepository rep){
+    public BaggageReclaimOffice(/*GeneralRepository rep*/){
         //this.rep = rep;
         rl = new ReentrantLock(true);
         bagsList = new ArrayList<>();

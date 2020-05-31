@@ -2,12 +2,12 @@ package serverSide.serverATE;
 
 import interfaces.IArraivalTerminalExitPassenger;
 import main.global;
-import shared_regions.GeneralRepository;
+
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
-import entities.Passenger;
+import clientSide.*;
 
 /**
  * Arraival Terminal shared memory region.
@@ -36,7 +36,7 @@ public class ArraivalTerminalExit implements IArraivalTerminalExitPassenger{
     /**
      * General Repository
      */
-    private GeneralRepository rep;
+    //private GeneralRepository rep;
     /**
     * Arraival Terminal Exit boolean to check if all can go home
     */
@@ -47,10 +47,10 @@ public class ArraivalTerminalExit implements IArraivalTerminalExitPassenger{
 	* @param nrPassengers
 	* @param rep
 	*/
-    public ArraivalTerminalExit(int nrPassengers , GeneralRepository rep) {
+    public ArraivalTerminalExit(int nrPassengers  /*GeneralRepository rep*/) {
         rl = new ReentrantLock(true);
         waitingEnd = rl.newCondition();
-        this.rep=rep;
+        //this.rep=rep;
       
         this.nrPassengers = global.NR_PASSENGERS;
   
@@ -67,7 +67,7 @@ public class ArraivalTerminalExit implements IArraivalTerminalExitPassenger{
         try {
 
             Passenger passenger = (Passenger) Thread.currentThread();
-            rep.passGoHome(passenger.getPassengerID());
+            //rep.passGoHome(passenger.getPassengerID());
 
             boolean lastPassenger = passengers + npassengers == nrPassengers;
             System.out.println("->" + lastPassenger);

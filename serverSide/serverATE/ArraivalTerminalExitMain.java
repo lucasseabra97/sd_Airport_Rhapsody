@@ -8,7 +8,7 @@ import java.net.SocketTimeoutException;
 import main.global;
 
 import serverSide.ServerCom;
-import shared_regions.GeneralRepository;
+
 
 public class ArraivalTerminalExitMain {
     /**
@@ -39,7 +39,7 @@ public class ArraivalTerminalExitMain {
             // System.out.println("File already exists.");
         }
 
-        GeneralRepository genInfoRepo = new GeneralRepository(logger);
+        //GeneralRepository genInfoRepo = new GeneralRepository(logger);
 
         ArraivalTerminalExit monitorATE;                                  // barbearia (representa o serviço a ser prestado)
         ArraivalTerminalExitInterface atExitInter;                       // interface à barbearia
@@ -50,14 +50,14 @@ public class ArraivalTerminalExitMain {
 
         scon = new ServerCom (portNumb);                     // criação do canal de escuta e sua associação
         scon.start ();                                       // com o endereço público
-        monitorATE = new ArraivalTerminalExit(global.NR_PASSENGERS,genInfoRepo);                           // activação do serviço
+        monitorATE = new ArraivalTerminalExit(global.NR_PASSENGERS /*genInfoRepo*/);                           // activação do serviço
         atExitInter = new ArraivalTerminalExitInterface (monitorATE);        // activação do interface com o serviço
-        System.out.println("O serviço foi estabelecido!");
-        System.out.println("O servidor esta em escuta.");
+        System.out.println("O serviço foi estabelecido! ArraivalTerminalExit");
+        System.out.println("O servidor esta em escuta:" + portNumb);
 
         /* processamento de pedidos */
         //NAO SEI ONDE METER ISTO MAS É NECESSARIO
-        genInfoRepo.close();
+        //genInfoRepo.close();
         waitConnection = true;
         while (waitConnection)
             try

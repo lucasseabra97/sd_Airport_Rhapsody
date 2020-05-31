@@ -3,10 +3,10 @@ package serverSide.serverDTTQ;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
-import entities.Passenger;
+import clientSide.*;
 import interfaces.IDepartureTerminalTransferQBusDriver;
 import interfaces.IDepartureTerminalTransferQPassenger;
-import shared_regions.GeneralRepository;
+//import shared_regions.GeneralRepository;
 
 
 

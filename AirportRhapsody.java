@@ -1,110 +1,27 @@
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import main.*;
-import commonInfra.Baggage;
+import java.util.*;
 
-import entities.*;
-import shared_regions.*;
-import interfaces.*;
+import clientSide.BusDriver;
+import clientSide.Passenger;
+import clientSide.Porter;
+import clientSide.stubs.*;
+import commonInfra.Baggage;
+import main.global;
+import serverSide.*;
+
+import java.util.Scanner;
+
 
 public class AirportRhapsody {
+    public static void main (String [] args)
+    {   System.out.println("----------AirportRhapsody---------\n");
 
-    /**
-	 * @param args
-     * @return 
-	 * @throws InterruptedException
-	 */
-    public static void main(String[] args)throws IOException{
-
-
-        System.out.println("----------AirportRhapsody---------");
         final Random random = new Random();
        
-
+        Scanner sc = new Scanner(System.in); 
         List<List<Baggage>> bagsPerFlight = new ArrayList<>(global.NR_FLIGHTS);
         Boolean[][] passengersDestination = new Boolean [global.NR_PASSENGERS][global.NR_FLIGHTS];
         List<List<List<Baggage>>> passengersBags = new ArrayList<>(global.NR_PASSENGERS);
-
-
-
-        
-
-        File logger = new File("logger.txt");
-		if(logger.createNewFile()){
-			//System.out.println("Logger created: " + logger.getName());
-        }
-        else{
-			logger.delete();
-			logger.createNewFile();
-			// System.out.println("File already exists.");
-
-		}
-
-        GeneralRepository genInfoRepo = new GeneralRepository(logger);
-        /**
-         * {@link entities.Passenger}
-         */
-
-        Passenger passengers[] = new Passenger[global.NR_PASSENGERS];
-        // Initialize shared region ArraivalLounge
-        /**
-         * {@link shared_regions.ArraivalLounge}
-         */
-        ArraivalLounge arraivalLounge = new ArraivalLounge(bagsPerFlight,genInfoRepo);
-        // Initialize shared region BaggageCollectionPoint
-        /**
-         * {@link shared_regions.BaggageCollectionPoint}
-         */
-        BaggageCollectionPoint baggageCollectionPoint = new BaggageCollectionPoint(genInfoRepo);
-        // Initialize shared region ArraivalTerminalExit
-        /**
-         * {@link shared_regions.ArraivalTerminalExit}
-         */
-        ArraivalTerminalExit arraivalTerminalExit = new ArraivalTerminalExit(global.NR_PASSENGERS,genInfoRepo);
-        // Initialize shared region ArraivalTerminalTransferQuay
-        /**
-         * {@link shared_regions.ArraivalTerminalTransferQuay}
-         */
-        ArraivalTerminalTransferQuay arraivalTerminalTransferQuay = new ArraivalTerminalTransferQuay(genInfoRepo);
-        // Initialize shared region DepartureTerminalTransferQuay
-        /**
-         * {@link shared_regions.DepartureTerminalTransferQuay}
-         */
-        DepartureTerminalTransferQuay departureTerminalTransferQuay = new DepartureTerminalTransferQuay(genInfoRepo);
-        // Initialize shared region DepartureTerminalEntrance
-        /**
-         * {@link shared_regions.DepartureTerminalEntrance}
-         */
-        DepartureTerminalEntrance departureTerminalEntrance = new DepartureTerminalEntrance(global.NR_PASSENGERS,genInfoRepo);
-        /**
-         * {@link entities.Porter}
-         */
-        /**
-		* {@link shared_regions.BaggageReclaimOffice}
-        */
-        BaggageReclaimOffice baggageReclaimOfficePassenger = new BaggageReclaimOffice(genInfoRepo); 
-
-        TemporaryStorageArea temporaryStorageArea = new TemporaryStorageArea(genInfoRepo);
-        
-        
-        Porter porter = new Porter((IArraivalLoungePorter) arraivalLounge,(IBaggageCollectionPointPorter) baggageCollectionPoint, (ITemporaryStorageAreaPorter) temporaryStorageArea); 
-        porter.start();
-        /**
-         * {@link entities.BusDriver}
-         */
-        BusDriver busdriver = new BusDriver(arraivalTerminalTransferQuay, departureTerminalTransferQuay,global.BUS_SIZE);
-        busdriver.start();
-        /**
-         * {@link entities.Time}
-         */
-        // Time time = new Time(arraivalTerminalTransferQuay, arraivalLounge);
-        // time.start();
-
-        
 
 
         for(int p = 0;p<global.NR_PASSENGERS;p++){
@@ -131,41 +48,66 @@ public class AirportRhapsody {
                 }
             }
         }
+  
 
-      
-       // genInfoRepo.writeHeader();
+        ArraivalLoungeStub                aLoungStub;                     //stub Arraival Lounge
+        ArraivalTerminalExitStub          atExitStub;                    // stub Arraival Terminal Exit
+        ArrailvalTTransferQuayStub        attQuayStub;                   // stub Arraival Terminal Transfer Quay
+        BagageCollectionPointStub         bcPointStub;                  // stub Baggage Collection Point 
+        BaggageReclaimOfficeStub          brOfficeStub;                 // stub Baggage Reclaim Office 
+        DepartureTerminalEntranceStub     dtEntranceStub;           // stub Departure Terminal Entrance 
+        DepartureTerminalTransferQuayStub dttQuayStub;          // stub Departure Terminal Transfer Quay
+        TemporaryStorageAreaStub          tsaStub;              // stub Temporary Storage Area
+        String fName;                                        // nome do ficheiro de logging 
+        String serverHostName;                               // nome do sistema computacional onde está o servidor
+        int serverPortNumb;                                  // número do port de escuta do servidor
 
-       for(int i = 0; i < global.NR_PASSENGERS; i++) {
-            passengers[i] = new Passenger(i,passengersDestination[i], 
-                            passengersBags.get(i), 
-                            (IArraivalLoungePassenger) arraivalLounge, 
-                            (IBaggageCollectionPointPassenger) baggageCollectionPoint, 
-                            (IArraivalTerminalExitPassenger) arraivalTerminalExit, 
-                            (IArraivalTerminalTransferQPassenger) arraivalTerminalTransferQuay, 
-                            (IDepartureTerminalTransferQPassenger) departureTerminalTransferQuay,
-                            (IDepartureTerminalEntrancePassenger) departureTerminalEntrance, 
-                            (IBaggageReclaimOfficePassenger) baggageReclaimOfficePassenger);
-            passengers[i].start();
-            
+        /* Obtenção dos parâmetros do problema */
+
+        
+        //System.out.println("Nome do ficheiro de logging? ");
+        //fName = sc.nextLine(); 
+        /*System.out.println("Nome do sistema computacional onde está o servidor Arraival Lounge?");
+        serverHostName = sc.nextLine();
+        System.out.println("Número do port de escuta do servidor Arraival Lounge?");
+        serverPortNumb = sc.nextInt();
+        aLoungStub = new ArraivalLoungeStub (serverHostName, serverPortNumb);**/
+        //prob vamos ter de limpar os buffers ...
+        
+        aLoungStub = new ArraivalLoungeStub("localhost",3000);
+        bcPointStub = new BagageCollectionPointStub("localhost",3001);
+        atExitStub  = new ArraivalTerminalExitStub("localhost",3003);
+        brOfficeStub = new BaggageReclaimOfficeStub("localhost",3004);
+        tsaStub = new TemporaryStorageAreaStub("localhost",3005);
+        attQuayStub  = new ArrailvalTTransferQuayStub("localhost",3006);
+        dttQuayStub  = new DepartureTerminalTransferQuayStub("localhost",3007);
+        dtEntranceStub = new DepartureTerminalEntranceStub("localhost",3008);
+
+        Porter porter = new Porter(aLoungStub, bcPointStub, tsaStub);
+        BusDriver busdriver = new BusDriver(attQuayStub, dttQuayStub,global.BUS_SIZE);
+        Passenger passengers[] = new Passenger[global.NR_PASSENGERS];
+        
+        for(int i = 0; i < global.NR_PASSENGERS; i++) {
+            passengers[i] = new Passenger(i,passengersDestination[i], passengersBags.get(i), aLoungStub, bcPointStub,atExitStub, attQuayStub, dttQuayStub,dtEntranceStub,brOfficeStub);
         } 
+        
+        aLoungStub.setParameters(global.NR_PASSENGERS, bagsPerFlight);
 
+        porter.start();
+        busdriver.start();
+        for(int i = 0; i < global.NR_PASSENGERS; i++) {
+            passengers[i].start();
+        }
 
         try {
             porter.join();
             busdriver.join();
-            //time.join();
-            for (int i = 0; i < global.NR_PASSENGERS; i++) {
+            for(int i = 0; i < global.NR_PASSENGERS; i++) {
                 passengers[i].join();
             }
         } catch (Exception e) {
-            
+
         }finally{
-            genInfoRepo.close();
         }
-
     }
-
-   
-    
 }
-   

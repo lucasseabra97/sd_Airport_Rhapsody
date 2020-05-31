@@ -6,13 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-import clientSide.stubs.ArrailvalTTransferQuayStub;
-import clientSide.stubs.ArraivalLoungeStub;
-import clientSide.stubs.ArraivalTerminalExitStub;
-import clientSide.stubs.BagageCollectionPointStub;
-import clientSide.stubs.BaggageReclaimOfficeStub;
-import clientSide.stubs.DepartureTerminalEntranceStub;
-import clientSide.stubs.DepartureTerminalTransferQuayStub;
+import clientSide.stubs.*;
 import main.*;
 import interfaces.*;
 
@@ -265,7 +259,7 @@ public class Passenger extends Thread {
 
 				
 
-				/*	case EXITING_THE_ARRIVAL_TERMINAL:
+					case EXITING_THE_ARRIVAL_TERMINAL:
 						System.out.printf("Passenger:%d -> EXITING_THE_ARRIVAL_TERMINAL \n",this.passengerID);
 						atExitStub.syncPassenger();
 						int goingHome = dtEntranceStub.nPassengersDepartureTEntrance();
@@ -274,7 +268,7 @@ public class Passenger extends Thread {
 							dtEntranceStub.awakePassengers();
 							if(cFlight == numberFlights - 1) {
 								aloungeStub.endOfDay();
-								monitorTTQ.endOfDay();
+								attQuayStub.endOfDay();
 							}
 							
 						}
@@ -282,25 +276,25 @@ public class Passenger extends Thread {
 						System.out.printf("Passenger:%d leaving airport \n",this.passengerID);
 						state = PassengerEnum.WAITING_END;
 						break;
-				**/
-				/*
+				
+				
 					case ENTERING_THE_DEPARTURE_TERMINAL:
 						System.out.printf("Passenger:%d -> PREPARING NEXT FLIGHT \n",this.passengerID);
-						monitorDEP.syncPassenger();
-						int npassDEP = monitorAe.nPassengersDepartureAT();
+						dtEntranceStub.syncPassenger();
+						int npassDEP = atExitStub.nPassengersDepartureAT();
 				
-						if(monitorDEP.prepareNextLeg(npassDEP)){
-							monitorAe.awakePassengers();
+						if(dtEntranceStub.prepareNextLeg(npassDEP)){
+							atExitStub.awakePassengers();
 							//monitorDEP.awakePassengers();
 							if(cFlight == numberFlights - 1) {
 								aloungeStub.endOfDay();
-								monitorTTQ.endOfDay();
+								attQuayStub.endOfDay();
 							}
 							
 						}						
 						end = false;
 						break ;
-						**/
+						
 				}
 				
 				try {

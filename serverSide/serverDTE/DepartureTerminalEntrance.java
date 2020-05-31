@@ -3,10 +3,10 @@ package serverSide.serverDTE;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
-import entities.Passenger;
+import clientSide.*;
 import interfaces.IDepartureTerminalEntrancePassenger;
 import main.global;
-import shared_regions.GeneralRepository;
+//import shared_regions.GeneralRepository;
 
 
 /**

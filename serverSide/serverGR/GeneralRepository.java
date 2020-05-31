@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.concurrent.locks.ReentrantLock;
 
 import commonInfra.*;
-import entities.*;
+import clientSide.*;
 import main.global;
 
 /**

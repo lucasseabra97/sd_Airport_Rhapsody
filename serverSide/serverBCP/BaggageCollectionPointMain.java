@@ -6,7 +6,7 @@ import java.net.SocketTimeoutException;
 
 
 import serverSide.ServerCom;
-import shared_regions.GeneralRepository;
+//import shared_regions.GeneralRepository;
 
 public class BaggageCollectionPointMain {
     /**
@@ -50,8 +50,8 @@ public class BaggageCollectionPointMain {
         scon.start ();                                       // com o endereço público
         monitorBCP = new BaggageCollectionPoint(/*genInfoRepo*/);                   // activação do serviço
         attQuayInter = new BaggageCollectionPointInterface (monitorBCP);        // activação do interface com o serviço
-        System.out.println("O serviço foi estabelecido!");
-        System.out.println("O servidor esta em escuta.");
+        System.out.println("O serviço foi estabelecido! BaggageCollectionPoint");
+        System.out.println("O servidor esta em escuta."+portNumb );
 
         /* processamento de pedidos */
         //NAO SEI ONDE METER ISTO MAS É NECESSARIO!!!

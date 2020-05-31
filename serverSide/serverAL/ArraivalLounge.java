@@ -1,7 +1,7 @@
 package serverSide.serverAL;
 
 import commonInfra.*;
-import entities.Passenger;
+import clientSide.*;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import interfaces.*;
-import shared_regions.*;
 import main.global;
 
 /**
@@ -208,7 +207,7 @@ public class ArraivalLounge implements IArraivalLoungePassenger , IArraivalLoung
 		}
         
 	}
-	/*
+	
 	@Override 
     public void endOfDay() {
         rl.lock();
@@ -220,7 +219,7 @@ public class ArraivalLounge implements IArraivalLoungePassenger , IArraivalLoung
             rl.unlock();
         }
     }
-	*/
+	
 
 	  /**
      * Escrever o estado inicial (operação interna).
