@@ -206,7 +206,7 @@ public class Passenger extends Thread {
 						for (Baggage baggage : bags) {
 							bagsCollected.add(baggage);
 						}
-						System.out.println(bagsCollected);
+						System.out.println("Passenger has to collected: "+bagsCollected);
 						
 						//lostBags = new ArrayList<Baggage>((Arrays.asList(bags)));
 						while(bagsCollected.size() >0){
@@ -215,10 +215,16 @@ public class Passenger extends Thread {
 							
 							if(baggtoCollect == null)
 							{
-								if(bagsCollected.size() >0)
+								if(bagsCollected.size() >0){
 									state =PassengerEnum.AT_THE_BAGGAGE_RECLAIM_OFFICE;
-								else
+									System.out.println("Passenger lost bags");
+								}
+									
+								else{
 									state = PassengerEnum.AT_THE_ARRIVAL_TRANSFER_TERMINAL;
+									System.out.println("Passenger has collected all bags");
+								}
+									
 								break;
 							}
 							if(bagsCollected.contains(baggtoCollect))
@@ -258,7 +264,7 @@ public class Passenger extends Thread {
 						break;
 
 				
-
+/*
 					case EXITING_THE_ARRIVAL_TERMINAL:
 						System.out.printf("Passenger:%d -> EXITING_THE_ARRIVAL_TERMINAL \n",this.passengerID);
 						atExitStub.syncPassenger();
@@ -277,7 +283,7 @@ public class Passenger extends Thread {
 						state = PassengerEnum.WAITING_END;
 						break;
 				
-				
+					
 					case ENTERING_THE_DEPARTURE_TERMINAL:
 						System.out.printf("Passenger:%d -> PREPARING NEXT FLIGHT \n",this.passengerID);
 						dtEntranceStub.syncPassenger();
@@ -294,9 +300,9 @@ public class Passenger extends Thread {
 						}						
 						end = false;
 						break ;
+				*/
 						
 				}
-				
 				try {
 					Thread.sleep(rDelay.nextInt(10));
 				} catch (Exception e) {}

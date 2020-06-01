@@ -68,7 +68,7 @@ public class ArraivalLoungeInterface {
                     break;                    
         case ArraivalLoungeMessage.TRY_TO_COLLECCT_A_BAG:
                     Baggage bag = monitorAL.tryToCollectABag();
-                    outMessage = new ArraivalLoungeMessage(ArraivalLoungeMessage.ACK , bag);
+                    outMessage = new ArraivalLoungeMessage(ArraivalLoungeMessage.ACK ,bag );
                     break;                               
         case ArraivalLoungeMessage.TAKE_A_REST:
                     boolean takeRest = monitorAL.takeARest();

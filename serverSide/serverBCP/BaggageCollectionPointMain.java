@@ -15,7 +15,7 @@ public class BaggageCollectionPointMain {
    *    @serialField portNumb
    */
 
-   private static final int portNumb = 3003;
+   private static final int portNumb = 3001;
    public static boolean waitConnection;                              // sinalização de actividade
 
   /**

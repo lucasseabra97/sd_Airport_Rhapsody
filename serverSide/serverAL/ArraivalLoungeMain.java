@@ -1,6 +1,6 @@
 package serverSide.serverAL;
 
-import serverSide.*;
+import serverSide.ServerCom;
 import java.net.SocketTimeoutException;
 import java.util.*;
 import commonInfra.*;

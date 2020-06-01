@@ -83,7 +83,6 @@ public class ArraivalLoungeMessage implements Serializable{
         this.nPass = nrPassengers;
         this.bagsPerFlight = bagsPerFlight;
         
-        
     }
     
     
@@ -94,17 +93,21 @@ public class ArraivalLoungeMessage implements Serializable{
      */
     public ArraivalLoungeMessage(int msgType,boolean goHome){
         this.msgType = msgType;
-        if((msgType == ACK))
-            this.goHome = goHome;
-        else
-            this.takeRest=goHome; 
+        this.goHome = goHome;
         
     } 
 
+      /**
+     * 
+     * @param msgType
+     * @param goHome
+     */
     public ArraivalLoungeMessage(int msgType,Baggage bag){
         this.msgType = msgType;
-        this.bag = bag ;
-    }
+        this.bag = bag;
+        
+    } 
+
 
     public ArraivalLoungeMessage(int msgType){
         this.msgType = msgType;

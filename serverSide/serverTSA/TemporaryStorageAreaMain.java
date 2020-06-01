@@ -17,7 +17,7 @@ public class TemporaryStorageAreaMain {
    *    @serialField portNumb
    */
 
-   private static final int portNumb = 3007;
+   private static final int portNumb = 3005;
    public static boolean waitConnection;                              // sinalização de actividade
 
   /**

@@ -15,7 +15,7 @@ public class ArraivalTerminalTransferQuayMain {
    *    @serialField portNumb
    */
 
-   private static final int portNumb = 3002;
+   private static final int portNumb = 3006;
    public static boolean waitConnection;                              // sinalização de actividade
 
   /**

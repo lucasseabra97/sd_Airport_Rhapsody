@@ -17,7 +17,7 @@ public class ArraivalTerminalExitMain {
    *    @serialField portNumb
    */
 
-   private static final int portNumb = 3001;
+   private static final int portNumb = 3003;
    public static boolean waitConnection;                              // sinalização de actividade
 
   /**

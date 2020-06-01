@@ -81,7 +81,7 @@ public class BCPMessage implements Serializable{
     }
 
 
-    public BCPMessage(int msgType,  ArrayList<Baggage> bagList){
+    public BCPMessage(int msgType,  ArrayList<Baggage> bagsList){
         this.msgType = msgType;
         this.bagsList = bagsList;
     }

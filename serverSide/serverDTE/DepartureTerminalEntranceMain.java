@@ -17,7 +17,7 @@ public class DepartureTerminalEntranceMain {
    *    @serialField portNumb
    */
 
-   private static final int portNumb = 3005;
+   private static final int portNumb = 3008;
    public static boolean waitConnection;                              // sinalização de actividade
 
   /**

@@ -83,7 +83,7 @@ public class BaggageCollectionPoint implements IBaggageCollectionPointPorter, IB
         try {
             //Passenger passenger = (Passenger) Thread.currentThread();
             //rep.passEnterLuggageCollectionPoint(passenger.getPassengerID());
-            //System.out.println(bags +"  bomdia "+ bagp);
+            System.out.printf("Existem em stock : %d  Passenger bags : %d \n",bags, bagp);
 
             //System.out.println(bags +"  bomdia "+ bagp);
             while(!noMoreBags){

@@ -17,7 +17,7 @@ public class DepartureTerminalTransferQuayMain {
    *    @serialField portNumb
    */
 
-   private static final int portNumb = 3006;
+   private static final int portNumb = 3007;
    public static boolean waitConnection;                              // sinalização de actividade
 
   /**

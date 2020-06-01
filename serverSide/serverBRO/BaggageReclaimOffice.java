@@ -49,7 +49,7 @@ public class BaggageReclaimOffice implements IBaggageReclaimOfficePassenger{
         try {
             //Passenger passenger = (Passenger) Thread.currentThread();
             //rep.passComplain(passenger.getPassengerID());
-
+            
             for(Baggage b : bags) {
                 this.bagsList.add(b);
             }
