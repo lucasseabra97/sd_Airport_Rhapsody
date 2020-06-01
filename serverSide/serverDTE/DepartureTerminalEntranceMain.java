@@ -53,7 +53,7 @@ public class DepartureTerminalEntranceMain {
         monitorDTE = new DepartureTerminalEntrance(/*global.NR_PASSENGERS,genInfoRepo*/);                           // activação do serviço
         atExitInter = new DepartureTerminalEntranceInterface (monitorDTE);        // activação do interface com o serviço
         System.out.println("O serviço foi estabelecido! DepartureTerminalEntrance");
-        System.out.println("O servidor esta em escuta." + portNumb);
+        System.out.println("O servidor esta em escuta na porta: "+ portNumb);
 
         /* processamento de pedidos */
         //NAO SEI ONDE METER ISTO MAS É NECESSARIO

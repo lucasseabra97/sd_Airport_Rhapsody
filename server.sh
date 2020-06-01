@@ -29,11 +29,11 @@ javac serverSide/serverDTTQ/DepartureTerminalTransferQuayMain.java
 javac serverSide/serverTSA/TemporaryStorageAreaMain.java
 
 #run all instances
-gnome-terminal --tab -e "java serverSide/serverAL/ArraivalLoungeMain" \
-                --tab -e "java serverSide/serverATE/ArraivalTerminalExitMain " \
-                --tab -e "java serverSide/serverBCP/BaggageCollectionPointMain" \
-                --tab -e "java serverSide/serverBRO/BaggageReclaimOfficeMain" \
-                --tab -e "java serverSide/serverDTE/DepartureTerminalEntranceMain" \
-                --tab -e "java serverSide/serverDTTQ/DepartureTerminalTransferQuayMain" \
-                --tab -e "java serverSide/serverTSA/TemporaryStorageAreaMain "\
-                --tab -e "java serverSide/serverATTQ/ArraivalTerminalTransferQuayMain" 
+gnome-terminal --tab --title="AL Server" -e "java serverSide/serverAL/ArraivalLoungeMain" \
+                --tab --title="ATE Server" -e "java serverSide/serverATE/ArraivalTerminalExitMain " \
+                --tab --title="BCP Server" -e "java serverSide/serverBCP/BaggageCollectionPointMain" \
+                --tab --title="BRO Server" -e "java serverSide/serverBRO/BaggageReclaimOfficeMain" \
+                --tab --title="DTE Server" -e "java serverSide/serverDTE/DepartureTerminalEntranceMain" \
+                --tab --title="DTTQ Server" -e "java serverSide/serverDTTQ/DepartureTerminalTransferQuayMain" \
+                --tab --title="TSA Server" -e "java serverSide/serverTSA/TemporaryStorageAreaMain "\
+                --tab --title="ATTQ Server" -e "java serverSide/serverATTQ/ArraivalTerminalTransferQuayMain" 

@@ -52,8 +52,8 @@ public class BaggageReclaimOfficeMain {
         scon.start ();                                       // com o endereço público
         monitorBRO = new BaggageReclaimOffice(/*genInfoRepo*/);                   // activação do serviço
         attQuayInter = new BaggageReclaimOfficeInterface (monitorBRO);        // activação do interface com o serviço
-        System.out.println("O serviço foi estabelecido! BaggageReclaimOfficeInterface");
-        System.out.println("O servidor esta em escuta."+portNumb);
+        System.out.println("O serviço foi estabelecido! BaggageReclaimOffice");
+        System.out.println("O servidor esta em escuta na porta: "+ portNumb);
 
         /* processamento de pedidos */
         //NAO SEI ONDE METER ISTO MAS É NECESSARIO!!!

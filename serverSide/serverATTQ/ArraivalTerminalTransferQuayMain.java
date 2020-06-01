@@ -51,7 +51,7 @@ public class ArraivalTerminalTransferQuayMain {
         monitorATTQ = new ArraivalTerminalTransferQuay(/*genInfoRepo*/);                   // activação do serviço
         attQuayInter = new ArraivalTerminalTransferQuayInterface (monitorATTQ);        // activação do interface com o serviço
         System.out.println("O serviço foi estabelecido! ArraivalTerminalTransferQuay");
-        System.out.println("O servidor esta em escuta." + portNumb);
+        System.out.println("O servidor esta em escuta na porta: "+ portNumb);
 
         /* processamento de pedidos */
         //NAO SEI ONDE METER ISTO MAS É NECESSARIO!!!

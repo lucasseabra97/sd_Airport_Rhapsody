@@ -53,7 +53,7 @@ public class TemporaryStorageAreaMain {
         monitorTSA = new TemporaryStorageArea(/*genInfoRepo*/);                           // activação do serviço
         atExitInter = new TemporaryStorageAreaInterface (monitorTSA);        // activação do interface com o serviço
         System.out.println("O serviço foi estabelecido! TemporaryStorageArea");
-        System.out.println("O servidor esta em escuta." + portNumb);
+        System.out.println("O servidor esta em escuta na porta: "+ portNumb);
 
         /* processamento de pedidos */
         //NAO SEI ONDE METER ISTO MAS É NECESSARIO
