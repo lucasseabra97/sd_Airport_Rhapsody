@@ -117,6 +117,7 @@ public class DepartureTerminalTransferQuay implements IDepartureTerminalTransfer
 	 */
     @Override
     public void parkTheBusAndLetPassOff( int passengersLeaving) {
+        System.out.println(passengersLeaving);
         rl.lock();
         try {
             //rep.driverParkingDepartureTerminal();

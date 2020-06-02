@@ -3,6 +3,7 @@ package clientSide.stubs;
 import clientSide.ClientCom;
 import commonInfra.ATTQMessage;
 import commonInfra.BusDriverAction;
+import commonInfra.DTTQMessage;
 import interfaces.IArraivalTerminalTransferQBusDriver;
 import interfaces.IArraivalTerminalTransferQPassenger;
 
@@ -56,10 +57,12 @@ public class ArrailvalTTransferQuayStub implements IArraivalTerminalTransferQPas
             }
         con.close ();
         
-        return inMessage.getPassengerID();
+        return inMessage.getInsidePassengers();
         
     }
+   
 
+    
     @Override
     public BusDriverAction hasDaysWorkEnded() {
 

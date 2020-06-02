@@ -18,10 +18,14 @@ public class BROMessage implements Serializable{
      */
     public static final int COMPLAIN = 1;
 
+    public static final int SET_PARAM = 2;
+
     /**
     *   (resposta enviada pelo servidor)
     */
-    public static final int ACK = 2;
+    public static final int ACK = 3;
+
+	
 
     /* Campos das mensagens */
 

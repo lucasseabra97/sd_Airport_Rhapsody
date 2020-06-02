@@ -42,7 +42,7 @@ public class BaggageReclaimOfficeMain {
         //GeneralRepository genInfoRepo = new GeneralRepository(logger);
 
         BaggageReclaimOffice monitorBRO;                                // barbearia (representa o serviço a ser prestado)
-        BaggageReclaimOfficeInterface attQuayInter;                    // interface à barbearia
+        BaggageReclaimOfficeInterface broOfficeInter;                    // interface à barbearia
         ServerCom scon, sconi;                                          // canais de comunicação
         Proxy cliProxy;                                                // thread agente prestador do serviço
 
@@ -51,7 +51,7 @@ public class BaggageReclaimOfficeMain {
         scon = new ServerCom (portNumb);                      // criação do canal de escuta e sua associação
         scon.start ();                                       // com o endereço público
         monitorBRO = new BaggageReclaimOffice(/*genInfoRepo*/);                   // activação do serviço
-        attQuayInter = new BaggageReclaimOfficeInterface (monitorBRO);        // activação do interface com o serviço
+        broOfficeInter = new BaggageReclaimOfficeInterface (monitorBRO);        // activação do interface com o serviço
         System.out.println("O serviço foi estabelecido! BaggageReclaimOffice");
         System.out.println("O servidor esta em escuta na porta: "+ portNumb);
 
@@ -62,7 +62,7 @@ public class BaggageReclaimOfficeMain {
         while (waitConnection)
             try
             { sconi = scon.accept ();                          // entrada em processo de escuta
-            cliProxy = new Proxy (sconi, attQuayInter);  // lançamento do agente prestador do serviço
+            cliProxy = new Proxy (sconi, broOfficeInter);  // lançamento do agente prestador do serviço
             cliProxy.start ();
             }
             catch (SocketTimeoutException e)

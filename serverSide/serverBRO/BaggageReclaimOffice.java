@@ -38,7 +38,7 @@ public class BaggageReclaimOffice implements IBaggageReclaimOfficePassenger{
         bagsList = new ArrayList<>();
        
     }
-
+    
     /**
      * Makes a complaint.
      * @param bags Set of bags lost.

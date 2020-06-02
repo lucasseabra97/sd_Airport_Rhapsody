@@ -28,7 +28,8 @@ public class TemporaryStorageAreaMain {
 
   public static void main(String[] args) throws IOException
    {  
-    
+
+        /*
         File logger = new File("logger.txt");
         if(logger.createNewFile()){
             //System.out.prserverDTTQserverDTTQintln("Logger created: " + logger.getName());
@@ -38,7 +39,7 @@ public class TemporaryStorageAreaMain {
             logger.createNewFile();
             // System.out.println("File already exists.");
         }
-
+        */
         //GeneralRepository genInfoRepo = new GeneralRepository(logger);
 
         TemporaryStorageArea monitorTSA;                                  // barbearia (representa o serviço a ser prestado)

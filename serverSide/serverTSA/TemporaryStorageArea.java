@@ -25,6 +25,7 @@ public class TemporaryStorageArea implements ITemporaryStorageAreaPorter{
 	public void carryItToAppropriateStore(Baggage bag) {
         rl.lock();
         try {
+            System.out.println("bag: "+ bag);
             bags.add(bag);
             //rep.porterMoveBagToStoreroom();
             

@@ -96,6 +96,7 @@ public class BusDriver extends Thread{
                     break;
                 case PARKING_AT_THE_DEPARTURE_TERMINAL:
                     System.out.println("BusDriver -> PARKING_AT_THE_DEPARTURE_TERMINAL");
+                    System.out.println("NUMBER OF PASSENGERS AT THE BUS"+passengersRiding);
                     dttQuayStub.parkTheBusAndLetPassOff(passengersRiding);
                     System.out.println("Passengers left the bus | starting travel back");
                     state = BusDriverEnum.DRIVING_BACKWARD;

@@ -42,6 +42,8 @@ public class TemporaryStorageAreaInterface {
      switch (inMessage.getMsgType()) 
      {
         case TSAMessage.CARRY_IT_TO_APPROPRIATE_STORE:
+            if(inMessage.getBaggage()==null)
+                throw new TSAMessageException("No bag", inMessage);
             break;
         default:
              throw new TSAMessageException("Tipo inválido!", inMessage);
@@ -51,7 +53,7 @@ public class TemporaryStorageAreaInterface {
 
      switch (inMessage.getMsgType())
      {
-        case DTTQMessage.WAIT_RIDE:
+        case TSAMessage.CARRY_IT_TO_APPROPRIATE_STORE:
                     monitorTSA.carryItToAppropriateStore(inMessage.getBaggage());
                     outMessage = new TSAMessage(TSAMessage.ACK);
                     break;

@@ -95,6 +95,7 @@ public class DepartureTerminalTransferQuayStub implements IDepartureTerminalTran
             }
             catch (InterruptedException e) {}
         }
+        
         outMessage = new DTTQMessage(DTTQMessage.PARK_THE_BUS_AND_LET_PASS_OFF,nPassenger);    // o barbeiro chama o cliente
         con.writeObject (outMessage);
         inMessage = (DTTQMessage) con.readObject ();

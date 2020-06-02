@@ -48,6 +48,7 @@ public class ATTQMessage implements Serializable{
     public static final int ACK = 7;
 
 
+  
     /* Campos das mensagens */
 
     /**
@@ -59,10 +60,7 @@ public class ATTQMessage implements Serializable{
      * retorna o numero de passageiros
      */
     private int insidePass;
-    /**
-     *  Retorna o ID do passageiro
-     */
-    private int passengerID;
+
     
     /**
      *  Retorna a acao que o busDriver vai executar
@@ -80,14 +78,9 @@ public class ATTQMessage implements Serializable{
     }
 
 
-    public ATTQMessage(int msgType , int passengerID){
+    public ATTQMessage(int msgType , int insidePass){
         this.msgType = msgType;
-        // if(msgType == ENTER_THE_BUS || msgType == TAKE_A_BUS){
-        //     this.passengerID = passengerInfo;
-        // }else{
-        //     this.insidePass = passengerInfo;
-        // }
-        this.passengerID = passengerID;
+        this.insidePass = insidePass;
         
     }
 
@@ -101,8 +94,8 @@ public class ATTQMessage implements Serializable{
         return this.msgType;
     }
 
-    public int getPassengerID() {
-        return this.passengerID;
+    public int getInsidePassengers() {
+        return this.insidePass;
     }
 
     public BusDriverAction getBusDAction() {
@@ -115,7 +108,7 @@ public class ATTQMessage implements Serializable{
     public String toString() {
         return "{" +
             " msgType='" + msgType + "'" +
-            ", passengerID='" + passengerID + "'" +
+            ", insidePass='" + insidePass + "'" +
             ", busDAction='" + busDAction + "'" +
             "}";
     }

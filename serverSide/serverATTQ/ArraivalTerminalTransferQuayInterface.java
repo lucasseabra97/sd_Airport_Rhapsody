@@ -33,6 +33,7 @@ public class ArraivalTerminalTransferQuayInterface {
   public ATTQMessage processAndReply (ATTQMessage inMessage) throws ATTQMessageException
   {
     ATTQMessage outMessage = null;                           // mensagem de resposta
+    DTTQMessage out1Message = null;
 
     /* validação da mensagem recebida */
 
@@ -63,11 +64,11 @@ public class ArraivalTerminalTransferQuayInterface {
                     outMessage = new ATTQMessage(ATTQMessage.ACK);
                     break;                    
         case ATTQMessage.TAKE_A_BUS:
-                    monitorATTQ.takeABus(inMessage.getPassengerID());
+                    monitorATTQ.takeABus(inMessage.getInsidePassengers());
                     outMessage = new ATTQMessage(ATTQMessage.ACK);
                     break;                               
         case ATTQMessage.ENTER_THE_BUS:
-                    monitorATTQ.enterTheBus(inMessage.getPassengerID());
+                    monitorATTQ.enterTheBus(inMessage.getInsidePassengers());
                     outMessage = new ATTQMessage(ATTQMessage.ACK);
                     break;                              
         case ATTQMessage.HAS_DAYS_WORK_ENDED:
@@ -76,7 +77,7 @@ public class ArraivalTerminalTransferQuayInterface {
                     break;                             
         case ATTQMessage.ANNOUNCING_BUS_BOARDING:
                     int insidePassengers = monitorATTQ.annoucingBusBoarding();
-                    outMessage = new ATTQMessage(ATTQMessage.ACK , insidePassengers);
+                    outMessage = new ATTQMessage(ATTQMessage.ACK , insidePassengers); 
                     break;
         case ATTQMessage.END_OF_DAY:
                     monitorATTQ.endOfDay();
