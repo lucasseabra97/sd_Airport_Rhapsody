@@ -126,9 +126,9 @@ public class ArraivalTerminalTransferQuay implements IArraivalTerminalTransferQP
         try{
             passengerQueue.add(passengerID);
 
-            Passenger passenger = (Passenger) Thread.currentThread();
+            //Passenger passenger = (Passenger) Thread.currentThread();
             //rep.passJoinBusQueue(passenger.getPassengerID());
-
+            System.out.printf("Passenger -> %d wants to take a bus \n",passengerID);
             //before blocking the 3 guy wakes up the BD
             if(passengerQueue.size() == busSize)
                 waitFull.signal();
@@ -153,11 +153,12 @@ public class ArraivalTerminalTransferQuay implements IArraivalTerminalTransferQP
     public void enterTheBus(int passengerID){
         rl.lock();
         try{
+            //System.out.println("aqui filho");
             insidePassengers.add(passengerID);
 
-            Passenger passenger = (Passenger) Thread.currentThread();
+            //Passenger passenger = (Passenger) Thread.currentThread();
             //rep.passSitInBus(passenger.getPassengerID());
-            
+            System.out.printf("Passenger -> %d wants to enter in the bus \n",passengerID);
             if (insidePassengers.size() == passengersEntering) {
                 waitEnterBus.signalAll();
             }

@@ -160,7 +160,7 @@ public class ArraivalLounge implements IArraivalLoungePassenger , IArraivalLoung
 				waitForPlane.await();
 				
             }
-            System.out.println("Arraival Lounge saiu do  Take a rest");
+            //System.out.println("Arraival Lounge saiu do  Take a rest");
             memBag = new ArrayList<>();
             if(!dayEnded){
                 List<Baggage> flightBags = bagsPerFlight.remove(0);
@@ -173,7 +173,7 @@ public class ArraivalLounge implements IArraivalLoungePassenger , IArraivalLoung
             
             porterAvailable = false;
             collect = false;
-            System.out.println("Arraival Lounge Take a rest:"+!dayEnded);
+            //System.out.println("Arraival Lounge Take a rest:"+!dayEnded);
             return !dayEnded;
 
         } catch(Exception ex) {  
@@ -195,7 +195,7 @@ public class ArraivalLounge implements IArraivalLoungePassenger , IArraivalLoung
 			if(memBag.size() > 0) {
 				Baggage tempbagg = memBag.remove(0);
 				//rep.porterCollectBag();
-				System.out.println(memBag.size());
+				//System.out.println(memBag.size());
 				return tempbagg;
 			}
 			else 

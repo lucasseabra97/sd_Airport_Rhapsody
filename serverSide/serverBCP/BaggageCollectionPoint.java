@@ -62,9 +62,9 @@ public class BaggageCollectionPoint implements IBaggageCollectionPointPorter, IB
         rl.lock();
         try{
                 //rep.porterMoveBagToConveyorBelt();
-                System.out.printf("Porter carrying: %d \n",bag) ;
                 bags.add(bag);
                 noMoreBags = false;
+                //System.out.printf("Porter carrying to appropriate store: %d \n",bag) ;
                 waitingBag.signalAll();
             
         }catch(Exception ex){
@@ -84,7 +84,7 @@ public class BaggageCollectionPoint implements IBaggageCollectionPointPorter, IB
         try {
             //Passenger passenger = (Passenger) Thread.currentThread();
             //rep.passEnterLuggageCollectionPoint(passenger.getPassengerID());
-            System.out.println("Existem em stock :"+bags +" Passenger bags :" + bagp);
+            System.out.println("Passenger bags :" + bagp);
 
             //System.out.println(bags +"  bomdia "+ bagp);
             while(!noMoreBags){
@@ -120,6 +120,7 @@ public class BaggageCollectionPoint implements IBaggageCollectionPointPorter, IB
             //rep.porterNoMoreBags();
             noMoreBags = true;
             waitingBag.signalAll();
+            System.out.println("No more bags to collect....");
         } catch(Exception ex) {} 
         finally {
             rl.unlock();

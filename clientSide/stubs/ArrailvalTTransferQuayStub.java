@@ -56,7 +56,7 @@ public class ArrailvalTTransferQuayStub implements IArraivalTerminalTransferQPas
             }
         con.close ();
         
-        return inMessage.getInsidePass();
+        return inMessage.getPassengerID();
         
     }
 

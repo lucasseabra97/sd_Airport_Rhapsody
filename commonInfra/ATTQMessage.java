@@ -80,13 +80,14 @@ public class ATTQMessage implements Serializable{
     }
 
 
-    public ATTQMessage(int msgType , int passengerInfo){
+    public ATTQMessage(int msgType , int passengerID){
         this.msgType = msgType;
-        if(msgType == ENTER_THE_BUS || msgType == TAKE_A_BUS){
-            this.passengerID = passengerInfo;
-        }else{
-            this.insidePass = passengerInfo;
-        }
+        // if(msgType == ENTER_THE_BUS || msgType == TAKE_A_BUS){
+        //     this.passengerID = passengerInfo;
+        // }else{
+        //     this.insidePass = passengerInfo;
+        // }
+        this.passengerID = passengerID;
         
     }
 
@@ -95,12 +96,9 @@ public class ATTQMessage implements Serializable{
     }
 
 
+
     public int getMsgType() {
         return this.msgType;
-    }
-
-    public int getInsidePass() {
-        return this.insidePass;
     }
 
     public int getPassengerID() {
@@ -111,16 +109,17 @@ public class ATTQMessage implements Serializable{
         return this.busDAction;
     }
     
+    
 
     @Override
     public String toString() {
         return "{" +
-            " msgType='" + getMsgType() + "'" +
-            ", insidePass='" + getInsidePass() + "'" +
-            ", passengerID='" + getPassengerID() + "'" +
-            ", busDAction='" + getBusDAction() + "'" +
+            " msgType='" + msgType + "'" +
+            ", passengerID='" + passengerID + "'" +
+            ", busDAction='" + busDAction + "'" +
             "}";
     }
+    
 
 
 }   
