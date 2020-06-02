@@ -51,17 +51,17 @@ public class ArraivalLoungeStub implements IArraivalLoungePassenger, IArraivalLo
         con.writeObject (outMessage);
         inMessage = (ArraivalLoungeMessage) con.readObject ();
 
-        if ((inMessage.getMsgType() !=ArraivalLoungeMessage.ACK))
+        if ((inMessage.getMsgType() !=ArraivalLoungeMessage.ACK) && inMessage.getMsgType() != ArraivalLoungeMessage.END_OF_DAY)
             {   System.out.println("Thread " + Thread.currentThread ().getName () + ": Tipo inválido!");
                 System.out.println(inMessage.toString ());
                 System.exit (1);
             }
-        con.close ();
-
-        //if (inMessage.getMsgType() == ArraivalLoungeMessage.TAKE_A_REST_DONE)
-            return inMessage.getTakeRest();                                                // operação bem sucedida - corte efectuado
-                                                 
         
+        con.close ();
+        
+        //if (inMessage.getMsgType() == ArraivalLoungeMessage.TAKE_A_REST_DONE)
+        return inMessage.getMsgType() != ArraivalLoungeMessage.END_OF_DAY;                                                // operação bem sucedida - corte efectuado
+
     }
 
     
@@ -92,7 +92,7 @@ public class ArraivalLoungeStub implements IArraivalLoungePassenger, IArraivalLo
     }
 
     @Override
-    public int whatShouldIDO(Boolean goHome) {
+    public void whatShouldIDO(Boolean goHome) {
     
         ClientCom con = new ClientCom (serverHostName, serverPortNumb);
         ArraivalLoungeMessage inMessage, outMessage;
@@ -114,7 +114,7 @@ public class ArraivalLoungeStub implements IArraivalLoungePassenger, IArraivalLo
             }
         con.close ();
 
-        return inMessage.getNPass();
+        
         
     }
 

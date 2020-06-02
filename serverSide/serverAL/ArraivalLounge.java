@@ -42,7 +42,7 @@ public class ArraivalLounge implements IArraivalLoungePassenger , IArraivalLoung
     */
 	private int nPassengers=0;
 	/**
-    * Arraival Lounge determine maxPassengers for Bus
+    * Arraival Lounge determine maxPassengers
     */
 	private int maxPassengers;
 	/**
@@ -82,12 +82,12 @@ public class ArraivalLounge implements IArraivalLoungePassenger , IArraivalLoung
 		
 	}
 	
-    public void setParameters(int nrPassengers, List<List<Baggage>> bagsPerFlight) {
-        if (nrPassengers > 0)
-            this.nPassengers = nrPassengers;
+    public void setParameters(int maxPassengers, List<List<Baggage>> bagsPerFlight) {
+        if (maxPassengers > 0)
+            this.maxPassengers = maxPassengers;
         if (bagsPerFlight.size() > 0)
             this.bagsPerFlight = bagsPerFlight;
-        System.out.println("Arrival lounge carregado com " + nrPassengers + " passageiros e malas:" + bagsPerFlight.toString());
+        System.out.println("Arrival lounge carregado com " + maxPassengers + " passageiros e malas:" + bagsPerFlight.toString());
         reportInitialStatus();
     }
 
@@ -98,11 +98,11 @@ public class ArraivalLounge implements IArraivalLoungePassenger , IArraivalLoung
 	 * 
 	 */
 	@Override
-    public int whatShouldIDO(Boolean goHome) {
+    public void whatShouldIDO(Boolean goHome) {
         rl.lock();
         try {
-			Passenger passenger = (Passenger) Thread.currentThread();
-			int bags = passenger.getFlightBags();
+			//Passenger passenger = (Passenger) Thread.currentThread();
+			//int bags = passenger.getFlightBags();
 			/*
 			if(goHome){
 				rep.addFinalDestinations();
@@ -111,11 +111,13 @@ public class ArraivalLounge implements IArraivalLoungePassenger , IArraivalLoung
             else {
 				//rep.addTransit();
 			}
-			*/
+            */
+            
             while(!porterAvailable){
                 cPorter.await();
 			}
             nPassengers++;
+        
 		    /*
 			if(nPassengers == 1){
 				//rep.startNextFlight(bagsPerFlight.get(0).size());
@@ -124,17 +126,15 @@ public class ArraivalLounge implements IArraivalLoungePassenger , IArraivalLoung
             
             //rep.passengerInit(PassengerEnum.AT_THE_DISEMBARKING_ZONE, bags, goHome ? "FDT" : "TRF", passenger.getPassengerID());
 			*/
-
+            
             if(nPassengers == maxPassengers) {
                 collect = true;
                 nPassengers = 0;
                 waitForPlane.signal();
             }
 
-            return nPassengers;
             
-        } catch(Exception ex) {  
-            return 0;   
+        } catch(Exception ex) {    
         } finally {
             rl.unlock();
         }
@@ -147,9 +147,10 @@ public class ArraivalLounge implements IArraivalLoungePassenger , IArraivalLoung
 	 */	
 	@Override
     public boolean takeARest() {
+       
         rl.lock();
         try {
-
+            
             porterAvailable = true;
             cPorter.signalAll();
 
@@ -159,7 +160,7 @@ public class ArraivalLounge implements IArraivalLoungePassenger , IArraivalLoung
 				waitForPlane.await();
 				
             }
-
+            System.out.println("Arraival Lounge saiu do  Take a rest");
             memBag = new ArrayList<>();
             if(!dayEnded){
                 List<Baggage> flightBags = bagsPerFlight.remove(0);
@@ -172,6 +173,7 @@ public class ArraivalLounge implements IArraivalLoungePassenger , IArraivalLoung
             
             porterAvailable = false;
             collect = false;
+            System.out.println("Arraival Lounge Take a rest:"+!dayEnded);
             return !dayEnded;
 
         } catch(Exception ex) {  
@@ -193,7 +195,7 @@ public class ArraivalLounge implements IArraivalLoungePassenger , IArraivalLoung
 			if(memBag.size() > 0) {
 				Baggage tempbagg = memBag.remove(0);
 				//rep.porterCollectBag();
-				//System.out.println(memBag.size());
+				System.out.println(memBag.size());
 				return tempbagg;
 			}
 			else 

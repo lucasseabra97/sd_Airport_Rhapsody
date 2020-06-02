@@ -176,8 +176,8 @@ public class Passenger extends Thread {
 							bags[i] = flightsBags.get(cFlight).get(i);
 						}
 						//falta mexer no ArrailvalLounge
-						if(aloungeStub.whatShouldIDO(goHome) == 1) 
-							bcPointStub.resetState();
+						aloungeStub.whatShouldIDO(goHome); 
+						
 							
 						System.out.printf("Passageiro:%d -> AT_THE_DISEMBARKING_ZONE | chegou com:%d mala(s) e jorneyEnds:%b \n", this.passengerID,bags.length,goHome);
 						
@@ -206,7 +206,7 @@ public class Passenger extends Thread {
 						for (Baggage baggage : bags) {
 							bagsCollected.add(baggage);
 						}
-						System.out.println("Passenger has to collected: "+bagsCollected);
+						//System.out.println("Passenger has to collected: "+bagsCollected);
 						
 						//lostBags = new ArrayList<Baggage>((Arrays.asList(bags)));
 						while(bagsCollected.size() >0){

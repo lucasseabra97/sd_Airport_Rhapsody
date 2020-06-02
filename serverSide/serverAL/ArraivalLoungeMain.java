@@ -41,7 +41,7 @@ public class ArraivalLoungeMain
       //TODO still don t know how to solve this problem
       monitorAL = new ArraivalLounge();            // activação do serviço
       aloungeInter = new ArraivalLoungeInterface (monitorAL);        // activação do interface com o serviço
-      System.out.println("O serviço foi estabelecido! ArraivalLounge ");
+      System.out.println("O serviço foi estabelecido! Arraival Lounge ");
       System.out.println("O servidor esta em escuta na porta: "+ portNumb);
 
      /* processamento de pedidos */

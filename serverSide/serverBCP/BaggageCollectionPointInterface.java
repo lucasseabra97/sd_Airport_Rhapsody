@@ -39,8 +39,12 @@ public class BaggageCollectionPointInterface {
      switch (inMessage.getMsgType()) 
      {
         case BCPMessage.CARRY_IT_TO_APPROPRIATE_STORE:
+            if(inMessage.getBaggage() == null)
+            throw new BCPMessageException ("Mala inexistente!", inMessage);
             break;
         case BCPMessage.GO_COLLECT_A_BAG:
+            if(inMessage.getBaggageList() == null || inMessage.getBaggageList().size() == 0)
+            throw new BCPMessageException ("Set de IDS das malas do utilizador inválido ou vazio", inMessage);
             break;
         case BCPMessage.NO_MORE_BAGS_TO_COLLECT:
             break;
