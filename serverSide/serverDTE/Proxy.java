@@ -81,7 +81,7 @@ public class Proxy extends Thread
       int proxyId;                                         // identificador da instanciação
 
       try
-      { cl = Class.forName ("serverSide.Proxy");
+      { cl = Class.forName ("serverSide.serverDTE.Proxy");
       }
       catch (ClassNotFoundException e)
       { System.out.println("O tipo de dados Proxy não foi encontrado!");
