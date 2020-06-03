@@ -119,6 +119,7 @@ public class Passenger extends Thread {
 		this.attQuayStub    = attQuayStub;
 		this.dtEntranceStub = dtEntranceStub;
 		this.dttQuayStub    = dttQuayStub;
+		this.brOfficeStub = brOfficeStub;
 		/*this.monitorAe = monitorAe;
 		this.monitorTTQ = monitorTTQ;
 		this.monitorDTTQ = monitorDTTQ;
@@ -264,7 +265,7 @@ public class Passenger extends Thread {
 						break;
 
 				
-/*
+
 					case EXITING_THE_ARRIVAL_TERMINAL:
 						System.out.printf("Passenger:%d -> EXITING_THE_ARRIVAL_TERMINAL \n",this.passengerID);
 						atExitStub.syncPassenger();
@@ -300,7 +301,7 @@ public class Passenger extends Thread {
 						}						
 						end = false;
 						break ;
-				*/
+				
 						
 				}
 				try {

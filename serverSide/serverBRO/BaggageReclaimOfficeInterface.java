@@ -40,6 +40,8 @@ public class BaggageReclaimOfficeInterface {
      switch (inMessage.getMsgType()) 
      {
         case BROMessage.COMPLAIN:
+            if(inMessage.getBaggageList() ==null || inMessage.getBaggageList().size() ==0)
+                throw new BROMessageException("Set de IDS das malas do utilizador inválido ou vazio", inMessage);
             break;
         default:
              throw new BROMessageException("Tipo inválido!", inMessage);
