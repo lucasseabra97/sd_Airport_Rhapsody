@@ -37,8 +37,14 @@ public class ATEMessage implements Serializable{
     /**
      *   (resposta do servidor)
      */
-
-    public static final int ACK = 5;
+    /**
+     * 
+     */
+    public static final int SET_PARAM = 5;
+    /**
+     *  
+     */
+    public static final int ACK = 6;
 
     /* Campos das mensagens */
 

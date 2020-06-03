@@ -36,9 +36,13 @@ public class DTEMessage implements Serializable{
     public static final int PREPARE_NEXT_LEG = 4;
 
     /**
+     *  
+     */
+    public static final int SET_PARAM = 5;
+    /**
      * resposta do servidor
      */
-    public static final int ACK = 5;
+    public static final int ACK = 6;
     
 
     /* Campos das mensagens */

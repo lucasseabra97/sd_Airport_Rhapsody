@@ -51,8 +51,6 @@ public class ArraivalTerminalExit implements IArraivalTerminalExitPassenger{
         rl = new ReentrantLock(true);
         waitingEnd = rl.newCondition();
         //this.rep=rep;
-      
-        this.nrPassengers = global.NR_PASSENGERS;
   
     }
 
@@ -129,7 +127,9 @@ public class ArraivalTerminalExit implements IArraivalTerminalExitPassenger{
         rl.unlock();
     }
    
-
+    public void setParameters(int nrPassengers){
+        this.nrPassengers = nrPassengers;
+    }
 
 
 }
