@@ -189,7 +189,6 @@ public class Passenger extends Thread {
 							else{
 								state = PassengerEnum.EXITING_THE_ARRIVAL_TERMINAL;
 							}
-
 						}
 						else{
 							state = PassengerEnum.AT_THE_ARRIVAL_TRANSFER_TERMINAL;

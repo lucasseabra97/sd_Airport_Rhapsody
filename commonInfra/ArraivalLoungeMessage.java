@@ -67,6 +67,9 @@ public class ArraivalLoungeMessage implements Serializable{
 
     private Baggage bag;
 
+
+
+    
     /**
      * retorna condição de espera para o porter
      */

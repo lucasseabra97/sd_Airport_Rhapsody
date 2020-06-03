@@ -66,12 +66,13 @@ public class Porter extends Thread{
                 case WAITING_FOR_A_PLANE_TO_LAND:
                     System.out.println("Porter -> waiting for a plain to land...");
                     bcPointStub.resetState();
-                    if (aloungeStub.takeARest()){
+
+                    boolean bomdia= aloungeStub.takeARest();
+                    System.out.println(bomdia);
+                    if (bomdia){
                         //System.out.println("Porter taking a rest");
                         state = PorterEnum.AT_THE_PLANES_HOLD;
                     }
-
-                        
                     else {
                         System.out.println("End of day for porter");
                         end = false;
@@ -105,7 +106,7 @@ public class Porter extends Thread{
                     tsAreaStub.carryItToAppropriateStore(bag);
                     state = PorterEnum.AT_THE_PLANES_HOLD;
                     break;
-
+                default:
             }
             try {
                 //Thread.sleep(50);

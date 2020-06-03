@@ -72,7 +72,11 @@ public class ArraivalLoungeInterface {
                     break;                               
         case ArraivalLoungeMessage.TAKE_A_REST:
                     boolean takeRest = monitorAL.takeARest();
-                    outMessage = new ArraivalLoungeMessage(ArraivalLoungeMessage.ACK , takeRest);
+                    System.out.println("PORTER TAKE A REST"+ takeRest);
+                    if(takeRest)
+                        outMessage = new ArraivalLoungeMessage(ArraivalLoungeMessage.ACK);
+                    else
+                        outMessage = new ArraivalLoungeMessage(ArraivalLoungeMessage.END_OF_DAY);
                     break;  
         case ArraivalLoungeMessage.SET_PARAMETERS:
                     monitorAL.setParameters(inMessage.getNPass(), inMessage.getBagsList());

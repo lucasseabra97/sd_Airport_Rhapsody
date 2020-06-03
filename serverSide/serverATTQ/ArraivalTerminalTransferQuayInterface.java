@@ -33,7 +33,6 @@ public class ArraivalTerminalTransferQuayInterface {
   public ATTQMessage processAndReply (ATTQMessage inMessage) throws ATTQMessageException
   {
     ATTQMessage outMessage = null;                           // mensagem de resposta
-    DTTQMessage out1Message = null;
 
     /* validação da mensagem recebida */
 

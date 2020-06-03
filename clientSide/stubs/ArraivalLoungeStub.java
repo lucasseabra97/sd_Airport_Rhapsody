@@ -49,10 +49,10 @@ public class ArraivalLoungeStub implements IArraivalLoungePassenger, IArraivalLo
             }
         outMessage = new ArraivalLoungeMessage (ArraivalLoungeMessage.TAKE_A_REST);        // pede a realização do serviço
         con.writeObject (outMessage);
-        inMessage = (ArraivalLoungeMessage) con.readObject ();
+        inMessage = (ArraivalLoungeMessage)con.readObject();
 
         if (inMessage.getMsgType() !=ArraivalLoungeMessage.ACK && inMessage.getMsgType() != ArraivalLoungeMessage.END_OF_DAY)
-            {   System.out.println("Thread " + Thread.currentThread ().getName () + ": Tipo inválido!");
+            {   System.out.println(" Tipo inválido!");
                 System.out.println(inMessage.toString ());
                 System.exit (1);
             }
@@ -60,6 +60,7 @@ public class ArraivalLoungeStub implements IArraivalLoungePassenger, IArraivalLo
         con.close ();
         
         //if (inMessage.getMsgType() == ArraivalLoungeMessage.TAKE_A_REST_DONE)
+        System.out.println(inMessage.getMsgType());
         return inMessage.getMsgType() != ArraivalLoungeMessage.END_OF_DAY;                                                // operação bem sucedida - corte efectuado
 
     }
