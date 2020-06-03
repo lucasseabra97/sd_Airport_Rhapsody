@@ -90,7 +90,7 @@ public class ArraivalTerminalTransferQuay implements IArraivalTerminalTransferQP
 	*/
     public ArraivalTerminalTransferQuay(/*GeneralRepository rep*/) {
         rl = new ReentrantLock(true);
-        this.busSize=global.BUS_SIZE;
+        //this.busSize=global.BUS_SIZE;
         //this.waitPlace = rl.newCondition();
         this.waitFull = rl.newCondition();
         this.waitAnnouncment = rl.newCondition();
@@ -246,5 +246,9 @@ public class ArraivalTerminalTransferQuay implements IArraivalTerminalTransferQP
         waitFull.signal();
         rl.unlock();
         
+    }
+
+    public void setParameters(int busSize){
+        this.busSize = busSize;
     }
 }

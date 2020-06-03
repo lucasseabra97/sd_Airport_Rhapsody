@@ -159,5 +159,28 @@ public class ArrailvalTTransferQuayStub implements IArraivalTerminalTransferQPas
         con.close ();
 
     }
+
+    public void setParameters(int busSize){
+        ClientCom con = new ClientCom (serverHostName, serverPortNumb);
+        ATTQMessage inMessage, outMessage;
+
+        while (!con.open ())                                  // aguarda ligação
+            { try
+                { Thread.currentThread ().sleep ((long) (10));
+                }
+                catch (InterruptedException e) {}
+            }
+        outMessage = new ATTQMessage (ATTQMessage.SET_PARAM,busSize);        // pede a realização do serviço
+        con.writeObject (outMessage);
+        inMessage = (ATTQMessage) con.readObject ();
+
+        if ((inMessage.getMsgType() !=ATTQMessage.ACK))
+            {   System.out.println("Thread " + Thread.currentThread().getName () + ": Tipo inválido!");
+                System.out.println(inMessage.toString ());
+                System.exit (1);
+            }
+        con.close ();
+
+    }
     
 }

@@ -51,7 +51,7 @@ public class DepartureTerminalEntrance implements IDepartureTerminalEntrancePass
     public DepartureTerminalEntrance(/*int nrPassengers , GeneralRepository rep*/) {
         rl = new ReentrantLock(true);
         waitingEnd = rl.newCondition();
-        this.nrPassengers = global.NR_PASSENGERS;
+        //this.nrPassengers = global.NR_PASSENGERS;
         //this.rep = rep;
     }
 
@@ -127,4 +127,9 @@ public class DepartureTerminalEntrance implements IDepartureTerminalEntrancePass
             rl.unlock();
         }
     }
+
+    public void setParemeters(int nrPassengers){
+        this.nrPassengers = nrPassengers;
+    }
+
 }

@@ -45,7 +45,11 @@ public class ATTQMessage implements Serializable{
     /**
     *  
     */ 
-    public static final int ACK = 7;
+    public static final int SET_PARAM = 7;
+    /**
+     * 
+     */
+    public static final int ACK = 8;
 
 
   
