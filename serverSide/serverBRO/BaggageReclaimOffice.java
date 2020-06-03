@@ -36,7 +36,7 @@ public class BaggageReclaimOffice implements IBaggageReclaimOfficePassenger{
         //this.rep = rep;
         rl = new ReentrantLock(true);
         bagsList = new ArrayList<>();
-       
+        
     }
     
     /**

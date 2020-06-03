@@ -65,7 +65,7 @@ public class ATTQMessage implements Serializable{
      */
     private int insidePass;
 
-    
+    private int busSize;
     /**
      *  Retorna a acao que o busDriver vai executar
      */
@@ -84,7 +84,13 @@ public class ATTQMessage implements Serializable{
 
     public ATTQMessage(int msgType , int insidePass){
         this.msgType = msgType;
-        this.insidePass = insidePass;
+        if(msgType==SET_PARAM){
+            this.busSize = insidePass;
+        }
+        else{
+            this.insidePass = insidePass;
+        }
+        
         
     }
 
@@ -92,6 +98,10 @@ public class ATTQMessage implements Serializable{
         this.msgType = msgType;
     }
 
+
+    public int getBusSize() {
+        return this.busSize;
+    }
 
 
     public int getMsgType() {

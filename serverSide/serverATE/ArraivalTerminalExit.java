@@ -47,7 +47,7 @@ public class ArraivalTerminalExit implements IArraivalTerminalExitPassenger{
 	* @param nrPassengers
 	* @param rep
 	*/
-    public ArraivalTerminalExit(int nrPassengers  /*GeneralRepository rep*/) {
+    public ArraivalTerminalExit(/*GeneralRepository rep*/) {
         rl = new ReentrantLock(true);
         waitingEnd = rl.newCondition();
         //this.rep=rep;

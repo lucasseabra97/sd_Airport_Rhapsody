@@ -92,6 +92,9 @@ public class AirportRhapsody {
         } 
         
         aLoungStub.setParameters(global.NR_PASSENGERS, bagsPerFlight);
+        atExitStub.setParameters(6);
+        attQuayStub.setParameters(3);
+        dtEntranceStub.setParemeters(6);
 
         porter.start();
         busdriver.start();

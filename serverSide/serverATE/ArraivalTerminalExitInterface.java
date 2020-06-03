@@ -46,6 +46,10 @@ public class ArraivalTerminalExitInterface {
               break;
         case ATEMessage.SYNC_PASSENGER:
               break;
+      case ATEMessage.SET_PARAM:
+            if (inMessage.getNPassGoingHome() <= 0)
+                  throw new ATEMessageException("Numero de passageiros inexistente!", inMessage);
+            break;
         // case ArraivalLoungeMessage.END_OF_DAY_DONE:                         //necessário end of day para cada server ? 
         default:
              throw new ATEMessageException("Tipo inválido!", inMessage);
@@ -66,7 +70,11 @@ public class ArraivalTerminalExitInterface {
         case ATEMessage.N_PASSENGERS_DEPARTURE_AT:
                     int nPass = monitorATE.nPassengersDepartureAT();
                     outMessage = new ATEMessage(ATEMessage.ACK , nPass);
-                    break;                              
+                    break;   
+        case ATEMessage.SET_PARAM:
+                    monitorATE.setParameters(inMessage.getNPassGoingHome());
+                    outMessage = new ATEMessage(ATEMessage.ACK);   
+                    break;                    
         case ATEMessage.SYNC_PASSENGER:
                     monitorATE.syncPassenger();
                     outMessage = new ATEMessage(ATEMessage.ACK);

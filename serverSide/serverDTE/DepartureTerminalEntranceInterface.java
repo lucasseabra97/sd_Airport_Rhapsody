@@ -45,6 +45,8 @@ public class DepartureTerminalEntranceInterface {
             break;
         case DTEMessage.PREPARE_NEXT_LEG:
             break;
+        case DTEMessage.SET_PARAM:
+            break;
         default:
              throw new DTEMessageException("Tipo inválido!", inMessage);
      }
@@ -62,6 +64,10 @@ public class DepartureTerminalEntranceInterface {
         case DTEMessage.N_PASSENGERS_DEPARTURE_TENTRANCE:
                     int nPassenger = monitorDTE.nPassengersDepartureTEntrance();                                           
                     outMessage = new DTEMessage(DTEMessage.ACK , nPassenger);
+                    break;
+        case DTEMessage.SET_PARAM:
+                    monitorDTE.setParemeters(inMessage.nPassenger());
+                    outMessage = new DTEMessage(DTEMessage.ACK);
                     break;
         case DTEMessage.PREPARE_NEXT_LEG:
                     boolean lastPassenger = monitorDTE.prepareNextLeg(inMessage.nPassenger());

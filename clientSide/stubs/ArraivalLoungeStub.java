@@ -51,7 +51,7 @@ public class ArraivalLoungeStub implements IArraivalLoungePassenger, IArraivalLo
         con.writeObject (outMessage);
         inMessage = (ArraivalLoungeMessage) con.readObject ();
 
-        if ((inMessage.getMsgType() !=ArraivalLoungeMessage.ACK) && inMessage.getMsgType() != ArraivalLoungeMessage.END_OF_DAY)
+        if (inMessage.getMsgType() !=ArraivalLoungeMessage.ACK && inMessage.getMsgType() != ArraivalLoungeMessage.END_OF_DAY)
             {   System.out.println("Thread " + Thread.currentThread ().getName () + ": Tipo inválido!");
                 System.out.println(inMessage.toString ());
                 System.exit (1);

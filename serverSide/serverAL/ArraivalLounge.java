@@ -173,7 +173,7 @@ public class ArraivalLounge implements IArraivalLoungePassenger , IArraivalLoung
             
             porterAvailable = false;
             collect = false;
-            //System.out.println("Arraival Lounge Take a rest:"+!dayEnded);
+            System.out.println("Arraival Lounge Take a rest:"+!dayEnded);
             return !dayEnded;
 
         } catch(Exception ex) {  

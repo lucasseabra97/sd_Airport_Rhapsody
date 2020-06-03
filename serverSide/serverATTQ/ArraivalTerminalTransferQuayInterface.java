@@ -51,6 +51,8 @@ public class ArraivalTerminalTransferQuayInterface {
             break;
         case ATTQMessage.END_OF_DAY:
             break; 
+        case ATTQMessage.SET_PARAM:
+            break;
         default:
              throw new ATTQMessageException("Tipo inválido!", inMessage);
      }
@@ -78,6 +80,10 @@ public class ArraivalTerminalTransferQuayInterface {
         case ATTQMessage.ANNOUNCING_BUS_BOARDING:
                     int insidePassengers = monitorATTQ.annoucingBusBoarding();
                     outMessage = new ATTQMessage(ATTQMessage.ACK , insidePassengers); 
+                    break;
+        case ATTQMessage.SET_PARAM:
+                    monitorATTQ.setParameters(inMessage.getBusSize());
+                    outMessage = new ATTQMessage(ATTQMessage.ACK); 
                     break;
         case ATTQMessage.END_OF_DAY:
                     monitorATTQ.endOfDay();

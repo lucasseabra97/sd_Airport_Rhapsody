@@ -65,7 +65,7 @@ public class Porter extends Thread{
             switch(state){
                 case WAITING_FOR_A_PLANE_TO_LAND:
                     System.out.println("Porter -> waiting for a plain to land...");
-                    //bcPointStub.resetState();
+                    bcPointStub.resetState();
                     if (aloungeStub.takeARest()){
                         //System.out.println("Porter taking a rest");
                         state = PorterEnum.AT_THE_PLANES_HOLD;

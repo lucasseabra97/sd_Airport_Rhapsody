@@ -50,7 +50,7 @@ public class ArraivalTerminalExitMain {
 
         scon = new ServerCom (portNumb);                     // criação do canal de escuta e sua associação
         scon.start ();                                       // com o endereço público
-        monitorATE = new ArraivalTerminalExit(global.NR_PASSENGERS /*genInfoRepo*/);                           // activação do serviço
+        monitorATE = new ArraivalTerminalExit( /*genInfoRepo*/);                           // activação do serviço
         atExitInter = new ArraivalTerminalExitInterface (monitorATE);        // activação do interface com o serviço
         System.out.println("O serviço foi estabelecido! ArraivalTerminalExit");
         System.out.println("O servidor esta em escuta na porta: "+ portNumb);

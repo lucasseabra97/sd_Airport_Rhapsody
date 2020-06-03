@@ -78,8 +78,6 @@ public class ArraivalLoungeInterface {
                     monitorAL.setParameters(inMessage.getNPass(), inMessage.getBagsList());
                     outMessage = new ArraivalLoungeMessage(ArraivalLoungeMessage.ACK);
                     break;
-
-
         case ArraivalLoungeMessage.END_OF_DAY:
                     monitorAL.endOfDay();
                     outMessage = new ArraivalLoungeMessage(ArraivalLoungeMessage.ACK);
