@@ -65,7 +65,7 @@ public class ArraivalTerminalExitInterface {
                     break;                               
         case ATEMessage.N_PASSENGERS_DEPARTURE_AT:
                     int nPass = monitorATE.nPassengersDepartureAT();
-                    outMessage = new ATEMessage(ATEMessage.ACK);
+                    outMessage = new ATEMessage(ATEMessage.ACK , nPass);
                     break;                              
         case ATEMessage.SYNC_PASSENGER:
                     monitorATE.syncPassenger();

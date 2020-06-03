@@ -66,9 +66,9 @@ public class ArraivalTerminalExit implements IArraivalTerminalExitPassenger{
         rl.lock();
         try {
 
-            Passenger passenger = (Passenger) Thread.currentThread();
+            //Passenger passenger = (Passenger) Thread.currentThread();
             //rep.passGoHome(passenger.getPassengerID());
-
+            System.out.println(npassengers);
             boolean lastPassenger = passengers + npassengers == nrPassengers;
             System.out.println("->" + lastPassenger);
             if(lastPassenger) {

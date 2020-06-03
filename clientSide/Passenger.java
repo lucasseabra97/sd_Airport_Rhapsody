@@ -289,7 +289,7 @@ public class Passenger extends Thread {
 						System.out.printf("Passenger:%d -> PREPARING NEXT FLIGHT \n",this.passengerID);
 						dtEntranceStub.syncPassenger();
 						int npassDEP = atExitStub.nPassengersDepartureAT();
-				
+						
 						if(dtEntranceStub.prepareNextLeg(npassDEP)){
 							atExitStub.awakePassengers();
 							//monitorDEP.awakePassengers();

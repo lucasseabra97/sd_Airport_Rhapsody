@@ -105,7 +105,7 @@ public class ArraivalTerminalExitStub implements IArraivalTerminalExitPassenger 
                 System.exit (1);
             }
         con.close ();
-        return inMessage.getNPassengersDepartureAT();
+        return inMessage.getNPassGoingHome();
     }
 
     @Override
