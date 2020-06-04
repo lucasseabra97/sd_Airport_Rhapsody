@@ -40,7 +40,9 @@ public class TemporaryStorageAreaInterface {
     /* validação da mensagem recebida */
 
      switch (inMessage.getMsgType()) 
-     {
+
+     {  case TSAMessage.SHUTDOWN:
+            break;
         case TSAMessage.CARRY_IT_TO_APPROPRIATE_STORE:
             if(inMessage.getBaggage()==null)
                 throw new TSAMessageException("No bag", inMessage);
@@ -55,6 +57,11 @@ public class TemporaryStorageAreaInterface {
      {
         case TSAMessage.CARRY_IT_TO_APPROPRIATE_STORE:
                     monitorTSA.carryItToAppropriateStore(inMessage.getBaggage());
+                    outMessage = new TSAMessage(TSAMessage.ACK);
+                    break;
+        case TSAMessage.SHUTDOWN:
+                    TemporaryStorageAreaMain.waitConnection = false;
+                    (((Proxy) (Thread.currentThread())).getScon()).setTimeout(10);
                     outMessage = new TSAMessage(TSAMessage.ACK);
                     break;
     }

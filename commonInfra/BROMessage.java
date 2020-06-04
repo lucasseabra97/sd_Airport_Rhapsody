@@ -17,13 +17,20 @@ public class BROMessage implements Serializable{
      *  Passenger requests ??? (pedido passageiro)
      */
     public static final int COMPLAIN = 1;
-
+    /**
+     * 
+     */
     public static final int SET_PARAM = 2;
+
+    /**
+     *  request for shutdown server
+     */
+    public static final int SHUTDOWN = 3;
 
     /**
     *   (resposta enviada pelo servidor)
     */
-    public static final int ACK = 3;
+    public static final int ACK = 4;
 
 	
 

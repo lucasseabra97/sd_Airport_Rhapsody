@@ -1,6 +1,5 @@
 package serverSide.serverAL;
 
-
 import commonInfra.*;
 public class ArraivalLoungeInterface {
     /**
@@ -54,6 +53,8 @@ public class ArraivalLoungeInterface {
         case ArraivalLoungeMessage.END_OF_DAY:
             break;
         
+        case ArraivalLoungeMessage.SHUTDOWN:
+            break;
         default:
             throw new ALMessageException("Tipo inválido!", inMessage);
      }
@@ -85,8 +86,12 @@ public class ArraivalLoungeInterface {
         case ArraivalLoungeMessage.END_OF_DAY:
                     monitorAL.endOfDay();
                     outMessage = new ArraivalLoungeMessage(ArraivalLoungeMessage.ACK);
-                    break;                             
-            
+                    break;  
+        case ArraivalLoungeMessage.SHUTDOWN:
+                    ArraivalLoungeMain.waitConnection = false;
+                    (((Proxy) (Thread.currentThread())).getScon()).setTimeout(10);                     
+                    outMessage = new ArraivalLoungeMessage(ArraivalLoungeMessage.ACK);
+                    break;
      }
     return (outMessage);
    }

@@ -110,7 +110,7 @@ public class BagageCollectionPointStub implements IBaggageCollectionPointPorter,
 
     @Override
     public void noMoreBagsToCollect() {
-        // TODO Auto-generated method stub
+        
         ClientCom con = new ClientCom (serverHostName, serverPortNumb);
         BCPMessage inMessage, outMessage;
 
@@ -121,6 +121,28 @@ public class BagageCollectionPointStub implements IBaggageCollectionPointPorter,
                 catch (InterruptedException e) {}
             }
         outMessage = new BCPMessage (BCPMessage.NO_MORE_BAGS_TO_COLLECT);        // pede a realização do serviço
+        con.writeObject (outMessage);
+        inMessage = (BCPMessage) con.readObject ();
+
+        if ((inMessage.getMsgType() !=BCPMessage.ACK))
+            {   System.out.println("Thread " + Thread.currentThread ().getName () + ": Tipo inválido!");
+                System.out.println(inMessage.toString ());
+                System.exit (1);
+            }
+        con.close ();
+    }
+
+    public void shutdown(){
+        ClientCom con = new ClientCom (serverHostName, serverPortNumb);
+        BCPMessage inMessage, outMessage;
+
+        while (!con.open ())                                  // aguarda ligação
+            { try
+                { Thread.currentThread ().sleep ((long) (10));
+                }
+                catch (InterruptedException e) {}
+            }
+        outMessage = new BCPMessage (BCPMessage.SHUTDOWN);        // pede a realização do serviço
         con.writeObject (outMessage);
         inMessage = (BCPMessage) con.readObject ();
 

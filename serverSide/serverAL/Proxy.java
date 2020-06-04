@@ -90,4 +90,8 @@ public class Proxy extends Thread {
       return proxyId;
     }
 
+    public ServerCom getScon(){
+      return sconi;
+    }
+
 }

@@ -155,4 +155,27 @@ public class ArraivalTerminalExitStub implements IArraivalTerminalExitPassenger 
         con.close();
     }
     
+    public void shutdown(){
+        ClientCom con = new ClientCom(serverHostName, serverPortNumb);
+        ATEMessage inMessage, outMessage;
+
+        while (!con.open()) // aguarda ligação
+        {
+            try {
+                Thread.currentThread().sleep((long) (10));
+            } catch (InterruptedException e) {
+            }
+        }
+
+        outMessage = new ATEMessage(ATEMessage.SHUTDOWN);
+        con.writeObject(outMessage);
+        inMessage = (ATEMessage) con.readObject();
+        if (inMessage.getMsgType() != ATEMessage.ACK) {
+            System.out.println("Arranque da simulação: Tipo inválido!");
+            System.out.println(inMessage.toString());
+            System.exit(1);
+        }
+        con.close(); 
+    }
+    
 }

@@ -38,10 +38,12 @@ public class BaggageReclaimOfficeInterface {
     /* validação da mensagem recebida */
 
      switch (inMessage.getMsgType()) 
-     {
+     {  
         case BROMessage.COMPLAIN:
             if(inMessage.getBaggageList() ==null || inMessage.getBaggageList().size() ==0)
                 throw new BROMessageException("Set de IDS das malas do utilizador inválido ou vazio", inMessage);
+            break;
+        case BROMessage.SHUTDOWN:
             break;
         default:
              throw new BROMessageException("Tipo inválido!", inMessage);
@@ -54,7 +56,12 @@ public class BaggageReclaimOfficeInterface {
         case BROMessage.COMPLAIN:
                     monitorBRO.complain(inMessage.getBaggageList());
                     outMessage = new BROMessage(BROMessage.ACK);
-                    break;                                                 
+                    break;   
+        case BROMessage.SHUTDOWN:
+                    BaggageReclaimOfficeMain.waitConnection = false;
+                    (((Proxy) (Thread.currentThread())).getScon()).setTimeout(10);  
+                    outMessage = new BROMessage(BROMessage.ACK);
+                    break;                                             
     }
     return (outMessage);
    }

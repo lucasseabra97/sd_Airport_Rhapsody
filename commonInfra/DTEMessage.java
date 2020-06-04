@@ -40,9 +40,13 @@ public class DTEMessage implements Serializable{
      */
     public static final int SET_PARAM = 5;
     /**
+     *  request for shutdown server
+     */
+    public static final int SHUTDOWN = 6;
+    /**
      * resposta do servidor
      */
-    public static final int ACK = 6;
+    public static final int ACK = 7;
     
 
     /* Campos das mensagens */

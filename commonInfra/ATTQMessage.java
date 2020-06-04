@@ -47,9 +47,14 @@ public class ATTQMessage implements Serializable{
     */ 
     public static final int SET_PARAM = 7;
     /**
-     * 
+     *  request for shutdown server
      */
-    public static final int ACK = 8;
+    public static final int SHUTDOWN = 8;
+
+    /**
+     *  Alert was sent sucessufly (resposta do servidor)
+     */
+    public static final int ACK = 9;
 
 
   

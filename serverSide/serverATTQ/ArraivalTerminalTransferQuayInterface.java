@@ -1,6 +1,7 @@
 package serverSide.serverATTQ;
 
 
+import clientSide.stubs.ArrailvalTTransferQuayStub;
 import commonInfra.*;
 public class ArraivalTerminalTransferQuayInterface {
     /**
@@ -52,6 +53,8 @@ public class ArraivalTerminalTransferQuayInterface {
             break; 
         case ATTQMessage.SET_PARAM:
             break;
+        case ATTQMessage.SHUTDOWN:
+            break;
         default:
              throw new ATTQMessageException("Tipo inválido!", inMessage);
      }
@@ -88,8 +91,11 @@ public class ArraivalTerminalTransferQuayInterface {
                     monitorATTQ.endOfDay();
                     outMessage = new ATTQMessage(ATTQMessage.ACK);
                     break;  
-                
-                
+        case ATTQMessage.SHUTDOWN:
+                    ArraivalTerminalTransferQuayMain.waitConnection = false;
+                    (((Proxy) (Thread.currentThread())).getScon()).setTimeout(10);
+                    outMessage = new ATTQMessage(ATTQMessage.ACK);
+                    break;            
     }
      
     return (outMessage);

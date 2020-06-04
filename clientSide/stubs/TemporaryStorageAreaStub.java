@@ -59,6 +59,27 @@ public class TemporaryStorageAreaStub implements ITemporaryStorageAreaPorter    
 
     }
 
+    public void shutdown(){
+        ClientCom con = new ClientCom (serverHostName, serverPortNumb);
+        TSAMessage inMessage, outMessage;
+    
+        while (!con.open ())                                      // aguarda ligação
+        { try
+            { Thread.currentThread ().sleep ((long) (10));
+            }
+            catch (InterruptedException e) {}
+        }
+        outMessage = new TSAMessage(TSAMessage.SHUTDOWN);    // o barbeiro chama o cliente
+        con.writeObject (outMessage);
+        inMessage = (TSAMessage) con.readObject ();
+       
+        if (inMessage.getMsgType() != TSAMessage.ACK)
+            {   System.out.println("Thread " + Thread.currentThread ().getName () + ": Tipo inválido!");
+                System.out.println(inMessage.toString ());
+                System.exit (1);
+            }
+        con.close ();
+    }
 
 
 

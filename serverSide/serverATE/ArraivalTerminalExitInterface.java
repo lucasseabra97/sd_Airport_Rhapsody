@@ -46,6 +46,8 @@ public class ArraivalTerminalExitInterface {
               break;
         case ATEMessage.SYNC_PASSENGER:
               break;
+        case ATEMessage.SHUTDOWN:
+              break;
       case ATEMessage.SET_PARAM:
             if (inMessage.getNPassGoingHome() <= 0)
                   throw new ATEMessageException("Numero de passageiros inexistente!", inMessage);
@@ -79,7 +81,11 @@ public class ArraivalTerminalExitInterface {
                     monitorATE.syncPassenger();
                     outMessage = new ATEMessage(ATEMessage.ACK);
                     break;                             
-              
+        case ATEMessage.SHUTDOWN:
+                    ArraivalTerminalExitMain.waitConnection = false;
+                    (((Proxy) (Thread.currentThread())).getScon()).setTimeout(10);
+                    outMessage = new ATEMessage(ATEMessage.ACK);
+                    break;
      }
      
     return (outMessage);
