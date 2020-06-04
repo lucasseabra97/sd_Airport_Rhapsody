@@ -5,6 +5,6 @@ javac AirportPassenger.java
 javac AirportBusDriver.java
 
 
-gnome-terminal --tab --title="PORTER" -e "java AirportPorter" \
-                --tab --title="BUS DRIVER" -e "java AirportBusDriver" \
-                --tab --title="PASSENGER" -e "java AirportPassenger" 
+gnome-terminal --tab --title="PORTER" -e "bash -c \"java AirportPorter ; exec bash\"" \
+               --tab --title="BUS DRIVER" -e "bash -c \"java AirportBusDriver ; exec bash\"" \
+               --tab --title="PASSENGER" -e "bash -c \"java AirportPassenger ; exec bash\"" 

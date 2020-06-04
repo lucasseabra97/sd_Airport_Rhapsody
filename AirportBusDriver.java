@@ -47,14 +47,7 @@ public class AirportBusDriver {
         dttQuayStub  = new DepartureTerminalTransferQuayStub("localhost",3007);
         
 
-        BusDriver busdriver = new BusDriver(attQuayStub, dttQuayStub,global.BUS_SIZE);
-
-        
-       
-        
-       
-
-       
+        BusDriver busdriver = new BusDriver(attQuayStub, dttQuayStub,global.BUS_SIZE);       
         busdriver.start();
     
 

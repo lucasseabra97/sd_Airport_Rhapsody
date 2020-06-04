@@ -45,11 +45,6 @@ public class AirportPorter {
         aLoungStub = new ArraivalLoungeStub("localhost",3000); 
         bcPointStub = new BagageCollectionPointStub("localhost",3001);
         tsaStub = new TemporaryStorageAreaStub("localhost",3005);
-        
-
-        
-       
-        
        
         Porter porter = new Porter(aLoungStub, bcPointStub, tsaStub);
         porter.start();

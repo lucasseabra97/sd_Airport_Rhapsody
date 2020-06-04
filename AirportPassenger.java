@@ -90,6 +90,9 @@ public class AirportPassenger {
         } 
         
         aLoungStub.setParameters(global.NR_PASSENGERS, bagsPerFlight);
+        atExitStub.setParameters(6);
+        attQuayStub.setParameters(3);
+        dtEntranceStub.setParemeters(6);
 
         for(int i = 0; i < global.NR_PASSENGERS; i++) {
             passengers[i].start();
