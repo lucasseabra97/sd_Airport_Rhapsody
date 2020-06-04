@@ -47,6 +47,8 @@ public class DepartureTerminalEntranceInterface {
             break;
         case DTEMessage.SET_PARAM:
             break;
+        case DTEMessage.SHUTDOWN:
+            break;
         default:
              throw new DTEMessageException("Tipo inválido!", inMessage);
      }
@@ -72,6 +74,11 @@ public class DepartureTerminalEntranceInterface {
         case DTEMessage.PREPARE_NEXT_LEG:
                     boolean lastPassenger = monitorDTE.prepareNextLeg(inMessage.nPassenger());
                     outMessage = new DTEMessage(DTEMessage.ACK, lastPassenger);
+                    break;
+        case DTEMessage.SHUTDOWN:
+                    DepartureTerminalEntranceMain.waitConnection = false;
+                    (((Proxy) (Thread.currentThread())).getScon()).setTimeout(10);
+                    outMessage = new DTEMessage(DTEMessage.ACK);
                     break;
     }
     return (outMessage);

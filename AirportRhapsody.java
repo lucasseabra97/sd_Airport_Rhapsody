@@ -112,5 +112,14 @@ public class AirportRhapsody {
 
         }finally{
         }
+
+        aLoungStub.shutdown();
+        bcPointStub.shutdown();
+        atExitStub.shutdown();
+        tsaStub.shutdown();
+        attQuayStub.shutdown();
+        dttQuayStub.shutdown();
+        dtEntranceStub.shutdown();
+        brOfficeStub.shutdown();
     }
 }

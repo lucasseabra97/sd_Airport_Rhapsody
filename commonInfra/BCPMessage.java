@@ -34,11 +34,17 @@ public class BCPMessage implements Serializable{
     */
 
     public static final int RESET_STATE= 4;
+    
+    /**
+     *  request for shutdown server
+     */
+    public static final int SHUTDOWN = 5;
+
     /**
      *   (resposta do servidor)
      */
 
-    public static final int ACK = 5;
+    public static final int ACK = 6;
 
 
     /* Campos das mensagens */

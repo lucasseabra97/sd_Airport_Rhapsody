@@ -26,10 +26,15 @@ public class DTTQMessage implements Serializable{
      * bus driver request for park the bus and let pass off
      */
     public static final int PARK_THE_BUS_AND_LET_PASS_OFF = 3;
+    
+    /**
+     *  request for shutdown server
+     */
+    public static final int SHUTDOWN = 4;
     /**
     * resposta do servidor
     */
-    public static final int ACK = 4;
+    public static final int ACK = 5;
     
 
     /* Campos das mensagens */

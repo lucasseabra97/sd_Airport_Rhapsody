@@ -153,4 +153,28 @@ public class DepartureTerminalEntranceStub implements IDepartureTerminalEntrance
         con.close ();
 
     }
+
+
+    public void shutdown(){
+        ClientCom con = new ClientCom (serverHostName, serverPortNumb);
+        DTEMessage inMessage, outMessage;
+    
+        while (!con.open ())                                      // aguarda ligação
+        { try
+            { Thread.currentThread ().sleep ((long) (10));
+            }
+            catch (InterruptedException e) {}
+        }
+        outMessage = new DTEMessage(DTEMessage.SHUTDOWN);    // o barbeiro chama o cliente
+        con.writeObject (outMessage);
+        inMessage = (DTEMessage) con.readObject ();
+       
+        if (inMessage.getMsgType() != DTEMessage.ACK)
+            {   System.out.println("Thread " + Thread.currentThread ().getName () + ": Tipo inválido!");
+                System.out.println(inMessage.toString ());
+                System.exit (1);
+            }
+        con.close ();
+
+    }
 }

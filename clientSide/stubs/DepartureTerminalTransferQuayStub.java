@@ -109,5 +109,28 @@ public class DepartureTerminalTransferQuayStub implements IDepartureTerminalTran
 
     }
 
+    public void shutdown(){
+        ClientCom con = new ClientCom (serverHostName, serverPortNumb);
+        DTTQMessage inMessage, outMessage;
+    
+        while (!con.open ())                                      // aguarda ligação
+        { try
+            { Thread.currentThread ().sleep ((long) (10));
+            }
+            catch (InterruptedException e) {}
+        }
+        
+        outMessage = new DTTQMessage(DTTQMessage.SHUTDOWN);    // o barbeiro chama o cliente
+        con.writeObject (outMessage);
+        inMessage = (DTTQMessage) con.readObject ();
+       
+        if (inMessage.getMsgType() != DTTQMessage.ACK)
+            {   System.out.println("Thread " + Thread.currentThread ().getName () + ": Tipo inválido!");
+                System.out.println(inMessage.toString ());
+                System.exit (1);
+            }
+        con.close ();
+    }
+
 
 }

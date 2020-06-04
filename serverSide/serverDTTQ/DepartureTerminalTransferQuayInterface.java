@@ -38,6 +38,8 @@ public class DepartureTerminalTransferQuayInterface {
             break;
         case DTTQMessage.PARK_THE_BUS_AND_LET_PASS_OFF:
             break;
+        case DTTQMessage.SHUTDOWN:
+            break;
         default:
              throw new DTTQMessageException("Tipo inválido!", inMessage);
      }
@@ -54,6 +56,11 @@ public class DepartureTerminalTransferQuayInterface {
                     break;
         case DTTQMessage.PARK_THE_BUS_AND_LET_PASS_OFF:
                     monitorDTTQ.parkTheBusAndLetPassOff(inMessage.getPassengersLeaving());                                           
+                    outMessage = new DTTQMessage(DTTQMessage.ACK);
+                    break; 
+        case DTTQMessage.SHUTDOWN:
+                    DepartureTerminalTransferQuayMain.waitConnection = false;
+                    (((Proxy) (Thread.currentThread())).getScon()).setTimeout(10);
                     outMessage = new DTTQMessage(DTTQMessage.ACK);
                     break; 
     }

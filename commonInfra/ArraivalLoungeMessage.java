@@ -41,11 +41,13 @@ public class ArraivalLoungeMessage implements Serializable{
     
     
     /**
+     *  request for shutdown server
+     */
+    public static final int SHUTDOWN = 6;
+    /**
      *  Alert was sent sucessufly (resposta do servidor)
      */
-
-
-    public static final int ACK = 6;
+    public static final int ACK = 7;
     
      /* Campos das mensagens */
 

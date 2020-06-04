@@ -1,5 +1,6 @@
 package serverSide.serverBCP;
 import commonInfra.*;
+import jdk.nashorn.internal.runtime.BitVector;
 public class BaggageCollectionPointInterface {
     /**
    *  Barbearia (representa o serviço a ser prestado)
@@ -50,6 +51,8 @@ public class BaggageCollectionPointInterface {
             break;
         case BCPMessage.RESET_STATE:
             break;
+        case BCPMessage.SHUTDOWN:
+            break;
         default:
              throw new BCPMessageException("Tipo inválido!", inMessage);
      }
@@ -74,7 +77,12 @@ public class BaggageCollectionPointInterface {
         case BCPMessage.RESET_STATE:
                     monitorBCP.resetState();
                     outMessage = new BCPMessage(BCPMessage.ACK);                         
-                    break;                             
+                    break;   
+        case BCPMessage.SHUTDOWN:
+                    BaggageCollectionPointMain.waitConnection = false;
+                    (((Proxy) (Thread.currentThread())).getScon()).setTimeout(10);
+                    outMessage = new BCPMessage(BCPMessage.ACK);                         
+                    break;                        
     }
      
     return (outMessage);
