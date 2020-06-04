@@ -1,6 +1,5 @@
 package serverSide.serverBCP;
 import commonInfra.*;
-import jdk.nashorn.internal.runtime.BitVector;
 public class BaggageCollectionPointInterface {
     /**
    *  Barbearia (representa o serviço a ser prestado)

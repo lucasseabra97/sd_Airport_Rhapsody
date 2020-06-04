@@ -106,5 +106,12 @@ public class AirportPassenger {
 
         }finally{
         }
+        aLoungStub.shutdown();
+        bcPointStub.shutdown();
+        atExitStub.shutdown();
+        attQuayStub.shutdown();
+        dttQuayStub.shutdown();
+        dtEntranceStub.shutdown();
+        brOfficeStub.shutdown();
     }
 }
