@@ -150,6 +150,7 @@ public class GRMessage implements Serializable {
         this.msgType = msgType;
     }
     public GRMessage(int msgType, int flightLuggage){
+      this.msgType = msgType;
       this.flightLuggage = flightLuggage;
     }
 
