@@ -59,6 +59,7 @@ public class AirportPassenger {
         BaggageReclaimOfficeStub          brOfficeStub;                 // stub Baggage Reclaim Office 
         DepartureTerminalEntranceStub     dtEntranceStub;           // stub Departure Terminal Entrance 
         DepartureTerminalTransferQuayStub dttQuayStub;          // stub Departure Terminal Transfer Quay
+        GeneralRepositoryStub             gRepositoyStub;      //stub General Repository
         String fName;                                        // nome do ficheiro de logging 
         String serverHostName;                               // nome do sistema computacional onde está o servidor
         int serverPortNumb;                                  // número do port de escuta do servidor
@@ -77,6 +78,7 @@ public class AirportPassenger {
         
         aLoungStub = new ArraivalLoungeStub("localhost",3000);
         bcPointStub = new BagageCollectionPointStub("localhost",3001);
+        gRepositoyStub = new GeneralRepositoryStub("localhost",3002);
         atExitStub  = new ArraivalTerminalExitStub("localhost",3003);
         brOfficeStub = new BaggageReclaimOfficeStub("localhost",3004);
         attQuayStub  = new ArrailvalTTransferQuayStub("localhost",3006);
@@ -113,5 +115,6 @@ public class AirportPassenger {
         dttQuayStub.shutdown();
         dtEntranceStub.shutdown();
         brOfficeStub.shutdown();
+        gRepositoyStub.shutdown();
     }
 }

@@ -574,4 +574,26 @@ public class GeneralRepositoryStub {
         con.close ();
     }
 
+    public void shutdown(){
+        ClientCom con = new ClientCom (serverHostName, serverPortNumb);
+        GRMessage inMessage, outMessage;
+
+        while (!con.open ())                                  // aguarda ligação
+            { try
+                { Thread.currentThread ().sleep ((long) (10));
+                }
+                catch (InterruptedException e) {}
+            }
+        outMessage = new GRMessage (GRMessage.SHUTDOWN);       // pede a realização do serviço
+        con.writeObject (outMessage);
+        inMessage = (GRMessage)con.readObject();
+
+        if (inMessage.getMsgType() !=GRMessage.ACK)
+            {   System.out.println(" Tipo inválido!");
+                System.out.println(inMessage.toString ());
+                System.exit (1);
+            }
+        con.close ();
+    }
+
 }
