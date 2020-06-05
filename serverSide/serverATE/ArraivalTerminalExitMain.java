@@ -4,7 +4,7 @@ package serverSide.serverATE;
 import java.io.*;
 import java.net.SocketTimeoutException;
 
-
+import clientSide.stubs.GeneralRepositoryStub;
 import main.global;
 
 import serverSide.ServerCom;
@@ -48,9 +48,11 @@ public class ArraivalTerminalExitMain {
 
         /* estabelecimento do servico */
 
-        scon = new ServerCom (portNumb);                     // criação do canal de escuta e sua associação
-        scon.start ();                                       // com o endereço público
-        monitorATE = new ArraivalTerminalExit( /*genInfoRepo*/);                           // activação do serviço
+        scon = new ServerCom (portNumb);                                     // criação do canal de escuta e sua associação
+        scon.start ();     
+        
+        GeneralRepositoryStub grStub = new GeneralRepositoryStub("localhost",3002);   // com o endereço público
+        monitorATE = new ArraivalTerminalExit(grStub);                           // activação do serviço
         atExitInter = new ArraivalTerminalExitInterface (monitorATE);        // activação do interface com o serviço
         System.out.println("O serviço foi estabelecido! ArraivalTerminalExit");
         System.out.println("O servidor esta em escuta na porta: "+ portNumb);

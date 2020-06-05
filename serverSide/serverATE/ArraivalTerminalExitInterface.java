@@ -62,7 +62,7 @@ public class ArraivalTerminalExitInterface {
      switch (inMessage.getMsgType())
      {
         case ATEMessage.GO_HOME:                         
-                    boolean goHome = monitorATE.goHome(inMessage.getNPassGoingHome());
+                    boolean goHome = monitorATE.goHome(inMessage.getNPassGoingHome(), inMessage.getPassengerID());
                     outMessage = new ATEMessage(ATEMessage.ACK,goHome);
                     break;                    
         case ATEMessage.AWAKE_PASSENGERS:

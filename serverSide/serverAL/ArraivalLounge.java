@@ -2,6 +2,7 @@ package serverSide.serverAL;
 
 import commonInfra.*;
 import clientSide.*;
+import clientSide.stubs.GeneralRepositoryStub;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
@@ -65,19 +66,20 @@ public class ArraivalLounge implements IArraivalLoungePassenger , IArraivalLoung
 	/**
      * The general repository of information.
      */
-	//private final GeneralRepository rep;
+	private GeneralRepositoryStub grStub;
 
 	/** 
 	* Arraival Lounge shared Memory constructor
     * @param repository General repository of information
     * @param bagsPerFlight List of bags for each flight
     */
-	public ArraivalLounge() {
+	public ArraivalLounge(GeneralRepositoryStub grStub) {
 		//this.maxPassengers = maxPassengers;
 		
 		rl = new ReentrantLock(true);
 		cPorter = rl.newCondition();
-		waitForPlane = rl.newCondition();
+        waitForPlane = rl.newCondition();
+        this.grStub=grStub;
 		
 		
 	}
@@ -98,34 +100,34 @@ public class ArraivalLounge implements IArraivalLoungePassenger , IArraivalLoung
 	 * 
 	 */
 	@Override
-    public void whatShouldIDO(Boolean goHome) {
+    public void whatShouldIDO(Boolean goHome,int bags , int passengerID) {
         rl.lock();
         try {
 			//Passenger passenger = (Passenger) Thread.currentThread();
 			//int bags = passenger.getFlightBags();
-			/*
+			
 			if(goHome){
-				rep.addFinalDestinations();
+				grStub.addFinalDestinations();
 			}
 			
             else {
-				//rep.addTransit();
+				grStub.addTransit();
 			}
-            */
             
+        
             while(!porterAvailable){
                 cPorter.await();
 			}
             nPassengers++;
         
-		    /*
+             
 			if(nPassengers == 1){
-				//rep.startNextFlight(bagsPerFlight.get(0).size());
+				grStub.startNextFlight(bagsPerFlight.get(0).size());
 			} 
-
             
-            //rep.passengerInit(PassengerEnum.AT_THE_DISEMBARKING_ZONE, bags, goHome ? "FDT" : "TRF", passenger.getPassengerID());
-			*/
+            
+            grStub.passengerInit(PassengerEnum.AT_THE_DISEMBARKING_ZONE, bags, goHome ? "FDT" : "TRF",passengerID );
+			
             
             if(nPassengers == maxPassengers) {
                 collect = true;
@@ -154,7 +156,7 @@ public class ArraivalLounge implements IArraivalLoungePassenger , IArraivalLoung
             porterAvailable = true;
             cPorter.signalAll();
 
-            //rep.porterWaitingLanding();
+            grStub.porterWaitingLanding();
             while(!collect && !dayEnded) {
 				//System.out.println("BOMDIA");
 				waitForPlane.await();
@@ -166,7 +168,7 @@ public class ArraivalLounge implements IArraivalLoungePassenger , IArraivalLoung
                 List<Baggage> flightBags = bagsPerFlight.remove(0);
                 for(int b = 0; b < flightBags.size(); b++) {
                     memBag.add(flightBags.get(b));
-                    //rep.addBag();
+                    grStub.addBag();
                    
                 }
             }
@@ -194,7 +196,7 @@ public class ArraivalLounge implements IArraivalLoungePassenger , IArraivalLoung
 		try{
 			if(memBag.size() > 0) {
 				Baggage tempbagg = memBag.remove(0);
-				//rep.porterCollectBag();
+				grStub.porterCollectBag();
 				//System.out.println(memBag.size());
 				return tempbagg;
 			}

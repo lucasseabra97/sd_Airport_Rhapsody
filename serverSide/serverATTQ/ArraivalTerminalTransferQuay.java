@@ -7,6 +7,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 import commonInfra.*;
 import clientSide.*;
+import clientSide.stubs.GeneralRepositoryStub;
 import interfaces.*;
 import main.global;
 //import shared_regions.GeneralRepository;
@@ -79,16 +80,16 @@ public class ArraivalTerminalTransferQuay implements IArraivalTerminalTransferQP
     /** 
      * General Repository
     */
-     //private GeneralRepository rep;
+    private GeneralRepositoryStub grStub;
     
     
     /**
 	* Arriaval Terminal Transfer Quay shared Memomry constructor
 	* 
 	* @param busSize
-	* @param rep
+	* @param grStub
 	*/
-    public ArraivalTerminalTransferQuay(/*GeneralRepository rep*/) {
+    public ArraivalTerminalTransferQuay(GeneralRepositoryStub grStub) {
         rl = new ReentrantLock(true);
         //this.busSize=global.BUS_SIZE;
         //this.waitPlace = rl.newCondition();
@@ -101,7 +102,7 @@ public class ArraivalTerminalTransferQuay implements IArraivalTerminalTransferQP
         busTravelling = false;
         
         
-        //this.rep = rep;
+        this.grStub = grStub;
 
     }
 
@@ -127,7 +128,7 @@ public class ArraivalTerminalTransferQuay implements IArraivalTerminalTransferQP
             passengerQueue.add(passengerID);
 
             //Passenger passenger = (Passenger) Thread.currentThread();
-            //rep.passJoinBusQueue(passenger.getPassengerID());
+            grStub.passJoinBusQueue(passengerID);
             System.out.printf("Passenger -> %d wants to take a bus \n",passengerID);
             //before blocking the 3 guy wakes up the BD
             if(passengerQueue.size() == busSize)
@@ -157,7 +158,7 @@ public class ArraivalTerminalTransferQuay implements IArraivalTerminalTransferQP
             insidePassengers.add(passengerID);
 
             //Passenger passenger = (Passenger) Thread.currentThread();
-            //rep.passSitInBus(passenger.getPassengerID());
+            grStub.passSitInBus(passengerID);
             System.out.printf("Passenger -> %d wants to enter in the bus \n",passengerID);
             if (insidePassengers.size() == passengersEntering) {
                 waitEnterBus.signalAll();
@@ -179,7 +180,7 @@ public class ArraivalTerminalTransferQuay implements IArraivalTerminalTransferQP
             int count = 0;
             busTravelling = false;
 
-            //rep.driverParkingArrivalTerminal();
+            grStub.driverParkingArrivalTerminal();
 
             if(passengerQueue.size() > 0) {
                 waitAnnouncment.signalAll();
@@ -223,10 +224,10 @@ public class ArraivalTerminalTransferQuay implements IArraivalTerminalTransferQP
             while(insidePassengers.size() != passengersEntering) {
                 waitEnterBus.await();
             }
-            /*
+            
             if(insidePassengers.size() > 0)
-                //rep.driverDrivingForward();
-            */
+                grStub.driverDrivingForward();
+            
             return insidePassengers.size();
 
 

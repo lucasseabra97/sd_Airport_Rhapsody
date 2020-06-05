@@ -7,7 +7,7 @@ import commonInfra.*;
 
 
 public interface IBaggageCollectionPointPassenger{
-    Baggage goCollectABag(ArrayList<Baggage> ibagp);
+    Baggage goCollectABag(ArrayList<Baggage> ibagp , int passengerID);
     void resetState();
 
 }

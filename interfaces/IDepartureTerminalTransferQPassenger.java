@@ -2,6 +2,6 @@ package interfaces;
 
 
 public interface IDepartureTerminalTransferQPassenger{
-    void leaveTheBus();
-    void waitRide();
+    void leaveTheBus(int passengerID);
+    void waitRide(int passengerID);
 }

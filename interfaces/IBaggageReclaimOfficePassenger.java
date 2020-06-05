@@ -7,6 +7,6 @@ import commonInfra.*;
 
 
 public interface IBaggageReclaimOfficePassenger{
-    void complain(ArrayList<Baggage> bags);
+    void complain(ArrayList<Baggage> bags , int passengerID);
   
 }

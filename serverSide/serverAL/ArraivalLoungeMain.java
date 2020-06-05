@@ -1,8 +1,12 @@
 package serverSide.serverAL;
 
 import serverSide.ServerCom;
+import serverSide.serverGR.GeneralRepository;
+
 import java.net.SocketTimeoutException;
 import java.util.*;
+
+import clientSide.stubs.GeneralRepositoryStub;
 import commonInfra.*;
 import main.*;
 /**
@@ -24,6 +28,11 @@ public class ArraivalLoungeMain
   private static final int List = 0;
    
   public static boolean waitConnection;                              // sinalização de actividade
+
+  /**
+   * General Information Repository Stub
+   */
+
   /**
    *  Programa principal.
    */
@@ -33,14 +42,16 @@ public class ArraivalLoungeMain
       ArraivalLoungeInterface aloungeInter;                // interface ao ArraivalLounge
       ServerCom scon, sconi;                               // canais de comunicação
       Proxy cliProxy;                                      // thread agente prestador do serviço
-
+      
      /* estabelecimento do servico */
 
       scon = new ServerCom (portNumb);                                 // criação do canal de escuta e sua associação
       scon.start ();                                                  // com o endereço público
-      //TODO still don t know how to solve this problem
-      monitorAL = new ArraivalLounge();            // activação do serviço
-      aloungeInter = new ArraivalLoungeInterface (monitorAL);        // activação do interface com o serviço
+
+      
+      GeneralRepositoryStub grStub = new GeneralRepositoryStub("localhost",3002);
+      monitorAL = new ArraivalLounge(grStub);                                  // activação do serviço
+      aloungeInter = new ArraivalLoungeInterface (monitorAL);                 // activação do interface com o serviço
       System.out.println("O serviço foi estabelecido! Arraival Lounge ");
       System.out.println("O servidor esta em escuta na porta: "+ portNumb);
 

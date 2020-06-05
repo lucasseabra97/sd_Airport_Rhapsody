@@ -47,11 +47,11 @@ public class DepartureTerminalTransferQuayInterface {
      switch (inMessage.getMsgType())
      {
         case DTTQMessage.WAIT_RIDE:
-                    monitorDTTQ.waitRide();
+                    monitorDTTQ.waitRide(inMessage.getPassengersLeaving());
                     outMessage = new DTTQMessage(DTTQMessage.ACK);
                     break;
         case DTTQMessage.LEAVE_THE_BUS:
-                    monitorDTTQ.leaveTheBus();
+                    monitorDTTQ.leaveTheBus(inMessage.getPassengersLeaving());
                     outMessage = new DTTQMessage(DTTQMessage.ACK);
                     break;
         case DTTQMessage.PARK_THE_BUS_AND_LET_PASS_OFF:

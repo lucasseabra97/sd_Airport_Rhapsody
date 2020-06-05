@@ -93,7 +93,7 @@ public class ArraivalLoungeStub implements IArraivalLoungePassenger, IArraivalLo
     }
 
     @Override
-    public void whatShouldIDO(Boolean goHome) {
+    public void whatShouldIDO(Boolean goHome,int bags , int passengerID) {
     
         ClientCom con = new ClientCom (serverHostName, serverPortNumb);
         ArraivalLoungeMessage inMessage, outMessage;
@@ -104,7 +104,7 @@ public class ArraivalLoungeStub implements IArraivalLoungePassenger, IArraivalLo
             }
             catch (InterruptedException e) {}
         }
-        outMessage = new ArraivalLoungeMessage (ArraivalLoungeMessage.WHAT_SHOULD_I_DO, goHome);    // o barbeiro chama o cliente
+        outMessage = new ArraivalLoungeMessage (ArraivalLoungeMessage.WHAT_SHOULD_I_DO, goHome,bags , passengerID);    // o barbeiro chama o cliente
         con.writeObject (outMessage);
         inMessage = (ArraivalLoungeMessage) con.readObject ();
        

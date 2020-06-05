@@ -37,7 +37,7 @@ public class DepartureTerminalTransferQuayStub implements IDepartureTerminalTran
     }
 
     @Override
-    public void leaveTheBus() {
+    public void leaveTheBus(int passengerID) {
         ClientCom con = new ClientCom (serverHostName, serverPortNumb);
         DTTQMessage inMessage, outMessage;
     
@@ -47,7 +47,7 @@ public class DepartureTerminalTransferQuayStub implements IDepartureTerminalTran
             }
             catch (InterruptedException e) {}
         }
-        outMessage = new DTTQMessage(DTTQMessage.LEAVE_THE_BUS);    // o barbeiro chama o cliente
+        outMessage = new DTTQMessage(DTTQMessage.LEAVE_THE_BUS,passengerID);    // o barbeiro chama o cliente
         con.writeObject (outMessage);
         inMessage = (DTTQMessage) con.readObject ();
        
@@ -61,7 +61,7 @@ public class DepartureTerminalTransferQuayStub implements IDepartureTerminalTran
     }
 
     @Override
-    public void waitRide() {
+    public void waitRide(int id) {
         ClientCom con = new ClientCom (serverHostName, serverPortNumb);
         DTTQMessage inMessage, outMessage;
     
@@ -71,7 +71,7 @@ public class DepartureTerminalTransferQuayStub implements IDepartureTerminalTran
             }
             catch (InterruptedException e) {}
         }
-        outMessage = new DTTQMessage(DTTQMessage.WAIT_RIDE);    // o barbeiro chama o cliente
+        outMessage = new DTTQMessage(DTTQMessage.WAIT_RIDE , id);    // o barbeiro chama o cliente
         con.writeObject (outMessage);
         inMessage = (DTTQMessage) con.readObject ();
        

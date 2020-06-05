@@ -36,7 +36,7 @@ public class BaggageReclaimOfficeStub implements IBaggageReclaimOfficePassenger 
     }
 
     @Override
-    public void complain(ArrayList<Baggage> bags) {
+    public void complain(ArrayList<Baggage> bags, int passengerID) {
     
         ClientCom con = new ClientCom (serverHostName, serverPortNumb);
         BROMessage inMessage, outMessage;
@@ -47,7 +47,7 @@ public class BaggageReclaimOfficeStub implements IBaggageReclaimOfficePassenger 
             }
             catch (InterruptedException e) {}
         }
-        outMessage = new BROMessage (BROMessage.COMPLAIN,bags);    // o barbeiro chama o cliente
+        outMessage = new BROMessage (BROMessage.COMPLAIN,bags, passengerID);    // o barbeiro chama o cliente
         con.writeObject (outMessage);
         inMessage = (BROMessage) con.readObject ();
        

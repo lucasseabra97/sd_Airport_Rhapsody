@@ -4,7 +4,7 @@ package serverSide.serverATTQ;
 import java.io.*;
 import java.net.SocketTimeoutException;
 
-
+import clientSide.stubs.GeneralRepositoryStub;
 import serverSide.ServerCom;
 //import shared_regions.GeneralRepository;
 
@@ -46,9 +46,12 @@ public class ArraivalTerminalTransferQuayMain {
 
         /* estabelecimento do servico */
 
-        scon = new ServerCom (portNumb);                     // criação do canal de escuta e sua associação
-        scon.start ();                                       // com o endereço público
-        monitorATTQ = new ArraivalTerminalTransferQuay(/*genInfoRepo*/);                   // activação do serviço
+        scon = new ServerCom (portNumb);                                // criação do canal de escuta e sua associação
+        scon.start ();                                                 // com o endereço público
+
+
+        GeneralRepositoryStub grStub = new GeneralRepositoryStub("localhost",3002);      // com o endereço público
+        monitorATTQ = new ArraivalTerminalTransferQuay(grStub);                         // activação do serviço
         attQuayInter = new ArraivalTerminalTransferQuayInterface (monitorATTQ);        // activação do interface com o serviço
         System.out.println("O serviço foi estabelecido! ArraivalTerminalTransferQuay");
         System.out.println("O servidor esta em escuta na porta: "+ portNumb);

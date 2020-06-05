@@ -8,6 +8,7 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
 import clientSide.*;
+import clientSide.stubs.GeneralRepositoryStub;
 
 /**
  * Arraival Terminal shared memory region.
@@ -36,7 +37,7 @@ public class ArraivalTerminalExit implements IArraivalTerminalExitPassenger{
     /**
      * General Repository
      */
-    //private GeneralRepository rep;
+    private GeneralRepositoryStub grStub;
     /**
     * Arraival Terminal Exit boolean to check if all can go home
     */
@@ -47,10 +48,10 @@ public class ArraivalTerminalExit implements IArraivalTerminalExitPassenger{
 	* @param nrPassengers
 	* @param rep
 	*/
-    public ArraivalTerminalExit(/*GeneralRepository rep*/) {
+    public ArraivalTerminalExit(GeneralRepositoryStub grStub) {
         rl = new ReentrantLock(true);
         waitingEnd = rl.newCondition();
-        //this.rep=rep;
+        this.grStub=grStub;
   
     }
 
@@ -60,12 +61,14 @@ public class ArraivalTerminalExit implements IArraivalTerminalExitPassenger{
 	 * @return lastone
 	 */
     @Override
-    public boolean goHome(int npassengers) {
+    public boolean goHome(int npassengers , int passengerID) {
         rl.lock();
         try {
 
             //Passenger passenger = (Passenger) Thread.currentThread();
             //rep.passGoHome(passenger.getPassengerID());
+
+            grStub.passGoHome(passengerID);
             System.out.println(npassengers);
             boolean lastPassenger = passengers + npassengers == nrPassengers;
             System.out.println("->" + lastPassenger);

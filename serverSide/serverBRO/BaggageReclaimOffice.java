@@ -6,6 +6,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 import commonInfra.*;
 import clientSide.*;
+import clientSide.stubs.GeneralRepositoryStub;
 import interfaces.IBaggageReclaimOfficePassenger;
 //import shared_regions.GeneralRepository;
 
@@ -27,15 +28,16 @@ public class BaggageReclaimOffice implements IBaggageReclaimOfficePassenger{
     /**
      * General Repository
      */
-    //private GeneralRepository rep;
+    private GeneralRepositoryStub grStub;
     /**
      * Baggage Reclaim Office constructor
      * @param rep
      */
-    public BaggageReclaimOffice(/*GeneralRepository rep*/){
-        //this.rep = rep;
+    public BaggageReclaimOffice(GeneralRepositoryStub grStub){
+        this.grStub = grStub;
         rl = new ReentrantLock(true);
         bagsList = new ArrayList<>();
+        this.grStub = grStub;
         
     }
     
@@ -43,12 +45,13 @@ public class BaggageReclaimOffice implements IBaggageReclaimOfficePassenger{
      * Makes a complaint.
      * @param bags Set of bags lost.
      */
-    public void complain(ArrayList<Baggage> bags) {
+    public void complain(ArrayList<Baggage> bags, int passengerID) {
       
         rl.lock();
         try {
             //Passenger passenger = (Passenger) Thread.currentThread();
-            //rep.passComplain(passenger.getPassengerID());
+            grStub.passComplain(passengerID);
+            
             System.out.println("Bags losted"+bags.toString());
             for(Baggage b : bags) {
                 this.bagsList.add(b);

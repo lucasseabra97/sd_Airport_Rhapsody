@@ -4,7 +4,7 @@ package serverSide.serverBCP;
 import java.io.*;
 import java.net.SocketTimeoutException;
 
-
+import clientSide.stubs.GeneralRepositoryStub;
 import serverSide.ServerCom;
 //import shared_regions.GeneralRepository;
 
@@ -27,16 +27,7 @@ public class BaggageCollectionPointMain {
   public static void main(String[] args) throws IOException
    {  
     
-        File logger = new File("logger.txt");
-        if(logger.createNewFile()){
-            //System.out.println("Logger created: " + logger.getName());
-        }
-        else{
-            logger.delete();
-            logger.createNewFile();
-            // System.out.println("File already exists.");
-        }
-
+        
         //GeneralRepository genInfoRepo = new GeneralRepository(logger);
 
         BaggageCollectionPoint monitorBCP;                                // barbearia (representa o serviço a ser prestado)
@@ -48,14 +39,16 @@ public class BaggageCollectionPointMain {
 
         scon = new ServerCom (portNumb);                      // criação do canal de escuta e sua associação
         scon.start ();                                       // com o endereço público
-        monitorBCP = new BaggageCollectionPoint(/*genInfoRepo*/);                   // activação do serviço
-        attQuayInter = new BaggageCollectionPointInterface (monitorBCP);        // activação do interface com o serviço
+
+
+        GeneralRepositoryStub grStub = new GeneralRepositoryStub("localhost",3002);   // com o endereço público
+        monitorBCP = new BaggageCollectionPoint(grStub);                             // activação do serviço
+        attQuayInter = new BaggageCollectionPointInterface (monitorBCP);            // activação do interface com o serviço
         System.out.println("O serviço foi estabelecido! BaggageCollectionPoint");
         System.out.println("O servidor esta em escuta na porta: "+ portNumb);
 
         /* processamento de pedidos */
-        //NAO SEI ONDE METER ISTO MAS É NECESSARIO!!!
-        //genInfoRepo.close();
+        
         waitConnection = true;
         while (waitConnection)
             try

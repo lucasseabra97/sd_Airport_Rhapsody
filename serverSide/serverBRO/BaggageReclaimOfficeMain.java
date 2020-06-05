@@ -4,7 +4,7 @@ package serverSide.serverBRO;
 import java.io.*;
 import java.net.SocketTimeoutException;
 
-
+import clientSide.stubs.GeneralRepositoryStub;
 import main.global;
 
 import serverSide.ServerCom;
@@ -50,7 +50,9 @@ public class BaggageReclaimOfficeMain {
 
         scon = new ServerCom (portNumb);                      // criação do canal de escuta e sua associação
         scon.start ();                                       // com o endereço público
-        monitorBRO = new BaggageReclaimOffice(/*genInfoRepo*/);                   // activação do serviço
+
+        GeneralRepositoryStub grStub = new GeneralRepositoryStub("localhost",3002);
+        monitorBRO = new BaggageReclaimOffice(grStub);                   // activação do serviço
         broOfficeInter = new BaggageReclaimOfficeInterface (monitorBRO);        // activação do interface com o serviço
         System.out.println("O serviço foi estabelecido! BaggageReclaimOffice");
         System.out.println("O servidor esta em escuta na porta: "+ portNumb);

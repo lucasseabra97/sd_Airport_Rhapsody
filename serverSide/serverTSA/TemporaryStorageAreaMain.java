@@ -4,7 +4,7 @@ package serverSide.serverTSA;
 import java.io.*;
 import java.net.SocketTimeoutException;
 
-
+import clientSide.stubs.GeneralRepositoryStub;
 import main.global;
 
 import serverSide.ServerCom;
@@ -51,7 +51,9 @@ public class TemporaryStorageAreaMain {
 
         scon = new ServerCom (portNumb);                     // criação do canal de escuta e sua associação
         scon.start ();                                       // com o endereço público
-        monitorTSA = new TemporaryStorageArea(/*genInfoRepo*/);                           // activação do serviço
+        
+        GeneralRepositoryStub grStub = new GeneralRepositoryStub("localhost",3002);
+        monitorTSA = new TemporaryStorageArea(grStub);                           // activação do serviço
         atExitInter = new TemporaryStorageAreaInterface (monitorTSA);        // activação do interface com o serviço
         System.out.println("O serviço foi estabelecido! TemporaryStorageArea");
         System.out.println("O servidor esta em escuta na porta: "+ portNumb);

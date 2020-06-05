@@ -34,7 +34,7 @@ public class ArraivalTerminalExitStub implements IArraivalTerminalExitPassenger 
 
 
     @Override
-    public boolean goHome(int npassengers) {
+    public boolean goHome(int npassengers , int passengerID) {
         ClientCom con = new ClientCom (serverHostName, serverPortNumb);
         ATEMessage inMessage, outMessage;
 
@@ -44,7 +44,7 @@ public class ArraivalTerminalExitStub implements IArraivalTerminalExitPassenger 
                 }
                 catch (InterruptedException e) {}
             }
-        outMessage = new ATEMessage (ATEMessage.GO_HOME,npassengers);        // pede a realização do serviço
+        outMessage = new ATEMessage (ATEMessage.GO_HOME,npassengers,passengerID);        // pede a realização do serviço
         con.writeObject (outMessage);
         inMessage = (ATEMessage) con.readObject ();
 

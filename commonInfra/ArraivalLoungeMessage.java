@@ -49,7 +49,7 @@ public class ArraivalLoungeMessage implements Serializable{
      */
     public static final int ACK = 7;
     
-     /* Campos das mensagens */
+    /* Campos das mensagens */
 
     /**
      *  Tipo da mensagem
@@ -70,6 +70,7 @@ public class ArraivalLoungeMessage implements Serializable{
     private Baggage bag;
 
 
+    private int bags ;
 
     
     /**
@@ -96,11 +97,12 @@ public class ArraivalLoungeMessage implements Serializable{
      * @param msgType
      * @param goHome
      */
-    public ArraivalLoungeMessage(int msgType,boolean goHome){
+    public ArraivalLoungeMessage(int msgType,boolean goHome , int bags , int nPass){
         this.msgType = msgType;
         this.goHome = goHome;
-        
-    } 
+        this.bags = bags;
+        this.nPass = nPass;
+    }   
 
       /**
      * 
@@ -157,6 +159,11 @@ public class ArraivalLoungeMessage implements Serializable{
     
     public int getNPass() {
         return this.nPass;
+    }
+
+
+    public int getBagsNumber(){
+        return this.bags;
     }
    
 

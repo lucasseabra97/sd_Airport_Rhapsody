@@ -87,6 +87,8 @@ public class DTTQMessage implements Serializable{
     {
         return this.nPassenger;
     }
+
+
     /**
      * getter 
      * returns message Type

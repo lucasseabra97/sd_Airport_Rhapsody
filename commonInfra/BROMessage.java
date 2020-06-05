@@ -32,8 +32,10 @@ public class BROMessage implements Serializable{
     */
     public static final int ACK = 4;
 
-	
-
+	/**
+     * passenger ID
+     */
+    private int passengerID;
     /* Campos das mensagens */
 
     /**
@@ -55,9 +57,10 @@ public class BROMessage implements Serializable{
      * @param msgType
      */
 
-     public BROMessage(int msgType,ArrayList<Baggage> bagsList){
+     public BROMessage(int msgType,ArrayList<Baggage> bagsList , int passengerID){
         this.msgType = msgType;
         this.bagsList = bagsList;
+        this.passengerID = passengerID;
      }
 
      public BROMessage(int msgType){
@@ -71,6 +74,9 @@ public class BROMessage implements Serializable{
         return this.msgType;
     }
 
+    public int getPassengerID(){
+        return this.passengerID;
+    }
     /**
      * getter
      * returns arraylist of bags

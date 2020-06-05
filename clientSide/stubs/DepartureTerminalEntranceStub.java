@@ -84,7 +84,7 @@ public class DepartureTerminalEntranceStub implements IDepartureTerminalEntrance
     }
 
     @Override
-    public boolean prepareNextLeg(int npassengers) {
+    public boolean prepareNextLeg(int npassengers , int passengerID) {
         ClientCom con = new ClientCom (serverHostName, serverPortNumb);
         DTEMessage inMessage, outMessage;
 
@@ -94,7 +94,7 @@ public class DepartureTerminalEntranceStub implements IDepartureTerminalEntrance
                 }
                 catch (InterruptedException e) {}
             }
-        outMessage = new DTEMessage (DTEMessage.PREPARE_NEXT_LEG,npassengers);        // pede a realização do serviço
+        outMessage = new DTEMessage (DTEMessage.PREPARE_NEXT_LEG,npassengers , passengerID);        // pede a realização do serviço
         con.writeObject (outMessage);
         inMessage = (DTEMessage) con.readObject ();
 

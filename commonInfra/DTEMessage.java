@@ -52,6 +52,10 @@ public class DTEMessage implements Serializable{
     /* Campos das mensagens */
 
     /**
+     * passenger ID
+     */
+    private int passengerID;
+    /**
      *  Tipo da mensagem
      */
 
@@ -78,9 +82,10 @@ public class DTEMessage implements Serializable{
      * @param nPassenger
      */
 
-    public DTEMessage(int msgType , int nPassenger){
+    public DTEMessage(int msgType , int nPassenger , int passengerID){
         this.msgType = msgType;
         this.nPassenger= nPassenger;
+        this.passengerID = passengerID;
     }
 
      /**
@@ -93,6 +98,10 @@ public class DTEMessage implements Serializable{
         this.msgType = msgType;
         this.lastPassenger= lastPassenger ;
     }
+    public DTEMessage(int msgType,int nPassenger){
+        this.msgType = msgType;
+        this.nPassenger= nPassenger;
+    }
 
     public boolean lastPassenger()
     {
@@ -102,6 +111,11 @@ public class DTEMessage implements Serializable{
     public int nPassenger()
     {
         return this.nPassenger;
+    }
+
+
+    public int getPassengerID(){
+        return this.passengerID;
     }
     /**
      * getter 

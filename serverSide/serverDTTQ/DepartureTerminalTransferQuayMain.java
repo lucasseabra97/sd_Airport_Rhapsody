@@ -4,7 +4,7 @@ package serverSide.serverDTTQ;
 import java.io.*;
 import java.net.SocketTimeoutException;
 
-
+import clientSide.stubs.GeneralRepositoryStub;
 import main.global;
 
 import serverSide.ServerCom;
@@ -29,16 +29,7 @@ public class DepartureTerminalTransferQuayMain {
   public static void main(String[] args) throws IOException
    {  
     
-        File logger = new File("logger.txt");
-        if(logger.createNewFile()){
-            //System.out.println("Logger created: " + logger.getName());
-        }
-        else{
-            logger.delete();
-            logger.createNewFile();
-            // System.out.println("File already exists.");
-        }
-
+        
         //GeneralRepository genInfoRepo = new GeneralRepository(logger);
 
         DepartureTerminalTransferQuay monitorDTTQ;                                  // barbearia (representa o serviço a ser prestado)
@@ -50,14 +41,15 @@ public class DepartureTerminalTransferQuayMain {
 
         scon = new ServerCom (portNumb);                     // criação do canal de escuta e sua associação
         scon.start ();                                       // com o endereço público
-        monitorDTTQ = new DepartureTerminalTransferQuay(/*genInfoRepo*/);                           // activação do serviço
+
+        GeneralRepositoryStub grStub = new GeneralRepositoryStub("localhost",3002);
+        monitorDTTQ = new DepartureTerminalTransferQuay(grStub);                           // activação do serviço
         atExitInter = new DepartureTerminalTransferQuayInterface (monitorDTTQ);        // activação do interface com o serviço
         System.out.println("O serviço foi estabelecido! DepartureTerminalTransferQuay");
         System.out.println("O servidor esta em escuta na porta: "+ portNumb);
 
         /* processamento de pedidos */
-        //NAO SEI ONDE METER ISTO MAS É NECESSARIO
-        //genInfoRepo.close();
+        
         waitConnection = true;
         while (waitConnection)
             try

@@ -66,7 +66,10 @@ public class BCPMessage implements Serializable{
 
     private ArrayList<Baggage> bagsList;
    
-
+    /**
+     * 
+     */
+    private int passengerID;
     /**
      * Constructor
      * @param msgType
@@ -91,6 +94,12 @@ public class BCPMessage implements Serializable{
         this.msgType = msgType;
         this.bagsList = bagsList;
     }
+    public BCPMessage(int msgType,  ArrayList<Baggage> bagsList , int passengerID){
+        this.msgType = msgType;
+        this.bagsList = bagsList;
+        this.passengerID = passengerID;
+    }
+
 
     /**
      * getter 
@@ -113,7 +122,11 @@ public class BCPMessage implements Serializable{
     public Baggage getBaggage(){
         return this.bag;
     }
- 
+    
+
+    public int getPassengerID() {
+        return this.passengerID;
+    }
 
     @Override
     public String toString() {

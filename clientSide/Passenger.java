@@ -177,7 +177,7 @@ public class Passenger extends Thread {
 							bags[i] = flightsBags.get(cFlight).get(i);
 						}
 						//falta mexer no ArrailvalLounge
-						aloungeStub.whatShouldIDO(goHome); 
+						aloungeStub.whatShouldIDO(goHome,getFlightBags(),getPassengerID()); 
 						
 							
 						System.out.printf("Passageiro:%d -> AT_THE_DISEMBARKING_ZONE | chegou com:%d mala(s) e jorneyEnds:%b \n", this.passengerID,bags.length,goHome);
@@ -211,7 +211,7 @@ public class Passenger extends Thread {
 						//lostBags = new ArrayList<Baggage>((Arrays.asList(bags)));
 						while(bagsCollected.size() >0){
 							// ir buscar mala random ? 
-							Baggage baggtoCollect = bcPointStub.goCollectABag(bagsCollected);
+							Baggage baggtoCollect = bcPointStub.goCollectABag(bagsCollected,getPassengerID());
 							
 							if(baggtoCollect == null)
 							{
@@ -240,7 +240,7 @@ public class Passenger extends Thread {
 
 					case AT_THE_BAGGAGE_RECLAIM_OFFICE:
 						System.out.printf("Passenger:%d -> COMPLAINING: %d lost bags \n",this.passengerID,bagsCollected.size());
-						brOfficeStub.complain(bagsCollected);
+						brOfficeStub.complain(bagsCollected,getPassengerID());
 						state = PassengerEnum.EXITING_THE_ARRIVAL_TERMINAL;
 						break;
 						
@@ -253,13 +253,13 @@ public class Passenger extends Thread {
 						break;
 					case TERMINAL_TRANSFER:
 						System.out.printf("Passenger:%d -> AT THE TERMINAL TRANSFER \n",this.passengerID);
-						dttQuayStub.waitRide();
+						dttQuayStub.waitRide(getPassengerID());
 						state = PassengerEnum.AT_THE_DEPARTURE_TRANSFER_TERMINAL;
 						break;
 
 					case AT_THE_DEPARTURE_TRANSFER_TERMINAL:
 						System.out.printf("Passenger:%d -> LEAVING THE BUS \n",this.passengerID);
-						dttQuayStub.leaveTheBus();
+						dttQuayStub.leaveTheBus(getPassengerID());
 						state = PassengerEnum.ENTERING_THE_DEPARTURE_TERMINAL;
 						break;
 
@@ -269,7 +269,7 @@ public class Passenger extends Thread {
 						System.out.printf("Passenger:%d -> EXITING_THE_ARRIVAL_TERMINAL \n",this.passengerID);
 						atExitStub.syncPassenger();
 						int goingHome = dtEntranceStub.nPassengersDepartureTEntrance();
-						if(atExitStub.goHome(goingHome)){
+						if(atExitStub.goHome(goingHome,getPassengerID())){
 							//monitorAe.awakePassengers();
 							dtEntranceStub.awakePassengers();
 							if(cFlight == numberFlights - 1) {
@@ -289,7 +289,7 @@ public class Passenger extends Thread {
 						dtEntranceStub.syncPassenger();
 						int npassDEP = atExitStub.nPassengersDepartureAT();
 						
-						if(dtEntranceStub.prepareNextLeg(npassDEP)){
+						if(dtEntranceStub.prepareNextLeg(npassDEP,getPassengerID())){
 							atExitStub.awakePassengers();
 							//monitorDEP.awakePassengers();
 							if(cFlight == numberFlights - 1) {

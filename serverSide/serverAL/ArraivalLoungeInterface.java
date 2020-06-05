@@ -58,13 +58,13 @@ public class ArraivalLoungeInterface {
         default:
             throw new ALMessageException("Tipo inválido!", inMessage);
      }
-
+     
      /* seu processamento */
 
      switch (inMessage.getMsgType())
      {
         case ArraivalLoungeMessage.WHAT_SHOULD_I_DO:                         
-                    monitorAL.whatShouldIDO(inMessage.isGoHome());
+                    monitorAL.whatShouldIDO(inMessage.isGoHome(),inMessage.getBagsNumber());
                     outMessage = new ArraivalLoungeMessage(ArraivalLoungeMessage.ACK);
                     break;                    
         case ArraivalLoungeMessage.TRY_TO_COLLECCT_A_BAG:

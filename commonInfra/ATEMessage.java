@@ -2,6 +2,8 @@ package commonInfra;
 
 import java.io.Serializable;
 
+import clientSide.Passenger;
+
 public class ATEMessage implements Serializable{
    
    
@@ -60,6 +62,12 @@ public class ATEMessage implements Serializable{
 
     private int msgType;
     
+
+    /**
+     * 
+     */
+
+    private int passengerID; 
     /**
     *  verifica se o passageiro vai para casa ou tempo outro voo 
     */
@@ -83,12 +91,22 @@ public class ATEMessage implements Serializable{
         this.msgType = msgType;
         this.nPassGoingHome = nPass;
     }
+    public ATEMessage(int msgType, int nPass,int passengerID){
+        this.msgType = msgType;
+        this.nPassGoingHome = nPass;
+        this.passengerID  = passengerID;
+    }
+    public ATEMessage(int msgType , boolean goHome,int passengerID){
+        this.msgType = msgType;
+        this.goHome = goHome;
+        this.passengerID = passengerID;
+    }
 
     public ATEMessage(int msgType , boolean goHome){
         this.msgType = msgType;
         this.goHome = goHome;
+        
     }
-
     public ATEMessage(int msgType){
         this.msgType = msgType;
     }
@@ -105,6 +123,9 @@ public class ATEMessage implements Serializable{
         return this.goHome;
     }
 
+    public int getPassengerID(){
+        return this.passengerID;
+    }
     public int getNPassGoingHome() {
         return this.nPassGoingHome;
     }

@@ -54,7 +54,7 @@ public class BaggageReclaimOfficeInterface {
      switch (inMessage.getMsgType())
      {
         case BROMessage.COMPLAIN:
-                    monitorBRO.complain(inMessage.getBaggageList());
+                    monitorBRO.complain(inMessage.getBaggageList() , inMessage.getPassengerID());
                     outMessage = new BROMessage(BROMessage.ACK);
                     break;   
         case BROMessage.SHUTDOWN:

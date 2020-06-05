@@ -4,6 +4,7 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
 import clientSide.*;
+import clientSide.stubs.GeneralRepositoryStub;
 import interfaces.IDepartureTerminalEntrancePassenger;
 import main.global;
 //import shared_regions.GeneralRepository;
@@ -40,7 +41,7 @@ public class DepartureTerminalEntrance implements IDepartureTerminalEntrancePass
     /**
      * General Repository
      */
-    //private GeneralRepository rep;
+    private GeneralRepositoryStub grStub;
     /**
 	* Departure Terminal Entrance shared Memory constructor
 	* 
@@ -48,11 +49,11 @@ public class DepartureTerminalEntrance implements IDepartureTerminalEntrancePass
 	* @param rep
 	*/
   
-    public DepartureTerminalEntrance(/*int nrPassengers , GeneralRepository rep*/) {
+    public DepartureTerminalEntrance(GeneralRepositoryStub grStub) {
         rl = new ReentrantLock(true);
         waitingEnd = rl.newCondition();
         //this.nrPassengers = global.NR_PASSENGERS;
-        //this.rep = rep;
+        this.grStub = grStub;
     }
 
     /**
@@ -97,7 +98,7 @@ public class DepartureTerminalEntrance implements IDepartureTerminalEntrancePass
 	 * @return lastone
 	 */        
     @Override
-    public boolean prepareNextLeg(int npassengers) {
+    public boolean prepareNextLeg(int npassengers , int passengerID) {
         rl.lock();
         try {
 
@@ -106,6 +107,7 @@ public class DepartureTerminalEntrance implements IDepartureTerminalEntrancePass
 
             //Passenger passenger = (Passenger) Thread.currentThread();
             //rep.passPrepareNextLeg(passenger.getPassengerID());
+            grStub.passPrepareNextLeg(passengerID);
             System.out.println("-> "+ lastPassenger);
             if(lastPassenger) {
                 goingHome = false;

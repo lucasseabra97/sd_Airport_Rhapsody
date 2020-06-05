@@ -65,7 +65,7 @@ public class BaggageCollectionPointInterface {
                     outMessage = new BCPMessage(BCPMessage.ACK);
                     break;                    
         case BCPMessage.GO_COLLECT_A_BAG:
-                    Baggage bag = monitorBCP.goCollectABag(inMessage.getBaggageList());
+                    Baggage bag = monitorBCP.goCollectABag(inMessage.getBaggageList(), inMessage.getPassengerID());
                     //if(bag == null) System.out.println("no bags in BCP");
                     outMessage = new BCPMessage(BCPMessage.ACK , bag);
                     break;                               

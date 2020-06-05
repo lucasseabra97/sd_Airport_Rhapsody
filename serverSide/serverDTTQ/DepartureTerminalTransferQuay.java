@@ -4,6 +4,7 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
 import clientSide.*;
+import clientSide.stubs.GeneralRepositoryStub;
 import interfaces.IDepartureTerminalTransferQBusDriver;
 import interfaces.IDepartureTerminalTransferQPassenger;
 //import shared_regions.GeneralRepository;
@@ -45,16 +46,16 @@ public class DepartureTerminalTransferQuay implements IDepartureTerminalTransfer
      * General Repository
      */
 
-    //private GeneralRepository rep;
+    private GeneralRepositoryStub grStub;
     /**
 	* Departure Terminal Transfer Quay  shared Memory constructor 
 	* @param rep
 	*/
-    public  DepartureTerminalTransferQuay(/*GeneralRepository rep*/){
+    public  DepartureTerminalTransferQuay(GeneralRepositoryStub grStub){
         rl = new ReentrantLock(true);
         waitingRide = rl.newCondition();
         passengersOut = rl.newCondition();
-        //this.rep=rep;
+        this.grStub=grStub;
 
     }
     
@@ -65,15 +66,16 @@ public class DepartureTerminalTransferQuay implements IDepartureTerminalTransfer
 	 * 
 	 */    
     @Override
-    public void waitRide(){
+    public void waitRide(int passengerID){
         //System.out.println("waiting ride");
         rl.lock();
         try{
             /*
             Passenger passenger = (Passenger) Thread.currentThread();
-            rep.passBusRide(passenger.getPassengerID());
+            
             */
             //System.out.println("waiting ride");
+            grStub.passBusRide(passengerID);
             while(inMovement == true){
                 waitingRide.await();
             }
@@ -90,13 +92,15 @@ public class DepartureTerminalTransferQuay implements IDepartureTerminalTransfer
 	 * 
 	 */
     @Override
-    public void leaveTheBus(){
+    public void leaveTheBus(int passengerID){
         rl.lock();
         try { 
             /*
             Passenger passenger = (Passenger) Thread.currentThread();
             rep.passLeaveBus(passenger.getPassengerID());
             */
+
+            grStub.passLeaveBus(passengerID);
             nPassengers ++;
             if(nPassengers == passengersLeaving){
                 passengersOut.signal();
@@ -120,7 +124,7 @@ public class DepartureTerminalTransferQuay implements IDepartureTerminalTransfer
         System.out.println(passengersLeaving);
         rl.lock();
         try {
-            //rep.driverParkingDepartureTerminal();
+            grStub.driverParkingDepartureTerminal();
             
             inMovement = false;
             this.passengersLeaving = passengersLeaving;
@@ -131,7 +135,7 @@ public class DepartureTerminalTransferQuay implements IDepartureTerminalTransfer
             }
             nPassengers = 0;
             inMovement = true;
-            //rep.driverDrivingBackward();
+            grStub.driverDrivingBackward();
         } catch(Exception ex) {}
         finally {
             rl.unlock();

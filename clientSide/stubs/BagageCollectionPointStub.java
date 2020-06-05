@@ -34,7 +34,7 @@ public class BagageCollectionPointStub implements IBaggageCollectionPointPorter,
     }
 
     @Override
-    public Baggage goCollectABag(ArrayList<Baggage> ibagp) {
+    public Baggage goCollectABag(ArrayList<Baggage> ibagp,int passengerID) {
 
         ClientCom con = new ClientCom (serverHostName, serverPortNumb);
         BCPMessage inMessage, outMessage;
@@ -45,7 +45,7 @@ public class BagageCollectionPointStub implements IBaggageCollectionPointPorter,
                 }
                 catch (InterruptedException e) {}
             }
-        outMessage = new BCPMessage (BCPMessage.GO_COLLECT_A_BAG,ibagp);        // pede a realização do serviço
+        outMessage = new BCPMessage (BCPMessage.GO_COLLECT_A_BAG,ibagp,passengerID);        // pede a realização do serviço
         con.writeObject (outMessage);
         inMessage = (BCPMessage) con.readObject ();
 

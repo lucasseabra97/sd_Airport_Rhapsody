@@ -6,19 +6,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
 
+import clientSide.stubs.GeneralRepositoryStub;
 import interfaces.ITemporaryStorageAreaPorter;
 //import shared_regions.GeneralRepository;
 
 
 public class TemporaryStorageArea implements ITemporaryStorageAreaPorter{
-
+    private GeneralRepositoryStub grStub;
     private final ReentrantLock rl;
     private List<Baggage> bags;
-    //private GeneralRepository rep;
-    public TemporaryStorageArea(/*GeneralRepository rep*/){
+    public TemporaryStorageArea(GeneralRepositoryStub grStub){
         rl = new ReentrantLock();
         bags = new ArrayList<>();
-        //this.rep = rep;
+        this.grStub = grStub;
     }
 
 	@Override
@@ -27,7 +27,7 @@ public class TemporaryStorageArea implements ITemporaryStorageAreaPorter{
         try {
             System.out.println("bag: "+ bag);
             bags.add(bag);
-            //rep.porterMoveBagToStoreroom();
+            grStub.porterMoveBagToStoreroom();
             
         } catch (Exception e) {
             
