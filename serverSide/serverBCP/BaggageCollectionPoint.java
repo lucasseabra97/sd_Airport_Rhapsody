@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import commonInfra.*;
 import clientSide.*;
+import clientSide.stubs.GeneralRepositoryStub;
 
 import java.util.concurrent.locks.ReentrantLock;
 

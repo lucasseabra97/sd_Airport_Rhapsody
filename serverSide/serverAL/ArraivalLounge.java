@@ -105,12 +105,14 @@ public class ArraivalLounge implements IArraivalLoungePassenger , IArraivalLoung
         try {
 			//Passenger passenger = (Passenger) Thread.currentThread();
 			//int bags = passenger.getFlightBags();
-			
+			System.out.println("BOMDIA !!!!!!!!!!!!!!!!!!!!!!");
 			if(goHome){
+                System.out.println("BOMDIA !!!!!!!!!!!!!!!!!!!!!!");    
 				grStub.addFinalDestinations();
 			}
 			
             else {
+                System.out.println("add transit");
 				grStub.addTransit();
 			}
             
@@ -122,10 +124,11 @@ public class ArraivalLounge implements IArraivalLoungePassenger , IArraivalLoung
         
              
 			if(nPassengers == 1){
+                System.out.println("start next flight -> "+bagsPerFlight.get(0).size());
 				grStub.startNextFlight(bagsPerFlight.get(0).size());
 			} 
             
-            
+            System.out.println("passenger init");
             grStub.passengerInit(PassengerEnum.AT_THE_DISEMBARKING_ZONE, bags, goHome ? "FDT" : "TRF",passengerID );
 			
             

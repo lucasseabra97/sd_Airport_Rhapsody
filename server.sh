@@ -8,6 +8,9 @@ javac serverSide/serverAL/ArraivalLoungeMain.java
 javac serverSide/serverATE/ArraivalTerminalExitMain.java
 
 
+# Compile General Repository   (GR)
+javac serverSide/serverGR/GeneralRepositoryMain.java
+
 # Compile ArraivalTerminal TransferQuay  (ATTQ)
 javac serverSide/serverATTQ/ArraivalTerminalTransferQuayMain.java
 
@@ -29,11 +32,12 @@ javac serverSide/serverDTTQ/DepartureTerminalTransferQuayMain.java
 javac serverSide/serverTSA/TemporaryStorageAreaMain.java
 
 #run all instances
-gnome-terminal --tab --title="AL Server" -e "java serverSide/serverAL/ArraivalLoungeMain" \
-                --tab --title="ATE Server" -e "java serverSide/serverATE/ArraivalTerminalExitMain " \
-                --tab --title="BCP Server" -e "java serverSide/serverBCP/BaggageCollectionPointMain" \
-                --tab --title="BRO Server" -e "java serverSide/serverBRO/BaggageReclaimOfficeMain" \
-                --tab --title="DTE Server" -e "java serverSide/serverDTE/DepartureTerminalEntranceMain" \
-                --tab --title="DTTQ Server" -e "java serverSide/serverDTTQ/DepartureTerminalTransferQuayMain" \
-                --tab --title="TSA Server" -e "java serverSide/serverTSA/TemporaryStorageAreaMain "\
-                --tab --title="ATTQ Server" -e "java serverSide/serverATTQ/ArraivalTerminalTransferQuayMain" 
+gnome-terminal --tab --title="AL Server" -e "bash -c \"java serverSide/serverAL/ArraivalLoungeMain ; exec bash\"" \
+                --tab --title="ATE Server" -e "bash -c \"java serverSide/serverATE/ArraivalTerminalExitMain ; exec bash\"" \
+                --tab --title="BCP Server" -e "bash -c \"java serverSide/serverBCP/BaggageCollectionPointMain ; exec bash\"" \
+                --tab --title="BRO Server" -e "bash -c \"java serverSide/serverBRO/BaggageReclaimOfficeMain ; exec bash\"" \
+                --tab --title="DTE Server" -e "bash -c \"java serverSide/serverDTE/DepartureTerminalEntranceMain ; exec bash\"" \
+                --tab --title="DTTQ Server" -e "bash -c \"java serverSide/serverDTTQ/DepartureTerminalTransferQuayMain ; exec bash\"" \
+                --tab --title="TSA Server" -e "bash -c \"java serverSide/serverTSA/TemporaryStorageAreaMain ; exec bash\"" \
+                --tab --title="GR Server" -e "bash -c \"java serverSide/serverGR/GeneralRepositoryMain ; exec bash\"" \
+                --tab --title="ATTQ Server" -e "bash -c \"java serverSide/serverATTQ/ArraivalTerminalTransferQuayMain ; exec bash\"" 

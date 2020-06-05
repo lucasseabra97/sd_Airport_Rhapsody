@@ -72,7 +72,7 @@ public class ArraivalLoungeMessage implements Serializable{
 
     private int bags ;
 
-    
+    private int passengerID;
     /**
      * retorna condição de espera para o porter
      */
@@ -97,11 +97,11 @@ public class ArraivalLoungeMessage implements Serializable{
      * @param msgType
      * @param goHome
      */
-    public ArraivalLoungeMessage(int msgType,boolean goHome , int bags , int nPass){
+    public ArraivalLoungeMessage(int msgType,boolean goHome , int bags , int passengerID){
         this.msgType = msgType;
         this.goHome = goHome;
         this.bags = bags;
-        this.nPass = nPass;
+        this.passengerID = passengerID;
     }   
 
       /**
@@ -165,7 +165,10 @@ public class ArraivalLoungeMessage implements Serializable{
     public int getBagsNumber(){
         return this.bags;
     }
-   
+    public int getPassengerID() {
+		return this.passengerID;
+	}
+
 
     @Override
     public String toString() {
@@ -178,5 +181,7 @@ public class ArraivalLoungeMessage implements Serializable{
             "}";
     }
 
+
+	
 
 }   

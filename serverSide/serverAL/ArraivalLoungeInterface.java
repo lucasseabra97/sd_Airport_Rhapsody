@@ -64,7 +64,7 @@ public class ArraivalLoungeInterface {
      switch (inMessage.getMsgType())
      {
         case ArraivalLoungeMessage.WHAT_SHOULD_I_DO:                         
-                    monitorAL.whatShouldIDO(inMessage.isGoHome(),inMessage.getBagsNumber());
+                    monitorAL.whatShouldIDO(inMessage.isGoHome(),inMessage.getBagsNumber(), inMessage.getPassengerID());
                     outMessage = new ArraivalLoungeMessage(ArraivalLoungeMessage.ACK);
                     break;                    
         case ArraivalLoungeMessage.TRY_TO_COLLECCT_A_BAG:

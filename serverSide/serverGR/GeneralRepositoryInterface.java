@@ -91,99 +91,99 @@ public class GeneralRepositoryInterface {
       /* seu processamento */
       switch (inMessage.getMsgType())
       {
-         case GRMessage.DRIVER_PARKING_ARRIVAL_TERMINAL:
+        case GRMessage.DRIVER_PARKING_ARRIVAL_TERMINAL:
                      monitorGR.driverParkingArrivalTerminal();
                      outMessage = new GRMessage(GRMessage.ACK);
                      break;
-         case GRMessage.DRIVER_PARKING_DEPARTURE_TERMINAL:
+        case GRMessage.DRIVER_PARKING_DEPARTURE_TERMINAL:
                      monitorGR.driverParkingDepartureTerminal();
                      outMessage = new GRMessage(GRMessage.ACK);
                      break;
-         case GRMessage.DRIVER_DRIVING_FOWARD:
+        case GRMessage.DRIVER_DRIVING_FOWARD:
                      monitorGR.porterWaitingLanding();                                           
                      outMessage = new GRMessage(GRMessage.ACK);
                      break; 
-         case GRMessage.PORTER_WAITING_LANDING:
+        case GRMessage.PORTER_WAITING_LANDING:
                     monitorGR.porterWaitingLanding();                                           
                     outMessage = new GRMessage(GRMessage.ACK);
                     break; 
-         case GRMessage.PORTER_NO_MORE_BAGS:
+        case GRMessage.PORTER_NO_MORE_BAGS:
                     monitorGR.porterNoMoreBags();                                           
                     outMessage = new GRMessage(GRMessage.ACK);
                     break;
-         case GRMessage.PORTER_COLLECT_BAG:
+        case GRMessage.PORTER_COLLECT_BAG:
                     monitorGR.porterCollectBag();                                           
                     outMessage = new GRMessage(GRMessage.ACK);
                     break; 
-         case GRMessage.PORTER_MOVE_BAG_TO_CONVEYOR_BELT:
+        case GRMessage.PORTER_MOVE_BAG_TO_CONVEYOR_BELT:
                     monitorGR.porterMoveBagToConveyorBelt();
                     outMessage = new GRMessage(GRMessage.ACK);
                     break;
-         case GRMessage.PORTER_MOVE_BAG_TO_STOREROOM:
+        case GRMessage.PORTER_MOVE_BAG_TO_STOREROOM:
                     monitorGR.porterMoveBagToStoreroom();
                     outMessage = new GRMessage(GRMessage.ACK);
                     break;
-         case GRMessage.PASSENGER_INIT:
+        case GRMessage.PASSENGER_INIT:
                     monitorGR.passengerInit(inMessage.getState(), inMessage.getBags(), inMessage.getSituation(), inMessage.getId());
                     outMessage = new GRMessage(GRMessage.ACK);
                     break;
-         case GRMessage.PASSENGER_ENTER_LUGGAGE_COLLECTIONPOINT:
+        case GRMessage.PASSENGER_ENTER_LUGGAGE_COLLECTIONPOINT:
                     monitorGR.passEnterLuggageCollectionPoint(inMessage.getId());
                     outMessage = new GRMessage(GRMessage.ACK);
                     break;
-         case GRMessage.PASSENGER_COLLECT_BAG:
+        case GRMessage.PASSENGER_COLLECT_BAG:
                     monitorGR.passCollectBag(inMessage.getId());
                     outMessage = new GRMessage(GRMessage.ACK);
                     break;
-         case GRMessage.PASSENGER_COMPLAIN:
+        case GRMessage.PASSENGER_COMPLAIN:
                     monitorGR.passComplain(inMessage.getId());
                     outMessage = new GRMessage(GRMessage.ACK);
                     break;
-         case GRMessage.PASSENGER_JOIN_BUS_QUEUE:
+        case GRMessage.PASSENGER_JOIN_BUS_QUEUE:
                     monitorGR.passJoinBusQueue(inMessage.getId());
                     outMessage = new GRMessage(GRMessage.ACK);
                     break;
-         case GRMessage.PASSENGER_SIT_IN_BUS:
+        case GRMessage.PASSENGER_SIT_IN_BUS:
                     monitorGR.passSitInBus(inMessage.getId());
                     outMessage = new GRMessage(GRMessage.ACK);
                     break;
-         case GRMessage.PASSENGER_BUS_RIDE:
+        case GRMessage.PASSENGER_BUS_RIDE:
                     monitorGR.passBusRide(inMessage.getId());
                     outMessage = new GRMessage(GRMessage.ACK);
                     break;
-         case GRMessage.PASSENGER_LEAVE_BUS:
+        case GRMessage.PASSENGER_LEAVE_BUS:
                     monitorGR.passLeaveBus(inMessage.getId());
                     outMessage = new GRMessage(GRMessage.ACK);
                     break;
-         case GRMessage.PASSENGER_GO_HOME:
+        case GRMessage.PASSENGER_GO_HOME:
                     monitorGR.passGoHome(inMessage.getId());
                     outMessage = new GRMessage(GRMessage.ACK);
                     break;
-         case GRMessage.PASSENGER_PREPARE_NEXT_LEG:
+        case GRMessage.PASSENGER_PREPARE_NEXT_LEG:
                     monitorGR.passPrepareNextLeg(inMessage.getId());
                     outMessage = new GRMessage(GRMessage.ACK);
                     break;
-         case GRMessage.START_NEXT_FLIGHT:
+        case GRMessage.START_NEXT_FLIGHT:
                     monitorGR.startNextFlight(inMessage.getFlightLuggage());
                     outMessage = new GRMessage(GRMessage.ACK);
                     break;
-         case GRMessage.ADD_FINAL_DESTINATIONS:
+        case GRMessage.ADD_FINAL_DESTINATIONS:
                     monitorGR.addFinalDestinations();
                     outMessage = new GRMessage(GRMessage.ACK);
                     break;
-         case GRMessage.ADD_TRANSIT:
+        case GRMessage.ADD_TRANSIT:
                     monitorGR.addTransit();
                     outMessage = new GRMessage(GRMessage.ACK);
                     break;
-         case GRMessage.ADD_BAG:
+        case GRMessage.ADD_BAG:
                     monitorGR.addBag();
                     outMessage = new GRMessage(GRMessage.ACK);
                     break;
-         case GRMessage.ADD_LOST_BAGS:
+        case GRMessage.ADD_LOST_BAGS:
                     monitorGR.addLostBag();
                     outMessage = new GRMessage(GRMessage.ACK);
                     break;
-         case GRMessage.SHUTDOWN:
+        case GRMessage.SHUTDOWN:
                      GeneralRepositoryMain.waitConnection = false;
                      (((Proxy) (Thread.currentThread())).getScon()).setTimeout(10);
                      outMessage = new GRMessage(GRMessage.ACK);
