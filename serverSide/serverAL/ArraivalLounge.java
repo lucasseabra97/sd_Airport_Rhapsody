@@ -105,9 +105,9 @@ public class ArraivalLounge implements IArraivalLoungePassenger , IArraivalLoung
         try {
 			//Passenger passenger = (Passenger) Thread.currentThread();
 			//int bags = passenger.getFlightBags();
-			System.out.println("BOMDIA !!!!!!!!!!!!!!!!!!!!!!");
+			//System.out.println("BOMDIA !!!!!!!!!!!!!!!!!!!!!!");
 			if(goHome){
-                System.out.println("BOMDIA !!!!!!!!!!!!!!!!!!!!!!");    
+                //System.out.println("BOMDIA !!!!!!!!!!!!!!!!!!!!!!");    
 				grStub.addFinalDestinations();
 			}
 			

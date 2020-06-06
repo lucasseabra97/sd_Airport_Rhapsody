@@ -13,17 +13,17 @@ public class DTTQMessage implements Serializable{
     /* Tipos das mensagens */
 
     /**
-     *  Passenger requests for condition wating for ride end
+     *  Passenger requests for condition wating for ride end (passenger request)
      */
     public static final int WAIT_RIDE = 1;
 
     /**
-     * passenger request to leave the bus passengers 
+     * passenger request to leave the bus passengers (passenger request)
      */
     public static final int LEAVE_THE_BUS = 2;
 
     /**
-     * bus driver request for park the bus and let pass off
+     * bus driver request for park the bus and let pass off (busdriver request)
      */
     public static final int PARK_THE_BUS_AND_LET_PASS_OFF = 3;
     
@@ -32,7 +32,7 @@ public class DTTQMessage implements Serializable{
      */
     public static final int SHUTDOWN = 4;
     /**
-    * resposta do servidor
+    *  server recived the message (server response)
     */
     public static final int ACK = 5;
     
@@ -60,7 +60,7 @@ public class DTTQMessage implements Serializable{
     public DTTQMessage(int msgType){
         this.msgType = msgType;
     }
-        /**
+    /**
      * Constructor
      * @param msgType
      * @param nPassenger
@@ -81,7 +81,10 @@ public class DTTQMessage implements Serializable{
         this.msgType = msgType;
         this.lastPassenger= lastPassenger ;
     }
-
+    /**
+     * getter 
+     * @return the passenger leaving
+     */
 
     public int getPassengersLeaving()
     {
@@ -91,7 +94,7 @@ public class DTTQMessage implements Serializable{
 
     /**
      * getter 
-     * returns message Type
+     * @return message Type
      */
     public int getMsgType() {
         return this.msgType;

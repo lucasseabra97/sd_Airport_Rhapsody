@@ -18,11 +18,7 @@ public class AirportBusDriver {
         final Random random = new Random();
        
         Scanner sc = new Scanner(System.in); 
-        
-
-
-  
-
+   
       
         ArrailvalTTransferQuayStub        attQuayStub;                   // stub Arraival Terminal Transfer Quay
         DepartureTerminalTransferQuayStub dttQuayStub;          // stub Departure Terminal Transfer Quay

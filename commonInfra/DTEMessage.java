@@ -1,8 +1,6 @@
 package commonInfra;
 
 import java.io.Serializable;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 public class DTEMessage implements Serializable{
    
    
@@ -14,29 +12,24 @@ public class DTEMessage implements Serializable{
     /* Tipos das mensagens */
 
     /**
-     *  Passenger requests ??? (pedido passageiro)
+     *  Syncronize all passengers that want to leav airport (passenger requst)
      */
     public static final int SYNC_PASSENGER = 1;
 
-
     /**
-     * passenger request to awake passengers 
+     * passenger request to awake passengers that want to leave the airport (passenger request)
      */
     public static final int AWAKE_PASSENGERS = 2;
-
     /**
-     * passenger request for number of passengers
+     * passenger request for number of passengers in the departure terminal entrance (passenger request)
      */
     public static final int N_PASSENGERS_DEPARTURE_TENTRANCE = 3;
-
-   
     /**
-     *  passenger request for preparing next flight
+     *  passenger request for preparing next flight (passenger request)
      */
     public static final int PREPARE_NEXT_LEG = 4;
-
     /**
-     *  
+     *  set parameters to know the number of passenger per flight
      */
     public static final int SET_PARAM = 5;
     /**
@@ -44,7 +37,7 @@ public class DTEMessage implements Serializable{
      */
     public static final int SHUTDOWN = 6;
     /**
-     * resposta do servidor
+     * server recived the message (server response)
      */
     public static final int ACK = 7;
     
@@ -72,54 +65,63 @@ public class DTEMessage implements Serializable{
      * Constructor
      * @param msgType
      */
-
     public DTEMessage(int msgType){
         this.msgType = msgType;
     }
-        /**
+    /**
      * Constructor
      * @param msgType
      * @param nPassenger
      */
-
     public DTEMessage(int msgType , int nPassenger , int passengerID){
         this.msgType = msgType;
         this.nPassenger= nPassenger;
         this.passengerID = passengerID;
     }
-
      /**
      * Constructor
      * @param msgType
      * @param lastPassenger
      */
-
     public DTEMessage(int msgType , boolean lastPassenger){
         this.msgType = msgType;
         this.lastPassenger= lastPassenger ;
     }
+    /**
+     * 
+     * @param msgType
+     * @param nPassenger
+     */
     public DTEMessage(int msgType,int nPassenger){
         this.msgType = msgType;
         this.nPassenger= nPassenger;
     }
-
+    /**
+     * getter
+     * @return either is the last passenger or not
+     */
     public boolean lastPassenger()
     {
         return this.lastPassenger;
     }
-
+    /**
+     * getter
+     * @return the number of passengers in departure terminal entrance
+     */
     public int nPassenger()
     {
         return this.nPassenger;
     }
-
-
+    /**
+     * getter
+     * @return passengerID
+     */
     public int getPassengerID(){
         return this.passengerID;
     }
     /**
      * getter 
-     * returns message Type
+     * @return message Type
      */
     public int getMsgType() {
         return this.msgType;

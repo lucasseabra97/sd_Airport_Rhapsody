@@ -1,7 +1,6 @@
 package commonInfra;
 
 import java.io.Serializable;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 public class BROMessage implements Serializable{
    
@@ -14,11 +13,11 @@ public class BROMessage implements Serializable{
     /* Tipos das mensagens */
 
     /**
-     *  Passenger requests ??? (pedido passageiro)
+     *  The client complains of lost bags (passenger request)
      */
     public static final int COMPLAIN = 1;
     /**
-     * 
+     * Set parameters 
      */
     public static final int SET_PARAM = 2;
 
@@ -28,58 +27,62 @@ public class BROMessage implements Serializable{
     public static final int SHUTDOWN = 3;
 
     /**
-    *   (resposta enviada pelo servidor)
+    *  server recived the message (server response)
     */
     public static final int ACK = 4;
 
-	/**
-     * passenger ID
-     */
-    private int passengerID;
+	
     /* Campos das mensagens */
 
     /**
      *  Tipo da mensagem
      */
-
     private int msgType;
-    
+    /**
+     * return the passenger's ID
+     */
+    private int passengerID;
 
     /**
-     * bag memory
-     */
-
+     * returns the list of bags lost
+    */
     private ArrayList<Baggage> bagsList;
    
-
     /**
-     * Constructor
+     * 
      * @param msgType
+     * @param bagsList
+     * @param passengerID
      */
-
      public BROMessage(int msgType,ArrayList<Baggage> bagsList , int passengerID){
         this.msgType = msgType;
         this.bagsList = bagsList;
         this.passengerID = passengerID;
      }
-
+     /**
+      * 
+      * @param msgType
+      */
      public BROMessage(int msgType){
          this.msgType = msgType;
      }
     /**
      * getter 
-     * returns message Type
+     * @return message Type
      */
     public int getMsgType() {
         return this.msgType;
     }
-
+    /**
+     * getter 
+     * @return the passenger ID
+     */
     public int getPassengerID(){
         return this.passengerID;
     }
     /**
      * getter
-     * returns arraylist of bags
+     * @return the list of bags lost
      */
     public ArrayList<Baggage> getBaggageList()
     {
@@ -87,6 +90,14 @@ public class BROMessage implements Serializable{
     }
 
 
+    @Override
+    public String toString() {
+        return "{" +
+            " msgType='" + msgType + "'" +
+            ", passengerID='" + passengerID + "'" +
+            ", bagsList='" + bagsList + "'" +
+            "}";
+    }
 
 
 }   

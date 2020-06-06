@@ -33,16 +33,12 @@ public class BusDriver extends Thread{
      */
     private int passengersRiding = 0;
     /**
-     * Interface Busdriver Arraival Terminal Transfer Quay
-     */
-   // private final IArraivalTerminalTransferQBusDriver terminalTQBusDriver;
-
-    /**
-    * Interface Busdriver Departure Terminal Transfer Quay
+    * Arraival Terminal Transfer Quay stub reference
     */
-   // private final IDepartureTerminalTransferQBusDriver departureTerminalQBusDriver;
     private ArrailvalTTransferQuayStub attQuayStub;
-
+    /**
+     *  Departure Terminal Transfer Quay stub reference
+     */
     private DepartureTerminalTransferQuayStub dttQuayStub;
    /**
     *  Bus Capacity
@@ -61,8 +57,6 @@ public class BusDriver extends Thread{
     public BusDriver(ArrailvalTTransferQuayStub attQuayStub,DepartureTerminalTransferQuayStub dttQuayStub, int busSize){
         this.state = state.PARKING_AT_THE_ARRIVAL_TERMINAL;
         this.busSize = busSize;
-       /* this.terminalTQBusDriver = terminalTQBusDriver;
-        this.departureTerminalQBusDriver = departureTerminalQBusDriver;*/
         this.attQuayStub = attQuayStub;
         this.dttQuayStub = dttQuayStub;
         this.end = true;

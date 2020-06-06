@@ -1,7 +1,6 @@
 package commonInfra;
 
 import java.io.Serializable;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 public class BCPMessage implements Serializable{
    
@@ -14,23 +13,23 @@ public class BCPMessage implements Serializable{
     /* Tipos das mensagens */
 
     /**
-     *  Passenger requests ??? (pedido passageiro)
+     *  porter requests for carrying the bag to the appropriate store (porter requesr)
      */
     public static final int CARRY_IT_TO_APPROPRIATE_STORE = 1;
 
    /**
-    *  pedido invocado  cliente na saida 
+    *  porter try to collect a bag (porter request)
     */
 
     public static final int GO_COLLECT_A_BAG = 2;
     
     /**
-     *   (pedido do porteiro)
+     *  Porter alerts that there is no more bags to collect (porter request)
     */
 
     public static final int NO_MORE_BAGS_TO_COLLECT = 3;
     /**
-     *  (pedido do passageiro)
+     * Porter alerts to reset the state of bags (porter request)
     */
 
     public static final int RESET_STATE= 4;
@@ -41,7 +40,7 @@ public class BCPMessage implements Serializable{
     public static final int SHUTDOWN = 5;
 
     /**
-     *   (resposta do servidor)
+     *   server recived the message (server response)
      */
 
     public static final int ACK = 6;
@@ -56,25 +55,25 @@ public class BCPMessage implements Serializable{
     private int msgType;
     
     /**
-     * baggage para goCOllectABag
+     * returns the bag that porter is trying to collect
      */
     private Baggage bag;
 
     /**
-     * bag memory
+     * list of bags in the baggage collection point
      */
 
     private ArrayList<Baggage> bagsList;
    
     /**
-     * 
+     * returs the Passenger's ID
      */
     private int passengerID;
+   
     /**
      * Constructor
      * @param msgType
      */
-
      public BCPMessage(int msgType){
         this.msgType = msgType;
      }
@@ -88,12 +87,20 @@ public class BCPMessage implements Serializable{
         this.msgType = msgType;
         this.bag = bag;
     }
-
-
+    /**
+     * @param msgType
+     * @param bagsList
+     */
     public BCPMessage(int msgType,  ArrayList<Baggage> bagsList){
         this.msgType = msgType;
         this.bagsList = bagsList;
     }
+    /**
+     * 
+     * @param msgType
+     * @param bagsList
+     * @param passengerID
+     */
     public BCPMessage(int msgType,  ArrayList<Baggage> bagsList , int passengerID){
         this.msgType = msgType;
         this.bagsList = bagsList;
@@ -103,27 +110,32 @@ public class BCPMessage implements Serializable{
 
     /**
      * getter 
-     * returns message Type
+     * @return message Type
      */
     public int getMsgType() {
         return this.msgType;
     }
-
+     /**
+     * getter 
+     * @return the list of all bags 
+     */
     public ArrayList<Baggage> getBaggageList()
     {
         return this.bagsList;
     }
 
-
     /**
      * getter 
-     * returns baggage
+     * @return baggage
      */
     public Baggage getBaggage(){
         return this.bag;
     }
     
-
+     /**
+     * getter 
+     * @return passengerID
+     */
     public int getPassengerID() {
         return this.passengerID;
     }

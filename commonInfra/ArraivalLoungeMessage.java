@@ -19,17 +19,17 @@ public class ArraivalLoungeMessage implements Serializable{
     public static final int WHAT_SHOULD_I_DO = 1;
 
     /**
-    * Porter asks for take a rest (pedido do porteiro)
+    * Porter asks for take a rest (porter request)
     */
 
     public static final int TAKE_A_REST = 2;
     /**
-     *  Porter requests to try to collect a bag (pedido do porteiro)
+     *  Porter requests to try to collect a bag (porter request)
     */
 
     public static final int TRY_TO_COLLECCT_A_BAG = 3;
     /**
-     *  Passenger alerts Porter to end of day (pedido do passageiro)
+     *  Passenger alerts Porter to end of day (porter request)
     */
     public static final int END_OF_DAY = 4;
     
@@ -39,13 +39,12 @@ public class ArraivalLoungeMessage implements Serializable{
 
      public static final int SET_PARAMETERS = 5;
     
-    
     /**
      *  request for shutdown server
      */
     public static final int SHUTDOWN = 6;
     /**
-     *  Alert was sent sucessufly (resposta do servidor)
+     *  Alert was sent sucessufly (server response)
      */
     public static final int ACK = 7;
     
@@ -54,30 +53,35 @@ public class ArraivalLoungeMessage implements Serializable{
     /**
      *  Tipo da mensagem
      */
-
     private int msgType;
     
     /**
     *  verifica se o passageiro vai para casa ou tempo outro voo 
-    */
-    
+    */   
     private boolean goHome;
     /**
-     * retorna o numero de passageiros -> whatshouldIDo
-     */
+     * returns the number of passengers -> whatshouldIDo
+    */
     private int nPass;
-
+    /**
+     *  returns the bag to collect
+     */
     private Baggage bag;
-
-
+    /**
+     *  return the nº of bags 
+     */
     private int bags ;
-
+    /**
+     *  returns Passenger's ID
+     */
     private int passengerID;
     /**
-     * retorna condição de espera para o porter
+     * return condition if porter need to wait
      */
     private boolean takeRest;
-
+    /**
+     * return the list of bags per flights
+     */
     private List<List<Baggage>> bagsPerFlight;
     /**
      * 
@@ -90,8 +94,6 @@ public class ArraivalLoungeMessage implements Serializable{
         this.bagsPerFlight = bagsPerFlight;
         
     }
-    
-    
      /**
      * 
      * @param msgType
@@ -115,56 +117,97 @@ public class ArraivalLoungeMessage implements Serializable{
         
     } 
 
-
+    /**
+     * 
+     * @param msgType
+     */
     public ArraivalLoungeMessage(int msgType){
         this.msgType = msgType;
     }
-
-
+    
+    /**
+     * getter 
+     * @return the list of bags per flight
+     */
     public List<List<Baggage>> getBagsList(){
         return this.bagsPerFlight;
     }
-
+    /**
+     * getter 
+     * @return the message type
+     */
     public int getMsgType() {
         return this.msgType;
     }
-
+    /**
+     * getter 
+     * @return either is going home or not(boolean)
+     */
     public boolean getGoHome() {
         return this.goHome;
     }
-
+     /**
+     * getter 
+     * @return either is going home or not(boolean)
+     */
     public boolean isGoHome() {
         return this.goHome;
     }
-
+     /**
+     * getter 
+     * @return the bag that porter will collect
+     */
     public Baggage tryToCollectABag(){
         return this.bag;
     }
+    /**
+     * 
+     * @param msgType
+     * @param nPass
+     */
     public ArraivalLoungeMessage(int msgType,int nPass){
         this.msgType = msgType ;
         this.nPass   = nPass;
-    }     
-
+    }       
+     /**
+     * getter 
+     * @return either porter is taking a rest or not(boolean)
+     */
     public boolean getTakeRest() {
         return this.takeRest;
     }
-
+    /**
+     * getter 
+     * @return either porter is taking a rest or not(boolean)
+     */
     public boolean isTakeRest() {
         return this.takeRest;
     }
-
+    /**
+     * getter 
+     * @return the baggage
+     */
     public Baggage getBag() {
         return this.bag;
     }
-    
+    /**
+     * getter 
+     * @return the number of passengers
+     */
     public int getNPass() {
         return this.nPass;
     }
-
-
+    /**
+     * getter 
+     * @return the number of bags
+     */
     public int getBagsNumber(){
         return this.bags;
     }
+    /**
+     * getter 
+     * @return the passengerID
+     */
     public int getPassengerID() {
 		return this.passengerID;
 	}

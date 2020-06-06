@@ -28,50 +28,36 @@ public class Passenger extends Thread {
 	* verifying if passenger has another flight
 	*/
 	private boolean jorneyEnds;
-
+	/**
+	 * Arraival Lounge Stub reference
+	 */
 	private ArraivalLoungeStub aloungeStub;
-
+	/**
+	 * Baggage Collection Point Stub reference
+	 */
 	private BagageCollectionPointStub bcPointStub;
-	
+	/**
+	 * Arraival Terminal Exit Stub reference
+	 */
 	private ArraivalTerminalExitStub atExitStub;
-	
+	/**
+	 * Arraival Terminal Transfer Quay Stub reference
+	 */
 	private ArrailvalTTransferQuayStub attQuayStub;
-
+	/**
+	 * Departure Terminal Transfer Quay Stub reference
+	 */
 	private DepartureTerminalTransferQuayStub dttQuayStub;
-
+	/**
+	 * Baggage Reclaim Office Stub reference 
+	 */
 	private BaggageReclaimOfficeStub brOfficeStub;
-
+	/**
+	 * Departure Terminal Entrance Stub reference
+	 */
 	private DepartureTerminalEntranceStub dtEntranceStub;
 	/**
-    * Interface Passenger Arraival Lounge
-    */
-	// private final IArraivalLoungePassenger monitorAl;
-	// /**
-    // * Interface Passenger Baggage Collection Point 
-    // */
-	// private final IBaggageCollectionPointPassenger monitorBc;
-	// /**
-    // * Interface Passenger Terminal Exit  
-    // */
-	// private final IArraivalTerminalExitPassenger monitorAe;
-	// /**
-    // * Interface Passenger Arraival Terminal Transfer Quay  
-    // */
-	// private final IArraivalTerminalTransferQPassenger monitorTTQ;
-	// /**
-    // * Interface Passenger Departure Terminal Transfer  
-    // */
-	// private final IDepartureTerminalTransferQPassenger monitorDTTQ;
-	// /**
-    // * Interface Passenger Departure Terminal Entrance  
-    // */
-	// private final IDepartureTerminalEntrancePassenger monitorDEP;
-	// /**
-    // * Interface Passenger Baggage Reclaim Office 
-    // */
-	// private final IBaggageReclaimOfficePassenger monitorBRO;
-	/**
-     * Number of passenger's {@link Bag}s per flight
+     * Number of passenger's {@link Baggage}s per flight
      */
     private Baggage[] bags;
 	/**
@@ -129,14 +115,13 @@ public class Passenger extends Thread {
 		this.flightsBags = flightsBags;
 		this.numberFlights = global.NR_FLIGHTS;
 	}
-
+	/**
+     * Getter for the current flight bags.
+     * @return if jorneyEnds.
+     */
 	public boolean isJorneyEnds() {
 		return this.jorneyEnds;
 	}
-
-	// public boolean getJorneyEnds() {
-	// 	return this.jorneyEnds;
-	// }
 
 	public void setJorneyEnds(boolean jorneyEnds) {
 		this.jorneyEnds = jorneyEnds;
@@ -149,7 +134,10 @@ public class Passenger extends Thread {
     public int getFlightBags() {
         return flightsBags.get(cFlight).size();
     }
-
+	/**
+     * Getter for the current flight bags.
+     * @return passengerID.
+     */
 	public int getPassengerID() {
 		return this.passengerID;
 	}

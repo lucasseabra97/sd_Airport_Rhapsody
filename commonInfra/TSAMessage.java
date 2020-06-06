@@ -13,7 +13,7 @@ public class TSAMessage implements Serializable {
     /* Tipos das mensagens */
 
     /**
-     *  poter requests to carry bags 
+     *  poter requests to carry bags to the appropriate store (porter request)
      */
     public static final int CARRY_IT_TO_APPROPRIATE_STORE = 1;
     /**
@@ -21,19 +21,19 @@ public class TSAMessage implements Serializable {
      */
     public static final int SHUTDOWN = 2;
     /**
-    *   (resposta enviada pelo servidor)
+    *  server received the message (server response)
     */
     public static final int ACK = 3;
 
     /* Campos das mensagens */
 
     /**
-     *  Tipo da mensagem
+     *  Message type
      */
 
     private int msgType;
     /**
-     * numero de passengers
+     * returns the bag to carry to the appropriate store
      */
     private Baggage bag;
     /**
@@ -49,7 +49,11 @@ public class TSAMessage implements Serializable {
         this.msgType = msgType;
 
     }
-    
+    /**
+     * 
+     * @param msgType
+     * @param bag
+     */
     public TSAMessage(int msgType , Baggage bag){
         this.msgType = msgType;
         this.bag = bag;
@@ -57,7 +61,7 @@ public class TSAMessage implements Serializable {
     }
     /**
      * geter bags
-     * @return bag
+     * @return the bag to carry
      */
     public Baggage getBaggage(){
         return this.bag;
@@ -65,7 +69,7 @@ public class TSAMessage implements Serializable {
 
     /**
      * getter 
-     * returns message Type
+     * @return the message Type
      */
     public int getMsgType() {
         return this.msgType;

@@ -1,5 +1,14 @@
+clientSide
+clientSide.stubs
 commonInfra
-entities
 interfaces
-main
-shared_regions
+serverSide
+serverSide.serverAL
+serverSide.serverATE
+serverSide.serverATTQ
+serverSide.serverBCP
+serverSide.serverBRO
+serverSide.serverDTE
+serverSide.serverDTTQ
+serverSide.serverGR
+serverSide.serverTSA

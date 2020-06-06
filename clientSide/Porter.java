@@ -6,7 +6,7 @@ import clientSide.stubs.ArraivalLoungeStub;
 import clientSide.stubs.BagageCollectionPointStub;
 import clientSide.stubs.TemporaryStorageAreaStub;
 import commonInfra.*;
-import interfaces.*;
+
 
 /**
 *  Porter entity 
@@ -31,27 +31,19 @@ public class Porter extends Thread{
 	*/
     private Baggage bag;
     /**
-    * Interface Porter Arraival Lounge  
-    */
-    // private final IArraivalLoungePorter monitorAl;
-    // /**
-    // * Interface Porter Baggage Collection Point 
-    // */
-    // private final IBaggageCollectionPointPorter monitorBCP;
-    //  /**
-    // * Interface Porter Temporary Storage Area 
-    // */
-    // private final ITemporaryStorageAreaPorter monitorTSA;
+     * Arraival Lounge Stub reference 
+     */
     private ArraivalLoungeStub aloungeStub;
-
+    /**
+     * Baggage Colection Point Stub reference
+     */
     private BagageCollectionPointStub bcPointStub;
-    
+    /**
+     * Temporary Storage Area Stub reference
+     */
     private TemporaryStorageAreaStub  tsAreaStub;
 
     public Porter(ArraivalLoungeStub aloungeStub,BagageCollectionPointStub bcPointStub,TemporaryStorageAreaStub  tsAreaStub){
-        /*this.monitorAl = monitorAl;
-        this.monitorBCP = monitorBCP;
-        this.monitorTSA = monitorTSA;*/
         this.state = PorterEnum.WAITING_FOR_A_PLANE_TO_LAND; //initial state
         this.end = true;
         this.aloungeStub = aloungeStub;
@@ -109,7 +101,6 @@ public class Porter extends Thread{
                 default:
             }
             try {
-                //Thread.sleep(50);
                 Thread.sleep(rDelay.nextInt(10));
             } catch (Exception e) {}
         }
