@@ -1,347 +1,388 @@
+               AIRPORT RHAPSODY - Description of the internal state of the problem
 
 PLANE    PORTER                  DRIVER
 FN BN  Stat CB SR   Stat  Q1 Q2 Q3 Q4 Q5 Q6  S1 S2 S3
                                                          PASSENGERS
 St1 Si1 NR1 NA1 St2 Si2 NR2 NA2 St3 Si3 NR3 NA3 St4 Si4 NR4 NA4 St5 Si5 NR5 NA5 St6 Si6 NR6 NA6
- 1 9   WPTL  0  0   PKAT   -  -  -  -  -  -   -  -  -  
+ 1 5   WPTL  0  0   PKAT   -  -  -  -  -  -   -  -  -  
+WSD FDT  2   0  --- ---  -   -  --- ---  -   -  --- ---  -   -  --- ---  -   -  --- ---  -   -  
+ 1 5   WPTL  0  0   PKAT   -  -  -  -  -  -   -  -  -  
+WSD FDT  2   0  --- ---  -   -  --- ---  -   -  WSD TRF  0   0  --- ---  -   -  --- ---  -   -  
+ 1 5   WPTL  0  0   PKAT   0  -  -  -  -  -   -  -  -  
+ATT FDT  2   0  --- ---  -   -  --- ---  -   -  WSD TRF  0   0  --- ---  -   -  --- ---  -   -  
+ 1 5   WPTL  0  0   PKAT   0  -  -  -  -  -   -  -  -  
+ATT FDT  2   0  --- ---  -   -  --- ---  -   -  WSD TRF  0   0  --- ---  -   -  WSD FDT  1   0  
+ 1 5   WPTL  0  0   PKAT   0  -  -  -  -  -   -  -  -  
+ATT FDT  2   0  WSD TRF  1   0  --- ---  -   -  WSD TRF  0   0  --- ---  -   -  WSD FDT  1   0  
+ 1 5   WPTL  0  0   PKAT   0  -  -  -  -  -   -  -  -  
+ATT FDT  2   0  WSD TRF  1   0  --- ---  -   -  WSD TRF  0   0  WSD TRF  1   0  WSD FDT  1   0  
+ 1 5   WPTL  0  0   PKAT   0  -  -  -  -  -   -  -  -  
+ATT FDT  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD TRF  0   0  WSD TRF  1   0  WSD FDT  1   0  
+ 1 5   WPTL  0  0   PKAT   0  0  -  -  -  -   -  -  -  
+ATT FDT  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD TRF  0   0  WSD TRF  1   0  WSD FDT  1   0  
+ 1 5   WPTL  0  0   PKAT   0  0  0  -  -  -   -  -  -  
+ATT FDT  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD TRF  0   0  WSD TRF  1   0  WSD FDT  1   0  
+ 1 5   WPTL  0  0   PKAT   0  0  -  -  -  -   0  -  -  
+ATT FDT  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD TRF  0   0  WSD TRF  1   0  WSD FDT  1   0  
+ 1 5   WPTL  0  0   PKAT   0  -  -  -  -  -   0  0  -  
+ATT FDT  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD TRF  0   0  WSD TRF  1   0  WSD FDT  1   0  
+ 1 5   WPTL  0  0   PKAT   -  -  -  -  -  -   0  0  0  
+ATT FDT  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD TRF  0   0  WSD TRF  1   0  WSD FDT  1   0  
+ 1 4   APLH  0  0   PKAT   -  -  -  -  -  -   0  0  0  
+ATT FDT  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD TRF  0   0  WSD TRF  1   0  WSD FDT  1   0  
+ 1 4   APLH  0  0   PKAT   -  -  -  -  -  -   0  0  0  
+EAT FDT  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD TRF  0   0  WSD TRF  1   0  WSD FDT  1   0  
+ 1 4   ALCB  1  0   PKAT   -  -  -  -  -  -   0  0  0  
+EAT FDT  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD TRF  0   0  WSD TRF  1   0  WSD FDT  1   0  
+ 1 3   APLH  1  0   PKAT   -  -  -  -  -  -   0  0  0  
+EAT FDT  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD TRF  0   0  WSD TRF  1   0  WSD FDT  1   0  
+ 1 3   APLH  1  0   PKAT   -  -  -  -  -  -   0  0  0  
+TRT FDT  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD TRF  0   0  WSD TRF  1   0  WSD FDT  1   0  
+ 1 3   ALCB  2  0   PKAT   -  -  -  -  -  -   0  0  0  
+TRT FDT  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD TRF  0   0  WSD TRF  1   0  WSD FDT  1   0  
+ 1 2   APLH  2  0   PKAT   -  -  -  -  -  -   0  0  0  
+TRT FDT  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD TRF  0   0  WSD TRF  1   0  WSD FDT  1   0  
+ 1 2   APLH  2  0   PKDT   -  -  -  -  -  -   0  0  0  
+TRT FDT  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD TRF  0   0  WSD TRF  1   0  WSD FDT  1   0  
+ 1 2   APLH  2  0   PKDT   -  -  -  -  -  -   0  0  -  
+DTT FDT  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD TRF  0   0  WSD TRF  1   0  WSD FDT  1   0  
+ 1 2   APLH  2  0   PKDT   -  -  -  -  -  -   0  -  -  
+DTT FDT  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD TRF  0   0  WSD TRF  1   0  WSD FDT  1   0  
+ 1 2   APLH  2  0   PKDT   -  -  -  -  -  -   -  -  -  
+DTT FDT  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD TRF  0   0  WSD TRF  1   0  WSD FDT  1   0  
+ 1 2   APLH  2  0   PKAT   -  -  -  -  -  -   -  -  -  
+DTT FDT  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD TRF  0   0  WSD TRF  1   0  WSD FDT  1   0  
+ 1 2   APLH  2  0   PKAT   -  -  -  -  -  -   -  -  -  
+EDT FDT  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD TRF  0   0  WSD TRF  1   0  WSD FDT  1   0  
+ 1 2   ASTR  2  1   PKAT   -  -  -  -  -  -   -  -  -  
+EDT FDT  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD TRF  0   0  WSD TRF  1   0  WSD FDT  1   0  
+ 1 1   APLH  2  1   PKAT   -  -  -  -  -  -   -  -  -  
+EDT FDT  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD TRF  0   0  WSD TRF  1   0  WSD FDT  1   0  
+ 1 1   ASTR  2  2   PKAT   -  -  -  -  -  -   -  -  -  
+EDT FDT  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD TRF  0   0  WSD TRF  1   0  WSD FDT  1   0  
+ 1 0   APLH  2  2   PKAT   -  -  -  -  -  -   -  -  -  
+EDT FDT  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD TRF  0   0  WSD TRF  1   0  WSD FDT  1   0  
+ 1 0   ALCB  3  2   PKAT   -  -  -  -  -  -   -  -  -  
+EDT FDT  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD TRF  0   0  WSD TRF  1   0  WSD FDT  1   0  
+ 1 0   APLH  3  2   PKAT   -  -  -  -  -  -   -  -  -  
+EDT FDT  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD TRF  0   0  WSD TRF  1   0  WSD FDT  1   0  
+ 1 0   WPTL  3  2   PKAT   -  -  -  -  -  -   -  -  -  
+EDT FDT  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD TRF  0   0  WSD TRF  1   0  WSD FDT  1   0  
+ 1 0   WPTL  3  2   PKAT   -  -  -  -  -  -   -  -  -  
+BRO FDT  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD TRF  0   0  WSD TRF  1   0  WSD FDT  1   0  
+ 1 0   WPTL  3  2   PKAT   -  -  -  -  -  -   -  -  -  
+BRO FDT  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD TRF  0   0  WSD TRF  1   0  WSD FDT  1   0  
+ 1 0   WPTL  3  2   PKAT   -  -  -  -  -  -   -  -  -  
+EAT FDT  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD TRF  0   0  WSD TRF  1   0  WSD FDT  1   0  
+ 2 6   WPTL  3  2   PKAT   -  -  -  -  -  -   -  -  -  
+EAT ---  -   -  --- ---  -   -  --- ---  -   -  --- ---  -   -  --- ---  -   -  --- ---  -   -  
+ 2 6   WPTL  3  2   PKAT   -  -  -  -  -  -   -  -  -  
+EAT ---  -   -  --- ---  -   -  --- ---  -   -  --- ---  -   -  WSD FDT  1   0  --- ---  -   -  
+ 2 6   WPTL  3  2   PKAT   -  -  -  -  -  -   -  -  -  
+EAT ---  -   -  WSD FDT  0   0  --- ---  -   -  --- ---  -   -  WSD FDT  1   0  --- ---  -   -  
+ 2 6   WPTL  3  2   PKAT   -  -  -  -  -  -   -  -  -  
+EAT ---  -   -  WSD FDT  0   0  WSD TRF  2   0  --- ---  -   -  WSD FDT  1   0  --- ---  -   -  
+ 2 6   WPTL  3  2   PKAT   0  -  -  -  -  -   -  -  -  
+ATT ---  -   -  WSD FDT  0   0  WSD TRF  2   0  --- ---  -   -  WSD FDT  1   0  --- ---  -   -  
+ 2 6   WPTL  3  2   PKAT   0  -  -  -  -  -   -  -  -  
+ATT ---  -   -  WSD FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  --- ---  -   -  
+ 2 6   WPTL  3  2   PKAT   -  -  -  -  -  -   0  -  -  
+ATT ---  -   -  WSD FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  --- ---  -   -  
+ 2 6   WPTL  3  2   PKAT   -  -  -  -  -  -   0  -  -  
+WSD FDT  1   0  WSD FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  --- ---  -   -  
+ 2 6   WPTL  3  2   PKAT   0  -  -  -  -  -   0  -  -  
+ATT FDT  1   0  WSD FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  --- ---  -   -  
+ 2 6   WPTL  3  2   PKAT   0  -  -  -  -  -   0  -  -  
+TRT FDT  1   0  WSD FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  --- ---  -   -  
+ 2 6   WPTL  3  2   PKAT   0  -  -  -  -  -   0  -  -  
+TRT FDT  1   0  WSD FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  WSD TRF  1   0  
+ 2 6   WPTL  3  2   PKDT   0  -  -  -  -  -   0  -  -  
+TRT FDT  1   0  WSD FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  WSD TRF  1   0  
+ 2 6   WPTL  3  2   PKDT   0  0  -  -  -  -   0  -  -  
+ATT FDT  1   0  WSD FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  WSD TRF  1   0  
+ 2 6   WPTL  3  2   PKDT   0  0  -  -  -  -   -  -  -  
+DTT FDT  1   0  WSD FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  WSD TRF  1   0  
+ 2 6   WPTL  3  2   PKDT   0  0  -  -  -  -   -  -  -  
+EDT FDT  1   0  WSD FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  WSD TRF  1   0  
+ 2 6   WPTL  3  2   PKAT   0  0  -  -  -  -   -  -  -  
+EDT FDT  1   0  WSD FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  WSD TRF  1   0  
+ 2 5   APLH  3  2   PKAT   0  0  -  -  -  -   -  -  -  
+EDT FDT  1   0  WSD FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  WSD TRF  1   0  
+ 2 5   ALCB  4  2   PKAT   0  0  -  -  -  -   -  -  -  
+EDT FDT  1   0  WSD FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  WSD TRF  1   0  
+ 2 4   APLH  4  2   PKAT   0  0  -  -  -  -   -  -  -  
+EDT FDT  1   0  WSD FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  WSD TRF  1   0  
+ 2 4   ASTR  4  3   PKAT   0  0  -  -  -  -   -  -  -  
+EDT FDT  1   0  WSD FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  WSD TRF  1   0  
+ 2 3   APLH  4  3   PKAT   0  0  -  -  -  -   -  -  -  
+EDT FDT  1   0  WSD FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  WSD TRF  1   0  
+ 2 3   ASTR  4  4   PKAT   0  0  -  -  -  -   -  -  -  
+EDT FDT  1   0  WSD FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  WSD TRF  1   0  
+ 2 2   APLH  4  4   PKAT   0  0  -  -  -  -   -  -  -  
+EDT FDT  1   0  WSD FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  WSD TRF  1   0  
+ 2 2   ASTR  4  5   PKAT   0  0  -  -  -  -   -  -  -  
+EDT FDT  1   0  WSD FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  WSD TRF  1   0  
+ 2 1   APLH  4  5   PKAT   0  0  -  -  -  -   -  -  -  
+EDT FDT  1   0  WSD FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  WSD TRF  1   0  
+ 2 1   ALCB  5  5   PKAT   0  0  -  -  -  -   -  -  -  
+EDT FDT  1   0  WSD FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  WSD TRF  1   0  
+ 2 0   APLH  5  5   PKAT   0  0  -  -  -  -   -  -  -  
+EDT FDT  1   0  WSD FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  WSD TRF  1   0  
+ 2 0   ASTR  5  6   PKAT   0  0  -  -  -  -   -  -  -  
+EDT FDT  1   0  WSD FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  WSD TRF  1   0  
+ 2 0   APLH  5  6   PKAT   0  0  -  -  -  -   -  -  -  
+EDT FDT  1   0  WSD FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  WSD TRF  1   0  
+ 2 0   APLH  5  6   PKAT   0  0  -  -  -  -   -  -  -  
+BRO FDT  1   0  WSD FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  WSD TRF  1   0  
+ 2 0   WPTL  5  6   PKAT   0  0  -  -  -  -   -  -  -  
+BRO FDT  1   0  WSD FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  WSD TRF  1   0  
+ 2 0   WPTL  5  6   PKAT   0  0  -  -  -  -   -  -  -  
+BRO FDT  1   0  WSD FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  WSD TRF  1   0  
+ 2 0   WPTL  5  6   PKAT   0  -  -  -  -  -   0  -  -  
+BRO FDT  1   0  WSD FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  WSD TRF  1   0  
+ 2 0   WPTL  5  6   PKAT   0  -  -  -  -  -   0  -  -  
+EAT FDT  1   0  WSD FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  WSD TRF  1   0  
+ 2 0   WPTL  5  6   PKAT   0  -  -  -  -  -   0  -  -  
+TRT FDT  1   0  WSD FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  WSD TRF  1   0  
+ 2 0   WPTL  5  6   PKAT   -  -  -  -  -  -   0  0  -  
+TRT FDT  1   0  WSD FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  WSD TRF  1   0  
+ 2 0   WPTL  5  6   PKAT   -  -  -  -  -  -   0  0  -  
+EAT FDT  1   0  WSD FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  WSD TRF  1   0  
+ 2 0   WPTL  5  6   PKDT   -  -  -  -  -  -   0  0  -  
+EAT FDT  1   0  WSD FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  WSD TRF  1   0  
+ 2 0   WPTL  5  6   PKDT   -  -  -  -  -  -   0  -  -  
+DTT FDT  1   0  WSD FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  WSD TRF  1   0  
+ 2 0   WPTL  5  6   PKDT   -  -  -  -  -  -   -  -  -  
+DTT FDT  1   0  WSD FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  WSD TRF  1   0  
+ 2 0   WPTL  5  6   PKDT   -  -  -  -  -  -   -  -  -  
+EDT FDT  1   0  WSD FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  WSD TRF  1   0  
+ 2 0   WPTL  5  6   PKAT   -  -  -  -  -  -   -  -  -  
+EDT FDT  1   0  WSD FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  WSD TRF  1   0  
+ 3 5   WPTL  5  6   PKAT   -  -  -  -  -  -   -  -  -  
 --- ---  -   -  --- ---  -   -  WSD FDT  2   0  --- ---  -   -  --- ---  -   -  --- ---  -   -  
- 1 9   WPTL  0  0   PKAT   -  -  -  -  -  -   -  -  -  
---- ---  -   -  WSD TRF  2   0  WSD FDT  2   0  --- ---  -   -  --- ---  -   -  --- ---  -   -  
- 1 9   WPTL  0  0   PKAT   -  -  -  -  -  -   -  -  -  
-WSD FDT  2   0  WSD TRF  2   0  WSD FDT  2   0  --- ---  -   -  --- ---  -   -  --- ---  -   -  
- 1 9   WPTL  0  0   PKAT   0  -  -  -  -  -   -  -  -  
-ATT FDT  2   0  WSD TRF  2   0  WSD FDT  2   0  --- ---  -   -  --- ---  -   -  --- ---  -   -  
- 1 9   WPTL  0  0   PKAT   0  -  -  -  -  -   -  -  -  
-ATT FDT  2   0  WSD TRF  2   0  WSD FDT  2   0  --- ---  -   -  --- ---  -   -  WSD FDT  1   0  
- 1 9   WPTL  0  0   PKAT   0  -  -  -  -  -   -  -  -  
-ATT FDT  2   0  WSD TRF  2   0  WSD FDT  2   0  WSD TRF  2   0  --- ---  -   -  WSD FDT  1   0  
- 1 9   WPTL  0  0   PKAT   0  -  -  -  -  -   -  -  -  
-ATT FDT  2   0  WSD TRF  2   0  WSD FDT  2   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  
- 1 9   WPTL  0  0   PKAT   0  0  -  -  -  -   -  -  -  
-ATT FDT  2   0  WSD TRF  2   0  WSD FDT  2   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  
- 1 9   WPTL  0  0   PKAT   0  0  0  -  -  -   -  -  -  
-ATT FDT  2   0  WSD TRF  2   0  WSD FDT  2   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  
- 1 9   WPTL  0  0   PKAT   0  0  -  -  -  -   0  -  -  
-ATT FDT  2   0  WSD TRF  2   0  WSD FDT  2   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  
- 1 8   APLH  0  0   PKAT   0  0  -  -  -  -   0  -  -  
-ATT FDT  2   0  WSD TRF  2   0  WSD FDT  2   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  
- 1 8   APLH  0  0   PKAT   0  -  -  -  -  -   0  0  -  
-ATT FDT  2   0  WSD TRF  2   0  WSD FDT  2   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  
- 1 8   APLH  0  0   PKAT   -  -  -  -  -  -   0  0  0  
-ATT FDT  2   0  WSD TRF  2   0  WSD FDT  2   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  
- 1 8   WPTL  0  0   PKAT   -  -  -  -  -  -   0  0  0  
-ATT FDT  2   0  WSD TRF  2   0  WSD FDT  2   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  
- 1 8   WPTL  0  0   PKAT   -  -  -  -  -  -   0  0  0  
-TRT FDT  2   0  WSD TRF  2   0  WSD FDT  2   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  
- 1 8   WPTL  0  0   PKDT   -  -  -  -  -  -   0  0  0  
-TRT FDT  2   0  WSD TRF  2   0  WSD FDT  2   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  
- 1 8   ALCB  1  0   PKDT   -  -  -  -  -  -   0  0  0  
-TRT FDT  2   0  WSD TRF  2   0  WSD FDT  2   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  
- 1 7   APLH  1  0   PKDT   -  -  -  -  -  -   0  0  0  
-TRT FDT  2   0  WSD TRF  2   0  WSD FDT  2   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  
- 1 7   APLH  1  0   PKDT   -  -  -  -  -  -   0  0  -  
-DTT FDT  2   0  WSD TRF  2   0  WSD FDT  2   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  
- 1 7   APLH  1  0   PKDT   -  -  -  -  -  -   0  -  -  
-DTT FDT  2   0  WSD TRF  2   0  WSD FDT  2   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  
- 1 7   ALCB  2  0   PKDT   -  -  -  -  -  -   0  -  -  
-DTT FDT  2   0  WSD TRF  2   0  WSD FDT  2   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  
- 1 7   ALCB  2  0   PKDT   -  -  -  -  -  -   -  -  -  
-DTT FDT  2   0  WSD TRF  2   0  WSD FDT  2   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  
- 1 6   APLH  2  0   PKDT   -  -  -  -  -  -   -  -  -  
-DTT FDT  2   0  WSD TRF  2   0  WSD FDT  2   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  
- 1 6   APLH  2  0   PKAT   -  -  -  -  -  -   -  -  -  
-DTT FDT  2   0  WSD TRF  2   0  WSD FDT  2   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  
- 1 6   APLH  2  0   PKAT   -  -  -  -  -  -   -  -  -  
-EDT FDT  2   0  WSD TRF  2   0  WSD FDT  2   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  
- 1 6   ASTR  2  1   PKAT   -  -  -  -  -  -   -  -  -  
-EDT FDT  2   0  WSD TRF  2   0  WSD FDT  2   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  
- 1 5   APLH  2  1   PKAT   -  -  -  -  -  -   -  -  -  
-EDT FDT  2   0  WSD TRF  2   0  WSD FDT  2   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  
- 1 5   ASTR  2  2   PKAT   -  -  -  -  -  -   -  -  -  
-EDT FDT  2   0  WSD TRF  2   0  WSD FDT  2   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  
- 1 4   APLH  2  2   PKAT   -  -  -  -  -  -   -  -  -  
-EDT FDT  2   0  WSD TRF  2   0  WSD FDT  2   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  
- 1 4   ALCB  3  2   PKAT   -  -  -  -  -  -   -  -  -  
-EDT FDT  2   0  WSD TRF  2   0  WSD FDT  2   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  
- 1 3   APLH  3  2   PKAT   -  -  -  -  -  -   -  -  -  
-EDT FDT  2   0  WSD TRF  2   0  WSD FDT  2   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  
- 1 3   ALCB  4  2   PKAT   -  -  -  -  -  -   -  -  -  
-EDT FDT  2   0  WSD TRF  2   0  WSD FDT  2   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  
- 1 2   APLH  4  2   PKAT   -  -  -  -  -  -   -  -  -  
-EDT FDT  2   0  WSD TRF  2   0  WSD FDT  2   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  
- 1 2   ASTR  4  3   PKAT   -  -  -  -  -  -   -  -  -  
-EDT FDT  2   0  WSD TRF  2   0  WSD FDT  2   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  
- 1 1   APLH  4  3   PKAT   -  -  -  -  -  -   -  -  -  
-EDT FDT  2   0  WSD TRF  2   0  WSD FDT  2   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  
- 1 1   ASTR  4  4   PKAT   -  -  -  -  -  -   -  -  -  
-EDT FDT  2   0  WSD TRF  2   0  WSD FDT  2   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  
- 1 0   APLH  4  4   PKAT   -  -  -  -  -  -   -  -  -  
-EDT FDT  2   0  WSD TRF  2   0  WSD FDT  2   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  
- 1 0   ALCB  5  4   PKAT   -  -  -  -  -  -   -  -  -  
-EDT FDT  2   0  WSD TRF  2   0  WSD FDT  2   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  
- 1 0   APLH  5  4   PKAT   -  -  -  -  -  -   -  -  -  
-EDT FDT  2   0  WSD TRF  2   0  WSD FDT  2   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  
- 1 0   WPTL  5  4   PKAT   -  -  -  -  -  -   -  -  -  
-EDT FDT  2   0  WSD TRF  2   0  WSD FDT  2   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  
- 1 0   WPTL  5  4   PKAT   -  -  -  -  -  -   -  -  -  
-BRO FDT  2   0  WSD TRF  2   0  WSD FDT  2   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  
- 1 0   WPTL  5  4   PKAT   -  -  -  -  -  -   -  -  -  
-BRO FDT  2   0  WSD TRF  2   0  WSD FDT  2   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  
- 1 0   WPTL  5  4   PKAT   -  -  -  -  -  -   -  -  -  
-BRO FDT  2   0  WSD TRF  2   0  WSD FDT  2   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  
- 1 0   WPTL  5  4   PKAT   -  -  -  -  -  -   -  -  -  
-EAT FDT  2   0  WSD TRF  2   0  WSD FDT  2   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  1   0  
- 2 4   WPTL  5  4   PKAT   -  -  -  -  -  -   -  -  -  
+ 3 5   WPTL  5  6   PKAT   -  -  -  -  -  -   -  -  -  
+EDT ---  -   -  --- ---  -   -  WSD FDT  2   0  --- ---  -   -  --- ---  -   -  --- ---  -   -  
+ 3 5   WPTL  5  6   PKAT   -  -  -  -  -  -   -  -  -  
+EDT ---  -   -  WSD FDT  2   0  WSD FDT  2   0  --- ---  -   -  --- ---  -   -  --- ---  -   -  
+ 3 5   WPTL  5  6   PKAT   -  -  -  -  -  -   -  -  -  
+WSD FDT  1   0  WSD FDT  2   0  WSD FDT  2   0  --- ---  -   -  --- ---  -   -  --- ---  -   -  
+ 3 5   WPTL  5  6   PKAT   -  -  -  -  -  -   -  -  -  
+WSD FDT  1   0  WSD FDT  2   0  WSD FDT  2   0  --- ---  -   -  WSD FDT  0   0  --- ---  -   -  
+ 3 5   WPTL  5  6   PKAT   -  -  -  -  -  -   -  -  -  
+WSD FDT  1   0  WSD FDT  2   0  WSD FDT  2   0  --- ---  -   -  WSD FDT  0   0  WSD TRF  1   0  
+ 3 5   WPTL  5  6   PKAT   -  -  -  -  -  -   -  -  -  
+WSD FDT  1   0  WSD FDT  2   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 3 5   WPTL  5  6   PKAT   0  -  -  -  -  -   -  -  -  
+ATT FDT  1   0  WSD FDT  2   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 3 5   WPTL  5  6   PKAT   0  -  -  -  -  -   -  -  -  
+EAT FDT  1   0  WSD FDT  2   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 3 5   WPTL  5  6   PKAT   0  0  -  -  -  -   -  -  -  
+ATT FDT  1   0  WSD FDT  2   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 3 4   APLH  5  6   PKAT   0  0  -  -  -  -   -  -  -  
+ATT FDT  1   0  WSD FDT  2   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 3 4   ALCB  6  6   PKAT   0  0  -  -  -  -   -  -  -  
+ATT FDT  1   0  WSD FDT  2   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 3 3   APLH  6  6   PKAT   0  0  -  -  -  -   -  -  -  
+ATT FDT  1   0  WSD FDT  2   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 3 3   ALCB  7  6   PKAT   0  0  -  -  -  -   -  -  -  
+ATT FDT  1   0  WSD FDT  2   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 3 2   APLH  7  6   PKAT   0  0  -  -  -  -   -  -  -  
+ATT FDT  1   0  WSD FDT  2   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 3 2   ALCB  8  6   PKAT   0  0  -  -  -  -   -  -  -  
+ATT FDT  1   0  WSD FDT  2   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 3 1   APLH  8  6   PKAT   0  0  -  -  -  -   -  -  -  
+ATT FDT  1   0  WSD FDT  2   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 3 1   ALCB  9  6   PKAT   0  0  -  -  -  -   -  -  -  
+ATT FDT  1   0  WSD FDT  2   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 3 1   ALCB  9  6   PKAT   0  -  -  -  -  -   0  -  -  
+ATT FDT  1   0  WSD FDT  2   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 3 0   APLH  9  6   PKAT   0  -  -  -  -  -   0  -  -  
+ATT FDT  1   0  WSD FDT  2   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 3 0   APLH  9  6   PKAT   0  -  -  -  -  -   0  -  -  
+TRT FDT  1   0  WSD FDT  2   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 3 0   APLH  9  6   PKAT   -  -  -  -  -  -   0  0  -  
+TRT FDT  1   0  WSD FDT  2   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 3 0   ASTR  9  7   PKAT   -  -  -  -  -  -   0  0  -  
+TRT FDT  1   0  WSD FDT  2   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 3 0   WPTL  9  7   PKAT   -  -  -  -  -  -   0  0  -  
+TRT FDT  1   0  WSD FDT  2   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 3 0   APLH  9  7   PKAT   -  -  -  -  -  -   0  0  -  
+TRT FDT  1   0  WSD FDT  2   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 3 0   APLH  9  7   PKDT   -  -  -  -  -  -   0  0  -  
+TRT FDT  1   0  WSD FDT  2   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 3 0   APLH  9  7   PKDT   -  -  -  -  -  -   0  0  -  
+BRO FDT  1   0  WSD FDT  2   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 3 0   APLH  9  7   PKDT   -  -  -  -  -  -   0  0  -  
+BRO FDT  1   0  WSD FDT  2   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 3 0   APLH  9  7   PKDT   -  -  -  -  -  -   0  -  -  
+DTT FDT  1   0  WSD FDT  2   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 3 0   APLH  9  7   PKDT   -  -  -  -  -  -   0  -  -  
+BRO FDT  1   0  WSD FDT  2   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 3 0   WPTL  9  7   PKDT   -  -  -  -  -  -   0  -  -  
+BRO FDT  1   0  WSD FDT  2   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 3 0   WPTL  9  7   PKDT   -  -  -  -  -  -   0  -  -  
+EAT FDT  1   0  WSD FDT  2   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 3 0   WPTL  9  7   PKDT   -  -  -  -  -  -   -  -  -  
+DTT FDT  1   0  WSD FDT  2   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 3 0   WPTL  9  7   PKDT   -  -  -  -  -  -   -  -  -  
+EAT FDT  1   0  WSD FDT  2   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 3 0   WPTL  9  7   PKDT   -  -  -  -  -  -   -  -  -  
+EDT FDT  1   0  WSD FDT  2   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 3 0   WPTL  9  7   PKAT   -  -  -  -  -  -   -  -  -  
+EDT FDT  1   0  WSD FDT  2   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 3 0   WPTL  9  7   PKAT   -  -  -  -  -  -   -  -  -  
+EAT FDT  1   0  WSD FDT  2   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 4 7   WPTL  9  7   PKAT   -  -  -  -  -  -   -  -  -  
 --- ---  -   -  --- ---  -   -  --- ---  -   -  --- ---  -   -  --- ---  -   -  WSD TRF  0   0  
- 2 4   WPTL  5  4   PKAT   -  -  -  -  -  -   -  -  -  
---- ---  -   -  --- ---  -   -  --- ---  -   -  WSD FDT  1   0  --- ---  -   -  WSD TRF  0   0  
- 2 4   WPTL  5  4   PKAT   0  -  -  -  -  -   -  -  -  
-ATT ---  -   -  --- ---  -   -  --- ---  -   -  WSD FDT  1   0  --- ---  -   -  WSD TRF  0   0  
- 2 4   WPTL  5  4   PKAT   0  -  -  -  -  -   -  -  -  
-ATT ---  -   -  WSD FDT  1   0  --- ---  -   -  WSD FDT  1   0  --- ---  -   -  WSD TRF  0   0  
- 2 4   WPTL  5  4   PKAT   -  -  -  -  -  -   0  -  -  
-ATT ---  -   -  WSD FDT  1   0  --- ---  -   -  WSD FDT  1   0  --- ---  -   -  WSD TRF  0   0  
- 2 4   WPTL  5  4   PKAT   -  -  -  -  -  -   0  -  -  
-ATT ---  -   -  WSD FDT  1   0  --- ---  -   -  WSD FDT  1   0  WSD FDT  1   0  WSD TRF  0   0  
- 2 4   WPTL  5  4   PKAT   -  -  -  -  -  -   0  -  -  
-TRT ---  -   -  WSD FDT  1   0  --- ---  -   -  WSD FDT  1   0  WSD FDT  1   0  WSD TRF  0   0  
- 2 4   WPTL  5  4   PKAT   -  -  -  -  -  -   0  -  -  
-TRT ---  -   -  WSD FDT  1   0  WSD FDT  0   0  WSD FDT  1   0  WSD FDT  1   0  WSD TRF  0   0  
- 2 4   WPTL  5  4   PKDT   -  -  -  -  -  -   0  -  -  
-TRT ---  -   -  WSD FDT  1   0  WSD FDT  0   0  WSD FDT  1   0  WSD FDT  1   0  WSD TRF  0   0  
- 2 4   WPTL  5  4   PKDT   -  -  -  -  -  -   0  -  -  
-WSD TRF  2   0  WSD FDT  1   0  WSD FDT  0   0  WSD FDT  1   0  WSD FDT  1   0  WSD TRF  0   0  
- 2 4   WPTL  5  4   PKDT   -  -  -  -  -  -   -  -  -  
-DTT TRF  2   0  WSD FDT  1   0  WSD FDT  0   0  WSD FDT  1   0  WSD FDT  1   0  WSD TRF  0   0  
- 2 4   WPTL  5  4   PKDT   0  -  -  -  -  -   -  -  -  
-ATT TRF  2   0  WSD FDT  1   0  WSD FDT  0   0  WSD FDT  1   0  WSD FDT  1   0  WSD TRF  0   0  
- 2 4   WPTL  5  4   PKAT   0  -  -  -  -  -   -  -  -  
-ATT TRF  2   0  WSD FDT  1   0  WSD FDT  0   0  WSD FDT  1   0  WSD FDT  1   0  WSD TRF  0   0  
- 2 4   WPTL  5  4   PKAT   0  -  -  -  -  -   -  -  -  
-EDT TRF  2   0  WSD FDT  1   0  WSD FDT  0   0  WSD FDT  1   0  WSD FDT  1   0  WSD TRF  0   0  
- 2 4   WPTL  5  4   PKAT   0  -  -  -  -  -   -  -  -  
-EAT TRF  2   0  WSD FDT  1   0  WSD FDT  0   0  WSD FDT  1   0  WSD FDT  1   0  WSD TRF  0   0  
- 2 3   APLH  5  4   PKAT   0  -  -  -  -  -   -  -  -  
-EAT TRF  2   0  WSD FDT  1   0  WSD FDT  0   0  WSD FDT  1   0  WSD FDT  1   0  WSD TRF  0   0  
- 2 3   ASTR  5  5   PKAT   0  -  -  -  -  -   -  -  -  
-EAT TRF  2   0  WSD FDT  1   0  WSD FDT  0   0  WSD FDT  1   0  WSD FDT  1   0  WSD TRF  0   0  
- 2 2   APLH  5  5   PKAT   0  -  -  -  -  -   -  -  -  
-EAT TRF  2   0  WSD FDT  1   0  WSD FDT  0   0  WSD FDT  1   0  WSD FDT  1   0  WSD TRF  0   0  
- 2 2   ASTR  5  6   PKAT   0  -  -  -  -  -   -  -  -  
-EAT TRF  2   0  WSD FDT  1   0  WSD FDT  0   0  WSD FDT  1   0  WSD FDT  1   0  WSD TRF  0   0  
- 2 1   APLH  5  6   PKAT   0  -  -  -  -  -   -  -  -  
-EAT TRF  2   0  WSD FDT  1   0  WSD FDT  0   0  WSD FDT  1   0  WSD FDT  1   0  WSD TRF  0   0  
- 2 1   ALCB  6  6   PKAT   0  -  -  -  -  -   -  -  -  
-EAT TRF  2   0  WSD FDT  1   0  WSD FDT  0   0  WSD FDT  1   0  WSD FDT  1   0  WSD TRF  0   0  
- 2 0   APLH  6  6   PKAT   0  -  -  -  -  -   -  -  -  
-EAT TRF  2   0  WSD FDT  1   0  WSD FDT  0   0  WSD FDT  1   0  WSD FDT  1   0  WSD TRF  0   0  
- 2 0   ALCB  7  6   PKAT   0  -  -  -  -  -   -  -  -  
-EAT TRF  2   0  WSD FDT  1   0  WSD FDT  0   0  WSD FDT  1   0  WSD FDT  1   0  WSD TRF  0   0  
- 2 0   APLH  7  6   PKAT   0  -  -  -  -  -   -  -  -  
-EAT TRF  2   0  WSD FDT  1   0  WSD FDT  0   0  WSD FDT  1   0  WSD FDT  1   0  WSD TRF  0   0  
- 2 0   APLH  7  6   PKAT   0  -  -  -  -  -   -  -  -  
-BRO TRF  2   0  WSD FDT  1   0  WSD FDT  0   0  WSD FDT  1   0  WSD FDT  1   0  WSD TRF  0   0  
- 2 0   APLH  7  6   PKAT   0  -  -  -  -  -   -  -  -  
-BRO TRF  2   0  WSD FDT  1   0  WSD FDT  0   0  WSD FDT  1   0  WSD FDT  1   0  WSD TRF  0   0  
- 2 0   WPTL  7  6   PKAT   0  -  -  -  -  -   -  -  -  
-BRO TRF  2   0  WSD FDT  1   0  WSD FDT  0   0  WSD FDT  1   0  WSD FDT  1   0  WSD TRF  0   0  
- 2 0   WPTL  7  6   PKAT   0  -  -  -  -  -   -  -  -  
-EAT TRF  2   0  WSD FDT  1   0  WSD FDT  0   0  WSD FDT  1   0  WSD FDT  1   0  WSD TRF  0   0  
- 2 0   WPTL  7  6   PKAT   0  -  -  -  -  -   -  -  -  
-BRO TRF  2   0  WSD FDT  1   0  WSD FDT  0   0  WSD FDT  1   0  WSD FDT  1   0  WSD TRF  0   0  
- 2 0   WPTL  7  6   PKAT   0  -  -  -  -  -   -  -  -  
-EAT TRF  2   0  WSD FDT  1   0  WSD FDT  0   0  WSD FDT  1   0  WSD FDT  1   0  WSD TRF  0   0  
- 2 0   WPTL  7  6   PKAT   -  -  -  -  -  -   0  -  -  
-EAT TRF  2   0  WSD FDT  1   0  WSD FDT  0   0  WSD FDT  1   0  WSD FDT  1   0  WSD TRF  0   0  
- 2 0   WPTL  7  6   PKAT   -  -  -  -  -  -   0  -  -  
-TRT TRF  2   0  WSD FDT  1   0  WSD FDT  0   0  WSD FDT  1   0  WSD FDT  1   0  WSD TRF  0   0  
- 2 0   WPTL  7  6   PKDT   -  -  -  -  -  -   0  -  -  
-TRT TRF  2   0  WSD FDT  1   0  WSD FDT  0   0  WSD FDT  1   0  WSD FDT  1   0  WSD TRF  0   0  
- 2 0   WPTL  7  6   PKDT   -  -  -  -  -  -   -  -  -  
-DTT TRF  2   0  WSD FDT  1   0  WSD FDT  0   0  WSD FDT  1   0  WSD FDT  1   0  WSD TRF  0   0  
- 2 0   WPTL  7  6   PKAT   -  -  -  -  -  -   -  -  -  
-DTT TRF  2   0  WSD FDT  1   0  WSD FDT  0   0  WSD FDT  1   0  WSD FDT  1   0  WSD TRF  0   0  
- 2 0   WPTL  7  6   PKAT   -  -  -  -  -  -   -  -  -  
-EDT TRF  2   0  WSD FDT  1   0  WSD FDT  0   0  WSD FDT  1   0  WSD FDT  1   0  WSD TRF  0   0  
- 3 3   WPTL  7  6   PKAT   -  -  -  -  -  -   -  -  -  
---- ---  -   -  --- ---  -   -  --- ---  -   -  --- ---  -   -  --- ---  -   -  WSD FDT  0   0  
- 3 3   WPTL  7  6   PKAT   -  -  -  -  -  -   -  -  -  
-WSD TRF  0   0  --- ---  -   -  --- ---  -   -  --- ---  -   -  --- ---  -   -  WSD FDT  0   0  
- 3 3   WPTL  7  6   PKAT   0  -  -  -  -  -   -  -  -  
-ATT TRF  0   0  --- ---  -   -  --- ---  -   -  --- ---  -   -  --- ---  -   -  WSD FDT  0   0  
- 3 3   WPTL  7  6   PKAT   0  -  -  -  -  -   -  -  -  
-ATT TRF  0   0  --- ---  -   -  --- ---  -   -  WSD FDT  2   0  --- ---  -   -  WSD FDT  0   0  
- 3 3   WPTL  7  6   PKAT   0  -  -  -  -  -   -  -  -  
-EAT TRF  0   0  --- ---  -   -  --- ---  -   -  WSD FDT  2   0  --- ---  -   -  WSD FDT  0   0  
- 3 3   WPTL  7  6   PKAT   0  -  -  -  -  -   -  -  -  
-EAT TRF  0   0  --- ---  -   -  --- ---  -   -  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  
- 3 3   WPTL  7  6   PKAT   0  0  -  -  -  -   -  -  -  
-ATT TRF  0   0  --- ---  -   -  --- ---  -   -  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  
- 3 3   WPTL  7  6   PKAT   0  0  -  -  -  -   -  -  -  
-ATT TRF  0   0  WSD TRF  0   0  --- ---  -   -  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  
- 3 3   WPTL  7  6   PKAT   0  0  -  -  -  -   -  -  -  
-ATT TRF  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  
- 3 3   WPTL  7  6   PKAT   0  0  0  -  -  -   -  -  -  
-ATT TRF  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  
- 3 3   WPTL  7  6   PKAT   0  0  -  -  -  -   0  -  -  
-ATT TRF  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  
- 3 3   WPTL  7  6   PKAT   0  -  -  -  -  -   0  0  -  
-ATT TRF  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  
- 3 2   APLH  7  6   PKAT   0  -  -  -  -  -   0  0  -  
-ATT TRF  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  
- 3 2   APLH  7  6   PKAT   -  -  -  -  -  -   0  0  0  
-ATT TRF  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  
- 3 2   APLH  7  6   PKAT   -  -  -  -  -  -   0  0  0  
-TRT TRF  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  
- 3 2   WPTL  7  6   PKAT   -  -  -  -  -  -   0  0  0  
-TRT TRF  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  
- 3 2   ALCB  8  6   PKAT   -  -  -  -  -  -   0  0  0  
-TRT TRF  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  
- 3 2   ALCB  8  6   PKDT   -  -  -  -  -  -   0  0  0  
-TRT TRF  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  
- 3 2   ALCB  8  6   PKDT   -  -  -  -  -  -   0  0  -  
-DTT TRF  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  
- 3 1   APLH  8  6   PKDT   -  -  -  -  -  -   0  0  -  
-DTT TRF  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  
- 3 1   APLH  8  6   PKDT   -  -  -  -  -  -   0  -  -  
-DTT TRF  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  
- 3 1   APLH  8  6   PKDT   -  -  -  -  -  -   -  -  -  
-DTT TRF  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  
- 3 1   ALCB  9  6   PKDT   -  -  -  -  -  -   -  -  -  
-DTT TRF  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  
- 3 0   APLH  9  6   PKDT   -  -  -  -  -  -   -  -  -  
-DTT TRF  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  
- 3 0   APLH  9  6   PKAT   -  -  -  -  -  -   -  -  -  
-DTT TRF  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  
- 3 0   ALCB  10  6   PKAT   -  -  -  -  -  -   -  -  -  
-DTT TRF  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  
- 3 0   APLH  10  6   PKAT   -  -  -  -  -  -   -  -  -  
-DTT TRF  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  
- 3 0   APLH  10  6   PKAT   -  -  -  -  -  -   -  -  -  
-EDT TRF  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  
- 3 0   APLH  10  6   PKAT   -  -  -  -  -  -   -  -  -  
-BRO TRF  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  
- 3 0   WPTL  10  6   PKAT   -  -  -  -  -  -   -  -  -  
-BRO TRF  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  
- 3 0   WPTL  10  6   PKAT   -  -  -  -  -  -   -  -  -  
-BRO TRF  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  
- 3 0   WPTL  10  6   PKAT   -  -  -  -  -  -   -  -  -  
-EDT TRF  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  
- 3 0   WPTL  10  6   PKAT   -  -  -  -  -  -   -  -  -  
-EAT TRF  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  0   0  WSD FDT  0   0  
- 4 5   WPTL  10  6   PKAT   -  -  -  -  -  -   -  -  -  
---- ---  -   -  --- ---  -   -  --- ---  -   -  --- ---  -   -  --- ---  -   -  WSD FDT  0   0  
- 4 5   WPTL  10  6   PKAT   -  -  -  -  -  -   -  -  -  
-WSD TRF  2   0  --- ---  -   -  --- ---  -   -  --- ---  -   -  --- ---  -   -  WSD FDT  0   0  
- 4 5   WPTL  10  6   PKAT   -  -  -  -  -  -   -  -  -  
-EAT TRF  2   0  --- ---  -   -  --- ---  -   -  --- ---  -   -  --- ---  -   -  WSD FDT  0   0  
- 4 5   WPTL  10  6   PKAT   -  -  -  -  -  -   -  -  -  
-EAT TRF  2   0  WSD FDT  0   0  --- ---  -   -  --- ---  -   -  --- ---  -   -  WSD FDT  0   0  
- 4 5   WPTL  10  6   PKAT   0  -  -  -  -  -   -  -  -  
-ATT TRF  2   0  WSD FDT  0   0  --- ---  -   -  --- ---  -   -  --- ---  -   -  WSD FDT  0   0  
- 4 5   WPTL  10  6   PKAT   0  -  -  -  -  -   -  -  -  
-ATT TRF  2   0  WSD FDT  0   0  --- ---  -   -  --- ---  -   -  WSD TRF  2   0  WSD FDT  0   0  
- 4 5   WPTL  10  6   PKAT   0  -  -  -  -  -   -  -  -  
-EAT TRF  2   0  WSD FDT  0   0  --- ---  -   -  --- ---  -   -  WSD TRF  2   0  WSD FDT  0   0  
- 4 5   WPTL  10  6   PKAT   0  0  -  -  -  -   -  -  -  
-ATT TRF  2   0  WSD FDT  0   0  --- ---  -   -  --- ---  -   -  WSD TRF  2   0  WSD FDT  0   0  
- 4 5   WPTL  10  6   PKAT   0  0  -  -  -  -   -  -  -  
-ATT TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  --- ---  -   -  WSD TRF  2   0  WSD FDT  0   0  
- 4 5   WPTL  10  6   PKAT   0  0  0  -  -  -   -  -  -  
-ATT TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  --- ---  -   -  WSD TRF  2   0  WSD FDT  0   0  
- 4 5   WPTL  10  6   PKAT   0  0  0  -  -  -   -  -  -  
-ATT TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD TRF  2   0  WSD FDT  0   0  
- 4 5   WPTL  10  6   PKAT   0  0  -  -  -  -   0  -  -  
-ATT TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD TRF  2   0  WSD FDT  0   0  
- 4 5   WPTL  10  6   PKAT   0  -  -  -  -  -   0  0  -  
-ATT TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD TRF  2   0  WSD FDT  0   0  
- 4 5   WPTL  10  6   PKAT   0  -  -  -  -  -   0  0  -  
-TRT TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD TRF  2   0  WSD FDT  0   0  
- 4 5   WPTL  10  6   PKAT   -  -  -  -  -  -   0  0  0  
-TRT TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD TRF  2   0  WSD FDT  0   0  
- 4 4   APLH  10  6   PKAT   -  -  -  -  -  -   0  0  0  
-TRT TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD TRF  2   0  WSD FDT  0   0  
- 4 4   APLH  10  6   PKDT   -  -  -  -  -  -   0  0  0  
-TRT TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD TRF  2   0  WSD FDT  0   0  
- 4 4   ASTR  10  7   PKDT   -  -  -  -  -  -   0  0  0  
-TRT TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD TRF  2   0  WSD FDT  0   0  
- 4 4   ASTR  10  7   PKDT   -  -  -  -  -  -   0  0  -  
-DTT TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD TRF  2   0  WSD FDT  0   0  
- 4 3   APLH  10  7   PKDT   -  -  -  -  -  -   0  0  -  
-DTT TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD TRF  2   0  WSD FDT  0   0  
- 4 3   APLH  10  7   PKDT   -  -  -  -  -  -   0  -  -  
-DTT TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD TRF  2   0  WSD FDT  0   0  
- 4 3   APLH  10  7   PKDT   -  -  -  -  -  -   -  -  -  
-DTT TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD TRF  2   0  WSD FDT  0   0  
- 4 3   APLH  10  7   PKDT   -  -  -  -  -  -   -  -  -  
-EDT TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD TRF  2   0  WSD FDT  0   0  
- 4 3   ASTR  10  8   PKDT   -  -  -  -  -  -   -  -  -  
-EDT TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD TRF  2   0  WSD FDT  0   0  
- 4 3   ASTR  10  8   PKAT   -  -  -  -  -  -   -  -  -  
-EDT TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD TRF  2   0  WSD FDT  0   0  
- 4 2   APLH  10  8   PKAT   -  -  -  -  -  -   -  -  -  
-EDT TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD TRF  2   0  WSD FDT  0   0  
- 4 2   ALCB  11  8   PKAT   -  -  -  -  -  -   -  -  -  
-EDT TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD TRF  2   0  WSD FDT  0   0  
- 4 1   APLH  11  8   PKAT   -  -  -  -  -  -   -  -  -  
-EDT TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD TRF  2   0  WSD FDT  0   0  
- 4 1   ASTR  11  9   PKAT   -  -  -  -  -  -   -  -  -  
-EDT TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD TRF  2   0  WSD FDT  0   0  
- 4 0   APLH  11  9   PKAT   -  -  -  -  -  -   -  -  -  
-EDT TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD TRF  2   0  WSD FDT  0   0  
- 4 0   ASTR  11  10   PKAT   -  -  -  -  -  -   -  -  -  
-EDT TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD TRF  2   0  WSD FDT  0   0  
- 4 0   APLH  11  10   PKAT   -  -  -  -  -  -   -  -  -  
-EDT TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD TRF  2   0  WSD FDT  0   0  
- 4 0   WPTL  11  10   PKAT   -  -  -  -  -  -   -  -  -  
-EDT TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD TRF  2   0  WSD FDT  0   0  
- 4 0   WPTL  11  10   PKAT   -  -  -  -  -  -   -  -  -  
-BRO TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD TRF  2   0  WSD FDT  0   0  
- 4 0   WPTL  11  10   PKAT   -  -  -  -  -  -   -  -  -  
-EAT TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  WSD FDT  1   0  WSD TRF  2   0  WSD FDT  0   0  
- 5 3   WPTL  11  10   PKAT   -  -  -  -  -  -   -  -  -  
---- ---  -   -  WSD FDT  1   0  --- ---  -   -  --- ---  -   -  --- ---  -   -  --- ---  -   -  
- 5 3   WPTL  11  10   PKAT   -  -  -  -  -  -   -  -  -  
---- ---  -   -  WSD FDT  1   0  --- ---  -   -  --- ---  -   -  --- ---  -   -  WSD FDT  1   0  
- 5 3   WPTL  11  10   PKAT   -  -  -  -  -  -   -  -  -  
---- ---  -   -  WSD FDT  1   0  --- ---  -   -  --- ---  -   -  WSD FDT  1   0  WSD FDT  1   0  
- 5 3   WPTL  11  10   PKAT   -  -  -  -  -  -   -  -  -  
-WSD FDT  0   0  WSD FDT  1   0  --- ---  -   -  --- ---  -   -  WSD FDT  1   0  WSD FDT  1   0  
- 5 3   WPTL  11  10   PKAT   -  -  -  -  -  -   -  -  -  
-WSD FDT  0   0  WSD FDT  1   0  WSD FDT  0   0  --- ---  -   -  WSD FDT  1   0  WSD FDT  1   0  
- 5 3   WPTL  11  10   PKAT   -  -  -  -  -  -   -  -  -  
-EAT FDT  0   0  WSD FDT  1   0  WSD FDT  0   0  --- ---  -   -  WSD FDT  1   0  WSD FDT  1   0  
- 5 3   WPTL  11  10   PKAT   -  -  -  -  -  -   -  -  -  
-EAT FDT  0   0  WSD FDT  1   0  WSD FDT  0   0  WSD FDT  1   0  WSD FDT  1   0  WSD FDT  1   0  
- 5 2   APLH  11  10   PKAT   -  -  -  -  -  -   -  -  -  
-EAT FDT  0   0  WSD FDT  1   0  WSD FDT  0   0  WSD FDT  1   0  WSD FDT  1   0  WSD FDT  1   0  
- 5 2   ALCB  12  10   PKAT   -  -  -  -  -  -   -  -  -  
-EAT FDT  0   0  WSD FDT  1   0  WSD FDT  0   0  WSD FDT  1   0  WSD FDT  1   0  WSD FDT  1   0  
- 5 1   APLH  12  10   PKAT   -  -  -  -  -  -   -  -  -  
-EAT FDT  0   0  WSD FDT  1   0  WSD FDT  0   0  WSD FDT  1   0  WSD FDT  1   0  WSD FDT  1   0  
- 5 1   ALCB  13  10   PKAT   -  -  -  -  -  -   -  -  -  
-EAT FDT  0   0  WSD FDT  1   0  WSD FDT  0   0  WSD FDT  1   0  WSD FDT  1   0  WSD FDT  1   0  
- 5 0   APLH  13  10   PKAT   -  -  -  -  -  -   -  -  -  
-EAT FDT  0   0  WSD FDT  1   0  WSD FDT  0   0  WSD FDT  1   0  WSD FDT  1   0  WSD FDT  1   0  
- 5 0   ALCB  14  10   PKAT   -  -  -  -  -  -   -  -  -  
-EAT FDT  0   0  WSD FDT  1   0  WSD FDT  0   0  WSD FDT  1   0  WSD FDT  1   0  WSD FDT  1   0  
- 5 0   APLH  14  10   PKAT   -  -  -  -  -  -   -  -  -  
-EAT FDT  0   0  WSD FDT  1   0  WSD FDT  0   0  WSD FDT  1   0  WSD FDT  1   0  WSD FDT  1   0  
- 5 0   WPTL  14  10   PKAT   -  -  -  -  -  -   -  -  -  
-EAT FDT  0   0  WSD FDT  1   0  WSD FDT  0   0  WSD FDT  1   0  WSD FDT  1   0  WSD FDT  1   0  
- 5 0   WPTL  14  10   PKAT   -  -  -  -  -  -   -  -  -  
-BRO FDT  0   0  WSD FDT  1   0  WSD FDT  0   0  WSD FDT  1   0  WSD FDT  1   0  WSD FDT  1   0  
- 5 0   WPTL  14  10   PKAT   -  -  -  -  -  -   -  -  -  
-BRO FDT  0   0  WSD FDT  1   0  WSD FDT  0   0  WSD FDT  1   0  WSD FDT  1   0  WSD FDT  1   0  
- 5 0   WPTL  14  10   PKAT   -  -  -  -  -  -   -  -  -  
-BRO FDT  0   0  WSD FDT  1   0  WSD FDT  0   0  WSD FDT  1   0  WSD FDT  1   0  WSD FDT  1   0  
- 5 0   WPTL  14  10   PKAT   -  -  -  -  -  -   -  -  -  
-BRO FDT  0   0  WSD FDT  1   0  WSD FDT  0   0  WSD FDT  1   0  WSD FDT  1   0  WSD FDT  1   0  
- 5 0   WPTL  14  10   PKAT   -  -  -  -  -  -   -  -  -  
-EAT FDT  0   0  WSD FDT  1   0  WSD FDT  0   0  WSD FDT  1   0  WSD FDT  1   0  WSD FDT  1   0  
+ 4 7   WPTL  9  7   PKAT   0  -  -  -  -  -   -  -  -  
+ATT ---  -   -  --- ---  -   -  --- ---  -   -  --- ---  -   -  --- ---  -   -  WSD TRF  0   0  
+ 4 7   WPTL  9  7   PKAT   0  -  -  -  -  -   -  -  -  
+ATT ---  -   -  --- ---  -   -  --- ---  -   -  --- ---  -   -  WSD FDT  0   0  WSD TRF  0   0  
+ 4 7   WPTL  9  7   PKAT   0  -  -  -  -  -   -  -  -  
+ATT ---  -   -  --- ---  -   -  --- ---  -   -  WSD TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  
+ 4 7   WPTL  9  7   PKAT   0  0  -  -  -  -   -  -  -  
+ATT ---  -   -  --- ---  -   -  --- ---  -   -  WSD TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  
+ 4 7   WPTL  9  7   PKAT   0  0  -  -  -  -   -  -  -  
+WSD TRF  2   0  --- ---  -   -  --- ---  -   -  WSD TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  
+ 4 7   WPTL  9  7   PKAT   0  0  -  -  -  -   -  -  -  
+EAT TRF  2   0  --- ---  -   -  --- ---  -   -  WSD TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  
+ 4 7   WPTL  9  7   PKAT   0  0  0  -  -  -   -  -  -  
+ATT TRF  2   0  --- ---  -   -  --- ---  -   -  WSD TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  
+ 4 7   WPTL  9  7   PKAT   0  0  0  -  -  -   -  -  -  
+ATT TRF  2   0  WSD FDT  1   0  --- ---  -   -  WSD TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  
+ 4 7   WPTL  9  7   PKAT   0  0  0  -  -  -   -  -  -  
+ATT TRF  2   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  
+ 4 7   WPTL  9  7   PKAT   0  0  -  -  -  -   0  -  -  
+ATT TRF  2   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  
+ 4 7   WPTL  9  7   PKAT   0  0  -  -  -  -   0  -  -  
+TRT TRF  2   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  
+ 4 7   WPTL  9  7   PKAT   0  -  -  -  -  -   0  0  -  
+TRT TRF  2   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  
+ 4 7   WPTL  9  7   PKAT   -  -  -  -  -  -   0  0  0  
+TRT TRF  2   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  
+ 4 6   APLH  9  7   PKAT   -  -  -  -  -  -   0  0  0  
+TRT TRF  2   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  
+ 4 6   APLH  9  7   PKDT   -  -  -  -  -  -   0  0  0  
+TRT TRF  2   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  
+ 4 6   APLH  9  7   PKDT   -  -  -  -  -  -   0  0  -  
+DTT TRF  2   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  
+ 4 6   ASTR  9  8   PKDT   -  -  -  -  -  -   0  0  -  
+DTT TRF  2   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  
+ 4 6   ASTR  9  8   PKDT   -  -  -  -  -  -   0  -  -  
+DTT TRF  2   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  
+ 4 5   APLH  9  8   PKDT   -  -  -  -  -  -   0  -  -  
+DTT TRF  2   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  
+ 4 5   APLH  9  8   PKDT   -  -  -  -  -  -   0  -  -  
+EDT TRF  2   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  
+ 4 5   APLH  9  8   PKDT   -  -  -  -  -  -   -  -  -  
+DTT TRF  2   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  
+ 4 5   APLH  9  8   PKDT   -  -  -  -  -  -   -  -  -  
+EDT TRF  2   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  
+ 4 5   APLH  9  8   PKAT   -  -  -  -  -  -   -  -  -  
+EDT TRF  2   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  
+ 4 5   ASTR  9  9   PKAT   -  -  -  -  -  -   -  -  -  
+EDT TRF  2   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  
+ 4 4   APLH  9  9   PKAT   -  -  -  -  -  -   -  -  -  
+EDT TRF  2   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  
+ 4 4   ALCB  10  9   PKAT   -  -  -  -  -  -   -  -  -  
+EDT TRF  2   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  
+ 4 3   APLH  10  9   PKAT   -  -  -  -  -  -   -  -  -  
+EDT TRF  2   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  
+ 4 3   ALCB  11  9   PKAT   -  -  -  -  -  -   -  -  -  
+EDT TRF  2   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  
+ 4 2   APLH  11  9   PKAT   -  -  -  -  -  -   -  -  -  
+EDT TRF  2   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  
+ 4 2   ALCB  12  9   PKAT   -  -  -  -  -  -   -  -  -  
+EDT TRF  2   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  
+ 4 1   APLH  12  9   PKAT   -  -  -  -  -  -   -  -  -  
+EDT TRF  2   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  
+ 4 1   ASTR  12  10   PKAT   -  -  -  -  -  -   -  -  -  
+EDT TRF  2   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  
+ 4 0   APLH  12  10   PKAT   -  -  -  -  -  -   -  -  -  
+EDT TRF  2   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  
+ 4 0   ASTR  12  11   PKAT   -  -  -  -  -  -   -  -  -  
+EDT TRF  2   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  
+ 4 0   APLH  12  11   PKAT   -  -  -  -  -  -   -  -  -  
+EDT TRF  2   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  
+ 4 0   APLH  12  11   PKAT   -  -  -  -  -  -   -  -  -  
+BRO TRF  2   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  
+ 4 0   APLH  12  11   PKAT   -  -  -  -  -  -   -  -  -  
+BRO TRF  2   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  
+ 4 0   WPTL  12  11   PKAT   -  -  -  -  -  -   -  -  -  
+BRO TRF  2   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  
+ 4 0   WPTL  12  11   PKAT   -  -  -  -  -  -   -  -  -  
+EAT TRF  2   0  WSD FDT  1   0  WSD FDT  2   0  WSD TRF  2   0  WSD FDT  0   0  WSD TRF  0   0  
+ 5 3   WPTL  12  11   PKAT   -  -  -  -  -  -   -  -  -  
+WSD FDT  0   0  --- ---  -   -  --- ---  -   -  --- ---  -   -  --- ---  -   -  --- ---  -   -  
+ 5 3   WPTL  12  11   PKAT   -  -  -  -  -  -   -  -  -  
+WSD FDT  0   0  WSD TRF  2   0  --- ---  -   -  --- ---  -   -  --- ---  -   -  --- ---  -   -  
+ 5 3   WPTL  12  11   PKAT   -  -  -  -  -  -   -  -  -  
+EAT FDT  0   0  WSD TRF  2   0  --- ---  -   -  --- ---  -   -  --- ---  -   -  --- ---  -   -  
+ 5 3   WPTL  12  11   PKAT   0  -  -  -  -  -   -  -  -  
+ATT FDT  0   0  WSD TRF  2   0  --- ---  -   -  --- ---  -   -  --- ---  -   -  --- ---  -   -  
+ 5 3   WPTL  12  11   PKAT   0  -  -  -  -  -   -  -  -  
+ATT FDT  0   0  WSD TRF  2   0  --- ---  -   -  WSD FDT  0   0  --- ---  -   -  --- ---  -   -  
+ 5 3   WPTL  12  11   PKAT   -  -  -  -  -  -   0  -  -  
+ATT FDT  0   0  WSD TRF  2   0  --- ---  -   -  WSD FDT  0   0  --- ---  -   -  --- ---  -   -  
+ 5 3   WPTL  12  11   PKAT   -  -  -  -  -  -   0  -  -  
+ATT FDT  0   0  WSD TRF  2   0  --- ---  -   -  WSD FDT  0   0  WSD FDT  0   0  --- ---  -   -  
+ 5 3   WPTL  12  11   PKAT   -  -  -  -  -  -   0  -  -  
+EAT FDT  0   0  WSD TRF  2   0  --- ---  -   -  WSD FDT  0   0  WSD FDT  0   0  --- ---  -   -  
+ 5 3   WPTL  12  11   PKAT   -  -  -  -  -  -   0  -  -  
+TRT FDT  0   0  WSD TRF  2   0  --- ---  -   -  WSD FDT  0   0  WSD FDT  0   0  --- ---  -   -  
+ 5 3   WPTL  12  11   PKAT   -  -  -  -  -  -   0  -  -  
+TRT FDT  0   0  WSD TRF  2   0  --- ---  -   -  WSD FDT  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 5 3   WPTL  12  11   PKDT   -  -  -  -  -  -   0  -  -  
+TRT FDT  0   0  WSD TRF  2   0  --- ---  -   -  WSD FDT  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 5 3   WPTL  12  11   PKDT   0  -  -  -  -  -   0  -  -  
+ATT FDT  0   0  WSD TRF  2   0  --- ---  -   -  WSD FDT  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 5 3   WPTL  12  11   PKDT   0  -  -  -  -  -   0  -  -  
+ATT FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 5 3   WPTL  12  11   PKDT   0  0  -  -  -  -   0  -  -  
+ATT FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 5 3   WPTL  12  11   PKDT   0  0  -  -  -  -   0  -  -  
+EAT FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 5 2   APLH  12  11   PKDT   0  0  -  -  -  -   0  -  -  
+EAT FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 5 2   APLH  12  11   PKDT   0  0  -  -  -  -   -  -  -  
+DTT FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 5 2   ASTR  12  12   PKDT   0  0  -  -  -  -   -  -  -  
+DTT FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 5 2   ASTR  12  12   PKAT   0  0  -  -  -  -   -  -  -  
+DTT FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 5 1   APLH  12  12   PKAT   0  0  -  -  -  -   -  -  -  
+DTT FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 5 1   APLH  12  12   PKAT   0  0  -  -  -  -   -  -  -  
+EDT FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 5 1   ASTR  12  13   PKAT   0  0  -  -  -  -   -  -  -  
+EDT FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 5 0   APLH  12  13   PKAT   0  0  -  -  -  -   -  -  -  
+EDT FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 5 0   ASTR  12  14   PKAT   0  0  -  -  -  -   -  -  -  
+EDT FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 5 0   APLH  12  14   PKAT   0  0  -  -  -  -   -  -  -  
+EDT FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 5 0   WPTL  12  14   PKAT   0  0  -  -  -  -   -  -  -  
+EDT FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 5 0   WPTL  12  14   PKAT   0  -  -  -  -  -   0  -  -  
+EDT FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 5 0   WPTL  12  14   PKAT   -  -  -  -  -  -   0  0  -  
+EDT FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 5 0   WPTL  12  14   PKAT   -  -  -  -  -  -   0  0  -  
+TRT FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 5 0   WPTL  12  14   PKDT   -  -  -  -  -  -   0  0  -  
+TRT FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 5 0   WPTL  12  14   PKDT   -  -  -  -  -  -   0  -  -  
+DTT FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 5 0   WPTL  12  14   PKDT   -  -  -  -  -  -   -  -  -  
+DTT FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 5 0   WPTL  12  14   PKAT   -  -  -  -  -  -   -  -  -  
+DTT FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD FDT  0   0  WSD TRF  1   0  
+ 5 0   WPTL  12  14   PKAT   -  -  -  -  -  -   -  -  -  
+EDT FDT  0   0  WSD TRF  2   0  WSD TRF  1   0  WSD FDT  0   0  WSD FDT  0   0  WSD TRF  1   0  
 
 Final Report
-N. of passengers which have this airport as their final destination = 19
-N. of passengers which are in transit = 11
-N. of bags that should have been transported in the the planes hold = 24
-N. of bags that were lost = 13
+N. of passengers which have this airport as their final destination = 16
+N. of passengers which are in transit = 14
+N. of bags that should have been transported in the the planes hold = 26
+N. of bags that were lost = 9

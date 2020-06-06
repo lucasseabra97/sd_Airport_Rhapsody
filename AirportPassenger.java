@@ -19,16 +19,33 @@ public class AirportPassenger {
     {   System.out.println("----------AirportRhapsody---------\n");
 
         final Random random = new Random();
-       
-        Scanner sc = new Scanner(System.in); 
-        List<List<Baggage>> bagsPerFlight = new ArrayList<>(global.NR_FLIGHTS);
-        Boolean[][] passengersDestination = new Boolean [global.NR_PASSENGERS][global.NR_FLIGHTS];
-        List<List<List<Baggage>>> passengersBags = new ArrayList<>(global.NR_PASSENGERS);
+        Scanner sc  = new Scanner(System.in);
+        int nrFlights;
+        int nrPassengers;
+        int nrBags;
+        int busSize;
 
 
-        for(int p = 0;p<global.NR_PASSENGERS;p++){
+        System.out.println("Numero de iterações? ");
+        nrFlights = sc.nextInt();
+        System.out.println("Numero de Passageiros? ");
+        nrPassengers = sc.nextInt();
+        System.out.println("Numero de malas? ");
+        nrBags = sc.nextInt();
+        System.out.println("Tamanho do autocarro? ");
+        busSize = sc.nextInt();
+        
+
+
+        List<List<Baggage>> bagsPerFlight = new ArrayList<>(nrFlights);
+        Boolean[][] passengersDestination = new Boolean [nrPassengers][nrFlights];
+        List<List<List<Baggage>>> passengersBags = new ArrayList<>(nrPassengers);
+
+        
+
+        for(int p = 0;p<nrPassengers;p++){
             passengersBags.add(new ArrayList<>());
-            for(int v = 0; v < global.NR_FLIGHTS; v++) {
+            for(int v = 0; v < nrFlights; v++) {
                 passengersBags.get(p).add(new ArrayList<>());
                 if(bagsPerFlight.size() <= v)
                     bagsPerFlight.add(new ArrayList<>()); 
@@ -36,7 +53,7 @@ public class AirportPassenger {
                 Boolean goHome = random.nextBoolean();
                 passengersDestination[p][v] =  goHome ? true : false;
 
-                int nrRandomBags = random.nextInt(global.MAX_BAGS + 1);
+                int nrRandomBags = random.nextInt(nrBags + 1);
                 int bagsLost = random.nextInt(100);
                 bagsLost = bagsLost < 5 ? 2 : (bagsLost < 25 ? 1 : 0);
 
@@ -71,9 +88,16 @@ public class AirportPassenger {
         //fName = sc.nextLine(); 
         /*System.out.println("Nome do sistema computacional onde está o servidor Arraival Lounge?");
         serverHostName = sc.nextLine();
-        System.out.println("Número do port de escuta do servidor Arraival Lounge?");
+        System.out.println("Nr do port de escuta do servidor Arraival Lounge?");
         serverPortNumb = sc.nextInt();
-        aLoungStub = new ArraivalLoungeStub (serverHostName, serverPortNumb);**/
+        aLoungStub = new ArraivalLoungeStub (serverHostName, serverPortNumb);
+        System.out.println("Nome do sistema computacional onde está o servidor Baggage Collection Point?");
+        serverHostName = sc.nextLine();
+        System.out.println("Nr do port de escuta do servidor Baggage Collection Point?");
+        serverPortNumb = sc.nextInt();
+        bcPointStub = new BagageCollectionPointStub(serverHostName,serverPortNumb);*/
+        
+
         //prob vamos ter de limpar os buffers ...
         
         aLoungStub = new ArraivalLoungeStub("localhost",3000);
@@ -85,23 +109,23 @@ public class AirportPassenger {
         dttQuayStub  = new DepartureTerminalTransferQuayStub("localhost",3007);
         dtEntranceStub = new DepartureTerminalEntranceStub("localhost",3008);
 
-        Passenger passengers[] = new Passenger[global.NR_PASSENGERS];
+        Passenger passengers[] = new Passenger[nrPassengers];
         
-        for(int i = 0; i < global.NR_PASSENGERS; i++) {
+        for(int i = 0; i < nrPassengers; i++) {
             passengers[i] = new Passenger(i,passengersDestination[i], passengersBags.get(i), aLoungStub, bcPointStub,atExitStub, attQuayStub, dttQuayStub,dtEntranceStub,brOfficeStub);
         } 
         
-        aLoungStub.setParameters(global.NR_PASSENGERS, bagsPerFlight);
-        atExitStub.setParameters(6);
-        attQuayStub.setParameters(3);
-        dtEntranceStub.setParemeters(6);
+        aLoungStub.setParameters(nrPassengers, bagsPerFlight);
+        atExitStub.setParameters(nrPassengers);
+        attQuayStub.setParameters(busSize);
+        dtEntranceStub.setParemeters(nrPassengers);
 
-        for(int i = 0; i < global.NR_PASSENGERS; i++) {
+        for(int i = 0; i < nrPassengers; i++) {
             passengers[i].start();
         }
 
         try {
-            for(int i = 0; i < global.NR_PASSENGERS; i++) {
+            for(int i = 0; i < nrPassengers; i++) {
                 passengers[i].join();
             }
         } catch (Exception e) {
