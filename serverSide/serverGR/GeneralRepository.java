@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.concurrent.locks.ReentrantLock;
-
+import java.util.*;
 import commonInfra.*;
 import clientSide.*;
 import main.global;
@@ -26,7 +26,7 @@ public class GeneralRepository{
      */
     private int flightLuggage;
    
-    private String[] passengerStates = new String[global.NR_PASSENGERS]; 
+    
     /**
      * Counter for number of passengers with final destination
      */
@@ -103,12 +103,40 @@ public class GeneralRepository{
      * BusDriverState
      */
     private String bDriverStates;
-
-
+    
+    /**
+     * bus capacaty
+     */
+    private int busSize;
+    /**
+     * 
+     */
+    
+    public void setParameters(int nrPassengers,int busSize){
+        this.maxPassengers = nrPassengers;
+        this.busSize = busSize;
+        this.queue = new String[maxPassengers];
+        for(int i=0;i<maxPassengers;i++) this.queue[i] = "-";
+        this.queueIdx = 0;
+        this.seats = new String[busSize];
+        for(int i=0;i<busSize;i++) this.seats[i] = "-";
+        this.seatsIdx = 0;
+        this.passengerStates = new String[maxPassengers];
+        for(int i=0;i<maxPassengers;i++) this.passengerStates[i] = "---";
+        this.passengerSituation = new String[maxPassengers];
+        for(int i=0;i<maxPassengers;i++) this.passengerSituation[i] = "---";
+        this.passengerLuggage = new String[maxPassengers];
+        for(int i=0;i<maxPassengers;i++) this.passengerLuggage[i] = "-";
+        this.passengerCollectedLuggage = new String[maxPassengers];
+        for(int i=0;i<maxPassengers;i++) this.passengerCollectedLuggage[i] = "-";
+        this.flight =0;
+    }
+    
+    private String[] passengerStates = new String[maxPassengers];
 
     public GeneralRepository(File logger) {
+        //System.out.println("General Repository -> "+ maxPassengers  + " " + busSize);
         this.logger = logger;
-        this.maxPassengers = global.NR_PASSENGERS;
         String header = "               AIRPORT RHAPSODY - Description of the internal state of the problem";
         String s1 = "PLANE    PORTER                  DRIVER";
         String s2 = "FN BN  Stat CB SR   Stat  Q1 Q2 Q3 Q4 Q5 Q6  S1 S2 S3";
@@ -128,25 +156,11 @@ public class GeneralRepository{
         this.bags=0;
         this.porterStates = "WPTL";
         this.bDriverStates ="PKAT";
-        this.queue = new String[global.NR_PASSENGERS];
-        for(int i=0;i<global.NR_PASSENGERS;i++) this.queue[i] = "-";
-        this.queueIdx = 0;
-        this.seats = new String[global.BUS_SIZE];
-        for(int i=0;i<global.BUS_SIZE;i++) this.seats[i] = "-";
-        this.seatsIdx = 0;
-        this.passengerStates = new String[global.NR_PASSENGERS];
-        for(int i=0;i<global.NR_PASSENGERS;i++) this.passengerStates[i] = "---";
-        this.passengerSituation = new String[global.NR_PASSENGERS];
-        for(int i=0;i<global.NR_PASSENGERS;i++) this.passengerSituation[i] = "---";
-        this.passengerLuggage = new String[global.NR_PASSENGERS];
-        for(int i=0;i<global.NR_PASSENGERS;i++) this.passengerLuggage[i] = "-";
-        this.passengerCollectedLuggage = new String[global.NR_PASSENGERS];
-        for(int i=0;i<global.NR_PASSENGERS;i++) this.passengerCollectedLuggage[i] = "-";
-        this.flight =0;
+        
     
     }
     
-
+    
 
 
      /**
@@ -500,6 +514,8 @@ public class GeneralRepository{
         rl.lock();
         try{
             //remove from queue
+        
+           // System.out.println("Bus size -" + busSize + " " + "Max passengers" + maxPassengers);
             for(int i=0; i<queue.length; i++) {
                 if(Integer.toString(id).equals(queue[i])){
                     for(int j=i; j<queue.length-1; j++) {
@@ -594,10 +610,10 @@ public class GeneralRepository{
     private void passengersReset() {
         rl.lock();
         try{
-            for(int i=0;i<global.NR_PASSENGERS;i++) passengerStates[i] = "---";
-            for(int i=0;i<global.NR_PASSENGERS;i++) passengerSituation[i] = "---";
-            for(int i=0;i<global.NR_PASSENGERS;i++) passengerLuggage[i] = "-";
-            for(int i=0;i<global.NR_PASSENGERS;i++) passengerCollectedLuggage[i] = "-";
+            for(int i=0;i<maxPassengers;i++) passengerStates[i] = "---";
+            for(int i=0;i<maxPassengers;i++) passengerSituation[i] = "---";
+            for(int i=0;i<maxPassengers;i++) passengerLuggage[i] = "-";
+            for(int i=0;i<maxPassengers;i++) passengerCollectedLuggage[i] = "-";
         }catch(Exception e){}
         finally{
             rl.unlock();

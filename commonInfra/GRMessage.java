@@ -111,9 +111,17 @@ public class GRMessage implements Serializable {
     * server received the message (server response)
     */
     public static final int ACK = 26;
-    /* Campos das mensagens */
-
+    /**
+     * message to shutdown server
+     */
     public static final int SHUTDOWN =27;
+
+    /**
+     * set parameters for repository
+     */
+    public static final int SET_PARAMETERS = 28;
+
+    /* Campos das mensagens */
 
     /**
     *  Tipo da mensagem
@@ -140,7 +148,14 @@ public class GRMessage implements Serializable {
      * returns the situation 
      */
     private String situation;
-    
+    /*
+    *  returnd the number of passengers
+    */
+    private int nrPassengers;
+    /**
+     * return the bus Size
+     */
+    private int busSize;
     /**
      * 
      * @param msgType
@@ -171,6 +186,12 @@ public class GRMessage implements Serializable {
       this.bags = bags;
       this.situation = situation;
       this.id = id;
+    }
+
+    public GRMessage(int msgType,int nrPassengers,int busSize){
+      this.msgType = msgType;
+      this.nrPassengers = nrPassengers;
+      this.busSize = busSize;
     }
      /**
      * getter 
@@ -215,6 +236,14 @@ public class GRMessage implements Serializable {
      return this.flightLuggage;
     }
 
+
+    public int getNrPassengers() {
+      return this.nrPassengers;
+    }
+
+    public int getBusSize() {
+      return this.busSize;
+    }
 
 
 } 

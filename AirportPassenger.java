@@ -108,17 +108,18 @@ public class AirportPassenger {
         attQuayStub  = new ArrailvalTTransferQuayStub("localhost",3006);
         dttQuayStub  = new DepartureTerminalTransferQuayStub("localhost",3007);
         dtEntranceStub = new DepartureTerminalEntranceStub("localhost",3008);
-
+        gRepositoyStub.setParameters(nrPassengers, busSize);
         Passenger passengers[] = new Passenger[nrPassengers];
         
         for(int i = 0; i < nrPassengers; i++) {
-            passengers[i] = new Passenger(i,passengersDestination[i], passengersBags.get(i), aLoungStub, bcPointStub,atExitStub, attQuayStub, dttQuayStub,dtEntranceStub,brOfficeStub);
+            passengers[i] = new Passenger(i,passengersDestination[i], passengersBags.get(i), aLoungStub, bcPointStub,atExitStub, attQuayStub, dttQuayStub,dtEntranceStub,brOfficeStub , nrFlights);
         } 
         
         aLoungStub.setParameters(nrPassengers, bagsPerFlight);
         atExitStub.setParameters(nrPassengers);
         attQuayStub.setParameters(busSize);
         dtEntranceStub.setParemeters(nrPassengers);
+        
 
         for(int i = 0; i < nrPassengers; i++) {
             passengers[i].start();

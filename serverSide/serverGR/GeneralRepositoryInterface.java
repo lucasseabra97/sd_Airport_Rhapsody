@@ -34,6 +34,8 @@ public class GeneralRepositoryInterface {
      /* validação da mensagem recebida */
       switch (inMessage.getMsgType()) 
       {
+        case GRMessage.SET_PARAMETERS:
+            break;
         case GRMessage.DRIVER_PARKING_ARRIVAL_TERMINAL:
             break;
         case GRMessage.DRIVER_PARKING_DEPARTURE_TERMINAL :
@@ -83,7 +85,7 @@ public class GeneralRepositoryInterface {
         case GRMessage.ADD_LOST_BAGS:
             break;
         case GRMessage.SHUTDOWN:
-            break;
+            break;  
         
          default:
               throw new GRMessageException("Tipo inválido!", inMessage);
@@ -91,6 +93,10 @@ public class GeneralRepositoryInterface {
       /* seu processamento */
       switch (inMessage.getMsgType())
       {
+        case GRMessage.SET_PARAMETERS:
+                    monitorGR.setParameters(inMessage.getNrPassengers(),inMessage.getBusSize());
+                    outMessage = new GRMessage(GRMessage.ACK);
+                    break;
         case GRMessage.DRIVER_PARKING_ARRIVAL_TERMINAL:
                      monitorGR.driverParkingArrivalTerminal();
                      outMessage = new GRMessage(GRMessage.ACK);

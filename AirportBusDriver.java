@@ -18,7 +18,9 @@ public class AirportBusDriver {
         final Random random = new Random();
        
         Scanner sc = new Scanner(System.in); 
-   
+        int busSize;
+        System.out.println("Tamanho do autocarro? ");
+        busSize = sc.nextInt();
       
         ArrailvalTTransferQuayStub        attQuayStub;                   // stub Arraival Terminal Transfer Quay
         DepartureTerminalTransferQuayStub dttQuayStub;          // stub Departure Terminal Transfer Quay
@@ -43,7 +45,7 @@ public class AirportBusDriver {
         dttQuayStub  = new DepartureTerminalTransferQuayStub("localhost",3007);
         
 
-        BusDriver busdriver = new BusDriver(attQuayStub, dttQuayStub,global.BUS_SIZE);       
+        BusDriver busdriver = new BusDriver(attQuayStub, dttQuayStub,busSize);       
         busdriver.start();
     
 

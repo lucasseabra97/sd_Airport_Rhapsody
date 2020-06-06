@@ -90,7 +90,7 @@ public class Passenger extends Thread {
     private List<List<Baggage>> flightsBags;
 
 	
-	public Passenger(int passengerID, Boolean[] flightsDestination, List<List<Baggage>> flightsBags,ArraivalLoungeStub aloungeStub,BagageCollectionPointStub bcPointStub, ArraivalTerminalExitStub atExitStub, ArrailvalTTransferQuayStub attQuayStub,DepartureTerminalTransferQuayStub dttQuayStub, DepartureTerminalEntranceStub dtEntranceStub,BaggageReclaimOfficeStub brOfficeStub) {
+	public Passenger(int passengerID, Boolean[] flightsDestination, List<List<Baggage>> flightsBags,ArraivalLoungeStub aloungeStub,BagageCollectionPointStub bcPointStub, ArraivalTerminalExitStub atExitStub, ArrailvalTTransferQuayStub attQuayStub,DepartureTerminalTransferQuayStub dttQuayStub, DepartureTerminalEntranceStub dtEntranceStub,BaggageReclaimOfficeStub brOfficeStub , int nrFlights) {
 		this.passengerID = passengerID;
 		//this.numBags = numBags;
 		//this.jorneyEnds = jorneyEnds;
@@ -113,7 +113,7 @@ public class Passenger extends Thread {
 		this.monitorBRO = monitorBRO;*/
 		this.end = true;
 		this.flightsBags = flightsBags;
-		this.numberFlights = global.NR_FLIGHTS;
+		this.numberFlights = nrFlights;
 	}
 	/**
      * Getter for the current flight bags.
