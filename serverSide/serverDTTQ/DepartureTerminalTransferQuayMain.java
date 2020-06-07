@@ -17,7 +17,7 @@ public class DepartureTerminalTransferQuayMain {
    *    @serialField portNumb
    */
 
-   private static final int portNumb = 3007;
+   private static final int portNumb = global.SERVER_PORT_NUMB_DTTQ;
    public static boolean waitConnection;                              // sinalização de actividade
 
   /**
@@ -42,7 +42,7 @@ public class DepartureTerminalTransferQuayMain {
         scon = new ServerCom (portNumb);                     // criação do canal de escuta e sua associação
         scon.start ();                                       // com o endereço público
 
-        GeneralRepositoryStub grStub = new GeneralRepositoryStub("localhost",3002);
+        GeneralRepositoryStub grStub = new GeneralRepositoryStub(global.SERVER_HOST_NAME_GR,global.SERVER_PORT_NUMB_GR);
         monitorDTTQ = new DepartureTerminalTransferQuay(grStub);                           // activação do serviço
         atExitInter = new DepartureTerminalTransferQuayInterface (monitorDTTQ);        // activação do interface com o serviço
         System.out.println("O serviço foi estabelecido! DepartureTerminalTransferQuay");

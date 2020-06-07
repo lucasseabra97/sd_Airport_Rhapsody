@@ -17,7 +17,7 @@ public class ArraivalTerminalExitMain {
    *    @serialField portNumb
    */
 
-   private static final int portNumb = 3003;
+   private static final int portNumb = global.SERVER_PORT_NUMB_ATE;
    public static boolean waitConnection;                              // sinalização de actividade
 
   /**
@@ -51,7 +51,7 @@ public class ArraivalTerminalExitMain {
         scon = new ServerCom (portNumb);                                     // criação do canal de escuta e sua associação
         scon.start ();     
         
-        GeneralRepositoryStub grStub = new GeneralRepositoryStub("localhost",3002);   // com o endereço público
+        GeneralRepositoryStub grStub = new GeneralRepositoryStub(global.SERVER_HOST_NAME_GR,global.SERVER_PORT_NUMB_GR);   // com o endereço público
         monitorATE = new ArraivalTerminalExit(grStub);                           // activação do serviço
         atExitInter = new ArraivalTerminalExitInterface (monitorATE);        // activação do interface com o serviço
         System.out.println("O serviço foi estabelecido! ArraivalTerminalExit");

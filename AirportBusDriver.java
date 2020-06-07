@@ -41,8 +41,8 @@ public class AirportBusDriver {
         //prob vamos ter de limpar os buffers ...
         
       
-        attQuayStub  = new ArrailvalTTransferQuayStub("localhost",3006);
-        dttQuayStub  = new DepartureTerminalTransferQuayStub("localhost",3007);
+        attQuayStub  = new ArrailvalTTransferQuayStub(global.SERVER_HOST_NAME_ATTQ,global.SERVER_PORT_NUMB_ATTQ);
+        dttQuayStub  = new DepartureTerminalTransferQuayStub(global.SERVER_HOST_NAME_DTTQ,global.SERVER_PORT_NUMB_DTTQ);
         
 
         BusDriver busdriver = new BusDriver(attQuayStub, dttQuayStub,busSize);       

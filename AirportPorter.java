@@ -42,9 +42,9 @@ public class AirportPorter {
         
       
      
-        aLoungStub = new ArraivalLoungeStub("localhost",3000); 
-        bcPointStub = new BagageCollectionPointStub("localhost",3001);
-        tsaStub = new TemporaryStorageAreaStub("localhost",3005);
+        aLoungStub = new ArraivalLoungeStub(global.SERVER_HOST_NAME_AL,global.SERVER_PORT_NUMB_AL); 
+        bcPointStub = new BagageCollectionPointStub(global.SERVER_HOST_NAME_BCP,global.SERVER_PORT_NUMB_BCP);
+        tsaStub = new TemporaryStorageAreaStub(global.SERVER_HOST_NAME_TSA,global.SERVER_PORT_NUMB_TSA);
        
         Porter porter = new Porter(aLoungStub, bcPointStub, tsaStub);
         porter.start();

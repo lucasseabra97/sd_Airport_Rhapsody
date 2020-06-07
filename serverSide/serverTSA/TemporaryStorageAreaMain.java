@@ -17,7 +17,7 @@ public class TemporaryStorageAreaMain {
    *    @serialField portNumb
    */
 
-   private static final int portNumb = 3005;
+   private static final int portNumb = global.SERVER_PORT_NUMB_TSA;
    public static boolean waitConnection;                              // sinalização de actividade
 
   /**
@@ -52,7 +52,7 @@ public class TemporaryStorageAreaMain {
         scon = new ServerCom (portNumb);                     // criação do canal de escuta e sua associação
         scon.start ();                                       // com o endereço público
         
-        GeneralRepositoryStub grStub = new GeneralRepositoryStub("localhost",3002);
+        GeneralRepositoryStub grStub = new GeneralRepositoryStub(global.SERVER_HOST_NAME_GR,global.SERVER_PORT_NUMB_GR);
         monitorTSA = new TemporaryStorageArea(grStub);                           // activação do serviço
         atExitInter = new TemporaryStorageAreaInterface (monitorTSA);        // activação do interface com o serviço
         System.out.println("O serviço foi estabelecido! TemporaryStorageArea");

@@ -23,7 +23,7 @@ public class ArraivalLoungeMain
    *    @serialField portNumb
    */
 
-   private static final int portNumb = 3000;                         //portNumber
+   private static final int portNumb = global.SERVER_PORT_NUMB_AL;                         //portNumber
 
   private static final int List = 0;
    
@@ -49,7 +49,7 @@ public class ArraivalLoungeMain
       scon.start ();                                                  // com o endereço público
 
       
-      GeneralRepositoryStub grStub = new GeneralRepositoryStub("localhost",3002);
+      GeneralRepositoryStub grStub = new GeneralRepositoryStub(global.SERVER_HOST_NAME_GR,global.SERVER_PORT_NUMB_GR);
       monitorAL = new ArraivalLounge(grStub);                                  // activação do serviço
       aloungeInter = new ArraivalLoungeInterface (monitorAL);                 // activação do interface com o serviço
       System.out.println("O serviço foi estabelecido! Arraival Lounge ");

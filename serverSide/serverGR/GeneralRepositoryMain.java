@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.SocketTimeoutException;
 
+import main.global;
 import serverSide.ServerCom;
 
 public class GeneralRepositoryMain {   
@@ -15,7 +16,7 @@ public class GeneralRepositoryMain {
    *    @serialField portNumb
    */
 
-   private static final int portNumb = 3002;
+   private static final int portNumb = global.SERVER_PORT_NUMB_GR;
    public static boolean waitConnection;                              // sinalização de actividade
 
   /**

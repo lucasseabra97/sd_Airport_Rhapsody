@@ -17,7 +17,7 @@ public class BaggageReclaimOfficeMain {
    *    @serialField portNumb
    */
 
-   private static final int portNumb = 3004;
+   private static final int portNumb = global.SERVER_PORT_NUMB_BRO;
    public static boolean waitConnection;                              // sinalização de actividade
 
   /**
@@ -29,15 +29,7 @@ public class BaggageReclaimOfficeMain {
   public static void main(String[] args) throws IOException
    {  
     
-        File logger = new File("logger.txt");
-        if(logger.createNewFile()){
-            //System.out.println("Logger created: " + logger.getName());
-        }
-        else{
-            logger.delete();
-            logger.createNewFile();
-            // System.out.println("File already exists.");
-        }
+      
 
         //GeneralRepository genInfoRepo = new GeneralRepository(logger);
 
@@ -51,7 +43,7 @@ public class BaggageReclaimOfficeMain {
         scon = new ServerCom (portNumb);                      // criação do canal de escuta e sua associação
         scon.start ();                                       // com o endereço público
 
-        GeneralRepositoryStub grStub = new GeneralRepositoryStub("localhost",3002);
+        GeneralRepositoryStub grStub = new GeneralRepositoryStub(global.SERVER_HOST_NAME_GR,global.SERVER_PORT_NUMB_GR);
         monitorBRO = new BaggageReclaimOffice(grStub);                   // activação do serviço
         broOfficeInter = new BaggageReclaimOfficeInterface (monitorBRO);        // activação do interface com o serviço
         System.out.println("O serviço foi estabelecido! BaggageReclaimOffice");

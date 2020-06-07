@@ -5,6 +5,7 @@ import java.io.*;
 import java.net.SocketTimeoutException;
 
 import clientSide.stubs.GeneralRepositoryStub;
+import main.global;
 import serverSide.ServerCom;
 //import shared_regions.GeneralRepository;
 
@@ -15,7 +16,7 @@ public class BaggageCollectionPointMain {
    *    @serialField portNumb
    */
 
-   private static final int portNumb = 3001;
+   private static final int portNumb = global.SERVER_PORT_NUMB_BCP;
    public static boolean waitConnection;                              // sinalização de actividade
 
   /**
@@ -41,7 +42,7 @@ public class BaggageCollectionPointMain {
         scon.start ();                                       // com o endereço público
 
 
-        GeneralRepositoryStub grStub = new GeneralRepositoryStub("localhost",3002);   // com o endereço público
+        GeneralRepositoryStub grStub = new GeneralRepositoryStub(global.SERVER_HOST_NAME_GR,global.SERVER_PORT_NUMB_GR);   // com o endereço público
         monitorBCP = new BaggageCollectionPoint(grStub);                             // activação do serviço
         attQuayInter = new BaggageCollectionPointInterface (monitorBCP);            // activação do interface com o serviço
         System.out.println("O serviço foi estabelecido! BaggageCollectionPoint");

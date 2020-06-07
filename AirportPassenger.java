@@ -100,14 +100,14 @@ public class AirportPassenger {
 
         //prob vamos ter de limpar os buffers ...
         
-        aLoungStub = new ArraivalLoungeStub("localhost",3000);
-        bcPointStub = new BagageCollectionPointStub("localhost",3001);
-        gRepositoyStub = new GeneralRepositoryStub("localhost",3002);
-        atExitStub  = new ArraivalTerminalExitStub("localhost",3003);
-        brOfficeStub = new BaggageReclaimOfficeStub("localhost",3004);
-        attQuayStub  = new ArrailvalTTransferQuayStub("localhost",3006);
-        dttQuayStub  = new DepartureTerminalTransferQuayStub("localhost",3007);
-        dtEntranceStub = new DepartureTerminalEntranceStub("localhost",3008);
+        aLoungStub = new ArraivalLoungeStub(global.SERVER_HOST_NAME_AL,global.SERVER_PORT_NUMB_AL);
+        bcPointStub = new BagageCollectionPointStub(global.SERVER_HOST_NAME_BCP,global.SERVER_PORT_NUMB_BCP);
+        gRepositoyStub = new GeneralRepositoryStub(global.SERVER_HOST_NAME_GR,global.SERVER_PORT_NUMB_GR);
+        atExitStub  = new ArraivalTerminalExitStub(global.SERVER_HOST_NAME_ATE,global.SERVER_PORT_NUMB_ATE);
+        brOfficeStub = new BaggageReclaimOfficeStub(global.SERVER_HOST_NAME_BRO,global.SERVER_PORT_NUMB_BRO);
+        attQuayStub  = new ArrailvalTTransferQuayStub(global.SERVER_HOST_NAME_ATTQ,global.SERVER_PORT_NUMB_ATTQ);
+        dttQuayStub  = new DepartureTerminalTransferQuayStub(global.SERVER_HOST_NAME_DTTQ,global.SERVER_PORT_NUMB_DTTQ);
+        dtEntranceStub = new DepartureTerminalEntranceStub(global.SERVER_HOST_NAME_DTE,global.SERVER_PORT_NUMB_DTE);
         gRepositoyStub.setParameters(nrPassengers, busSize);
         Passenger passengers[] = new Passenger[nrPassengers];
         
