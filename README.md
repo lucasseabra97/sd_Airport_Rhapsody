@@ -1,7 +1,7 @@
 # sd_Airport_Rhapsody
 distributed systems P3G6
 
-Shared regions server host name and port number can be define at sd_Airport_Rhapsody/main/global.java
+Shared regions server host name and port number can be defined at sd_Airport_Rhapsody/main/global.java
 
 To run tthe project run the followings commands:
 
